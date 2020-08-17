@@ -72,32 +72,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS7安装Python3</title>
-    <url>/posts/8ec7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>当前最新的 CentOS 7默认安装的是 Python 2 ，并且默认的官方 yum 源中不提供 Python 3 的安装包，因此记录备用。</p>
-<h2 id="查看Python命令的位置"><a href="#查看Python命令的位置" class="headerlink" title="查看Python命令的位置"></a>查看Python命令的位置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[root@vultr ~]<span class="comment"># whereis python</span></span><br><span class="line">python: /usr/bin/python /usr/bin/python2.7 /usr/lib/python2.7 /usr/lib64/python2.7 /etc/python /usr/include/python2.7</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装Python3的相关依赖包"><a href="#安装Python3的相关依赖包" class="headerlink" title="安装Python3的相关依赖包"></a>安装Python3的相关依赖包</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make</span><br></pre></td></tr></table></figure>
-<p>通过以上命令即可安装了python3所用的相关依赖。</p>
-<a id="more"></a>
-
-<h2 id="下载Python3的源码包"><a href="#下载Python3的源码包" class="headerlink" title="下载Python3的源码包"></a>下载Python3的源码包</h2><p><code>wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz</code></p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -xf Python-3.6.4.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入解压后的目录手动编译</span></span><br><span class="line">./configure prefix=/usr/<span class="built_in">local</span>/python3</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加软链接"><a href="#添加软链接" class="headerlink" title="添加软链接"></a>添加软链接</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment">#备份原来的链接</span></span><br><span class="line">mv <span class="regexp">/usr/</span>bin<span class="regexp">/python /u</span>sr<span class="regexp">/bin/</span>python.bak</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加python3的软链接</span></span><br><span class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/python3/</span>bin<span class="regexp">/python3.6 /u</span>sr<span class="regexp">/bin/</span>python</span><br><span class="line"></span><br><span class="line"><span class="comment">#或者直接添加为python3的软链接，避免冲突</span></span><br><span class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/python3/</span>bin<span class="regexp">/python3.6 /u</span>sr<span class="regexp">/bin/</span>python3</span><br></pre></td></tr></table></figure>
-
-<p>最后通过<code>python -V</code>即可查看当前python版本为3.6。</p>
-<p>参考：<a href="https://blog.csdn.net/lovefengruoqing/article/details/79284573" target="_blank" rel="noopener">https://blog.csdn.net/lovefengruoqing/article/details/79284573</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>command</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS7部署code-server并配置Nginx反向代理</title>
     <url>/posts/959b/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>是一款功能非常强大、拥有丰富插件的跨平台(Windows,Mac,Linux)开源免费的编辑器，非常好用。最近在学习Python过程中，更是感受到了它的强大，其功能不亚于专业的IDE。</p>
@@ -199,6 +173,32 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS7安装Python3</title>
+    <url>/posts/8ec7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>当前最新的 CentOS 7默认安装的是 Python 2 ，并且默认的官方 yum 源中不提供 Python 3 的安装包，因此记录备用。</p>
+<h2 id="查看Python命令的位置"><a href="#查看Python命令的位置" class="headerlink" title="查看Python命令的位置"></a>查看Python命令的位置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[root@vultr ~]<span class="comment"># whereis python</span></span><br><span class="line">python: /usr/bin/python /usr/bin/python2.7 /usr/lib/python2.7 /usr/lib64/python2.7 /etc/python /usr/include/python2.7</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Python3的相关依赖包"><a href="#安装Python3的相关依赖包" class="headerlink" title="安装Python3的相关依赖包"></a>安装Python3的相关依赖包</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make</span><br></pre></td></tr></table></figure>
+<p>通过以上命令即可安装了python3所用的相关依赖。</p>
+<a id="more"></a>
+
+<h2 id="下载Python3的源码包"><a href="#下载Python3的源码包" class="headerlink" title="下载Python3的源码包"></a>下载Python3的源码包</h2><p><code>wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz</code></p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -xf Python-3.6.4.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入解压后的目录手动编译</span></span><br><span class="line">./configure prefix=/usr/<span class="built_in">local</span>/python3</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加软链接"><a href="#添加软链接" class="headerlink" title="添加软链接"></a>添加软链接</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment">#备份原来的链接</span></span><br><span class="line">mv <span class="regexp">/usr/</span>bin<span class="regexp">/python /u</span>sr<span class="regexp">/bin/</span>python.bak</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加python3的软链接</span></span><br><span class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/python3/</span>bin<span class="regexp">/python3.6 /u</span>sr<span class="regexp">/bin/</span>python</span><br><span class="line"></span><br><span class="line"><span class="comment">#或者直接添加为python3的软链接，避免冲突</span></span><br><span class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/python3/</span>bin<span class="regexp">/python3.6 /u</span>sr<span class="regexp">/bin/</span>python3</span><br></pre></td></tr></table></figure>
+
+<p>最后通过<code>python -V</code>即可查看当前python版本为3.6。</p>
+<p>参考：<a href="https://blog.csdn.net/lovefengruoqing/article/details/79284573" target="_blank" rel="noopener">https://blog.csdn.net/lovefengruoqing/article/details/79284573</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>command</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Django2.1+Python3安装xadmin</title>
     <url>/posts/903a/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="安装xadmin"><a href="#安装xadmin" class="headerlink" title="安装xadmin"></a>安装xadmin</h2><p>xadmin是django的一个第三方的管理后台实现，它的功能比自带的admin功能更加强大，</p>
@@ -236,46 +236,6 @@
       <tags>
         <tag>django</tag>
         <tag>xadmin</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo+Next使用CDN加速网站以及静态文件</title>
-    <url>/posts/ddf2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>此博客的域名：<a href="http://www.zhyong.cn">www.zhyong.cn</a> 已经备案成功，于是就想着使用CDN（国内CDN都要求备案）来进行加速，使得网站速度更加快。于是选定老牌的CDN服务：<a href="https://www.upyun.com/" target="_blank" rel="noopener">又拍云</a> ，简单说一下遇到的CNAME的问题。</p>
-<h2 id="使用CDN时CNAME的设置"><a href="#使用CDN时CNAME的设置" class="headerlink" title="使用CDN时CNAME的设置"></a>使用CDN时CNAME的设置</h2><p>简单说下，CDN的全称是Content Delivery Network，即内容分发网络。详见<a href="https://baike.baidu.com/item/CDN" target="_blank" rel="noopener">百度百科</a>，使用又拍云必须进行实名认证（上传身份证等）且域名必须备案，若网站为HTTPS访问，则必须上传证书且在CDN加速的HTTPS中设置。</p>
-<a id="more"></a>
-
-<p>添加加速域名时，会生成一个CNAME，需要在域名管理中进行配置，将加速域名的CNAME指向生成的CNAME。</p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/10/20190810205817.png"></p>
-<p>然后在回源管理——源站设置中，设置服务器IP。</p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/10/20190810210129.png"></p>
-<p>这样就由原来的域名直接指向服务器改为域名指向CDN，再指向服务器，实现CDN加速。</p>
-<h2 id="如何判断是否成功使用了CDN"><a href="#如何判断是否成功使用了CDN" class="headerlink" title="如何判断是否成功使用了CDN"></a>如何判断是否成功使用了CDN</h2><p>在命令行中使用命令：<code>ping www.zhyong.cn</code>进行测试：</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">正在 Ping nm.aicdn.com [<span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span>] 具有 <span class="number">32</span> 字节的数据:</span><br><span class="line">来自 <span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">35</span>ms TTL=<span class="number">51</span></span><br><span class="line">来自 <span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">36</span>ms TTL=<span class="number">51</span></span><br><span class="line">来自 <span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">34</span>ms TTL=<span class="number">51</span></span><br><span class="line">来自 <span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">34</span>ms TTL=<span class="number">51</span></span><br><span class="line"></span><br><span class="line"><span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = <span class="number">4</span>，已接收 = <span class="number">4</span>，丢失 = <span class="number">0</span> (<span class="number">0</span>% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = <span class="number">34</span>ms，最长 = <span class="number">36</span>ms，平均 = <span class="number">34</span>ms</span><br></pre></td></tr></table></figure>
-
-<p>出现<code>aicdn</code>则说明成功加速。</p>
-<p>为验证效果，使用站长<a href="https://ping.chinaz.com/" target="_blank" rel="noopener">ping</a>工具：</p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/10/cdn.png"></p>
-<p>效果非常明显！</p>
-<h2 id="Next主题中的文件改用CDN"><a href="#Next主题中的文件改用CDN" class="headerlink" title="Next主题中的文件改用CDN"></a>Next主题中的文件改用CDN</h2><p>网站使用Valine评论系统和不蒜子统计（若未使用则不需要更改），用浏览器的开发者工具（浏览器F12）发现这两个相关的静态文件加载速度很慢(以Time排序，且测试了多次)。</p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/10/20190810203400.png"></p>
-<p>于是我们进行响应的调整，使用此<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">CDN</a>，在<strong>主题配置</strong>文件中搜索<code>valine</code>，找到下面部分：</p>
-<figure class="highlight diff"><figcaption><span>theme\next\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># valine</span><br><span class="line"># See: https://github.com/xCss/Valine</span><br><span class="line"># Example:</span><br><span class="line"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span><br><span class="line"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js</span><br><span class="line"><span class="deletion">- valine:</span></span><br><span class="line"><span class="addition">+ valine: https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
-
-<p>修改不蒜子，改用CDN加速：</p>
-<figure class="highlight diff"><figcaption><span>themes\next\layout\_third-party\analytics\busuanzi-counter.swig</span></figcaption><table><tr><td class="code"><pre><span class="line"> &#123;% if theme.busuanzi_count.enable %&#125;</span><br><span class="line"> &lt;div class="busuanzi-count"&gt;</span><br><span class="line"><span class="deletion">- &lt;script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="addition">+ &lt;script async src="https://cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>这样即可开启不蒜子CDN加速。</p>
-<p>同样再次测试，按Time排序，现在二者都排在后面了，加载时间更是大大缩短，效果非常明显。</p>
-<p><img alt="不蒜子js文件加载时间" data-src="https://pic.zhyong.cn/images/2019/08/10/20190810212644.png"></p>
-<p><img alt="Valine评论系统js加载时间" data-src="https://pic.zhyong.cn/images/2019/08/10/20190810212730.png"></p>
-]]></content>
-      <categories>
-        <category>hexo建站</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-        <tag>hexo优化</tag>
       </tags>
   </entry>
   <entry>
@@ -343,6 +303,71 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo+Next使用CDN加速网站以及静态文件</title>
+    <url>/posts/ddf2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>此博客的域名：<a href="http://www.zhyong.cn">www.zhyong.cn</a> 已经备案成功，于是就想着使用CDN（国内CDN都要求备案）来进行加速，使得网站速度更加快。于是选定老牌的CDN服务：<a href="https://www.upyun.com/" target="_blank" rel="noopener">又拍云</a> ，简单说一下遇到的CNAME的问题。</p>
+<h2 id="使用CDN时CNAME的设置"><a href="#使用CDN时CNAME的设置" class="headerlink" title="使用CDN时CNAME的设置"></a>使用CDN时CNAME的设置</h2><p>简单说下，CDN的全称是Content Delivery Network，即内容分发网络。详见<a href="https://baike.baidu.com/item/CDN" target="_blank" rel="noopener">百度百科</a>，使用又拍云必须进行实名认证（上传身份证等）且域名必须备案，若网站为HTTPS访问，则必须上传证书且在CDN加速的HTTPS中设置。</p>
+<a id="more"></a>
+
+<p>添加加速域名时，会生成一个CNAME，需要在域名管理中进行配置，将加速域名的CNAME指向生成的CNAME。</p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/10/20190810205817.png"></p>
+<p>然后在回源管理——源站设置中，设置服务器IP。</p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/10/20190810210129.png"></p>
+<p>这样就由原来的域名直接指向服务器改为域名指向CDN，再指向服务器，实现CDN加速。</p>
+<h2 id="如何判断是否成功使用了CDN"><a href="#如何判断是否成功使用了CDN" class="headerlink" title="如何判断是否成功使用了CDN"></a>如何判断是否成功使用了CDN</h2><p>在命令行中使用命令：<code>ping www.zhyong.cn</code>进行测试：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">正在 Ping nm.aicdn.com [<span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span>] 具有 <span class="number">32</span> 字节的数据:</span><br><span class="line">来自 <span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">35</span>ms TTL=<span class="number">51</span></span><br><span class="line">来自 <span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">36</span>ms TTL=<span class="number">51</span></span><br><span class="line">来自 <span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">34</span>ms TTL=<span class="number">51</span></span><br><span class="line">来自 <span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的回复: 字节=<span class="number">32</span> 时间=<span class="number">34</span>ms TTL=<span class="number">51</span></span><br><span class="line"></span><br><span class="line"><span class="number">120.192</span><span class="number">.92</span><span class="number">.219</span> 的 Ping 统计信息:</span><br><span class="line">    数据包: 已发送 = <span class="number">4</span>，已接收 = <span class="number">4</span>，丢失 = <span class="number">0</span> (<span class="number">0</span>% 丢失)，</span><br><span class="line">往返行程的估计时间(以毫秒为单位):</span><br><span class="line">    最短 = <span class="number">34</span>ms，最长 = <span class="number">36</span>ms，平均 = <span class="number">34</span>ms</span><br></pre></td></tr></table></figure>
+
+<p>出现<code>aicdn</code>则说明成功加速。</p>
+<p>为验证效果，使用站长<a href="https://ping.chinaz.com/" target="_blank" rel="noopener">ping</a>工具：</p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/10/cdn.png"></p>
+<p>效果非常明显！</p>
+<h2 id="Next主题中的文件改用CDN"><a href="#Next主题中的文件改用CDN" class="headerlink" title="Next主题中的文件改用CDN"></a>Next主题中的文件改用CDN</h2><p>网站使用Valine评论系统和不蒜子统计（若未使用则不需要更改），用浏览器的开发者工具（浏览器F12）发现这两个相关的静态文件加载速度很慢(以Time排序，且测试了多次)。</p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/10/20190810203400.png"></p>
+<p>于是我们进行响应的调整，使用此<a href="https://www.jsdelivr.com/package/npm/valine" target="_blank" rel="noopener">CDN</a>，在<strong>主题配置</strong>文件中搜索<code>valine</code>，找到下面部分：</p>
+<figure class="highlight diff"><figcaption><span>theme\next\_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># valine</span><br><span class="line"># See: https://github.com/xCss/Valine</span><br><span class="line"># Example:</span><br><span class="line"># valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js</span><br><span class="line"># valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js</span><br><span class="line"><span class="deletion">- valine:</span></span><br><span class="line"><span class="addition">+ valine: https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js</span></span><br></pre></td></tr></table></figure>
+
+<p>修改不蒜子，改用CDN加速：</p>
+<figure class="highlight diff"><figcaption><span>themes\next\layout\_third-party\analytics\busuanzi-counter.swig</span></figcaption><table><tr><td class="code"><pre><span class="line"> &#123;% if theme.busuanzi_count.enable %&#125;</span><br><span class="line"> &lt;div class="busuanzi-count"&gt;</span><br><span class="line"><span class="deletion">- &lt;script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="addition">+ &lt;script async src="https://cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样即可开启不蒜子CDN加速。</p>
+<p>同样再次测试，按Time排序，现在二者都排在后面了，加载时间更是大大缩短，效果非常明显。</p>
+<p><img alt="不蒜子js文件加载时间" data-src="https://pic.zhyong.cn/images/2019/08/10/20190810212644.png"></p>
+<p><img alt="Valine评论系统js加载时间" data-src="https://pic.zhyong.cn/images/2019/08/10/20190810212730.png"></p>
+]]></content>
+      <categories>
+        <category>hexo建站</category>
+      </categories>
+      <tags>
+        <tag>hexo优化</tag>
+        <tag>CDN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tldr——快速使用Linux命令</title>
+    <url>/posts/3027/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><code>tldr</code>命令是一个Linux的帮助程序，简单理解就是<code>man</code>命令的精简版，非常适合<strong>轻度Linux用户</strong>，可以非常直观地展示一个命令的用法，比如解压命令<code>tar</code>的参数非常繁多，针对不同的打包文件有不同的参数，这时候<code>tldr</code>的威力就来了。</p>
+<h2 id="简介及安装"><a href="#简介及安装" class="headerlink" title="简介及安装"></a>简介及安装</h2><blockquote>
+<p>Simplified and community-driven man pages : <a href="http://tldr-pages.github.io/" target="_blank" rel="noopener">http://tldr-pages.github.io/</a></p>
+</blockquote>
+<p>GitHub地址：<a href="https://github.com/tldr-pages/tldr" target="_blank" rel="noopener">https://github.com/tldr-pages/tldr</a></p>
+<p>很多时候，我们学习一个命令，仅仅想快速了解怎样使用，而不是了解它的全部用法或者阅读文档然后总结，显得很是累赘，著名的二八规则也可以套上，我们只用到一个命令的20%的功能就可以解决我们80%的需求。<br>因此想要快速了解一个命令的用法，<code>tldr</code>命令是个不错的选择，非常适合偶尔折腾一下Linux的朋友。</p>
+<a id="more"></a>
+
+<p>debian/Ubuntu系统：<code>sudo apt install tldr</code><br>centOS系统：<code>sudo yum install tldr</code></p>
+<p>使用直接将<code>man</code>用<code>tldr</code>替换即可，如<code>tldr ls</code></p>
+<h2 id="man命令和tldr命令对比"><a href="#man命令和tldr命令对比" class="headerlink" title="man命令和tldr命令对比"></a>man命令和tldr命令对比</h2><p><code>man</code>命令</p>
+<p><img alt="man命令" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516195851.png"></p>
+<p><code>tldr</code>命令<br><img alt="tldr命令" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516195932.png"></p>
+<p>通过对比，很明了看出二者的区别，<code>man</code>命令就是一本复杂的书，需要我们自己去阅读、理解然后使用，而<code>tldr</code>命令就是我们的老师，她直接教我们怎么使用。遇到更复杂的需求，我们再阅读<code>man</code>命令，毕竟工具、命令等就是给我们提供帮助、使用的。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>command</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用ssh密钥连接Github</title>
     <url>/posts/bfd3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h2><p>Windows安装：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git - Downloading Package</a><br>Debian、Ubuntu：<code>sudo apt install git</code><br>CentOS：<code>sudo yum install git</code><br>Linux系统也可自行编译安装：<a href="https://www.zhyong.cn/posts/5839/">CentOS7 编译安装最新版 Git | YouForever</a></p>
@@ -374,31 +399,6 @@
       </categories>
       <tags>
         <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tldr——快速使用Linux命令</title>
-    <url>/posts/3027/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><code>tldr</code>命令是一个Linux的帮助程序，简单理解就是<code>man</code>命令的精简版，非常适合<strong>轻度Linux用户</strong>，可以非常直观地展示一个命令的用法，比如解压命令<code>tar</code>的参数非常繁多，针对不同的打包文件有不同的参数，这时候<code>tldr</code>的威力就来了。</p>
-<h2 id="简介及安装"><a href="#简介及安装" class="headerlink" title="简介及安装"></a>简介及安装</h2><blockquote>
-<p>Simplified and community-driven man pages : <a href="http://tldr-pages.github.io/" target="_blank" rel="noopener">http://tldr-pages.github.io/</a></p>
-</blockquote>
-<p>GitHub地址：<a href="https://github.com/tldr-pages/tldr" target="_blank" rel="noopener">https://github.com/tldr-pages/tldr</a></p>
-<p>很多时候，我们学习一个命令，仅仅想快速了解怎样使用，而不是了解它的全部用法或者阅读文档然后总结，显得很是累赘，著名的二八规则也可以套上，我们只用到一个命令的20%的功能就可以解决我们80%的需求。<br>因此想要快速了解一个命令的用法，<code>tldr</code>命令是个不错的选择，非常适合偶尔折腾一下Linux的朋友。</p>
-<a id="more"></a>
-
-<p>debian/Ubuntu系统：<code>sudo apt install tldr</code><br>centOS系统：<code>sudo yum install tldr</code></p>
-<p>使用直接将<code>man</code>用<code>tldr</code>替换即可，如<code>tldr ls</code></p>
-<h2 id="man命令和tldr命令对比"><a href="#man命令和tldr命令对比" class="headerlink" title="man命令和tldr命令对比"></a>man命令和tldr命令对比</h2><p><code>man</code>命令</p>
-<p><img alt="man命令" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516195851.png"></p>
-<p><code>tldr</code>命令<br><img alt="tldr命令" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516195932.png"></p>
-<p>通过对比，很明了看出二者的区别，<code>man</code>命令就是一本复杂的书，需要我们自己去阅读、理解然后使用，而<code>tldr</code>命令就是我们的老师，她直接教我们怎么使用。遇到更复杂的需求，我们再阅读<code>man</code>命令，毕竟工具、命令等就是给我们提供帮助、使用的。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>command</tag>
       </tags>
   </entry>
   <entry>
@@ -560,33 +560,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux系统虚拟内存的添加与删除</title>
-    <url>/posts/d3cf/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="虚拟内存的创建"><a href="#虚拟内存的创建" class="headerlink" title="虚拟内存的创建"></a>虚拟内存的创建</h2><p>登录到服务器，切换到root用户。</p>
-<ol>
-<li>创建swap分区(512M,若没有/swap文件夹需创建)<br><code>dd  if=/dev/zero of=/swap/swap bs=1024 count=524288</code></li>
-<li>创建Linux交换文件<br><code>mkswap /swap/swap</code></li>
-<li>激活<code>/swap/swap</code>交换文件<br><code>swapon /swap/swap</code></li>
-<li>查看结果<br><code>free -m</code></li>
-<li>加入到配置文件，使永久生效<br><code>echo &quot;/swap/swap    swap    swap  defaults    0 0&quot;  &gt;&gt; /etc/fstab</code></li>
-</ol>
-<a id="more"></a>
-
-<h2 id="虚拟内存的删除"><a href="#虚拟内存的删除" class="headerlink" title="虚拟内存的删除"></a>虚拟内存的删除</h2><ol>
-<li>停止swap分区<br><code>swapoff /swap/swap</code></li>
-<li>删除分区文件<br><code>rm -rf /swap/swap</code></li>
-<li>删除配置文件<br><code>sed  -i &quot;/&#39;\/swa\/swap   swap   swap  defaults 0 0&#39;//&quot;  /etc/fstab</code></li>
-</ol>
-<p>记录以此备用。<br>参考：<a href="http://blog.51cto.com/davidbj/1179121" target="_blank" rel="noopener">http://blog.51cto.com/davidbj/1179121</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux视频下载神器——you-get</title>
     <url>/posts/bf7c/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
@@ -611,6 +584,33 @@
         <tag>command</tag>
         <tag>linux</tag>
         <tag>awesome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统虚拟内存的添加与删除</title>
+    <url>/posts/d3cf/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="虚拟内存的创建"><a href="#虚拟内存的创建" class="headerlink" title="虚拟内存的创建"></a>虚拟内存的创建</h2><p>登录到服务器，切换到root用户。</p>
+<ol>
+<li>创建swap分区(512M,若没有/swap文件夹需创建)<br><code>dd  if=/dev/zero of=/swap/swap bs=1024 count=524288</code></li>
+<li>创建Linux交换文件<br><code>mkswap /swap/swap</code></li>
+<li>激活<code>/swap/swap</code>交换文件<br><code>swapon /swap/swap</code></li>
+<li>查看结果<br><code>free -m</code></li>
+<li>加入到配置文件，使永久生效<br><code>echo &quot;/swap/swap    swap    swap  defaults    0 0&quot;  &gt;&gt; /etc/fstab</code></li>
+</ol>
+<a id="more"></a>
+
+<h2 id="虚拟内存的删除"><a href="#虚拟内存的删除" class="headerlink" title="虚拟内存的删除"></a>虚拟内存的删除</h2><ol>
+<li>停止swap分区<br><code>swapoff /swap/swap</code></li>
+<li>删除分区文件<br><code>rm -rf /swap/swap</code></li>
+<li>删除配置文件<br><code>sed  -i &quot;/&#39;\/swa\/swap   swap   swap  defaults 0 0&#39;//&quot;  /etc/fstab</code></li>
+</ol>
+<p>记录以此备用。<br>参考：<a href="http://blog.51cto.com/davidbj/1179121" target="_blank" rel="noopener">http://blog.51cto.com/davidbj/1179121</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -666,27 +666,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Manjaro-libgconf-2.so.4缺失问题修复</title>
-    <url>/posts/ed3e/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="问题出现"><a href="#问题出现" class="headerlink" title="问题出现"></a>问题出现</h2><p>运行阿里云oss Linux客户端时，出现如下错误：</p>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">./oss-browser: <span class="keyword">error</span> <span class="keyword">while</span> loading shared libraries: libgconf-2.<span class="keyword">so</span>.4: cannot <span class="keyword">open</span> shared object <span class="keyword">file</span>: <span class="keyword">No</span> such <span class="keyword">file</span> or directory</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>在网上找到的方法基本都是: <code>apt-get install libgconf-2-4</code>，这些都是debain系的解决方法，但我的是manjaro，最终找到解决方法：</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo pacman -S gconf</span></span><br></pre></td></tr></table></figure>
-<p>记录备用！</p>
-<p>参考：<a href="https://blog.csdn.net/lsvtogergo/article/details/81669063" target="_blank" rel="noopener">Manjaro libgconf-2.so.4缺失问题修复</a></p>
-]]></content>
-      <categories>
-        <category>Manjaro</category>
-      </categories>
-      <tags>
-        <tag>manjaro</tag>
-        <tag>solved</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MacOs配置vim编辑器记录</title>
     <url>/posts/5b4d/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>在Windows下配置Gvim并使用一段时间后，总是出现一些问题，如使用<code>fzf</code>插件崩溃，不能搜索字符，加载速度慢等等。以前喜欢使用别人的一键脚本来进行vim配置。在经过一些积累之后，自己按照已有的经验（毕竟vim已经成为了我的主力编辑器）和插件的文档进行安装和配置，打造一款适合自己的vim神器。</p>
@@ -720,6 +699,27 @@
       <tags>
         <tag>vim</tag>
         <tag>随笔记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manjaro-libgconf-2.so.4缺失问题修复</title>
+    <url>/posts/ed3e/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="问题出现"><a href="#问题出现" class="headerlink" title="问题出现"></a>问题出现</h2><p>运行阿里云oss Linux客户端时，出现如下错误：</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">./oss-browser: <span class="keyword">error</span> <span class="keyword">while</span> loading shared libraries: libgconf-2.<span class="keyword">so</span>.4: cannot <span class="keyword">open</span> shared object <span class="keyword">file</span>: <span class="keyword">No</span> such <span class="keyword">file</span> or directory</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>在网上找到的方法基本都是: <code>apt-get install libgconf-2-4</code>，这些都是debain系的解决方法，但我的是manjaro，最终找到解决方法：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">sudo pacman -S gconf</span></span><br></pre></td></tr></table></figure>
+<p>记录备用！</p>
+<p>参考：<a href="https://blog.csdn.net/lsvtogergo/article/details/81669063" target="_blank" rel="noopener">Manjaro libgconf-2.so.4缺失问题修复</a></p>
+]]></content>
+      <categories>
+        <category>Manjaro</category>
+      </categories>
+      <tags>
+        <tag>manjaro</tag>
+        <tag>solved</tag>
       </tags>
   </entry>
   <entry>
@@ -1609,6 +1609,35 @@ TIME OUT</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
+    <title>awk命令详解</title>
+    <url>/posts/59a3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="awk功能特点"><a href="#awk功能特点" class="headerlink" title="awk功能特点"></a>awk功能特点</h2><p>awk是一个非常重要的命令或者认为是一种语言。因为他可以做数学运算，流程控制语句，流控制，还有样式装入的功能。反正是非常强大。awk是三位创建者编写的。把awk定义为：样式扫描处理语言。</p>
+<p>awk吸收了c语言的很多特点，与c语言有点类似。</p>
+<a id="more"></a>
+
+<h2 id="awk的调用方式"><a href="#awk的调用方式" class="headerlink" title="awk的调用方式"></a>awk的调用方式</h2><p>awk提供了三种调用方式，方别是：</p>
+<ol>
+<li>awk命令行<br>像普通的Linux命令一样使用awk，也可以在命令行中使用awk设计语言。</li>
+<li>使用<code>-f</code>选项调用awk程序<br>awk可以将一段awk程序脚本写入到一个文本文件中，然后使用<code>-f</code>选项来指定执行这个awk脚本。</li>
+<li>利用命令解释器来调用awk程序<br>利用Linux支持的命令解释器功能，可以将一段awk程序写入到文本文件中，在它的第一行加上<code>#!/bin/awk -f</code>,添加执行权限后，即可使用一下命令来执行：<br><code>$awk 脚本文件名 待处理的文本</code></li>
+</ol>
+<h2 id="awk语法"><a href="#awk语法" class="headerlink" title="awk语法"></a>awk语法</h2><p>与其他的unix命令一样，它的语法如下：<br>    awk [ -F re] [parameter…] [‘prog’] [-f progfile][in_file…]<br>   参数说明：<br>    -F re,指定某字符为分隔符<br>    parameter:该参数帮助不同的变量赋值<br>    ‘prog’: awk的程序语句段。这个语句段必须用’与’括起来。以防被shell给解释掉了。它的标准形式如下：<br>    ‘pattern {action}’<br>其中pattern参数可以是grep正则表达式中的任何一个，它可以使用语法/re/再加上一些样式匹配技巧构成，也可以使用”,”分开两样式以选择某个范围。。 action参数总是被大括号包围，它由一系统awk语句组成，各语句之间用”;”分隔。awk解释它们，并在pattern给定的样式匹配的记录上执行 其操作。与shell类似，你也可以使用“#”作为注释符，它使“#”到行尾的内容成为注释，在解释执行时，它们将被忽略。你可以省略pattern和 action之一，但不能两者同时省略，当省略pattern时没有样式匹配，表示对所有行（记录）均执行操作，省略action时执行缺省的操作——在 标准输出上显示。</p>
+<p>-f profile:允许awk调用并执行progfile指定程序文件。progfile是一个文本文件，他必须符合awk的语法(注意不是shell文件)。</p>
+<p>in_file :awk的输入文件，可以有多个。注意：awk不会修改输入文件。如果没有指定输入文件，那么默认为标准输入（屏幕</p>
+<h2 id="awk的记录，字段与内置变量"><a href="#awk的记录，字段与内置变量" class="headerlink" title="awk的记录，字段与内置变量"></a>awk的记录，字段与内置变量</h2><ol>
+<li>记录与字段<br>在 awk中，缺省的情况下总是将文本文件中的一行视为一个记录，而将一行中的某一部分作为记录中的一个字段。为了操作这些不同的字段，awk借用shell 的方法，用$1,$2,$3…这样的方式来顺序地表示行（记录）中的不同字段。特殊地，awk用$0表示整个行（记录）。不同的字段之间是用称作分隔 符的字符分隔开的。系统默认的分隔符是空格。awk允许在命令行中用-F re的形式来改变这个分隔符。事实上，awk用一个内置的变量FS来记忆这个分隔符</li>
+<li>内置变量<br>awk中有好几个这样的内置变量，例如，记录分隔符变量RS、当前工作的记录数NR等等。</li>
+</ol>
+<p><strong>示例</strong>：显示文件本文件testAwk中第3行到第6行，以字符%分隔的第一个字段，第三个字段：<br><code>awk -F % &#39;NR==3,NR==6 {printf $1  $3}&#39; testAwk</code></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>awk命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>babun——强大的Windows shell工具</title>
     <url>/posts/4d73/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
@@ -1638,35 +1667,6 @@ TIME OUT</code></pre>]]></content>
       </categories>
       <tags>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>awk命令详解</title>
-    <url>/posts/59a3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="awk功能特点"><a href="#awk功能特点" class="headerlink" title="awk功能特点"></a>awk功能特点</h2><p>awk是一个非常重要的命令或者认为是一种语言。因为他可以做数学运算，流程控制语句，流控制，还有样式装入的功能。反正是非常强大。awk是三位创建者编写的。把awk定义为：样式扫描处理语言。</p>
-<p>awk吸收了c语言的很多特点，与c语言有点类似。</p>
-<a id="more"></a>
-
-<h2 id="awk的调用方式"><a href="#awk的调用方式" class="headerlink" title="awk的调用方式"></a>awk的调用方式</h2><p>awk提供了三种调用方式，方别是：</p>
-<ol>
-<li>awk命令行<br>像普通的Linux命令一样使用awk，也可以在命令行中使用awk设计语言。</li>
-<li>使用<code>-f</code>选项调用awk程序<br>awk可以将一段awk程序脚本写入到一个文本文件中，然后使用<code>-f</code>选项来指定执行这个awk脚本。</li>
-<li>利用命令解释器来调用awk程序<br>利用Linux支持的命令解释器功能，可以将一段awk程序写入到文本文件中，在它的第一行加上<code>#!/bin/awk -f</code>,添加执行权限后，即可使用一下命令来执行：<br><code>$awk 脚本文件名 待处理的文本</code></li>
-</ol>
-<h2 id="awk语法"><a href="#awk语法" class="headerlink" title="awk语法"></a>awk语法</h2><p>与其他的unix命令一样，它的语法如下：<br>    awk [ -F re] [parameter…] [‘prog’] [-f progfile][in_file…]<br>   参数说明：<br>    -F re,指定某字符为分隔符<br>    parameter:该参数帮助不同的变量赋值<br>    ‘prog’: awk的程序语句段。这个语句段必须用’与’括起来。以防被shell给解释掉了。它的标准形式如下：<br>    ‘pattern {action}’<br>其中pattern参数可以是grep正则表达式中的任何一个，它可以使用语法/re/再加上一些样式匹配技巧构成，也可以使用”,”分开两样式以选择某个范围。。 action参数总是被大括号包围，它由一系统awk语句组成，各语句之间用”;”分隔。awk解释它们，并在pattern给定的样式匹配的记录上执行 其操作。与shell类似，你也可以使用“#”作为注释符，它使“#”到行尾的内容成为注释，在解释执行时，它们将被忽略。你可以省略pattern和 action之一，但不能两者同时省略，当省略pattern时没有样式匹配，表示对所有行（记录）均执行操作，省略action时执行缺省的操作——在 标准输出上显示。</p>
-<p>-f profile:允许awk调用并执行progfile指定程序文件。progfile是一个文本文件，他必须符合awk的语法(注意不是shell文件)。</p>
-<p>in_file :awk的输入文件，可以有多个。注意：awk不会修改输入文件。如果没有指定输入文件，那么默认为标准输入（屏幕</p>
-<h2 id="awk的记录，字段与内置变量"><a href="#awk的记录，字段与内置变量" class="headerlink" title="awk的记录，字段与内置变量"></a>awk的记录，字段与内置变量</h2><ol>
-<li>记录与字段<br>在 awk中，缺省的情况下总是将文本文件中的一行视为一个记录，而将一行中的某一部分作为记录中的一个字段。为了操作这些不同的字段，awk借用shell 的方法，用$1,$2,$3…这样的方式来顺序地表示行（记录）中的不同字段。特殊地，awk用$0表示整个行（记录）。不同的字段之间是用称作分隔 符的字符分隔开的。系统默认的分隔符是空格。awk允许在命令行中用-F re的形式来改变这个分隔符。事实上，awk用一个内置的变量FS来记忆这个分隔符</li>
-<li>内置变量<br>awk中有好几个这样的内置变量，例如，记录分隔符变量RS、当前工作的记录数NR等等。</li>
-</ol>
-<p><strong>示例</strong>：显示文件本文件testAwk中第3行到第6行，以字符%分隔的第一个字段，第三个字段：<br><code>awk -F % &#39;NR==3,NR==6 {printf $1  $3}&#39; testAwk</code></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>awk命令</tag>
       </tags>
   </entry>
   <entry>
@@ -1739,33 +1739,6 @@ TIME OUT</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>hexo-blog-encrypt更换自定义模板</title>
-    <url>/posts/956f/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="hexo加密教程"><a href="#hexo加密教程" class="headerlink" title="hexo加密教程"></a>hexo加密教程</h2><p>hexo文章加密，<a href="https://www.zhyong.cn/2018/06/22/next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E5%AF%86%E7%A0%81%E8%AE%BF%E9%97%AE/">点击查看</a></p>
-<h2 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h2><p>第一种方法，上文已经点评过，可以被轻松破解，而且在搜索文章中显示相关字段。</p>
-<a id="more"></a>
-<p>对于第二种方法，有两个问题：</p>
-<ul>
-<li>浏览器自动填充密码，而每个密码可能设置不一样</li>
-<li>没有相关按钮可以点击来提交密码</li>
-</ul>
-<h2 id="修改模板"><a href="#修改模板" class="headerlink" title="修改模板"></a>修改模板</h2><p>故修改模板，参考的时github上的<a href="https://github.com/MikeCoder/hexo-blog-encrypt/issues/3" target="_blank" rel="noopener">issue</a>.</p>
-<p>模板内容：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"security"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"pass"</span> <span class="attr">placeholder</span>=<span class="string">" &#123;&#123;message&#125;&#125; "</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group-btn"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-success"</span> <span class="attr">onclick</span>=<span class="string">"decryptAES()"</span>&gt;</span>解密<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"encrypt-blog"</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></span><br><span class="line">            &#123;&#123;content&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>效果：<br><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/2018-06-25_212247.png"></p>
-<blockquote>
-<p>注意：加密后的文章目录不能正常显示！</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo建站</category>
-      </categories>
-      <tags>
-        <tag>hexo优化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git常用命令</title>
     <url>/posts/3b9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="git命令总结"><a href="#git命令总结" class="headerlink" title="git命令总结"></a>git命令总结</h2><p><img alt="git导图" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/bg2015120901.png"></p>
@@ -1810,6 +1783,33 @@ TIME OUT</code></pre>]]></content>
       <tags>
         <tag>git</tag>
         <tag>git学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo-blog-encrypt更换自定义模板</title>
+    <url>/posts/956f/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="hexo加密教程"><a href="#hexo加密教程" class="headerlink" title="hexo加密教程"></a>hexo加密教程</h2><p>hexo文章加密，<a href="https://www.zhyong.cn/2018/06/22/next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E5%AF%86%E7%A0%81%E8%AE%BF%E9%97%AE/">点击查看</a></p>
+<h2 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h2><p>第一种方法，上文已经点评过，可以被轻松破解，而且在搜索文章中显示相关字段。</p>
+<a id="more"></a>
+<p>对于第二种方法，有两个问题：</p>
+<ul>
+<li>浏览器自动填充密码，而每个密码可能设置不一样</li>
+<li>没有相关按钮可以点击来提交密码</li>
+</ul>
+<h2 id="修改模板"><a href="#修改模板" class="headerlink" title="修改模板"></a>修改模板</h2><p>故修改模板，参考的时github上的<a href="https://github.com/MikeCoder/hexo-blog-encrypt/issues/3" target="_blank" rel="noopener">issue</a>.</p>
+<p>模板内容：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"security"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"pass"</span> <span class="attr">placeholder</span>=<span class="string">" &#123;&#123;message&#125;&#125; "</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group-btn"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-success"</span> <span class="attr">onclick</span>=<span class="string">"decryptAES()"</span>&gt;</span>解密<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"encrypt-blog"</span> <span class="attr">style</span>=<span class="string">"display:none"</span>&gt;</span></span><br><span class="line">            &#123;&#123;content&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：<br><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/2018-06-25_212247.png"></p>
+<blockquote>
+<p>注意：加密后的文章目录不能正常显示！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo建站</category>
+      </categories>
+      <tags>
+        <tag>hexo优化</tag>
       </tags>
   </entry>
   <entry>
@@ -2326,28 +2326,6 @@ TIME OUT</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>hexo添加阅读统计和访问量</title>
-    <url>/posts/ea4d/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="使用LeanCloud添加文章阅读量"><a href="#使用LeanCloud添加文章阅读量" class="headerlink" title="使用LeanCloud添加文章阅读量"></a>使用LeanCloud添加文章阅读量</h2><p>在上一篇文章中，我们使用<a href="https://leancloud.cn" target="_blank" rel="noopener">LeanCloud</a>给博客添加评论功能，效果非常好，现在我们来使用LeanCloud添加文章阅读次数功能（阅读次数可以在首页显示）。</p>
-<p>注册LeanCloud——&gt;创建应用——&gt;创建<code>Counter</code>类(ACL权限为无限制),点击设置——&gt;应用Key，获取相应的APP ID和APP KEY。<br>打开next主题配置文件<code>_config.yml</code>,找到<code>leancloud_visitors</code>,修改相应的字段。</p>
-<a id="more"></a>
-
-<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201809%2FSnipaste_2018-09-07_09-51-14.png"></p>
-<p>为了安全，设置网站的安全域名：设置——安全中心——Web安全域名。</p>
-<p>备注：由于之前valine评论已添加了App key了，新建一个LeanCloud应用，创建Counter Class，重新部署时出现评论不能显示的问题，通过在Valine同一个应用中创建Counter类时，解决了上述问题。</p>
-<h2 id="使用不蒜子添加总访问量"><a href="#使用不蒜子添加总访问量" class="headerlink" title="使用不蒜子添加总访问量"></a>使用不蒜子添加总访问量</h2><p>不蒜子官网：<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener">http://busuanzi.ibruce.info/</a><br>使用功能就更加简单，找到next主题的页脚文件<code>foot.swg</code>:<br><code>vim themes/next/layout/_partials/footer.swig</code><br>添加如下代码即可:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_pv"</span> <span class="attr">class</span>=<span class="string">"theme-info"</span>&gt;</span></span><br><span class="line">&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;本站总访问量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span> <span class="attr">class</span>=<span class="string">"theme-info"</span>&gt;</span></span><br><span class="line">&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;本站访客数<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>人次</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>效果如下：<br><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201809%2FSnipaste_2018-09-07_10-01-12.png"></p>
-]]></content>
-      <categories>
-        <category>hexo建站</category>
-      </categories>
-      <tags>
-        <tag>hexo优化</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>joplin——一款跨平台的开源笔记应用</title>
     <url>/posts/2ef/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Joplin是一个免费的开源笔记和待办事项应用程序，它可以通过笔记本、标签以及搜索等组织大量的笔记。基于NodeJS，适用于Windows, macOS, Linux, Android 和 iOS，它可以通过Dropbox网盘来进行多平台同步。Joplin支持从浏览器保存网页和屏幕截图，支持<a href="https://addons.mozilla.org/en-US/firefox/addon/joplin-web-clipper/" target="_blank" rel="noopener">Firefox</a>和<a href="https://chrome.google.com/webstore/detail/joplin-web-clipper/alofnhikmmkdbbbgpnglcpdollgjjfek?hl=en-GB" target="_blank" rel="noopener">Chrome</a>，笔记支持Markdown，并且可以导入和导出多种格式。</p>
@@ -2414,6 +2392,28 @@ TIME OUT</code></pre>]]></content>
         <tag>soft</tag>
         <tag>笔记</tag>
         <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo添加阅读统计和访问量</title>
+    <url>/posts/ea4d/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="使用LeanCloud添加文章阅读量"><a href="#使用LeanCloud添加文章阅读量" class="headerlink" title="使用LeanCloud添加文章阅读量"></a>使用LeanCloud添加文章阅读量</h2><p>在上一篇文章中，我们使用<a href="https://leancloud.cn" target="_blank" rel="noopener">LeanCloud</a>给博客添加评论功能，效果非常好，现在我们来使用LeanCloud添加文章阅读次数功能（阅读次数可以在首页显示）。</p>
+<p>注册LeanCloud——&gt;创建应用——&gt;创建<code>Counter</code>类(ACL权限为无限制),点击设置——&gt;应用Key，获取相应的APP ID和APP KEY。<br>打开next主题配置文件<code>_config.yml</code>,找到<code>leancloud_visitors</code>,修改相应的字段。</p>
+<a id="more"></a>
+
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201809%2FSnipaste_2018-09-07_09-51-14.png"></p>
+<p>为了安全，设置网站的安全域名：设置——安全中心——Web安全域名。</p>
+<p>备注：由于之前valine评论已添加了App key了，新建一个LeanCloud应用，创建Counter Class，重新部署时出现评论不能显示的问题，通过在Valine同一个应用中创建Counter类时，解决了上述问题。</p>
+<h2 id="使用不蒜子添加总访问量"><a href="#使用不蒜子添加总访问量" class="headerlink" title="使用不蒜子添加总访问量"></a>使用不蒜子添加总访问量</h2><p>不蒜子官网：<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener">http://busuanzi.ibruce.info/</a><br>使用功能就更加简单，找到next主题的页脚文件<code>foot.swg</code>:<br><code>vim themes/next/layout/_partials/footer.swig</code><br>添加如下代码即可:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_pv"</span> <span class="attr">class</span>=<span class="string">"theme-info"</span>&gt;</span></span><br><span class="line">&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;本站总访问量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span> <span class="attr">class</span>=<span class="string">"theme-info"</span>&gt;</span></span><br><span class="line">&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;本站访客数<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>人次</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：<br><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201809%2FSnipaste_2018-09-07_10-01-12.png"></p>
+]]></content>
+      <categories>
+        <category>hexo建站</category>
+      </categories>
+      <tags>
+        <tag>hexo优化</tag>
       </tags>
   </entry>
   <entry>
@@ -2965,17 +2965,6 @@ TIME OUT</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
-    <title>win10子系统ubuntu测试</title>
-    <url>/posts/51cb/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h2><p>使用windows10子系统Ubuntu18.04写hexo博客测试。</p><p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/Snipaste_2018-07-18_21-06-54.png"></p>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>win10激活工具</title>
     <url>/posts/6b1d/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Windows10数字激活"><a href="#Windows10数字激活" class="headerlink" title="Windows10数字激活"></a>Windows10数字激活</h2><p>无意中在论坛上发现一个win10数字激活神器，非常好用，以此记录。</p>
@@ -2991,6 +2980,17 @@ TIME OUT</code></pre>]]></content>
       <tags>
         <tag>soft</tag>
         <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>win10子系统ubuntu测试</title>
+    <url>/posts/51cb/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h2><p>使用windows10子系统Ubuntu18.04写hexo博客测试。</p><p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/Snipaste_2018-07-18_21-06-54.png"></p>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -3172,6 +3172,27 @@ TIME OUT</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
+    <title>优雅的屏保fliqlo</title>
+    <url>/posts/e9c9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="一款非常好的屏保fliqlo"><a href="#一款非常好的屏保fliqlo" class="headerlink" title="一款非常好的屏保fliqlo"></a>一款非常好的屏保fliqlo</h2><blockquote>
+<p>Fliqlo适用于Mac / Windows是一个时钟屏保，使您可以让您的台式机/笔记本电脑的屏幕看起来像一个翻转时钟。由于它的知名度，你甚至可以从远处读取时间。另见许多照片上<a href="https://www.pinterest.com/yjadc/fliqlo/" target="_blank" rel="noopener">Pinterest</a>的。</p>
+</blockquote>
+<p>官方网站：<a href="https://fliqlo.com" target="_blank" rel="noopener">https://fliqlo.com</a></p>
+<p>官方下载地址：<a href="https://fliqlo.com/#about" target="_blank" rel="noopener">https://fliqlo.com/#about</a></p>
+<a id="more"></a>
+
+<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/Snipaste_2018-07-28_10-55-30.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/Snipaste_2018-07-28_10-37-01.png"></p>
+]]></content>
+      <categories>
+        <category>Soft</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一键解锁网易云音乐灰色歌曲小工具</title>
     <url>/posts/b9ba/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>众所周知，网易云音乐版权问题，导致大量歌曲下架。今天在吾爱破解论坛上发现了这样的一款工具，使用HTTP代理的方式，使得在网易云音乐客户端没有版权的歌曲被其它平台音乐链接替换，包括QQ、虾米、百度、酷狗等平台，从而可以正常播放歌曲并下载。该工具开源免费，使用易语言编写，支持Windows、UWP、Android、IOS客户端，并且支持下载最高320kbps音源！</p>
@@ -3197,27 +3218,6 @@ TIME OUT</code></pre>]]></content>
       <tags>
         <tag>音乐下载</tag>
         <tag>网易云音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>优雅的屏保fliqlo</title>
-    <url>/posts/e9c9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="一款非常好的屏保fliqlo"><a href="#一款非常好的屏保fliqlo" class="headerlink" title="一款非常好的屏保fliqlo"></a>一款非常好的屏保fliqlo</h2><blockquote>
-<p>Fliqlo适用于Mac / Windows是一个时钟屏保，使您可以让您的台式机/笔记本电脑的屏幕看起来像一个翻转时钟。由于它的知名度，你甚至可以从远处读取时间。另见许多照片上<a href="https://www.pinterest.com/yjadc/fliqlo/" target="_blank" rel="noopener">Pinterest</a>的。</p>
-</blockquote>
-<p>官方网站：<a href="https://fliqlo.com" target="_blank" rel="noopener">https://fliqlo.com</a></p>
-<p>官方下载地址：<a href="https://fliqlo.com/#about" target="_blank" rel="noopener">https://fliqlo.com/#about</a></p>
-<a id="more"></a>
-
-<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/Snipaste_2018-07-28_10-55-30.png"></p>
-<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/Snipaste_2018-07-28_10-37-01.png"></p>
-]]></content>
-      <categories>
-        <category>Soft</category>
-      </categories>
-      <tags>
-        <tag>windows</tag>
-        <tag>mac</tag>
       </tags>
   </entry>
   <entry>
@@ -4106,6 +4106,26 @@ TIME OUT</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
+    <title>最好的图片压缩工具--squoosh</title>
+    <url>/posts/ea8d/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>squoosh是一款由Google公司开发的图片压缩工具，压缩效果非常好而且不失真，并且可以离线使用（<font color="red">第一次访问网站后即可离线访问</font>）。并且该代码在Github上开源：<a href="https://github.com/GoogleChromeLabs/squoosh" target="_blank" rel="noopener">https://github.com/GoogleChromeLabs/squoosh</a></p>
+<p>你可以在本地运行项目或者访问官方网站来使用该工具：<a href="https://squoosh.app/" target="_blank" rel="noopener">https://squoosh.app/</a></p>
+<a id="more"></a>
+
+<p><img alt="官方主页" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516220449.png"></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>使用方法也非常简单，直接将需要压缩的图片拖到该网站，此时图片会一分为二，左边为原始图片，右边为压缩后的图片进行对比，并在左下角和右下角显示图片的相关信息，点击右下角下载即可下载压缩后的图片。</p>
+<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516220847.png"></p>
+<p>为了演示，我选择一张图片进行压缩。图片由原来的2.25M压缩到391Kb，压缩率达到75%，而从上图，我们肉眼对比根本看不出任何区别，压缩后的图片依然清晰，不得不感叹Google技术的强大。</p>
+<p>现在此工具成为了我的必备工具，一般上传到网站中的图片都会进行压缩，既节省空间同时又加快了网站的访问速度。</p>
+]]></content>
+      <categories>
+        <category>实用工具</category>
+      </categories>
+      <tags>
+        <tag>推荐</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>最新Chrome可用：请停用以开发者模式运行的扩展程序</title>
     <url>/posts/252f/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="20200708更新"><a href="#20200708更新" class="headerlink" title="20200708更新"></a><font color="red">20200708更新</font></h2><p>Chrome更新之后此方法已经不可用了，几天前发现了耍下大佬制作的<a href="https://shuax.com/project/chrome/" target="_blank" rel="noopener">Chrome增强版</a>移除了开发者警告的功能，亲测可用，推荐下载，目前大佬制作的增强版本为<code>v83.0.4103.106</code>。</p>
@@ -4147,26 +4167,6 @@ TIME OUT</code></pre>]]></content>
       </categories>
       <tags>
         <tag>chrome扩展</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>最好的图片压缩工具--squoosh</title>
-    <url>/posts/ea8d/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>squoosh是一款由Google公司开发的图片压缩工具，压缩效果非常好而且不失真，并且可以离线使用（<font color="red">第一次访问网站后即可离线访问</font>）。并且该代码在Github上开源：<a href="https://github.com/GoogleChromeLabs/squoosh" target="_blank" rel="noopener">https://github.com/GoogleChromeLabs/squoosh</a></p>
-<p>你可以在本地运行项目或者访问官方网站来使用该工具：<a href="https://squoosh.app/" target="_blank" rel="noopener">https://squoosh.app/</a></p>
-<a id="more"></a>
-
-<p><img alt="官方主页" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516220449.png"></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>使用方法也非常简单，直接将需要压缩的图片拖到该网站，此时图片会一分为二，左边为原始图片，右边为压缩后的图片进行对比，并在左下角和右下角显示图片的相关信息，点击右下角下载即可下载压缩后的图片。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516220847.png"></p>
-<p>为了演示，我选择一张图片进行压缩。图片由原来的2.25M压缩到391Kb，压缩率达到75%，而从上图，我们肉眼对比根本看不出任何区别，压缩后的图片依然清晰，不得不感叹Google技术的强大。</p>
-<p>现在此工具成为了我的必备工具，一般上传到网站中的图片都会进行压缩，既节省空间同时又加快了网站的访问速度。</p>
-]]></content>
-      <categories>
-        <category>实用工具</category>
-      </categories>
-      <tags>
-        <tag>推荐</tag>
       </tags>
   </entry>
   <entry>
@@ -4383,6 +4383,40 @@ TIME OUT</code></pre>]]></content>
       </tags>
   </entry>
   <entry>
+    <title>百度网盘不限速的跨平台客户端：pan-light</title>
+    <url>/posts/8a9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="2020年5月16日更新"><a href="#2020年5月16日更新" class="headerlink" title="2020年5月16日更新"></a>2020年5月16日更新</h2><p>随着PanDownload的维护者入狱，想要高速下载百度网盘的文件难上加难了。目前此项目也有半年未维护了，现在使用下载速度很慢了。想要高速下载，可能只能通过官方渠道，合租可能是个解决方案。</p>
+<hr>
+<p>又发现了一个好项目了：百度网盘不限速客户端, golang + qt5, 跨平台图形界面：<a href="https://pan-light.peterq.cn/" target="_blank" rel="noopener">https://pan-light.peterq.cn/</a></p>
+<p>此项目在Github上开源，<a href="https://github.com/peterq/pan-light" target="_blank" rel="noopener">https://github.com/peterq/pan-light</a></p>
+<p>经过测试，下载速度非常快，全速下载（下有截图），喜欢的可以Star关注！</p>
+<p>注意：此项目目前仍处于开发阶段，可能不是很稳定。</p>
+<h2 id="软件特性"><a href="#软件特性" class="headerlink" title="软件特性"></a>软件特性</h2><ul>
+<li>利用golang轻量级协程, 高并发分段下载, 可通过调节并发数达到最佳下载速度; 下载进度状态数据持久化到磁盘, 实现软件重启后可断点续传;</li>
+<li>客户端本地实现简单代理, 突破百度防盗链, 将网盘视频喂给qt视频播放组件, 从而在线播放视频</li>
+<li>在线体验: 用户无需下载, 通过网页即可在线体验本软件部分功能; 该系统可应用于其他客户端产品的在线体验;</li>
+<li>在线体验原理: 闲置的个人pc, 通过 docker 开启若干个’虚拟机’, 虚拟机内安装好了本软件以及vnc服务. 用户打开网页, 在服务端的调度下, 网页通过 web rtc 和闲置pc建立p2p连接. 闲置pc将会打通一条用户网页到docker内部’隧道’. 网页连接虚拟机vnc服务进行远程控制</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="下载使用"><a href="#下载使用" class="headerlink" title="下载使用"></a>下载使用</h2><p>下载地址：<a href="https://github.com/peterq/pan-light/releases" target="_blank" rel="noopener">https://github.com/peterq/pan-light/releases</a></p>
+<ul>
+<li>下载后解压，在解压目录双击：<code>a-pan-light.exe</code>即可打开：</li>
+<li>登录百度账号，可使用百度账号在浏览器中验证登录</li>
+<li>完成后即可成功登录账号，选择文件右击即可下载，包含Vip加速下载和普通下载</li>
+</ul>
+<p><del>我测试的是普通下载，下载速度惊人，达到10M/s，相对于我的宽带已经是全速下载了。</del></p>
+<p>吓得我连Vip通道下载都不敢测试了（已经都全速了还要我怎么办），可自行测试！</p>
+]]></content>
+      <categories>
+        <category>实用工具</category>
+      </categories>
+      <tags>
+        <tag>百度网盘</tag>
+        <tag>AllPlatforms</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>真正的百度网盘下载神器——BaiduPCS-Go</title>
     <url>/posts/d790/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>支持多平台（Windows，macOS，Linux和移动设备）、百度账号多用户、上传下载和离线下载的仿Linux shell文件处理命令的百度网盘命令客户端。</p>
@@ -4450,40 +4484,6 @@ TIME OUT</code></pre>]]></content>
       <tags>
         <tag>command</tag>
         <tag>百度网盘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>百度网盘不限速的跨平台客户端：pan-light</title>
-    <url>/posts/8a9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="2020年5月16日更新"><a href="#2020年5月16日更新" class="headerlink" title="2020年5月16日更新"></a>2020年5月16日更新</h2><p>随着PanDownload的维护者入狱，想要高速下载百度网盘的文件难上加难了。目前此项目也有半年未维护了，现在使用下载速度很慢了。想要高速下载，可能只能通过官方渠道，合租可能是个解决方案。</p>
-<hr>
-<p>又发现了一个好项目了：百度网盘不限速客户端, golang + qt5, 跨平台图形界面：<a href="https://pan-light.peterq.cn/" target="_blank" rel="noopener">https://pan-light.peterq.cn/</a></p>
-<p>此项目在Github上开源，<a href="https://github.com/peterq/pan-light" target="_blank" rel="noopener">https://github.com/peterq/pan-light</a></p>
-<p>经过测试，下载速度非常快，全速下载（下有截图），喜欢的可以Star关注！</p>
-<p>注意：此项目目前仍处于开发阶段，可能不是很稳定。</p>
-<h2 id="软件特性"><a href="#软件特性" class="headerlink" title="软件特性"></a>软件特性</h2><ul>
-<li>利用golang轻量级协程, 高并发分段下载, 可通过调节并发数达到最佳下载速度; 下载进度状态数据持久化到磁盘, 实现软件重启后可断点续传;</li>
-<li>客户端本地实现简单代理, 突破百度防盗链, 将网盘视频喂给qt视频播放组件, 从而在线播放视频</li>
-<li>在线体验: 用户无需下载, 通过网页即可在线体验本软件部分功能; 该系统可应用于其他客户端产品的在线体验;</li>
-<li>在线体验原理: 闲置的个人pc, 通过 docker 开启若干个’虚拟机’, 虚拟机内安装好了本软件以及vnc服务. 用户打开网页, 在服务端的调度下, 网页通过 web rtc 和闲置pc建立p2p连接. 闲置pc将会打通一条用户网页到docker内部’隧道’. 网页连接虚拟机vnc服务进行远程控制</li>
-</ul>
-<a id="more"></a>
-
-<h2 id="下载使用"><a href="#下载使用" class="headerlink" title="下载使用"></a>下载使用</h2><p>下载地址：<a href="https://github.com/peterq/pan-light/releases" target="_blank" rel="noopener">https://github.com/peterq/pan-light/releases</a></p>
-<ul>
-<li>下载后解压，在解压目录双击：<code>a-pan-light.exe</code>即可打开：</li>
-<li>登录百度账号，可使用百度账号在浏览器中验证登录</li>
-<li>完成后即可成功登录账号，选择文件右击即可下载，包含Vip加速下载和普通下载</li>
-</ul>
-<p><del>我测试的是普通下载，下载速度惊人，达到10M/s，相对于我的宽带已经是全速下载了。</del></p>
-<p>吓得我连Vip通道下载都不敢测试了（已经都全速了还要我怎么办），可自行测试！</p>
-]]></content>
-      <categories>
-        <category>实用工具</category>
-      </categories>
-      <tags>
-        <tag>百度网盘</tag>
-        <tag>AllPlatforms</tag>
       </tags>
   </entry>
   <entry>
@@ -5276,7 +5276,7 @@ TIME OUT</code></pre>]]></content>
 <p>临走前，高帅请我们部门的人吃了个饭，大家在一起也很开心，虽然有太多不舍，但分别也是必然的，只不过是时间的问题而已，站在历史的长河中，哎哎，又飘了-.-最关键的是回来骑车还带着他摔了，笑着说是让他更加刻骨铭心。</p>
 <p>本来还想写个散文抒情的，结果成了叙事的了，思维还这么乱，都怪初中语文老师，不管怎么说，相处一年的时间，经历很多，也感触很多，感谢，一年的陪伴。</p>
 
-    <div id="aplayer-KJYTnkAo" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="31445772" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-QmDIknXP" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="31445772" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="true" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <categories>
         <category>随笔记录</category>
