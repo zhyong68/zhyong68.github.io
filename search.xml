@@ -1768,7 +1768,7 @@ TIME OUT</code></pre>]]></content>
   <entry>
     <title>git常用命令</title>
     <url>/posts/3b9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="git命令总结"><a href="#git命令总结" class="headerlink" title="git命令总结"></a>git命令总结</h2><p><img alt="git" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/bg2015120901.png"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="git命令总结"><a href="#git命令总结" class="headerlink" title="git命令总结"></a>git命令总结</h2><p><img alt="git导图" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/bg2015120901.png"></p>
 <h2 id="Git专用名词"><a href="#Git专用名词" class="headerlink" title="Git专用名词"></a>Git专用名词</h2><ul>
 <li>Workspace 工作区</li>
 <li>Index/Stage 暂存区</li>
