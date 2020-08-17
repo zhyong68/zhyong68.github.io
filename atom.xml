@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>YouForever</title>
+  <icon>https://www.zhyong.cn/icon.png</icon>
+  <subtitle>专注于互联网分享</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://www.zhyong.cn/"/>
+  <updated>2020-08-17T09:52:20.637Z</updated>
+  <id>https://www.zhyong.cn/</id>
+  
+  <author>
+    <name>ZhangYong</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>群晖Docker部署Calibre Web打造全功能书库</title>
+    <link href="https://www.zhyong.cn/posts/fcef/"/>
+    <id>https://www.zhyong.cn/posts/fcef/</id>
+    <published>2020-08-05T12:31:24.000Z</published>
+    <updated>2020-08-17T09:52:20.637Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;功能简介&quot;&gt;&lt;a href=&quot;#功能简介&quot; class=&quot;headerlink&quot; title=&quot;功能简介&quot;&gt;&lt;/a&gt;功能简介&lt;/h2&gt;&lt;p&gt;平时喜欢搜集网络上的精品电子书，那么管理成为了一个问题，放在硬盘的一堆电子书文件，想看也不知道看哪本，正好之前&lt;a href=&quot;https://www.zhyong.cn/posts/f10c/&quot;&gt;安装的黑群晖&lt;/a&gt;，了解到&lt;a href=&quot;https://github.com/janeczku/calibre-web&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Calibre web&lt;/a&gt;这样的一个开源项目，于是就完成了这样的项目搭建。功能包括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;管理自己的电子书，可管理海量书籍，包括书籍的分类、作者、简介等&lt;/li&gt;
+&lt;li&gt;可在线观看、书籍格式转换、推送到Kindle等&lt;/li&gt;
+&lt;li&gt;可选：通过frp等内外穿透工具实现任意地方访问&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="群晖折腾" scheme="https://www.zhyong.cn/categories/%E7%BE%A4%E6%99%96%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="calibre" scheme="https://www.zhyong.cn/tags/calibre/"/>
+    
+      <category term="docker" scheme="https://www.zhyong.cn/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows全局鼠标手势——MouseInc</title>
+    <link href="https://www.zhyong.cn/posts/8a21/"/>
+    <id>https://www.zhyong.cn/posts/8a21/</id>
+    <published>2020-07-05T12:12:58.000Z</published>
+    <updated>2020-08-17T09:52:20.610Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;不得不说，这是我使用的最小巧、功能最强大的Windows全局鼠标手势——MouseInc，已经成为我&lt;strong&gt;开机自启、装机必备&lt;/strong&gt;的软件了。软件大小仅200kb，官方有详细的文档，让这个软件为我们所用，用好它，绝对能大大提高我们的效率，相信你很快也会爱上它的。&lt;/p&gt;
+&lt;p&gt;官方主页：&lt;a href=&quot;https://shuax.com/project/mouseinc/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MouseInc 2.10.21 – 耍下&lt;/a&gt;&lt;br&gt;使用手册：&lt;a href=&quot;https://docs.shuax.com/MouseInc/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MouseInc 手册&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实用工具" scheme="https://www.zhyong.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="推荐" scheme="https://www.zhyong.cn/tags/%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="鼠标手势" scheme="https://www.zhyong.cn/tags/%E9%BC%A0%E6%A0%87%E6%89%8B%E5%8A%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派 Raspberry Pi 3B+安装官方系统（一）</title>
+    <link href="https://www.zhyong.cn/posts/f050/"/>
+    <id>https://www.zhyong.cn/posts/f050/</id>
+    <published>2020-06-20T09:13:59.000Z</published>
+    <updated>2020-08-17T09:52:20.635Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;两年前购买的树莓派（可看当时我的记录&lt;a href=&quot;https://www.zhyong.cn/posts/dd84/&quot;&gt;树莓派 3B + 重装系统并配置 WiFi | YouForever&lt;/a&gt;）已经在角落里吃灰了好长时间，一度以为已经损坏，几天前试着拿出来折腾一下，竟然神奇地复活了，开心之余，也将树莓派重新利用了起来，现在，我已经离不开它了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/Raspberry/1.jfif&quot; alt=&quot;我的树莓派&quot;&gt;&lt;/p&gt;
+&lt;p&gt;因此我想将树莓派写出一个系列，来说说我对它的使用。&lt;/p&gt;
+&lt;p&gt;一、 树莓派系统的选择及安装&lt;br&gt;二、 树莓派安装pi-hole过滤家中的广告&lt;br&gt;三、 树莓派连接蓝牙音箱，整点报时，定时语音播报&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="树莓派" scheme="https://www.zhyong.cn/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+    
+      <category term="系统安装" scheme="https://www.zhyong.cn/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/"/>
+    
+      <category term="Linux" scheme="https://www.zhyong.cn/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>群晖Docker安装code-server</title>
+    <link href="https://www.zhyong.cn/posts/99b4/"/>
+    <id>https://www.zhyong.cn/posts/99b4/</id>
+    <published>2020-06-20T07:03:48.000Z</published>
+    <updated>2020-08-17T09:52:20.637Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;coder-server是著名的Visual Studio Code开源编辑器的Web版，本篇博客使用群晖的Docker组件（玩群晖怎能不玩Docker？），完全图形化界面来搭建code server，以及解决部署后产生的问题，部署过程简单易操作，容器占用资源少。&lt;/p&gt;
+&lt;p&gt;code server github：&lt;a href=&quot;https://github.com/cdr/code-server&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;cdr/code-server: VS Code in the browser&lt;/a&gt;&lt;br&gt;code server docker hub：&lt;a href=&quot;https://registry.hub.docker.com/r/codercom/code-server/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;codercom/code-server - Docker Hub&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="群晖折腾" scheme="https://www.zhyong.cn/categories/%E7%BE%A4%E6%99%96%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="vscode" scheme="https://www.zhyong.cn/tags/vscode/"/>
+    
+      <category term="docker" scheme="https://www.zhyong.cn/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>腾讯云静态网站托管加速Hexo博客</title>
+    <link href="https://www.zhyong.cn/posts/8c5/"/>
+    <id>https://www.zhyong.cn/posts/8c5/</id>
+    <published>2020-06-16T10:55:33.000Z</published>
+    <updated>2020-08-17T09:52:20.637Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇博客讲解使用腾讯云静态网站托管的云服务托管Hexo静态页面，加速国内访问，搭建完成后效果良好，此操作需要一个&lt;strong&gt;已经备案&lt;/strong&gt;的域名，相对于国内服务器部署价格非常便宜，且有免费CDN加速。&lt;/p&gt;
+&lt;p&gt;正好这几天看到了腾讯云的静态网站托管服务，于是萌发将hexo托管于此，相对于托管在国内的码云等网站上，还要一年100多才能使用自定义域名，此种方案效果更佳，国外的线路继续走Github Pages。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo建站" scheme="https://www.zhyong.cn/categories/hexo%E5%BB%BA%E7%AB%99/"/>
+    
+    
+      <category term="hexo优化" scheme="https://www.zhyong.cn/tags/hexo%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="静态网站" scheme="https://www.zhyong.cn/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>黑群晖DSM安装教程及详细配置</title>
+    <link href="https://www.zhyong.cn/posts/f10c/"/>
+    <id>https://www.zhyong.cn/posts/f10c/</id>
+    <published>2020-05-17T00:14:28.000Z</published>
+    <updated>2020-08-17T09:52:20.641Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;为什么要安装黑群晖&quot;&gt;&lt;a href=&quot;#为什么要安装黑群晖&quot; class=&quot;headerlink&quot; title=&quot;为什么要安装黑群晖&quot;&gt;&lt;/a&gt;为什么要安装黑群晖&lt;/h2&gt;&lt;p&gt;先说说什么是NAS服务器，简单来说就是一个网络存储器，你可以存放音乐、视频、文件等，方便地从各个设备进行访问。而群晖的Synology DSM，就是&lt;strong&gt;一个非常优秀的NAS服务器&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NAS百度百科&lt;br&gt;NAS（Network Attached Storage：网络附属存储）按字面简单说就是连接在网络上，具备资料存储功能的装置，因此也称为“网络存储器”。它是一种专用数据存储服务器。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;是啊，群晖官方的不香吗，可以方便地远程访问，也不需要折腾，买来了加上硬盘就可直接使用，但是看看价格2000-4000不等，再单独购买几个T的硬盘，算了算了。黑群晖，或者说“民间版”群晖（Synology DSM），普通的PC上就可以安装，自由DIY，而且硬件要求不高（老旧主机、蜗牛星际，PVE、ESXI虚拟机等都可安装），官方的政策也很宽松，安装不算复杂，配合内网穿透也能方便地远程控制访问（配合OpenWRT软路由），黑群晖也是一个完美的存在。有了NAS之后，才体会到文件存储的方便、快捷。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="群晖折腾" scheme="https://www.zhyong.cn/categories/%E7%BE%A4%E6%99%96%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="记录" scheme="https://www.zhyong.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="黑群晖" scheme="https://www.zhyong.cn/tags/%E9%BB%91%E7%BE%A4%E6%99%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于博客的一些思考</title>
+    <link href="https://www.zhyong.cn/posts/2c5e/"/>
+    <id>https://www.zhyong.cn/posts/2c5e/</id>
+    <published>2020-05-16T15:06:48.000Z</published>
+    <updated>2020-08-17T09:52:20.630Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在冷落了&lt;a href=&quot;https://www.zhyong.cn/&quot;&gt;YouForever&lt;/a&gt;这个站点快半年（5个月零10天）之久，期间，经历了太多，也聊聊我现在的想法，文笔不好，随便写写。&lt;/p&gt;
+&lt;p&gt;写博客，首先是对自己所学所思所想的一个记录，一个总结，其目的有二，方便自己与方便他人。方便自己，这一点我印象最深的就是第二次需要重复的话，有时候重复不出来，而又有之前成功的经验，心里浮躁，不愿耐下心来去探索，所以第二次失败的概率更大，就是所谓的“半桶水”。而记录，就可以解决这个问题，而且，分享自己的文章，也是一件幸福的事情。这就是我当初的所想，建立博客的初衷，当时觉得拥有一个域名，一个独立博客，是多么棒的一件事情。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="人生哲理" scheme="https://www.zhyong.cn/categories/%E4%BA%BA%E7%94%9F%E5%93%B2%E7%90%86/"/>
+    
+    
+      <category term="随笔" scheme="https://www.zhyong.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Docker部署Solo博客系统</title>
+    <link href="https://www.zhyong.cn/posts/64e/"/>
+    <id>https://www.zhyong.cn/posts/64e/</id>
+    <published>2019-10-06T13:27:26.000Z</published>
+    <updated>2020-08-17T09:52:20.626Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;p&gt;为什么又搭建了一个博客呢？国内的高性能服务器，闲着也是闲着，还是多折腾一下吧！&lt;/p&gt;
+&lt;p&gt;Solo博客系统是用Java语言开发的博客程序，具有优异的性能。这里使用Docker部署，也是官方推荐的部署方式，配合宝塔控制面板，搭建过程还是比较方便的。这里记录一下我的搭建过程以及使用Solo的一些总结。&lt;/p&gt;
+&lt;p&gt;我使用Solo搭建完成的网站： &lt;del&gt;&lt;a href=&quot;https://article.zhyong.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://article.zhyong.cn/&lt;/a&gt;&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;Github地址：&lt;a href=&quot;https://github.com/b3log/solo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;b3log/solo: 🎸 一款小而美的博客系统，专为程序员设计。&lt;/a&gt;&lt;br&gt;官方网站：&lt;a href=&quot;https://solo.b3log.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Solo - Java 博客系统，Java 开源博客系统&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="建站系统" scheme="https://www.zhyong.cn/categories/%E5%BB%BA%E7%AB%99%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="docker" scheme="https://www.zhyong.cn/tags/docker/"/>
+    
+      <category term="solo" scheme="https://www.zhyong.cn/tags/solo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7编译安装最新版Git</title>
+    <link href="https://www.zhyong.cn/posts/5839/"/>
+    <id>https://www.zhyong.cn/posts/5839/</id>
+    <published>2019-09-15T08:58:16.000Z</published>
+    <updated>2020-08-17T09:52:20.596Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;卸载默认Git&quot;&gt;&lt;a href=&quot;#卸载默认Git&quot; class=&quot;headerlink&quot; title=&quot;卸载默认Git&quot;&gt;&lt;/a&gt;卸载默认Git&lt;/h2&gt;&lt;p&gt;查看当前安装的Git版本：&lt;code&gt;git --version&lt;/code&gt;，默认版本是&lt;code&gt;1.8.3.1&lt;/code&gt;，版本过低。&lt;br&gt;若存在，则卸载Git：&lt;code&gt;yum remove git&lt;/code&gt;&lt;br&gt;验证是否卸载：&lt;/p&gt;
+&lt;figure class=&quot;highlight stata&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@JD ~]# git --&lt;span class=&quot;keyword&quot;&gt;version&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-bash: /bin/git: &lt;span class=&quot;keyword&quot;&gt;No&lt;/span&gt; such &lt;span class=&quot;keyword&quot;&gt;file&lt;/span&gt; or directory&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux环境" scheme="https://www.zhyong.cn/categories/Linux%E7%8E%AF%E5%A2%83/"/>
+    
+    
+      <category term="git" scheme="https://www.zhyong.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7部署code-server并配置Nginx反向代理</title>
+    <link href="https://www.zhyong.cn/posts/959b/"/>
+    <id>https://www.zhyong.cn/posts/959b/</id>
+    <published>2019-09-15T03:25:44.000Z</published>
+    <updated>2020-08-17T09:52:20.597Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;VS Code&lt;/a&gt;是一款功能非常强大、拥有丰富插件的跨平台(Windows,Mac,Linux)开源免费的编辑器，非常好用。最近在学习Python过程中，更是感受到了它的强大，其功能不亚于专业的IDE。&lt;/p&gt;
+&lt;p&gt;code-server是VS Code运行在远程服务器上，然后通过浏览器访问即可使用VS Code，本篇文章详细介绍了如何远程部署code-server以及过程中遇到的问题及对应的解决方案。&lt;/p&gt;
+&lt;p&gt;Github地址：&lt;a href=&quot;https://github.com/cdr/code-server&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/cdr/code-server&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="建站系统" scheme="https://www.zhyong.cn/categories/%E5%BB%BA%E7%AB%99%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="vscode" scheme="https://www.zhyong.cn/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Python爬取豆瓣电影TOP250</title>
+    <link href="https://www.zhyong.cn/posts/bc93/"/>
+    <id>https://www.zhyong.cn/posts/bc93/</id>
+    <published>2019-09-08T12:55:29.000Z</published>
+    <updated>2020-08-17T09:52:20.628Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在学习Python爬虫，学习并使用了一个非常强大的解析库：&lt;a href=&quot;https://github.com/gawel/pyquery&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gawel/pyquery: A jquery-like library for python&lt;/a&gt;，语法和Jquery非常类似，可以非常方便地提取信息，因此也顺便挑战了一下爬取豆瓣电影TOP 250，链接为：&lt;a href=&quot;https://movie.douban.com/top250?start=0&amp;amp;filter=&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://movie.douban.com/top250?start=0&amp;amp;filter=&lt;/a&gt; ，由于&lt;font color=red&gt;刚开始学习&lt;/font&gt;爬虫，代码将就着看，也简单的总结了一下。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;豆瓣电影页面采取了反爬虫措施，因此在爬虫时速度不宜过快，使用&lt;code&gt;time.sleep()&lt;/code&gt;函数进行休眠，否则会封IP，或者使用代理进行，但我尝试了一些免费代理并没有成功。&lt;/li&gt;
+&lt;li&gt;爬虫的文件存储为cvs格式，使用&lt;code&gt;logging&lt;/code&gt;进行日志记录，方便查看进度&lt;/li&gt;
+&lt;li&gt;由于个别页面并不是统一的格式，如有的电影(如&lt;a href=&quot;https://movie.douban.com/subject/1291561/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;千与千寻&lt;/a&gt;)有官方网站，大部分没有，大部分可以正常对应cvs页面，但对于这些特殊的页面则可能存在误差，最终文件我是手动修改的，并将其转换为excel。&lt;/li&gt;
+&lt;li&gt;由于还未涉及到数据分析，也就没有对该数据进行分析了&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="Python3爬虫" scheme="https://www.zhyong.cn/categories/Python3%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="python" scheme="https://www.zhyong.cn/tags/python/"/>
+    
+      <category term="爬虫库" scheme="https://www.zhyong.cn/tags/%E7%88%AC%E8%99%AB%E5%BA%93/"/>
+    
+      <category term="pyquery" scheme="https://www.zhyong.cn/tags/pyquery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一键解锁网易云音乐灰色歌曲小工具</title>
+    <link href="https://www.zhyong.cn/posts/b9ba/"/>
+    <id>https://www.zhyong.cn/posts/b9ba/</id>
+    <published>2019-08-19T13:02:52.000Z</published>
+    <updated>2020-08-17T09:52:20.625Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;众所周知，网易云音乐版权问题，导致大量歌曲下架。今天在吾爱破解论坛上发现了这样的一款工具，使用HTTP代理的方式，使得在网易云音乐客户端没有版权的歌曲被其它平台音乐链接替换，包括QQ、虾米、百度、酷狗等平台，从而可以正常播放歌曲并下载。该工具开源免费，使用易语言编写，支持Windows、UWP、Android、IOS客户端，并且支持下载最高320kbps音源！&lt;/p&gt;
+&lt;p&gt;具体查看文章底部链接就行了，我简单发一下Windows客户端教程，给需要的朋友，请合理使用。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实用工具" scheme="https://www.zhyong.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="音乐下载" scheme="https://www.zhyong.cn/tags/%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD/"/>
+    
+      <category term="网易云音乐" scheme="https://www.zhyong.cn/tags/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>scrcpy——Android投屏神器(使用教程)</title>
+    <link href="https://www.zhyong.cn/posts/99d/"/>
+    <id>https://www.zhyong.cn/posts/99d/</id>
+    <published>2019-08-18T05:52:19.000Z</published>
+    <updated>2020-08-17T09:52:20.621Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;scrcpy简介&quot;&gt;&lt;a href=&quot;#scrcpy简介&quot; class=&quot;headerlink&quot; title=&quot;scrcpy简介&quot;&gt;&lt;/a&gt;scrcpy简介&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;注意：拼写是scrcpy，非Python爬虫框架Scrapy。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;简单地来说，scrcpy就是通过adb调试的方式来将手机屏幕投到电脑上，并可以通过电脑控制您的Android设备。它可以通过USB连接，也可以通过Wifi连接（类似于隔空投屏），而且不需要任何root权限，不需要在手机里安装任何程序。scrcpy同时适用于GNU / Linux，Windows和macOS。&lt;/p&gt;
+&lt;p&gt;它的一些特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;亮度（原生，仅显示设备屏幕）&lt;/li&gt;
+&lt;li&gt;性能（30~60fps）&lt;/li&gt;
+&lt;li&gt;质量（1920×1080或以上）&lt;/li&gt;
+&lt;li&gt;低延迟（35~70ms）&lt;/li&gt;
+&lt;li&gt;启动时间短（显示第一张图像约1秒）&lt;/li&gt;
+&lt;li&gt;非侵入性（设备上没有安装任何东西）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此项目为开源项目，Github地址：&lt;a href=&quot;https://github.com/Genymobile/scrcpy&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Genymobile/scrcpy: Display and control your Android device&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实用工具" scheme="https://www.zhyong.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="scrcpy" scheme="https://www.zhyong.cn/tags/scrcpy/"/>
+    
+      <category term="手机投屏" scheme="https://www.zhyong.cn/tags/%E6%89%8B%E6%9C%BA%E6%8A%95%E5%B1%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最新Chrome可用：请停用以开发者模式运行的扩展程序</title>
+    <link href="https://www.zhyong.cn/posts/252f/"/>
+    <id>https://www.zhyong.cn/posts/252f/</id>
+    <published>2019-08-17T07:29:01.000Z</published>
+    <updated>2020-08-17T09:52:20.634Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;20200708更新&quot;&gt;&lt;a href=&quot;#20200708更新&quot; class=&quot;headerlink&quot; title=&quot;20200708更新&quot;&gt;&lt;/a&gt;&lt;font color=red&gt;20200708更新&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;Chrome更新之后此方法已经不可用了，几天前发现了耍下大佬制作的&lt;a href=&quot;https://shuax.com/project/chrome/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Chrome增强版&lt;/a&gt;移除了开发者警告的功能，亲测可用，推荐下载，目前大佬制作的增强版本为&lt;code&gt;v83.0.4103.106&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;a href=&quot;https://shuax.lanzous.com/b00t3vkmb/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://shuax.lanzous.com/b00t3vkmb/&lt;/a&gt; 密码：hgkw&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;del&gt;最近在远景论坛上发现了最新的解决Chrome浏览器提示：&lt;code&gt;请停用以开发者模式运行的扩展程序&lt;/code&gt;的问题。该方法只需要添加一条注册表即可，简单快捷，亲测可用&lt;/del&gt;。而在网上搜索的方法基本都失效了，包括我此前写的一篇&lt;a href=&quot;https://www.zhyong.cn/posts/49ec/&quot;&gt;解决 Chrome”请停用以开发者模式运行的扩展程序” | YouForever&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2020/2020.png&quot; alt=&quot;烦人的弹框&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当然涉及到注册表问题，则只适用于Windows系统。以下是使用方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Google" scheme="https://www.zhyong.cn/categories/Google/"/>
+    
+    
+      <category term="chrome扩展" scheme="https://www.zhyong.cn/tags/chrome%E6%89%A9%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Music-Downloader：功能强大的音乐下载器</title>
+    <link href="https://www.zhyong.cn/posts/72d5/"/>
+    <id>https://www.zhyong.cn/posts/72d5/</id>
+    <published>2019-08-14T12:51:39.000Z</published>
+    <updated>2020-08-17T09:52:20.602Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;20200516更新：已经有UI版本&quot;&gt;&lt;a href=&quot;#20200516更新：已经有UI版本&quot; class=&quot;headerlink&quot; title=&quot;20200516更新：已经有UI版本&quot;&gt;&lt;/a&gt;20200516更新：已经有UI版本&lt;/h2&gt;&lt;p&gt;今天看了一下，已经有UI了，体验还不错，可搜索，可正常下载&lt;br&gt;蓝奏云：&lt;a href=&quot;https://nitian1207.lanzous.com/icdbfzg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Music-Downloader-UI.rar &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200516164210.png&quot; alt=&quot;UI界面&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;20191006更新：作者推出Music-Downloader-Console版本&quot;&gt;&lt;a href=&quot;#20191006更新：作者推出Music-Downloader-Console版本&quot; class=&quot;headerlink&quot; title=&quot;20191006更新：作者推出Music-Downloader-Console版本&quot;&gt;&lt;/a&gt;&lt;font color=red&gt;20191006更新&lt;/font&gt;：作者推出Music-Downloader-Console版本&lt;/h2&gt;&lt;p&gt;目前作者已开发出Console版本，使用稍微复杂（其实也非常简单了），因为接口被封禁，本程序只支持网易云音乐，下载的音乐全部为无损品质，同时可以下载歌词。（注：下载音乐时输入&lt;code&gt;-1&lt;/code&gt;则下载全部）&lt;/p&gt;
+&lt;p&gt;非常感谢作者，软件的官方链接：&lt;a href=&quot;https://www.nitian1207.cn/archives/86&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Music-Downloader-Console &lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="下载工具" scheme="https://www.zhyong.cn/categories/%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="音乐下载" scheme="https://www.zhyong.cn/tags/%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis学习笔记</title>
+    <link href="https://www.zhyong.cn/posts/7556/"/>
+    <id>https://www.zhyong.cn/posts/7556/</id>
+    <published>2019-08-11T11:14:17.000Z</published>
+    <updated>2020-08-17T09:52:20.605Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Redis简介&quot;&gt;&lt;a href=&quot;#Redis简介&quot; class=&quot;headerlink&quot; title=&quot;Redis简介&quot;&gt;&lt;/a&gt;Redis简介&lt;/h2&gt;&lt;p&gt;Redis 是一个高性能的key-value数据库。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)和zset(有序集合)、Hash(哈希类型的映射表)。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="编程学习" scheme="https://www.zhyong.cn/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="redis" scheme="https://www.zhyong.cn/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+Next使用CDN加速网站以及静态文件</title>
+    <link href="https://www.zhyong.cn/posts/ddf2/"/>
+    <id>https://www.zhyong.cn/posts/ddf2/</id>
+    <published>2019-08-10T12:45:27.000Z</published>
+    <updated>2020-08-17T09:52:20.598Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;此博客的域名：&lt;a href=&quot;http://www.zhyong.cn&quot;&gt;www.zhyong.cn&lt;/a&gt; 已经备案成功，于是就想着使用CDN（国内CDN都要求备案）来进行加速，使得网站速度更加快。于是选定老牌的CDN服务：&lt;a href=&quot;https://www.upyun.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;又拍云&lt;/a&gt; ，简单说一下遇到的CNAME的问题。&lt;/p&gt;
+&lt;h2 id=&quot;使用CDN时CNAME的设置&quot;&gt;&lt;a href=&quot;#使用CDN时CNAME的设置&quot; class=&quot;headerlink&quot; title=&quot;使用CDN时CNAME的设置&quot;&gt;&lt;/a&gt;使用CDN时CNAME的设置&lt;/h2&gt;&lt;p&gt;简单说下，CDN的全称是Content Delivery Network，即内容分发网络。详见&lt;a href=&quot;https://baike.baidu.com/item/CDN&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;百度百科&lt;/a&gt;，使用又拍云必须进行实名认证（上传身份证等）且域名必须备案，若网站为HTTPS访问，则必须上传证书且在CDN加速的HTTPS中设置。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo建站" scheme="https://www.zhyong.cn/categories/hexo%E5%BB%BA%E7%AB%99/"/>
+    
+    
+      <category term="CDN" scheme="https://www.zhyong.cn/tags/CDN/"/>
+    
+      <category term="hexo优化" scheme="https://www.zhyong.cn/tags/hexo%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python爬虫（一）：urllib学习</title>
+    <link href="https://www.zhyong.cn/posts/7240/"/>
+    <id>https://www.zhyong.cn/posts/7240/</id>
+    <published>2019-08-10T06:34:24.000Z</published>
+    <updated>2020-08-17T09:52:20.604Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用urllib&quot;&gt;&lt;a href=&quot;#使用urllib&quot; class=&quot;headerlink&quot; title=&quot;使用urllib&quot;&gt;&lt;/a&gt;使用urllib&lt;/h1&gt;&lt;p&gt;urllib库是Python内置的请求库，可以用来模拟发送请求，它包含四个模块：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;request:它是最基本的HTTP请求模块，可以用来模拟发送请求&lt;/li&gt;
+&lt;li&gt;error:异常处理模块，保证程序不会意外终止&lt;/li&gt;
+&lt;li&gt;parse:一个工具模块，提供了许多Url的处理方法&lt;/li&gt;
+&lt;li&gt;robotparser:主要用来识别网站的robots.txt文件，用的较少&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Python3爬虫" scheme="https://www.zhyong.cn/categories/Python3%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="爬虫库" scheme="https://www.zhyong.cn/tags/%E7%88%AC%E8%99%AB%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PanDownload+Aria2：实现百度网盘高速下载</title>
+    <link href="https://www.zhyong.cn/posts/a615/"/>
+    <id>https://www.zhyong.cn/posts/a615/</id>
+    <published>2019-08-08T13:09:45.000Z</published>
+    <updated>2020-08-17T09:52:20.603Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前面我们提到关于本地搭建Aria2+Web页面实现加速下载的教程：&lt;a href=&quot;https://www.zhyong.cn/posts/510f/&quot;&gt;本地配置 Aria2 下载程序及 Web 控制面板来加速下载 | YouForever&lt;/a&gt;。今天我们就讲解如何通过Aria2来实现百度网盘的高速下载。&lt;/p&gt;
+&lt;p&gt;经常使用&lt;a href=&quot;https://pan.baidu.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;百度网盘&lt;/a&gt;的用户可能知道有一个PanDownload的下载神器，实现百度网盘下载，主程序可到 &lt;a href=&quot;https://pandownload.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://pandownload.com/&lt;/a&gt; 去下载，由于使用的人数过多，现在的加速效果已经非常有限了。今天我们讲解的是如何通过PanDownload网页版+本地Aria2实现百度网盘高速下载。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://pic.zhyong.cn/images/2019/08/08/44f73a7870f104119607ef2b92eb89d9.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="百度网盘" scheme="https://www.zhyong.cn/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
+    
+      <category term="aria2" scheme="https://www.zhyong.cn/tags/aria2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>百度网盘不限速的跨平台客户端：pan-light</title>
+    <link href="https://www.zhyong.cn/posts/8a9/"/>
+    <id>https://www.zhyong.cn/posts/8a9/</id>
+    <published>2019-08-08T12:31:04.000Z</published>
+    <updated>2020-08-17T09:52:20.635Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;2020年5月16日更新&quot;&gt;&lt;a href=&quot;#2020年5月16日更新&quot; class=&quot;headerlink&quot; title=&quot;2020年5月16日更新&quot;&gt;&lt;/a&gt;2020年5月16日更新&lt;/h2&gt;&lt;p&gt;随着PanDownload的维护者入狱，想要高速下载百度网盘的文件难上加难了。目前此项目也有半年未维护了，现在使用下载速度很慢了。想要高速下载，可能只能通过官方渠道，合租可能是个解决方案。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;又发现了一个好项目了：百度网盘不限速客户端, golang + qt5, 跨平台图形界面：&lt;a href=&quot;https://pan-light.peterq.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://pan-light.peterq.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;此项目在Github上开源，&lt;a href=&quot;https://github.com/peterq/pan-light&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/peterq/pan-light&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;经过测试，下载速度非常快，全速下载（下有截图），喜欢的可以Star关注！&lt;/p&gt;
+&lt;p&gt;注意：此项目目前仍处于开发阶段，可能不是很稳定。&lt;/p&gt;
+&lt;h2 id=&quot;软件特性&quot;&gt;&lt;a href=&quot;#软件特性&quot; class=&quot;headerlink&quot; title=&quot;软件特性&quot;&gt;&lt;/a&gt;软件特性&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;利用golang轻量级协程, 高并发分段下载, 可通过调节并发数达到最佳下载速度; 下载进度状态数据持久化到磁盘, 实现软件重启后可断点续传;&lt;/li&gt;
+&lt;li&gt;客户端本地实现简单代理, 突破百度防盗链, 将网盘视频喂给qt视频播放组件, 从而在线播放视频&lt;/li&gt;
+&lt;li&gt;在线体验: 用户无需下载, 通过网页即可在线体验本软件部分功能; 该系统可应用于其他客户端产品的在线体验;&lt;/li&gt;
+&lt;li&gt;在线体验原理: 闲置的个人pc, 通过 docker 开启若干个’虚拟机’, 虚拟机内安装好了本软件以及vnc服务. 用户打开网页, 在服务端的调度下, 网页通过 web rtc 和闲置pc建立p2p连接. 闲置pc将会打通一条用户网页到docker内部’隧道’. 网页连接虚拟机vnc服务进行远程控制&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="实用工具" scheme="https://www.zhyong.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="百度网盘" scheme="https://www.zhyong.cn/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
+    
+      <category term="AllPlatforms" scheme="https://www.zhyong.cn/tags/AllPlatforms/"/>
+    
+  </entry>
+  
+</feed>

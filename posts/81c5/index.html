@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="用什么sublime，Vscode她不好吗？   sublime text3的安装及配置参考：https:&#x2F;&#x2F;www.zhyong.cn&#x2F;posts&#x2F;d83d&#x2F;  安装插件如下（使用包管理搜索名称即可安装）：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Sublime Text3打造轻量级Python IDE">
+<meta property="og:url" content="https://www.zhyong.cn/posts/81c5/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="用什么sublime，Vscode她不好吗？   sublime text3的安装及配置参考：https:&#x2F;&#x2F;www.zhyong.cn&#x2F;posts&#x2F;d83d&#x2F;  安装插件如下（使用包管理搜索名称即可安装）：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-10T13:24:10.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.628Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="sublime3">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/81c5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>使用Sublime Text3打造轻量级Python IDE | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/81c5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          使用Sublime Text3打造轻量级Python IDE<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E4%BD%BF%E7%94%A8Sublime-Text3%E6%89%93%E9%80%A0%E8%BD%BB%E9%87%8F%E7%BA%A7Python-IDE.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-10 21:24:10" itemprop="dateCreated datePublished" datetime="2018-11-10T21:24:10+08:00">2018-11-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/81c5/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/81c5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>用什么sublime，Vscode她不好吗？</strong></p>
+<hr>
+<blockquote>
+<p>sublime text3的安装及配置参考：<a href="https://www.zhyong.cn/posts/d83d/">https://www.zhyong.cn/posts/d83d/</a></p>
+</blockquote>
+<p>安装插件如下（使用包管理搜索名称即可安装）：</p>
+<a id="more"></a>
+
+<ul>
+<li><a href="https://github.com/SublimeCodeIntel/SublimeCodeIntel" target="_blank" rel="noopener">SublimeCodeIntel</a>: 代码提示插件，可根据是python、java等自动代码示</li>
+<li><a href="https://github.com/titoBouzout/SideBarEnhancements/tree/st3" target="_blank" rel="noopener">SideBarEnhancements:</a> 扩展了侧边栏功能，快捷键<code>Ctrl+k Ctrl+b</code>打开或关闭侧边栏</li>
+<li><a href="https://github.com/biermeester/Pylinter" target="_blank" rel="noopener">pylinter</a>：Python基本主题，在<code>Preferences</code>——&gt;<code>Color Scheme</code>——&gt;选择<code>MonokaiPylinter</code></li>
+<li><a href="https://packagecontrol.io/packages/SublimeTmpl" target="_blank" rel="noopener">SublimeTmpl</a>：新建文件模板插件，可以支持多种语言例如Python、PHP等，可以设置自己的模板，具体如下！</li>
+<li><a href="https://packagecontrol.io/packages/Terminal" target="_blank" rel="noopener">Terminal</a>：打开一个命令窗口，用于各种命令操作，默认快捷键为<code>Ctrl+Shift+t</code></li>
+<li><a href="https://pypi.org/project/autopep8/" target="_blank" rel="noopener">AutoPep8</a>：python开发规范<a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">pep8</a>，默认快捷键<code>Ctrl+8</code>预览格式化后的代码，<code>Ctrl+Shift+8</code>直接格式化代码</li>
+<li><a href="https://github.com/SublimeLinter/SublimeLinter" target="_blank" rel="noopener">SublimeLinter</a> 是用来在写代码时做代码检查的，可以检查Python代码是否符合<a href="http://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">PEP8</a>的要求</li>
+<li><a href="http://damnwidget.github.io/anaconda/" target="_blank" rel="noopener">Anaconda</a>：自动匹配关键字等实用功能，有效提高开发效率(官网好像被墙)</li>
+<li><a href="https://github.com/wuub/SublimeREPL" target="_blank" rel="noopener">SublimeREPL</a>：直接运行当前文件，可以方便调试与交互，与Terminal可以联合使用</li>
+</ul>
+<h3 id="SublimeTmpl设置模板"><a href="#SublimeTmpl设置模板" class="headerlink" title="SublimeTmpl设置模板"></a>SublimeTmpl设置模板</h3><p>我的配置文件如下，可根据情况修改：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"disable_keymap_actions"</span>: <span class="literal">false</span>, <span class="comment">// "all"; "html,css"</span></span><br><span class="line">    <span class="attr">"date_format"</span> : <span class="string">"%Y-%m-%d %H:%M:%S"</span>,</span><br><span class="line">    <span class="attr">"attr"</span>: &#123;</span><br><span class="line">        <span class="attr">"author"</span>: <span class="string">"ZhangYong"</span>,</span><br><span class="line">			<span class="attr">"email"</span>: <span class="string">"stiverick610@gmail.com"</span>,</span><br><span class="line">		<span class="attr">"link"</span>: <span class="string">"https://www.zhyong.cn"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同时可修改新建Python文件的默认快捷键<code>ctrl+alt+shift+p</code>为<code>ctrl+alt+p</code>，在<code>Key Binding-Default</code>中修改即可，删除新建PHP文件快捷键<code>ctrl+alt+p</code></p>
+<h3 id="Anaconda-Sublime插件"><a href="#Anaconda-Sublime插件" class="headerlink" title="Anaconda Sublime插件"></a>Anaconda Sublime插件</h3><p>此为Sublime Text3插件，与Python环境管理Anaconda同名，需安装<a href="https://www.anaconda.com/" target="_blank" rel="noopener">Anaconda</a><br>具体安装以及使用参考：<a href="https://www.zhyong.cn/posts/90fa/">https://www.zhyong.cn/posts/90fa/</a></p>
+<p>设置Anaconda虚拟环境路径：<code>preferences——Package Settings——Anaconda——Settings-User</code>，设置内容如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"python_interpreter"</span>:<span class="string">"C:\\Users\\stive\\AppData\\Local\\Continuum\\anaconda3\\envs\\study\\python.exe"</span>,</span><br><span class="line"><span class="attr">"suppress_word_completions"</span>:<span class="literal">true</span>,</span><br><span class="line"><span class="attr">"suppress_explicit_completions"</span>:<span class="literal">true</span>,</span><br><span class="line"><span class="attr">"complete_parameters"</span>:<span class="literal">true</span>,</span><br><span class="line"><span class="attr">"anaconda_linting"</span>: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>python_interpreter</code>值即可，查看Anaconda虚拟环境位置，使用<code>conda env list</code>即可查看。</p>
+<p><strong>注意：</strong>需要将<code>\</code>改为<code>\\</code>，转义自身。</p>
+<p>将<code>Build System</code>改为Anaconda</p>
+<h3 id="SublimeREPL配置"><a href="#SublimeREPL配置" class="headerlink" title="SublimeREPL配置"></a>SublimeREPL配置</h3><p>虽然上面通过<code>Anaconda</code>插件使得<code>Ctrl+B</code>可以使用conda虚拟环境，但是<code>Ctrl+B</code>运行Python文件时，若出现交互界面（如<code>input</code>函数），则不可以进行交互，安装此插件可解决交互问题，更加像一个IDE。</p>
+<p>设置运行当前Python文件快捷键(F5)：</p>
+<p>References——&gt;Key Bindings，修改右侧的用户文件为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;<span class="attr">"keys"</span>:[<span class="string">"f5"</span>],</span><br><span class="line">    <span class="attr">"caption"</span>: <span class="string">"SublimeREPL: Python - RUN current file"</span>,</span><br><span class="line">    <span class="attr">"command"</span>: <span class="string">"run_existing_window_command"</span>,</span><br><span class="line">    <span class="attr">"args"</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"id"</span>: <span class="string">"repl_python_run"</span>,</span><br><span class="line">        <span class="attr">"file"</span>: <span class="string">"config/Python/Main.sublime-menu"</span></span><br><span class="line">    &#125;&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>默认框为新标签页，这样查看运行后信息很不方便，通过<code>views-layout-Rows 2</code>，这样按<code>F5</code>后即可显示在下面的编译区域。</p>
+<p>但是却还是只能使用默认环境，试了好久想使用Anaconda环境都没有成功，过段时间再试试。</p>
+<p><strong>备注：</strong>修改配置文件时，尽量修改<code>Settings - User</code>文件，这样即使包升级后配置文件也不会被覆盖。</p>
+<blockquote>
+<p>参考：<br><a href="https://blog.csdn.net/mx472756841/article/details/50535517" target="_blank" rel="noopener">sublime text 3 + python配置，完整搭建及常用插件安装</a><br>[<a href="https://loosky.net/2967.html" target="_blank" rel="noopener">基于Sublime Text搭建Python IDE</a>]</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\90fa\" rel="bookmark">Anaconda简单介绍及使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\8ec7\" rel="bookmark">CentOS7安装Python3</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\8015\" rel="bookmark">一条Python命令搭建下载服务器——实现局域网文件共享</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\bc93\" rel="bookmark">使用Python爬取豆瓣电影TOP250</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/81c5/" title="使用Sublime Text3打造轻量级Python IDE">https://www.zhyong.cn/posts/81c5/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/sublime3/" rel="tag"><i class="fa fa-tag"></i> sublime3</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/5edf/" rel="next" title="RAMOS系统简介及制作">
+                  <i class="fa fa-chevron-left"></i> RAMOS系统简介及制作
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/dd84/" rel="prev" title="树莓派3B+重装系统并配置WiFi">
+                  树莓派3B+重装系统并配置WiFi <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SublimeTmpl设置模板"><span class="nav-number">1.</span> <span class="nav-text">SublimeTmpl设置模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Anaconda-Sublime插件"><span class="nav-number">2.</span> <span class="nav-text">Anaconda Sublime插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SublimeREPL配置"><span class="nav-number">3.</span> <span class="nav-text">SublimeREPL配置</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

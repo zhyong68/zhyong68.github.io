@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="最近看了女娲工坊的关于系统启动相关的视频，以及U盘启动制作的三种方式并进行了实践，学到了很多，在此记录。 什么是WinPEWindows预安装环境（Microsoft Windows Preinstallation Environment），简称Windows PE或WinPE，是Windows的轻量版本，用于安装、部署和修复 Windows。 WinPE的主要作用 通过 Windows PE，可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分别使用U+、B+、UD制作WinPE启动盘">
+<meta property="og:url" content="https://www.zhyong.cn/posts/bb8d/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="最近看了女娲工坊的关于系统启动相关的视频，以及U盘启动制作的三种方式并进行了实践，学到了很多，在此记录。 什么是WinPEWindows预安装环境（Microsoft Windows Preinstallation Environment），简称Windows PE或WinPE，是Windows的轻量版本，用于安装、部署和修复 Windows。 WinPE的主要作用 通过 Windows PE，可">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-27-21.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-29-41.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-12-45.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-15-14.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-44-52.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-06-29.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-51-58.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-24-12.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-35-00.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-42-17.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-13-40.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-21-44.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-32-24.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-47-13.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-49-21.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_15-09-37.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_15-16-48.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_15-21-34.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_15-24-28.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-12-22.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-16-09.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-22-12.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-26-08.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-43-20.png">
+<meta property="article:published_time" content="2019-05-02T01:58:55.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.631Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="U盘启动">
+<meta property="article:tag" content="WinPE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-27-21.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/bb8d/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>分别使用U+、B+、UD制作WinPE启动盘 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/bb8d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          分别使用U+、B+、UD制作WinPE启动盘<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E5%88%86%E5%88%AB%E4%BD%BF%E7%94%A8U-%E3%80%81B-%E3%80%81UD%E5%88%B6%E4%BD%9CWinPE%E5%90%AF%E5%8A%A8%E7%9B%98.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-02 09:58:55" itemprop="dateCreated datePublished" datetime="2019-05-02T09:58:55+08:00">2019-05-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WinPE/" itemprop="url" rel="index">
+                    <span itemprop="name">WinPE</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/bb8d/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/bb8d/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近看了女娲工坊的关于系统启动相关的视频，以及U盘启动制作的三种方式并进行了实践，学到了很多，在此记录。</p>
+<h2 id="什么是WinPE"><a href="#什么是WinPE" class="headerlink" title="什么是WinPE"></a>什么是WinPE</h2><p>Windows预安装环境（Microsoft Windows Preinstallation Environment），简称Windows PE或WinPE，是Windows的轻量版本，用于安装、部署和修复 Windows。</p>
+<h2 id="WinPE的主要作用"><a href="#WinPE的主要作用" class="headerlink" title="WinPE的主要作用"></a>WinPE的主要作用</h2><ol>
+<li>通过 Windows PE，可以在安装 Windows 前设置硬盘；</li>
+<li>使用来自网络或本地驱动器的应用或脚本安装 Windows；</li>
+<li>捕获和应用 Windows 映像；</li>
+<li>在 Windows 操作系统不运行时，对它进行修改；</li>
+<li>设置自动恢复工具；从不可启动的设备中恢复数据；</li>
+<li>添加自定义外壳程序或GUI来使此类任务自动化。</li>
+</ol>
+<a id="more"></a>
+
+<h2 id="WinPE的分类"><a href="#WinPE的分类" class="headerlink" title="WinPE的分类"></a>WinPE的分类</h2><p>一是桌面操作，即带有资源管理器的PE，这种PE操作方便，界面美观友好，缺点是启动不如另外两种类型的PE迅速（因为开机时要花时间加载资源管理器）、资源占用较大。总体而言，比较适合初学者用户使用，也因为操作类似于真实的系统而得名RAMOS，同时也是最常见的PE类型。</p>
+<p>二是半桌面操作，即不含有资源管理器，但含有作者编写的一种程序代替，最典型的例子就要数安装原版系统时所用的安装PE，这种PE启动较快，资源占用较少，同时操作也比较方便，适合有一定电脑经验的用户使用。</p>
+<p>最后一种是命令行版本的PE，这种PE占用资源最少，启动最快，同时也是最原汁原味的PE。通过命令行来运行程序/操作，一般适合高手和专业级用户使用。推荐初学者用户最好选用第一种类型的PE，方便使用。</p>
+<h2 id="制作自己的WinPE"><a href="#制作自己的WinPE" class="headerlink" title="制作自己的WinPE"></a>制作自己的WinPE</h2><p>目前WinPE制作方式主要有这三种：U+、B+和UD，即通过Ultraiso、Bootice和fbinsttool工具进行制作。</p>
+<p>U+是使用ultraiso（软碟通）软件把PE写入U盘，并由ultraiso自动加入U+主引导和分区引导，制作启动U盘的技术。目前兼容性最好的是U+V2，它可以把PE部署到U盘hdd或zip的可见区、隐藏区、高端隐藏区或深度隐藏区。</p>
+<p>B+是使用无忧论坛版主Pauly制作的功能强大的引导扇区维护工具bootice对U盘进行操作，使之具备启动功能的方法，因为B+相对复杂些，目前使用的人还不是特别多。</p>
+<p>UD是使用时空论坛bean制作的fbinst或者jianliulin制作的GUI界面fbinsttool产生的一个分区，可以在硬盘、U盘或者储存卡上分出一个隐藏的分区，其特性是除了基于fbinst的工具可以进行读取之外的任何软件或者系统都无法读取其中的数据，具有防病毒、木马和防格式化等功能。而且对U盘的普通格式化也不会破坏隐藏FBA文件。而且许多GUI工具可以调用fbinst程序，使得一键制作U盘启动功能越来越傻瓜化，UD也受到广大技术员及电脑爱好者的喜爱，成为目前较主流的U盘启动制作方式。</p>
+<p><strong>注：</strong>以上理论知识来源于<a href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html" target="_blank" rel="noopener">女娲工坊扯闲篇儿</a>的视频教程，在此感谢！</p>
+<h2 id="准备工具和软件"><a href="#准备工具和软件" class="headerlink" title="准备工具和软件"></a>准备工具和软件</h2><p>软件和工具大部分来自于<a href="http://bbs.wuyou.net/forum.php" target="_blank" rel="noopener">无忧启动论坛</a>，非常感谢。</p>
+<ul>
+<li>金士顿 32G USB3.0 U盘一个</li>
+<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=404451" target="_blank" rel="noopener">新年新U+利器神器——ultraiso9.7.1</a>：U+启动</li>
+<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=57675" target="_blank" rel="noopener">【BOOTICE: 启动维护工具】-（2016-06-17 v1.3.4 测试）</a>：B+启动</li>
+<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=189221" target="_blank" rel="noopener">fbinstTool 1.701 for fbinst v1.7【2017-03-18】变形金刚版</a>：UD启动</li>
+<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=365856" target="_blank" rel="noopener">Message启动菜单个性化制作! 2016年5月23日更新1.0.3.3 完结版</a>：制作UD启动的Message文件，作为背景以及相关设置</li>
+<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=412834" target="_blank" rel="noopener">Qemu启动测试器x64</a>：用于测试U盘启动，而不需要在物理机上进行测试</li>
+</ul>
+<p>在此我将上述五个软件打包好了：<a href="https://www.lanzous.com/i5hb22h" target="_blank" rel="noopener">点击下载</a></p>
+<p>除了制作软件，当然我们还需要制作好的WinPE，这样我们才能使用这三种方式写入U盘来进行启动。</p>
+<p>由于网上各种各样的PE实在是太多太多，质量也参差不齐，按照我的经验，推荐这三款PE：</p>
+<ul>
+<li><a href="http://www.wepe.com.cn/" target="_blank" rel="noopener">微PE工具箱 - 最好用的WinPE装机维护工具</a>：微PE工具箱V2.0 64位</li>
+<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=414164" target="_blank" rel="noopener">纯净、开放、美观、方便的WINDOWS 10 17763 PE X64</a></li>
+<li><a href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html" target="_blank" rel="noopener">Nüwa workshop：Win10PE 2in1——2019年4月28日</a></li>
+</ul>
+<p>以上三种PE均无流氓行为，且均支持Legacy Bios和Uefi Bios启动，兼容性较好。<br>下载链接：<a href="https://pan.baidu.com/s/1vIMu5aEt0fj8f1up1AN-lA" target="_blank" rel="noopener">https://pan.baidu.com/s/1vIMu5aEt0fj8f1up1AN-lA</a>  提取码：1nfi ，下载后请校验文件。</p>
+<p><strong><font color="red">注意：</font></strong>请选择一个空的U盘或提前备份U盘所有数据，避免因U盘原先的隐藏分区等干扰，以下三种方式制作启动盘提前使用<code>FbinstTool</code>格式化U盘。<br>选择U盘，启动设置——格式化——重置磁盘，点击格式化!</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-27-21.png"></p>
+<p>请下载需要的软件和PE，下面详细介绍每种方式的制作过程。</p>
+<h2 id="一些说明"><a href="#一些说明" class="headerlink" title="一些说明"></a>一些说明</h2><p><strong>Legacy Bios和Uefi Bios的一些说明：</strong><br>开机流程：</p>
+<ul>
+<li>Legacy Bios：开机——Bios初始化——Bios自检——引导操作系统——进入系统</li>
+<li>Uefi Bios：开机——Uefi初始化——引导操作系统——进入系统</li>
+</ul>
+<p>因此Uefi Bios启动速度更快，现在大部分生产的电脑都是Uefi启动。</p>
+<p><strong>Legacy 引导和 Uefi 引导：</strong><br>Legacy引导与MBR以及PBR有重大关系，而UEFI引导与MBR以及PBR无关，它关心的只是可识别的FAT文件系统分区中的引导文件bootx64.efi（引导64位PE）或者bootia32.efi （引导32位PE）。</p>
+<p><strong>关于隐藏分区（后面需要涉及），包含普通隐藏、高端隐藏、深度隐藏：</strong></p>
+<p>各种隐藏的目的提高启动成功率，提高启动兼容性，提高安全性。</p>
+<ul>
+<li>U+B+（普通）隐藏，PE隐藏区放在第一分区，可见区放在第二分区，设置第一分区为隐藏并激活。 BIOS兼容性好，UEFI兼容性好。</li>
+<li>U+B+高端隐藏，情况正好相反，可见区放在第一分区，PE隐藏区部署在第二分区并设置隐藏和激活。BIOS兼容性差，UEFI兼容性好。</li>
+<li>U+深度隐藏和UD隐藏，PE隐藏区还是放在U盘开头第一分区，而可见区放在U盘第二分区。但分区表中抹掉了隐藏分区信息，故在分区软件中深度隐藏分区显示为未分配状态。 UD隐藏BIOS兼容性好， U+深度隐藏不好引导，PBR需要Easyboot引导，两者都不支持UEFI。</li>
+</ul>
+<p>故我们一般选择（普通）隐藏，启动方式一般选择U+V2（USB-HDD+ v2），兼容性最好。</p>
+<p><strong>如何选择启动分区的分区引导记录是bootmgr还是grldr：</strong></p>
+<p>在B+启动涉及。<br>打开PE的ISO文件，若文件目录中只有BOOTMGR，则是bootmgr，若只有grldr文件，则是grldr方式。这里我们选择的是bootmgr。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-29-41.png"></p>
+<h2 id="使用U-方式制作WinPE（初级难度）"><a href="#使用U-方式制作WinPE（初级难度）" class="headerlink" title="使用U+方式制作WinPE（初级难度）"></a>使用U+方式制作WinPE（初级难度）</h2><p><strong>所需材料</strong>：U盘、ultraiso9.7.1便捷版1.21、Qemu启动测试器x64、WePE_64_V2.0.iso</p>
+<p>打开<code>ultraiso9.7.1便捷版1.21</code>，文件——打开——选择<code>WePE_64_V2.0.iso</code></p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-12-45.png"></p>
+<p>点击 启动——写入硬盘映像</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-15-14.png"></p>
+<p>安装图示进行设置，最后点击：写入——是，制作完成！</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-44-52.png"></p>
+<p>通过BOOTICEx64的分区管理，可以看到一个隐藏分区（258.9M）和一个可见分区（28.6G）。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-06-29.png"></p>
+<p>使用<code>Qemu启动测试器x64</code>进行测试启动：</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-51-58.png"></p>
+<p>注意此工具对于Win10系统兼容性不好，我测试时Legacy Bios无法启动，Efi可以正常启动。是测试工具的原因，可以正常启动，可拿Legacy Bios的物理机进行测试。</p>
+<p>最后建议将可见分区格式化为exFAT，使得单个文件支持4G以上。</p>
+<p>此方式制作简单，但是普通隐藏会因bootmgr捣乱，在win/pe系统下运行某些一键还原软件如gghost时，会引起可见区与隐藏区的互换（可通过Bootice解决）。且如果需要更新PE或者更换PE，则必须格式化整个磁盘，不便于U盘数据的存储，这些可以通过B+的方式来解决。</p>
+<h2 id="使用B-方式制作WinPE（中级难度）"><a href="#使用B-方式制作WinPE（中级难度）" class="headerlink" title="使用B+方式制作WinPE（中级难度）"></a>使用B+方式制作WinPE（中级难度）</h2><p><strong>所需材料</strong>：U盘、BOOTICEx64、Qemu启动测试器x64、WePE_64_V2.0.iso<br>制作难度相对U+复杂，但可实现PE的无损替换！首先使用FbinstTool格式化U盘（前面有）。</p>
+<p>打开<code>BOOTICEx64</code>，选择目标磁盘为U盘，点击<code>分区管理</code>，再点击<code>U+V2</code>，根据下图设置，确定。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-24-12.png"></p>
+<p>完成后，如图，将1G的分区添加隐藏。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-35-00.png"></p>
+<p>此时可暂时将1G的分区设置为可见，将 WePE_64_V2.0.iso 解压复制到此分区，完成后再将另外一个分区设置可见。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-42-17.png"></p>
+<p>到此，制作过程本应该已经结束，但是Bootice工具的问题，不能以U+v2的方式启动PE。有两种解决方法：</p>
+<p><strong>1. 使用U+方式制作后备份mbr，然后使用B+方式制作PE后恢复mbr</strong></p>
+<p>根据<a href="http://www.iqiyi.com/w_19rzoj6hs1.html?list=19rrm7pfuq#curid=21006550509_66213fc45f132f6edb5a65b721303137" target="_blank" rel="noopener">女娲工坊扯闲篇儿之八 ：（中级难度）如何用BOOTICE制作干净启动盘</a>中的说明，使用Bootice引导代码类型是U+v2的启动方式，因U盘不同而不同，可以通过以U+方式制作PE，然后备份MBR（备份扇区2-100不等，推荐100）。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-13-40.png"></p>
+<p>然后以B+方式制作PE，再将备份的MBR进行恢复即可，亲测可用！此方式较复杂，以下为另一种简单方式。</p>
+<p><strong>2. 修改U+v2的主引导，改为U+引导：</strong></p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-21-44.png"></p>
+<p><strong>更新或更换PE：</strong></p>
+<p>使用Bootice将隐藏分区设置为可见，格式化，将解压好的ISO文件全部复制进去，再将另外一个分区设置可见（则此分区自动隐藏）。</p>
+<p><strong><font color="red">注：</font></strong>格式化分区后，会默认将PRB设置为<code>BOOTMGR引导程序</code>（MRB不影响），若PE文件为grldr引导，则需手动修复PBR，否则不需要。</p>
+<p><img alt="手动修复PBR" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-32-24.png"></p>
+<p>注意需再将U+v2的主引导记录文件(MBR)恢复即可。</p>
+<h2 id="使用UD制作WinPE（高级难度）"><a href="#使用UD制作WinPE（高级难度）" class="headerlink" title="使用UD制作WinPE（高级难度）"></a>使用UD制作WinPE（高级难度）</h2><p>上述我们制作的都是单PE，这里我们通过UD制作一个多PE。</p>
+<p><strong>所需材料</strong>：U盘、FbinstTool1.7、Qemu启动测试器x64、WePE_64_V2.0.iso、Win10PE2in1.2019.5V2.iso、Win10x64PE_17763.iso、<a href="https://zhyong-cn-soft.oss-cn-shanghai.aliyuncs.com/%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6.7z" target="_blank" rel="noopener">引导文件</a></p>
+<p>目前公认兼容性最好的启动U盘模式是三分区，前端UD隐藏用于传统BIOS启动，中间可见分区存储数据，后面U+V2高端隐藏用于UEFI BIOS启动。</p>
+<p>这里我们制作一个UD五分区的PE。</p>
+<p>第一分区我们用来引导Legacy Bios的启动文件（3G），第二分区作为数据区（U盘大小减去其它四分区），用来存储个人数据，第三、四、五分区用来存放Uefi引导的PE文件（分别占用1G，共3G）。</p>
+<ol>
+<li>准备工作：准备好上述三个PE并分别解压</li>
+<li>使用FbinstTool格式化U盘（前面已经介绍）：选择U盘，启动设置——格式化——重置磁盘，点击格式化!</li>
+<li>点击 启动设置——格式化，按照图示操作,最后点击确定——是——是。</li>
+</ol>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-47-13.png"></p>
+<ol start="4">
+<li>完成后如图，删除<code>mbr.pt</code>文件，再点击 数据管理——执行碎片整理 （整个过程不能有碎片，执行碎片整理比较伤U盘，故文件尽可能少时执行）</li>
+</ol>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-49-21.png"></p>
+<ol start="5">
+<li><p>现在整个是一个空盘，<strong>依次</strong>导入grldr、message文件：右键——导入文件 (message文件是背景以及设置，可以使用<code>个性化启动菜单制作(1.0.3.3)完结版</code>进行制作或修改，此message文件是我制作的。)</p>
+</li>
+<li><p>空白区右键——新建文件，按图示操作，再点击确定。此文件用来占位。</p>
+</li>
+</ol>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_15-09-37.png"></p>
+<ol start="7">
+<li>同样方式，建立第二个分区数据区，文件大小按照图示计算。</li>
+</ol>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_15-16-48.png"></p>
+<ol start="8">
+<li>同样方式，建立三、四、五用于启动Uefi的分区，每个分区设为1G，最终结果</li>
+</ol>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_15-21-34.png"></p>
+<ol start="9">
+<li><strong>依次</strong>将新建文件转换为分区（除占座文件，即第一分区文件）：选择——右键——加入到分区表</li>
+</ol>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_15-24-28.png"></p>
+<ol start="10">
+<li><p>删除占座的 mbrpeiso.img ：选中——右键——删除文件</p>
+</li>
+<li><p>添加Legacy Bios启动的三个（或者更多）PE文件，依次添加：右键——导入文件(扩展分区)，选择PE的ISO文件，我们依次导入WePE_64_V2.0.iso、Win10x64PE_17763.iso和Win10PE2in1.2019.5V2.iso<br>添加的先后原则是：将不常更新的PE放在前面，常更新的PE放在后面，避免更新时产生碎片，而导致ISO仿真出现问题。</p>
+</li>
+<li><p>完成后，修改grldr菜单：点击菜单栏下面的Grldr菜单，替换如下，Ctrl+s保持即可，若删除或添加PE，则按照此模板修改即可。</p>
+</li>
+</ol>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">timeout 10</span><br><span class="line">default 0</span><br><span class="line">gfxmenu <span class="params">(ud)</span><span class="string">/MESSAGE</span></span><br><span class="line"></span><br><span class="line">title 【01】极致纯净微PE 2.0 x64</span><br><span class="line">map <span class="params">(bd)</span><span class="string">/WePE_64_V2.0.iso</span> <span class="params">(0xff)</span> </span><br><span class="line">map <span class="params">--hook</span></span><br><span class="line">chainloader <span class="params">(0xff)</span></span><br><span class="line"></span><br><span class="line">title 【02】纯净_开放_美观_Win10x64PE_17763</span><br><span class="line">map <span class="params">(bd)</span><span class="string">/Win10x64PE_17763.iso</span> <span class="params">(0xff)</span> </span><br><span class="line">map <span class="params">--hook</span></span><br><span class="line">chainloader <span class="params">(0xff)</span></span><br><span class="line"></span><br><span class="line">title 【03】女娲工坊 Win10PE2in1</span><br><span class="line">map <span class="params">(bd)</span><span class="string">/Win10PE2in1.2019.5V2.iso</span> <span class="params">(0xff)</span> </span><br><span class="line">map <span class="params">--hook</span></span><br><span class="line">chainloader <span class="params">(0xff)</span></span><br><span class="line"></span><br><span class="line">title 【04】启动本机WINDOWS操作系统</span><br><span class="line"><span class="keyword">echo</span> $[1106] Loading Start Hard disk Windows, Please Wait <span class="string">...</span></span><br><span class="line">find <span class="params">--set-root</span> <span class="params">--ignore-floppies</span> <span class="params">--ignore-cd</span> <span class="string">/ntldr</span> || find <span class="params">--set-root</span> <span class="params">--ignore-floppies</span> <span class="params">--ignore-cd</span> <span class="string">/bootmgr</span></span><br><span class="line">map <span class="params">()</span> <span class="params">(hd0)</span></span><br><span class="line">map <span class="params">(hd0)</span> <span class="params">()</span></span><br><span class="line">map <span class="params">--rehook</span></span><br><span class="line">find <span class="params">--set-root</span> <span class="params">--ignore-floppies</span> <span class="params">--ignore-cd</span> <span class="string">/ntldr</span> || find <span class="params">--set-root</span> <span class="params">--ignore-floppies</span> <span class="params">--ignore-cd</span> <span class="string">/bootmgr</span></span><br><span class="line">chainloader <span class="string">/ntldr</span> || chainloader <span class="string">/bootmgr</span></span><br><span class="line"></span><br><span class="line">title 【05】重启</span><br><span class="line">	reboot</span><br><span class="line"></span><br><span class="line">title 【06】关机</span><br><span class="line">	halt</span><br></pre></td></tr></table></figure>
+
+<p>然后下图操作：</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-12-22.png"></p>
+<p>选择最新版，点击更新。</p>
+<p>完成后，即可点击FbinstTool中的Qemu测试，可以通过Legacy Bios启动。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-16-09.png"></p>
+<ol start="13">
+<li>设置其它三分区的Uefi启动</li>
+</ol>
+<p>点击：启动设置——分区表，将uefi1.img调整到最上面，保存。<br>这时uefi1.img的分区就会在 “我的电脑” 中显示，将解压的<code>WePE_64_V2.0.iso</code>的全部文件复制进去；<br>然后：启动设置——分区表，将uefi2.img调整到最上面，保存，将解压的<code>Win10x64PE_17763.iso</code>的全部文件复制进去；<br>同样方法操作uefi3.img ,将解压的女娲工坊<code>Win10PE2in1.2019.5V2.iso</code>的全部文件复制进去，完成后，将分区表的位置调整成默认，即：</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-22-12.png"></p>
+<p>通过计算机自带的磁盘管理，如图：</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-26-08.png"></p>
+<p>最后将数据区格式化为exFAT格式，这样我们的UD五分区的PE就制作完成了。</p>
+<p>刚刚Legacy启动已经成功了，但是Uefi启动该如何选择从哪个PE启动呢？我的主板是Uefi启动，所以我使用我的物理机来演示。</p>
+<p>进入固件设置，可以看到除系统启动盘外还有三个启动盘，分别对应Uefi1，Uefi2，Uefi3，如我选择最下面的 <code>UEFI:KingstonDataTraveler3.0PMAP Partition4</code> 那个盘启动，对应的是U盘分区的Uefi3，则进入的就是女娲工坊<code>Win10PE2in1.2019.5V2.iso</code>。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-43-20.png"></p>
+<p>通过前面的知识，对于Uefi启动，只需要识别FAT文件系统分区中的引导文件<code>bootx64.efi</code>或<code>bootia32.efi</code>即可成功启动PE，因此对于Uefi启动，我们只需要复制解压的PE到分区即可，而不需要管那些mbr、pbr。</p>
+<p>至此，完美制作出UD5分区多PE启动盘。此启动盘兼容性好，支持Legacy Bios和Uefi Bios，支持无损更新或更换PE，且安全性非常高。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>花了9个小时写了这篇文章，关于系统启动、U盘启动和PE方面的知识是比较复杂的，这里也仅仅是对于制作U盘启动的三种方式进行简单总结，相对于网上所谓的一键制作（黑箱操作），这三种方式更加透明且经过大量检验，可放心使用。所用到的所有工具和PE我都注明来源并提供下载，在此非常感谢女娲工坊制作的相关视频。</p>
+<blockquote>
+<p>参考：<a href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html" target="_blank" rel="noopener">Win10PE 2in1——2019年4月28日，附4小时视频教程及全套制作工具</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\7594\" rel="bookmark">自制纯净PE分享——微PEv2.0 x64增强版</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/bb8d/" title="分别使用U+、B+、UD制作WinPE启动盘">https://www.zhyong.cn/posts/bb8d/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/U%E7%9B%98%E5%90%AF%E5%8A%A8/" rel="tag"><i class="fa fa-tag"></i> U盘启动</a>
+              <a href="/tags/WinPE/" rel="tag"><i class="fa fa-tag"></i> WinPE</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/bb2e/" rel="next" title="Office下载安装汇总及Office 2013-2019 C2R Install推荐">
+                  <i class="fa fa-chevron-left"></i> Office下载安装汇总及Office 2013-2019 C2R Install推荐
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/92af/" rel="prev" title="致力于纯净系统封装：Windows7 旗舰版x64 20190504">
+                  致力于纯净系统封装：Windows7 旗舰版x64 20190504 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是WinPE"><span class="nav-number">1.</span> <span class="nav-text">什么是WinPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WinPE的主要作用"><span class="nav-number">2.</span> <span class="nav-text">WinPE的主要作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WinPE的分类"><span class="nav-number">3.</span> <span class="nav-text">WinPE的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#制作自己的WinPE"><span class="nav-number">4.</span> <span class="nav-text">制作自己的WinPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工具和软件"><span class="nav-number">5.</span> <span class="nav-text">准备工具和软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些说明"><span class="nav-number">6.</span> <span class="nav-text">一些说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用U-方式制作WinPE（初级难度）"><span class="nav-number">7.</span> <span class="nav-text">使用U+方式制作WinPE（初级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用B-方式制作WinPE（中级难度）"><span class="nav-number">8.</span> <span class="nav-text">使用B+方式制作WinPE（中级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用UD制作WinPE（高级难度）"><span class="nav-number">9.</span> <span class="nav-text">使用UD制作WinPE（高级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

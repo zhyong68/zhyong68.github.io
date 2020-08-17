@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="coder-server是著名的Visual Studio Code开源编辑器的Web版，本篇博客使用群晖的Docker组件（玩群晖怎能不玩Docker？），完全图形化界面来搭建code server，以及解决部署后产生的问题，部署过程简单易操作，容器占用资源少。 code server github：cdr&#x2F;code-server: VS Code in the browsercode serv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群晖Docker安装code-server">
+<meta property="og:url" content="https://www.zhyong.cn/posts/99b4/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="coder-server是著名的Visual Studio Code开源编辑器的Web版，本篇博客使用群晖的Docker组件（玩群晖怎能不玩Docker？），完全图形化界面来搭建code server，以及解决部署后产生的问题，部署过程简单易操作，容器占用资源少。 code server github：cdr&#x2F;code-server: VS Code in the browsercode serv">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620152209.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620152600.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620153248.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620153341.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620153610.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620154527.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155301.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155655.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155805.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620161445.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620162140.png">
+<meta property="article:published_time" content="2020-06-20T07:03:48.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.637Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="vscode">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620152209.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/99b4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>群晖Docker安装code-server | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/99b4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          群晖Docker安装code-server<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E7%BE%A4%E6%99%96Docker%E5%AE%89%E8%A3%85code-server.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-20 15:03:48" itemprop="dateCreated datePublished" datetime="2020-06-20T15:03:48+08:00">2020-06-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BE%A4%E6%99%96%E6%8A%98%E8%85%BE/" itemprop="url" rel="index">
+                    <span itemprop="name">群晖折腾</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/99b4/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/99b4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>coder-server是著名的Visual Studio Code开源编辑器的Web版，本篇博客使用群晖的Docker组件（玩群晖怎能不玩Docker？），完全图形化界面来搭建code server，以及解决部署后产生的问题，部署过程简单易操作，容器占用资源少。</p>
+<p>code server github：<a href="https://github.com/cdr/code-server" target="_blank" rel="noopener">cdr/code-server: VS Code in the browser</a><br>code server docker hub：<a href="https://registry.hub.docker.com/r/codercom/code-server/" target="_blank" rel="noopener">codercom/code-server - Docker Hub</a></p>
+<a id="more"></a>
+
+<h2 id="群晖Docker的安装及code-server容器的创建"><a href="#群晖Docker的安装及code-server容器的创建" class="headerlink" title="群晖Docker的安装及code-server容器的创建"></a>群晖Docker的安装及code-server容器的创建</h2><p>若没有安装docker，打开套件中心，直接搜索Docker，安装即可。</p>
+<p><img alt="群晖安装Docker" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620152209.png"></p>
+<p>打开docker，在注册表里搜索<code>code-server</code>，第一个即为官方镜像，双击下载。</p>
+<p><img alt="拉取code-server" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620152600.png"></p>
+<p>等待下载完成后，在映像中双击即可创建容器，首先看一下官方的部署代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:8080 \</span><br><span class="line">  -v "$PWD:/home/coder/project" \</span><br><span class="line">  -u "$(id -u):$(id -g)" \</span><br><span class="line">  codercom/code-server:latest</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>8080:8080</code>为端口映射，<code>-v</code>为卷映射，<code>-u</code>为用户权限映射，权限映射在Docker Gui界面不需要设置。</p>
+<p><img alt="创建code server容器" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620153248.png"></p>
+<p>自动启动根据需要勾选，即群晖开机或重启后是否自动运行此容器。</p>
+<p><img alt="自动启动" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620153341.png"></p>
+<p>添加对应的文件夹映射，首先在File Station中创建需要的文件夹，然后建立映射。</p>
+<p><img alt="文件夹映射" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620153610.png"></p>
+<p>端口映射，避免冲突即可，若8080没被占用，直接默认即可，或者自行设置本地端口，如我设置为18080。然后点击应用即可创建容器。</p>
+<h2 id="code-server密码的获取"><a href="#code-server密码的获取" class="headerlink" title="code-server密码的获取"></a>code-server密码的获取</h2><h3 id="密码获取及修改"><a href="#密码获取及修改" class="headerlink" title="密码获取及修改"></a>密码获取及修改</h3><p>浏览器打开群晖IP:端口，默认端口为IP:8080，即可看到web界面，我们已成功部署了code-server。</p>
+<p><img alt data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620154527.png"></p>
+<p>密码在容器的<code>~/.config/code-server/config.yaml</code>文件里，我们直接在终端查看即可。</p>
+<p><img alt="获取web登录密码" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155301.png"></p>
+<p>终端机输入：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.<span class="built_in">config</span>/code-server/<span class="built_in">config</span>.yaml</span><br></pre></td></tr></table></figure>
+
+<p>即可成功登录。</p>
+<p><img alt="code-server界面" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155655.png"></p>
+<p>若需要修改密码，直接在浏览器修改，然后重启容器即可。</p>
+<p><img alt="修改密码" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155805.png"></p>
+<h3 id="映射文件夹权限问题"><a href="#映射文件夹权限问题" class="headerlink" title="映射文件夹权限问题"></a>映射文件夹权限问题</h3><p>我们在默认的project目录<code>/home/coder/project</code>下创建文件，出现报错：</p>
+<p><img alt="权限错误" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620161445.png"></p>
+<p>我们在映射的文件夹中设置EveryOne权限为读写即可解决（开始时我还以为是没有执行<code>-u &quot;$(id -u):$(id -g)&quot;</code>导致的，折腾半天）</p>
+<p><img alt="设置映射文件夹权限" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620162140.png"></p>
+<p>若为灰色。则在高级选项——使继承权限显示化。</p>
+<p>到此，全部完成，在浏览器里愉快地玩VsCode吧。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\959b\" rel="bookmark">CentOS7部署code-server并配置Nginx反向代理</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\64e\" rel="bookmark">使用Docker部署Solo博客系统</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\fcef\" rel="bookmark">群晖Docker部署Calibre Web打造全功能书库</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/99b4/" title="群晖Docker安装code-server">https://www.zhyong.cn/posts/99b4/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vscode/" rel="tag"><i class="fa fa-tag"></i> vscode</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/8c5/" rel="next" title="腾讯云静态网站托管加速Hexo博客">
+                  <i class="fa fa-chevron-left"></i> 腾讯云静态网站托管加速Hexo博客
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/f050/" rel="prev" title="树莓派 Raspberry Pi 3B+安装官方系统（一）">
+                  树莓派 Raspberry Pi 3B+安装官方系统（一） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#群晖Docker的安装及code-server容器的创建"><span class="nav-number">1.</span> <span class="nav-text">群晖Docker的安装及code-server容器的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code-server密码的获取"><span class="nav-number">2.</span> <span class="nav-text">code-server密码的获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#密码获取及修改"><span class="nav-number">2.1.</span> <span class="nav-text">密码获取及修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射文件夹权限问题"><span class="nav-number">2.2.</span> <span class="nav-text">映射文件夹权限问题</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

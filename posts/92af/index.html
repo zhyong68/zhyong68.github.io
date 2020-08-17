@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="相对于上一次封装的系统已经有很长一段时间了，获得网上很多用户的好评。此次重新封装Windows7 64位旗舰版，使用较稳定的 EasySysprep_4.5.31.611 进行封装，集成IT天空最新的 万能驱动 v7.19.328.1（2019.04.19 发布），全程 断网封装，一如既往地纯净、稳定。  更新IE为IE11，集成IE补丁，安装摄像头补丁，使用Dism++离线更新系统补丁至2019">
+<meta property="og:type" content="article">
+<meta property="og:title" content="致力于纯净系统封装：Windows7 旗舰版x64 20190504">
+<meta property="og:url" content="https://www.zhyong.cn/posts/92af/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="相对于上一次封装的系统已经有很长一段时间了，获得网上很多用户的好评。此次重新封装Windows7 64位旗舰版，使用较稳定的 EasySysprep_4.5.31.611 进行封装，集成IT天空最新的 万能驱动 v7.19.328.1（2019.04.19 发布），全程 断网封装，一如既往地纯净、稳定。  更新IE为IE11，集成IE补丁，安装摄像头补丁，使用Dism++离线更新系统补丁至2019">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-35-04.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-35-53.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-36-22.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-37-52.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-38-54.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-39-49.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-17-29-18.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-38-10.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-06-22-53-25.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-06-22-53-45.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-07-00-13-21.png">
+<meta property="article:published_time" content="2019-05-04T08:57:41.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.639Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="纯净系统">
+<meta property="article:tag" content="Windows7">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-35-04.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/92af/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>致力于纯净系统封装：Windows7 旗舰版x64 20190504 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/92af/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          致力于纯净系统封装：Windows7 旗舰版x64 20190504<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E8%87%B4%E5%8A%9B%E4%BA%8E%E7%BA%AF%E5%87%80%E7%B3%BB%E7%BB%9F%E5%B0%81%E8%A3%85%EF%BC%9AWindows7-%E6%97%97%E8%88%B0%E7%89%88x64-20190504.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-04 16:57:41" itemprop="dateCreated datePublished" datetime="2019-05-04T16:57:41+08:00">2019-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BA%AF%E5%87%80%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">纯净系统</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/92af/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/92af/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>相对于上一次封装的系统已经有很长一段时间了，获得网上很多用户的好评。此次重新封装Windows7 64位旗舰版，使用较稳定的 <code>EasySysprep_4.5.31.611</code> 进行封装，集成IT天空最新的 <a href="https://www.itsk.com/thread-396279-1-1.html" target="_blank" rel="noopener">万能驱动 v7.19.328.1（2019.04.19 发布）</a>，全程 <strong>断网封装</strong>，一如既往地纯净、稳定。</p>
+<ol>
+<li>更新IE为IE11，集成IE补丁，安装摄像头补丁，使用Dism++离线更新系统补丁至2019年05月04日；</li>
+<li>适当精简优化（最后有详细说明），保证系统稳定，流畅；</li>
+<li>使用IT天空最新的 <a href="https://www.itsk.com/forum.php?mod=viewthread&tid=393982" target="_blank" rel="noopener">一键运行库1.13.2019.123</a> ，安装VC++运行库（含VC++2005、2008、2010、2012、2013和2017的32位、64位）、.Net Framework 4.7.2和DirectX_9.0运行库，完美支持大型游戏和各种软件；</li>
+<li>无任何OEM信息，软件仅安装最新的 <a href="https://www.7-zip.org/" target="_blank" rel="noopener">7-Zip 19.00</a> 压缩软件和 Flash.Player.ActiveX.32.0.0.114 特别版，未安装其它任何软件；</li>
+<li>安装过程全程无人值守，自动部署，自动安装驱动，自动激活系统。</li>
+</ol>
+<a id="more"></a>
+
+<p>以下为相关截图（注：虚拟机中所截，所以无网络、无声音）：</p>
+<h2 id="系统安装截图"><a href="#系统安装截图" class="headerlink" title="系统安装截图"></a>系统安装截图</h2><p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-35-04.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-35-53.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-36-22.png"></p>
+<h2 id="Windows7系统截图"><a href="#Windows7系统截图" class="headerlink" title="Windows7系统截图"></a>Windows7系统截图</h2><p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-37-52.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-38-54.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-39-49.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-17-29-18.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-04-16-38-10.png"></p>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>链接: <a href="https://pan.baidu.com/s/155cjq9RTmOe9t3FgoseVdg" target="_blank" rel="noopener">https://pan.baidu.com/s/155cjq9RTmOe9t3FgoseVdg</a> 提取码: k6hd </p>
+<p>下载完成后请使用文件校验工具进行校验！</p>
+<blockquote>
+<p>文件: 20190504\Windows7 旗舰版x64 20190504.wim<br>大小: 6759103847 字节<br>修改时间: 2019年5月4日, 16:33:12<br>MD5: D163AB258C81FA3A873D402B2548969D<br>SHA1: 6A22ED3F43621BDB2F4F87CA1121D23F464C7CEB<br>CRC32: 6761629C</p>
+</blockquote>
+<h2 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h2><h3 id="更新补丁"><a href="#更新补丁" class="headerlink" title="更新补丁"></a>更新补丁</h3><p>截至2019年05月04日，集成除以下补丁外所有补丁：</p>
+<ul>
+<li>未集成 将导致 会声会影9 无法正常使用的 <code>KB3126587</code> 补丁程序</li>
+<li>未集成 导致某些游戏无法正常运行的 <code>KB3000483</code> 补丁程序</li>
+<li>未集成 Windows10 免费升级的 <code>KB3184143</code> 补丁程序</li>
+<li>未集成 可能导致某些UEFI启动的华硕电脑无法启动的 <code>KB3133977</code> 补丁程序</li>
+<li>未集成 客户体验和诊断遥测更新，用于收集Windows诊断信息相关的 <code>KB3080149</code>、<code>KB3068708</code>、<code>KB3021917</code> 补丁程序</li>
+<li>未集成 过期更新 <code>KB3020369</code> 补丁程序</li>
+</ul>
+<h3 id="精简优化细节"><a href="#精简优化细节" class="headerlink" title="精简优化细节"></a>精简优化细节</h3><ul>
+<li>安装Win7摄像头补丁</li>
+<li>破解uxtheme.dll文件，使系统支持第三方桌面主题</li>
+<li>清理无用注册表</li>
+<li>添加“宽带连接”到桌面</li>
+<li>优化视频显示——关闭所有不必要的动画（如果可能）</li>
+</ul>
+<p><strong>系统精简</strong></p>
+<ul>
+<li>删除电视卡驱动文件、调制解调器驱动、图像处理设备驱动、惠普打印机驱动、其它打印机驱动、系统自带的显卡驱动</li>
+<li>删除启动界面其它语言支持、微软拼音输入法、日文输入法、英文输入法、繁体中文输入法</li>
+<li>删除微软自带的游戏、公共用户示例影音文件、系统自带主题和壁纸、系统升级备份文件</li>
+<li>删除语音识别功能、DVD Maker、Windows Defender、Windows Media Center</li>
+<li>删除多余的字体文件和图片</li>
+</ul>
+<p><strong>更新清理</strong></p>
+<ul>
+<li>删除被淘汰的更新文件</li>
+<li>删除Visual Studio安装源</li>
+<li>删除临时更新文件、Installer临时解压目录、更新记录缓冲和Windows临时目录</li>
+</ul>
+<p><strong>网络优化</strong></p>
+<ul>
+<li>加快局域网访问速度</li>
+<li>IE以5线程下载</li>
+</ul>
+<p><strong>开机优化</strong></p>
+<ul>
+<li>关闭预读以减少开机进程条等待时间加快启动</li>
+<li>禁止启动时自动检测不存在的IDE接口</li>
+<li>禁止登录后创建成功登录报告功能</li>
+<li>Win7启动提速</li>
+<li>启动期间禁止更新组策略以加快启动</li>
+<li>启动时禁止运行欢迎中心</li>
+</ul>
+<p><strong>关机优化</strong></p>
+<ul>
+<li>加快结束出错程序等待时间</li>
+<li>加快关闭服务等待时间</li>
+<li>加快关闭程序等待时间</li>
+</ul>
+<p><strong>安全优化</strong></p>
+<ul>
+<li>禁止IPC共享</li>
+<li>禁止ADMIN共享</li>
+<li>禁止我最近的文档记录内容</li>
+<li>禁止U盘光盘等所有磁盘自动运行</li>
+</ul>
+<p><strong>提速优化</strong></p>
+<ul>
+<li>加快程序运行速度</li>
+<li>加快菜单显示速度</li>
+<li>优化系统速度</li>
+</ul>
+<p><strong>其它优化</strong></p>
+<ul>
+<li>自动关闭停止响应的程序</li>
+<li>总是从内存中卸载无用的动态链接</li>
+<li>win7崩溃时系统自动重启</li>
+<li>当资源管理器崩溃时自动重启资源管理器</li>
+<li>搜索没有索引位置时不包括系统文件和压缩文件</li>
+<li>设定任务栏按钮为始终合并</li>
+<li>在DOS中支持长文件名</li>
+<li>Win7右键“管理员取得所有权”</li>
+</ul>
+<p><strong>安全相关设置</strong></p>
+<ul>
+<li>将用户账号控制程序（UAC）设置为“从不通知”</li>
+<li>启用内置管理员账户的管理员批准模式</li>
+<li>关闭打开程序的“安全警告”</li>
+<li>禁用Windows Defender</li>
+</ul>
+<p><strong>Explorer</strong></p>
+<ul>
+<li>显示所有文件扩展名</li>
+<li>隐藏快捷方式小箭头</li>
+<li>隐藏可执行文件小盾牌</li>
+<li>创建快捷方式时不添加“快捷方式”文字</li>
+<li>禁止自动播放</li>
+<li>在单独的进程中打开文件夹窗口</li>
+<li>始终显示菜单栏</li>
+<li>资源管理器窗口最小化时显示完整路径</li>
+<li>关闭视频文件预览，提高资源管理器响应速度</li>
+<li>关闭音乐文件图片预览，提高资源管理器响应速度</li>
+<li>将语言栏隐藏到任务栏</li>
+<li>隐藏语言栏上的帮助按钮</li>
+</ul>
+<p><strong>右键菜单管理</strong></p>
+<ul>
+<li>禁用可执行文件的“兼容性疑难解答”右键菜单</li>
+<li>禁用磁盘的“启用Bitlocker”右键菜单</li>
+<li>禁用磁盘的“以便携方式打开”右键菜单</li>
+<li>禁用新建的“联系人”右键菜单</li>
+<li>禁用新建、文件以及文件夹的“公文包”右键菜单</li>
+<li>禁用文件、磁盘以及属性的“还原到以前版本”右键菜单</li>
+<li>禁用桌面的“小工具”右键菜单</li>
+<li>禁用磁盘的“刻录到光盘”右键菜单</li>
+<li>禁用文件、目录、桌面、磁盘以及库的“共享”右键菜单</li>
+<li>禁用目录、文件夹、所有对象的“始终脱机可用”右键菜单</li>
+<li>禁用文件夹的“包含到库中”右键菜单</li>
+</ul>
+<p><strong>Internet Explorer</strong></p>
+<ul>
+<li>当创建新选项卡时，始终切换到新选项卡</li>
+<li>其它程序从当前窗口的新选项卡打开链接</li>
+<li>以兼容性视图中显示所有网站</li>
+<li>启用表单的自动完成功能</li>
+<li>关闭建议的网站</li>
+<li>跳过IE首次运行自定义设置</li>
+<li>不保存附件的区域信息</li>
+<li>将同时可用下载的数目调整到10</li>
+<li>遇到弹出窗口时始终在新选项卡中打开弹出的窗口</li>
+<li>关闭自动更新</li>
+</ul>
+<p><strong>Windows Update</strong></p>
+<ul>
+<li>自动安装无需重启的更新</li>
+<li>更新挂起时如果有用户登录不自动重启计算机</li>
+<li>Windows更新不包括恶意软件删除工具</li>
+<li>将Windows Update自动更新调整为“从不检查”</li>
+</ul>
+<p><strong>记事本</strong></p>
+<ul>
+<li>启用自动换行</li>
+</ul>
+<p><strong>网络设置</strong></p>
+<ul>
+<li>关闭默认共享</li>
+<li>关闭远程协助</li>
+<li>禁用SMB1网络协议</li>
+</ul>
+<p><strong>服务优化</strong></p>
+<ul>
+<li>禁用程序兼容助手</li>
+<li>禁用远程修改注册表</li>
+<li>禁用诊断服务</li>
+<li>禁用错误报告</li>
+<li>禁用家庭组</li>
+<li>禁用客户端体验改善计划</li>
+<li>禁用NTFS链接跟踪服务</li>
+</ul>
+<p><strong>其它</strong></p>
+<ul>
+<li>在桌面显示 我的电脑、回收站、用户文件夹</li>
+<li>登录界面默认打开小键盘</li>
+<li>隐藏资源管理器导航窗口的收藏夹、家庭组</li>
+<li>Windows Media Player不显示首次使用对话框</li>
+<li>蓝屏时自动重启</li>
+<li>关闭休眠</li>
+<li>禁用组件堆栈日志</li>
+<li>禁用更新解压模块日志</li>
+<li>禁用系统日志</li>
+<li>禁用组件堆栈文件备份</li>
+<li>禁用账号登录日志报告</li>
+<li>禁用WfpDiag.ETL日志</li>
+</ul>
+<h2 id="2019年5月6日更新（系统总裁版）"><a href="#2019年5月6日更新（系统总裁版）" class="headerlink" title="2019年5月6日更新（系统总裁版）"></a>2019年5月6日更新（系统总裁版）</h2><p>对于使用IT天空的ES4和EasyDrv7封装的<code>Windows7 旗舰版x64 20190504.wim</code>系统，收到如下反馈：</p>
+<blockquote>
+<ol>
+<li>系统太大（6.29G），无下载欲望</li>
+<li>需要使用IE8版本</li>
+<li>7zip软件没有关联文件</li>
+<li>希望把桌面上快捷方式的箭头恢复出来</li>
+<li>系统不支持GPT+UEFI方式安装</li>
+</ol>
+</blockquote>
+<p>对于这几个问题，通过制作好的母盘，使用系统总裁的 <a href="https://www.sysceo.com/Software-softwarei-id-251.html" target="_blank" rel="noopener">scpt3.0.0.91</a> 封装工具和 <a href="https://www.sysceo.com/Software-softwarei-id-123.html" target="_blank" rel="noopener">DrvCeo-1.9.15.0-2019.4.8</a> 封装专用版Win7（64位）驱动总裁，重新封装系统，此次封装的系统 <strong>4.25G</strong> ，并解决了7zip软件关联的问题，其它几个反馈后续考虑支持。</p>
+<p><del>下载地址：链接：<a href="https://pan.baidu.com/s/1G03sneF8Ss2iCT4xbfRjqw" target="_blank" rel="noopener">https://pan.baidu.com/s/1G03sneF8Ss2iCT4xbfRjqw</a>  提取码：c96n</del> </p>
+<p><a href="https://pan.baidu.com/s/1_mcxj0lHZLIFcQnErcmpuA" target="_blank" rel="noopener">https://pan.baidu.com/s/1_mcxj0lHZLIFcQnErcmpuA</a></p>
+<p>下载后请校验文件：</p>
+<blockquote>
+<p>文件名称: 20190506\Windows7 旗舰版x64 20190506.wim<br>文件大小: 4.25 GB (4,569,721,524 字节)<br>修改时间: 2019年05月06日，22:50:44<br>MD5: 0E330852708D9863705EFDD6AD79AB35<br>SHA1: 035D7F7F8292257E8B9A3CAA522A81EF08970E59<br>SHA256: 6E51981A216183BA7D86BBA7B0575F51D249B19228B1582B92540FA3AF19A994<br>CRC32: A55306A7</p>
+</blockquote>
+<p><strong><font color="red">注意：使用驱动总裁部署时会自动安装到系统（见截图），可在开始菜单中自行卸载。</font></strong></p>
+<p><strong>部署截图：</strong></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-06-22-53-25.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-06-22-53-45.png"></p>
+<p><strong>桌面截图</strong></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/Windows%207%20x64-2019-05-07-00-13-21.png"></p>
+<p><strong>详细说明：</strong><br>关于驱动总裁：<br>按照官方 <a href="https://www.sysceo.com/forum/thread-42417-1-1.html" target="_blank" rel="noopener">说明文档</a> ，对驱动进行如下精简：</p>
+<ul>
+<li>删除不需要的Vmware驱动：Chipset.VmWare 和 Sound.VmWare</li>
+<li>删除 Win7x64 下的 PEHotFix 文件夹</li>
+<li>删除 PESRS 可选目录，该文件为驱动总裁在PE环境下预装磁盘控制器驱动文件</li>
+<li>删除 Ku 可选目录，该文件为硬件驱动控制面板依赖的库文件，主要是AMD的显卡面板依赖文件</li>
+</ul>
+<p>最终驱动文件大小约为 1.78G。</p>
+
+    </div>
+
+    
+    
+    
+      
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/92af/" title="致力于纯净系统封装：Windows7 旗舰版x64 20190504">https://www.zhyong.cn/posts/92af/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BA%AF%E5%87%80%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 纯净系统</a>
+              <a href="/tags/Windows7/" rel="tag"><i class="fa fa-tag"></i> Windows7</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/bb8d/" rel="next" title="分别使用U+、B+、UD制作WinPE启动盘">
+                  <i class="fa fa-chevron-left"></i> 分别使用U+、B+、UD制作WinPE启动盘
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/1926/" rel="prev" title="Gif动画录制软件——ScreenToGif">
+                  Gif动画录制软件——ScreenToGif <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统安装截图"><span class="nav-number">1.</span> <span class="nav-text">系统安装截图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows7系统截图"><span class="nav-number">2.</span> <span class="nav-text">Windows7系统截图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载地址"><span class="nav-number">3.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细介绍"><span class="nav-number">4.</span> <span class="nav-text">详细介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更新补丁"><span class="nav-number">4.1.</span> <span class="nav-text">更新补丁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#精简优化细节"><span class="nav-number">4.2.</span> <span class="nav-text">精简优化细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2019年5月6日更新（系统总裁版）"><span class="nav-number">5.</span> <span class="nav-text">2019年5月6日更新（系统总裁版）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

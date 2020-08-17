@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="为什么要安装黑群晖先说说什么是NAS服务器，简单来说就是一个网络存储器，你可以存放音乐、视频、文件等，方便地从各个设备进行访问。而群晖的Synology DSM，就是一个非常优秀的NAS服务器。  NAS百度百科NAS（Network Attached Storage：网络附属存储）按字面简单说就是连接在网络上，具备资料存储功能的装置，因此也称为“网络存储器”。它是一种专用数据存储服务器。  是啊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黑群晖DSM安装教程及详细配置">
+<meta property="og:url" content="https://www.zhyong.cn/posts/f10c/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="为什么要安装黑群晖先说说什么是NAS服务器，简单来说就是一个网络存储器，你可以存放音乐、视频、文件等，方便地从各个设备进行访问。而群晖的Synology DSM，就是一个非常优秀的NAS服务器。  NAS百度百科NAS（Network Attached Storage：网络附属存储）按字面简单说就是连接在网络上，具备资料存储功能的装置，因此也称为“网络存储器”。它是一种专用数据存储服务器。  是啊">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517092838.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517091620.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517091000.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517093409.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517093858.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517102104.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517103330.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517094734.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517095731.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517100808.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517100927.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/4afd1f24-b01d-4a5a-bf6e-eefa54d8ac4b.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200617135140.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/6dbba5d5-a892-4a38-b513-c3fc543047ec.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/b54dbe28-4d6c-44d1-a885-ce2c4032a917.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517110843.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/ae36f13e-0fd1-458f-9b3e-eba198eabd88.png">
+<meta property="article:published_time" content="2020-05-17T00:14:28.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.641Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="黑群晖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517092838.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/f10c/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>黑群晖DSM安装教程及详细配置 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/f10c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          黑群晖DSM安装教程及详细配置<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E9%BB%91%E7%BE%A4%E6%99%96%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AF%A6%E7%BB%86%E9%85%8D%E7%BD%AE%E3%80%81%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E7%AD%89.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-17 08:14:28" itemprop="dateCreated datePublished" datetime="2020-05-17T08:14:28+08:00">2020-05-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BE%A4%E6%99%96%E6%8A%98%E8%85%BE/" itemprop="url" rel="index">
+                    <span itemprop="name">群晖折腾</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/f10c/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/f10c/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="为什么要安装黑群晖"><a href="#为什么要安装黑群晖" class="headerlink" title="为什么要安装黑群晖"></a>为什么要安装黑群晖</h2><p>先说说什么是NAS服务器，简单来说就是一个网络存储器，你可以存放音乐、视频、文件等，方便地从各个设备进行访问。而群晖的Synology DSM，就是<strong>一个非常优秀的NAS服务器</strong>。</p>
+<blockquote>
+<p>NAS百度百科<br>NAS（Network Attached Storage：网络附属存储）按字面简单说就是连接在网络上，具备资料存储功能的装置，因此也称为“网络存储器”。它是一种专用数据存储服务器。</p>
+</blockquote>
+<p>是啊，群晖官方的不香吗，可以方便地远程访问，也不需要折腾，买来了加上硬盘就可直接使用，但是看看价格2000-4000不等，再单独购买几个T的硬盘，算了算了。黑群晖，或者说“民间版”群晖（Synology DSM），普通的PC上就可以安装，自由DIY，而且硬件要求不高（老旧主机、蜗牛星际，PVE、ESXI虚拟机等都可安装），官方的政策也很宽松，安装不算复杂，配合内网穿透也能方便地远程控制访问（配合OpenWRT软路由），黑群晖也是一个完美的存在。有了NAS之后，才体会到文件存储的方便、快捷。</p>
+<a id="more"></a>
+
+<p>我可以使用NAS存放喜欢的视频、音乐而不占本地硬盘的空间，可以多设备方便地获取这些文件，可以远程访问家里的NAS文件，远程关机、远程唤醒（远程唤醒需OpenWRT软路由），可以将NAS作为下载服务器，挂载一下即可下载，等等。</p>
+<p>最重要的是群晖的DSM里面大量套件，而且个平台客户端齐全，可以Web访问等。</p>
+<p><img alt="DSM套件" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517092838.png"></p>
+<p>但是安装需要了解基本的电脑知识（如Bios、U盘启动、一点网络基础等），遇到问题可以网上查询都可解决。</p>
+<blockquote>
+<p>这里多次提到内网穿透，详细的下篇博客再说，不知道可忽略，简单地说就是外网访问家里的服务，当然有公网IP的可忽略。</p>
+</blockquote>
+<h2 id="我的硬件"><a href="#我的硬件" class="headerlink" title="我的硬件"></a>我的硬件</h2><p>黑群晖安装设备：CS-B Q87华硕主板+i5 4690CPU+8G威刚内存+5T机械硬盘（希捷4T+2*500G），另外配一个U盘（8G足够）用作系统引导</p>
+<p>我的黑群晖硬件，加电源、机箱价格约为1800元，除了CPU其它全新，当然一台老主机、旧笔记本都可以安装。</p>
+<h2 id="安装黑群晖"><a href="#安装黑群晖" class="headerlink" title="安装黑群晖"></a>安装黑群晖</h2><p>准备就绪，开始安装。这篇帖子<a href="https://www.nas2x.com/threads/dsm-6-2-2-20200206.29/" target="_blank" rel="noopener">黑群辉DSM 6.2.2 系统安装图文教程 </a>已经详细地介绍了安装过程，按照此步骤耐心地做，基本不会有问题。我安装过程没有留图，这里简单介绍下步骤。</p>
+<p>需要的软件：</p>
+<p><img alt="相关软件" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517091620.png"></p>
+<p>安装的版本旧按推荐的来即可,老主板选择传统Bios，现在基本都支持Uefi引导了。</p>
+<p><img alt="NAS版本" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517091000.png"></p>
+<p>在上面链接下载这五个文件即可。详细看上述图文教程，我列了概要。</p>
+<ol>
+<li>下载上述四个文件</li>
+<li>插入U盘，使用<a href="https://www.nas2x.com/downloads/chipeasy-en-chs.10/" target="_blank" rel="noopener">ChipEasy芯片无忧</a>打开查找VID和PID，然后使用DeskGenius打开synoboot.img，修改相应的配置保存</li>
+<li>使用Win32DiskImager将修改好的img文件写入U盘（注意备份U盘，此操作会格式化U盘）</li>
+<li>插到安装的设备上，设置Bios第一启动为U盘，然后启动设备（设备需连接到路由器）</li>
+<li>另一条电脑连接同一局域网，在浏览器中输入<a href="http://find.synology.com/" target="_blank" rel="noopener">http://find.synology.com/</a>即可查找到DSM，查询不到下载客户端查找</li>
+<li>下面在浏览器中上传pat安装文件安装即可，设置好即可，重启，然后就可以在浏览器访问了。</li>
+</ol>
+<h2 id="完成后配置"><a href="#完成后配置" class="headerlink" title="完成后配置"></a>完成后配置</h2><p><strong>首先需添加硬盘/存储空间</strong>：</p>
+<p>详细图文教程：<a href="https://www.nas2x.com/threads/synology-dsm-hdd.30/" target="_blank" rel="noopener">群辉Synology DSM 添加HDD硬盘/存储空间的方法</a>，直接照着操作就可以了。</p>
+<p><strong>注意关闭自动升级（重要）</strong>：</p>
+<ul>
+<li>计划任务里面关闭DSM自动更新选项</li>
+<li>控制面板-更新和还原-系统更新-更新设置-仅重要更新。</li>
+</ul>
+<p><img alt="关闭自动升级" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517093409.png"></p>
+<p>至此，群晖的安装过程基本结束，可以拔掉显示器，插上网线，将黑群晖设备放在一个角落里了（注意<strong>启动U盘不能拔掉，否则重启后不能引导进入系统</strong>）。</p>
+<h2 id="给黑群晖安装套件及使用体验"><a href="#给黑群晖安装套件及使用体验" class="headerlink" title="给黑群晖安装套件及使用体验"></a>给黑群晖安装套件及使用体验</h2><p>群晖NAS有丰富的套件，极大增强了NAS的功能，方便我们使用，可以根据需要自行安装。操作也是傻瓜式操作。</p>
+<p><font color="red">提醒一下：</font>群晖的帮助文档非常棒，即“DSM说明”，有什么不懂的仔细看帮助文档应该都能明白。</p>
+<p><img alt="我安装的套件如下" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517093858.png"></p>
+<p>对于套件的使用，我是在电脑和移动设备安装相应的客户端，家里的电脑使用内网访问，外网电脑配合内网穿透服务访问。对于网盘服务动辄一年几百的费用还受到各类限制，在NAS中安装<code>Drive</code>套件拥有自己的服务是一件非常棒的事情。另外我非常喜欢群晖的<code>Note Station</code>，包含待办事项、富文本的记事本、标签等功能，非常棒。这样我每次随手记录都非常方便，图片、附件拖拽即可，之后再写博客进行整理，wonderful。</p>
+<p><img alt="Note Station" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517102104.png"></p>
+<p>当然群晖的视频、音乐、下载等套件都非常出色，装群晖必备，然后在各个设备中安装相应的官方客户端，使用方便、快捷，电视盒子安装Kodi或者直接挂载播放NAS中的视频、音乐，这就是家庭强大的媒体服务器以及共享中心啊，安装Docker后又极大地增加了NAS的可玩性。</p>
+<p>说一下另一个使用场景，一般来说，从手机往电脑传输文件就是一件麻烦的事情（反正困扰我很久），可能的解决方案就是传到QQ、微信等，然后电脑登录再下载下来。或者使用USB设备连接电脑，麻不麻烦，慢不慢，难不难受。比如传到QQ上，明明近在咫尺却要绕中国一周，还有受到上传宽带的限制。</p>
+<p>而有了NAS之后，安装<code>Drive</code>套件，电脑和手机安装相应的客户端连接NAS，感觉世界都清净了。手机拍个照片，打开Drive APP，上传，然后自动同步到电脑上了，电脑打开文件夹就行了，基本妙传，内网传输能不快吗？</p>
+<p><img alt="我的电脑Drive同步文件夹" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517103330.png"></p>
+<h2 id="开启Web直接访问套件"><a href="#开启Web直接访问套件" class="headerlink" title="开启Web直接访问套件"></a>开启Web直接访问套件</h2><p>如果有需要，可以开启套件的网络访问，这样我们直接进入输入地址即可访问。</p>
+<p>点击控制面板——Synology应用程序门户，启用想要直接访问的程序（端口默认即可）。如我想直接访问Drive，我开启后可以直接通过 <code>内网IP:10002</code> 即可访问。这个对于内网穿透很重要。</p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517094734.png"></p>
+<p><img alt="开启需要的套件端口" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517095731.png"></p>
+<h2 id="NAS文件传输与管理"><a href="#NAS文件传输与管理" class="headerlink" title="NAS文件传输与管理"></a>NAS文件传输与管理</h2><p>既然NAS作为文件存储服务器，那么怎样快捷地传输文件到家里的NAS服务器上呢？</p>
+<ol>
+<li>通过USB设备传输：直接将USB设备（U盘、移动硬盘）插入到NAS中，打开 File Station 即可看到移动设备，直接操作即可复制到NAS中。</li>
+<li>通过内网设备传输</li>
+</ol>
+<p>电脑连接同一局域网，在网络里即可看到NAS设备，点击进入，输入NAS用户名和密码即可看到所有共享文件夹了。</p>
+<p><img alt="网络中的NAS" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517100808.png"></p>
+<p><img alt="共享文件夹" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517100927.png"></p>
+<p>这样就像操作电脑上的文件一样管理NAS文件了。</p>
+<p>注意通过内网传输速度与路由器配置和网线质量有关，比如我将连接NAS的网线换了一个超六类的，传输速度立马翻倍，之前不到12M/s。</p>
+<p><img alt="电脑Wifi连接" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/4afd1f24-b01d-4a5a-bf6e-eefa54d8ac4b.png"></p>
+<p>现在，我直接关闭了笔记本的Wifi，将笔记本插上六类网线，直接可以达到满速（推荐）。</p>
+<p><img alt="电脑网线连接" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200617135140.png"></p>
+<h2 id="进阶：远程唤醒NAS"><a href="#进阶：远程唤醒NAS" class="headerlink" title="进阶：远程唤醒NAS"></a>进阶：远程唤醒NAS</h2><p>NAS可能不需要一直开机，假如出门在外，又需要访问家里的关机的NAS，那怎么办？<br>这里我简单说一下，可能信息量较大，如果你折腾过软路由，有Linux基础就比较好理解，看不懂也不影响NAS的基本使用。</p>
+<ul>
+<li>一个VPS服务器，安装了frp服务端，另需要一个域名，将二级域名解析到VPS服务器</li>
+<li>一台OpenWRT软路由，24h开机，安装了frp网络穿透客户端，用于黑群晖内网穿透和远程唤醒服务</li>
+<li>已经安装好的NAS</li>
+</ul>
+<p>这里我假定你已经可以外网访问家里的路由器。</p>
+<ol>
+<li><p>首先，在NAS的Bios中设置可远程唤醒（每个Bios可能不一样，有的没有唤醒功能）：<br>在BIOS设置的【高级】→【高级电源管理(APM)】中开启【由 PCIE 设备唤醒】；<br>对应英文设置路径是”Advanced”-“APM”-“Power On By PCIE” set to “Enabled”。</p>
+</li>
+<li><p>在DSM中设置：</p>
+</li>
+</ol>
+<ul>
+<li>NAS的外网访问已配置好；</li>
+<li>DSM的“控制面板”-“硬件和电源”-“常规”选项卡中，在“启用局域网的局域网唤醒”前面打勾；</li>
+</ul>
+<ol start="3">
+<li>Nas连接OpenWrt旁路由，连接步骤：</li>
+</ol>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/6dbba5d5-a892-4a38-b513-c3fc543047ec.png"></p>
+<p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/b54dbe28-4d6c-44d1-a885-ce2c4032a917.png"></p>
+<ol start="4">
+<li>在OpenWRT管理中做好主机映射</li>
+</ol>
+<p><img alt="主机映射" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517110843.png"></p>
+<ol start="5">
+<li>全部完成，如下，OpenWRT——服务——网络唤醒，点击即可成功唤醒设备！</li>
+</ol>
+<p><img alt="唤醒设备" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/ae36f13e-0fd1-458f-9b3e-eba198eabd88.png"></p>
+<p><font color="red"><strong>注意：</strong></font>NAS正常关机后（是“正常关机”，因为在NAS运行时突然停电的非正常关机，在电力恢复后是可以自动开机的），电源被重新插拔或停电，远程唤醒就会失效。</p>
+<p>关于群晖的NAS使用，基本我了解的就这么多了，绝对是文件存储利器。有这方面需求的朋友，可以尝试搭建！</p>
+<blockquote>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/64085840" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/64085840</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\c36d\" rel="bookmark">全平台Markdown笔记软件——Notable</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/f10c/" title="黑群晖DSM安装教程及详细配置">https://www.zhyong.cn/posts/f10c/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 记录</a>
+              <a href="/tags/%E9%BB%91%E7%BE%A4%E6%99%96/" rel="tag"><i class="fa fa-tag"></i> 黑群晖</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/2c5e/" rel="next" title="关于博客的一些思考">
+                  <i class="fa fa-chevron-left"></i> 关于博客的一些思考
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/8c5/" rel="prev" title="腾讯云静态网站托管加速Hexo博客">
+                  腾讯云静态网站托管加速Hexo博客 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要安装黑群晖"><span class="nav-number">1.</span> <span class="nav-text">为什么要安装黑群晖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的硬件"><span class="nav-number">2.</span> <span class="nav-text">我的硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装黑群晖"><span class="nav-number">3.</span> <span class="nav-text">安装黑群晖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完成后配置"><span class="nav-number">4.</span> <span class="nav-text">完成后配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给黑群晖安装套件及使用体验"><span class="nav-number">5.</span> <span class="nav-text">给黑群晖安装套件及使用体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启Web直接访问套件"><span class="nav-number">6.</span> <span class="nav-text">开启Web直接访问套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAS文件传输与管理"><span class="nav-number">7.</span> <span class="nav-text">NAS文件传输与管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶：远程唤醒NAS"><span class="nav-number">8.</span> <span class="nav-text">进阶：远程唤醒NAS</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="功能简介平时喜欢搜集网络上的精品电子书，那么管理成为了一个问题，放在硬盘的一堆电子书文件，想看也不知道看哪本，正好之前安装的黑群晖，了解到Calibre web这样的一个开源项目，于是就完成了这样的项目搭建。功能包括：  管理自己的电子书，可管理海量书籍，包括书籍的分类、作者、简介等 可在线观看、书籍格式转换、推送到Kindle等 可选：通过frp等内外穿透工具实现任意地方访问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群晖Docker部署Calibre Web打造全功能书库">
+<meta property="og:url" content="https://www.zhyong.cn/posts/fcef/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="功能简介平时喜欢搜集网络上的精品电子书，那么管理成为了一个问题，放在硬盘的一堆电子书文件，想看也不知道看哪本，正好之前安装的黑群晖，了解到Calibre web这样的一个开源项目，于是就完成了这样的项目搭建。功能包括：  管理自己的电子书，可管理海量书籍，包括书籍的分类、作者、简介等 可在线观看、书籍格式转换、推送到Kindle等 可选：通过frp等内外穿透工具实现任意地方访问">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805205948.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805211516.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805212452.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805212809.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805213049.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805213345.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805214016.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805214303.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805214931.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805215333.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805215542.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805215718.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805215737.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805220203.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805220739.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805221331.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805221800.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222044.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222044.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222528.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222723.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805223730.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805223921.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805224156.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805224514.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805224626.png">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805225048.png">
+<meta property="article:published_time" content="2020-08-05T12:31:24.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.637Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="calibre">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805205948.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/fcef/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>群晖Docker部署Calibre Web打造全功能书库 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/fcef/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          群晖Docker部署Calibre Web打造全功能书库<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E7%BE%A4%E6%99%96Docker%E9%83%A8%E7%BD%B2Calibre-Web%E6%89%93%E9%80%A0%E5%85%A8%E5%8A%9F%E8%83%BD%E4%B9%A6%E5%BA%93.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-05 20:31:24" itemprop="dateCreated datePublished" datetime="2020-08-05T20:31:24+08:00">2020-08-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BE%A4%E6%99%96%E6%8A%98%E8%85%BE/" itemprop="url" rel="index">
+                    <span itemprop="name">群晖折腾</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/fcef/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/fcef/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><p>平时喜欢搜集网络上的精品电子书，那么管理成为了一个问题，放在硬盘的一堆电子书文件，想看也不知道看哪本，正好之前<a href="https://www.zhyong.cn/posts/f10c/">安装的黑群晖</a>，了解到<a href="https://github.com/janeczku/calibre-web" target="_blank" rel="noopener">Calibre web</a>这样的一个开源项目，于是就完成了这样的项目搭建。功能包括：</p>
+<ol>
+<li>管理自己的电子书，可管理海量书籍，包括书籍的分类、作者、简介等</li>
+<li>可在线观看、书籍格式转换、推送到Kindle等</li>
+<li>可选：通过frp等内外穿透工具实现任意地方访问</li>
+</ol>
+<a id="more"></a>
+
+<h2 id="Calibre-Web-安装步骤"><a href="#Calibre-Web-安装步骤" class="headerlink" title="Calibre Web 安装步骤"></a>Calibre Web 安装步骤</h2><blockquote>
+<p>前提：安装好了群晖并安装了Docker（需要CPU支持）</p>
+</blockquote>
+<p>首先打开群晖管理界面的Docker，在注册表里搜索<code>calibre-web</code>，选择第二个Docker映像双击下载。</p>
+<p><img alt="推荐使用" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805205948.png"></p>
+<p>对应的Docker Hub地址：<a href="https://registry.hub.docker.com/r/technosoft2000/calibre-web/" target="_blank" rel="noopener">technosoft2000/calibre-web - Docker Hub</a></p>
+<blockquote>
+<p>PS：试过很多的Calibre web镜像，这个镜像是功能最强大的，包括电子书格式转换和在线阅读，而<a href="https://registry.hub.docker.com/r/linuxserver/calibre-web/" target="_blank" rel="noopener">linuxserver/calibre-web </a>只能没有在线阅读和转换的功能。</p>
+</blockquote>
+<details>
+<summary>technosoft2000的镜像详细功能如下</summary>
+
+<ul>
+<li>Bootstrap 3 HTML5界面</li>
+<li>完整的图形设置</li>
+<li>用户管理</li>
+<li>管理界面</li>
+<li>用户界面为英语，法语，德语，波兰语，简体中文，西班牙语</li>
+<li>电子书阅读器应用程序的OPDS提要</li>
+<li>按标题，作者，标签，系列和语言过滤和搜索</li>
+<li>创建自定义书籍收藏（书架）</li>
+<li>支持编辑电子书元数据</li>
+<li>支持将电子书从EPUB转换为Kindle格式（mobi / azw）</li>
+<li>将电子书下载限制为登录用户</li>
+<li>支持公共用户注册</li>
+<li>只需单击一个按钮即可将电子书发送到Kindle设备</li>
+<li>支持直接在浏览器中阅读电子书（.txt，.epub，.pdf）</li>
+<li>上载PDF，epub，fb2格式的新书</li>
+<li>支持口径自定义列</li>
+<li>细粒度的每用户权限</li>
+<li>自我更新能力</li>
+</ul>
+</details>
+
+<p>等待下载完成后，在映像中，双击下载好的映像，则可以创建容器。</p>
+<p><img alt="创建Calibre web容器" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805211516.png"></p>
+<p>官方推荐的启动代码为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker create --name=calibre-web --restart=always \</span><br><span class="line">-v &lt;your Calibre books folder&gt;:/books \</span><br><span class="line">-p &lt;HTTP PORT&gt;:8083 \</span><br><span class="line">technosoft2000/calibre-web</span><br></pre></td></tr></table></figure>
+
+<p>因此我们设置一个文件夹映射和端口映射即可。首先打开File Station，创建一个用于存放电子书的文件夹，我是直接建立了一个<code>books</code>共享文件夹，然后再建立了一个<code>calibre</code>文件夹用于存放电子书（推荐）。建好之后，回到Docker中来。</p>
+<p>设置名称为<code>calibre-web</code>，可根据喜好设置，对应代码中的<code>--name=calibre-web</code>，然后点击高级设置。</p>
+<p><img alt="设置好名称" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805212452.png"></p>
+<p>勾选启用自动重新启动，对应代码中的<code>--restart=always</code>，可根据需要设置，若不勾选，则重启群晖则不自动运行此容器。</p>
+<p><img alt="自动启动" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805212809.png"></p>
+<p>点击<code>卷</code>，添加文件夹，选择刚刚创建用于存放电子书的文件夹，转载路径为<code>/books</code>，对应代码中的<code>-v &lt;your Calibre books folder&gt;:/books</code></p>
+<p><img alt="映射文件夹" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805213049.png"></p>
+<p>然后点击<code>端口映射</code>，设置一个本地端口，不冲突即可，如我的为25556，那么之后访问即：<a href="http://IP:25556，对应代码中的：`-p">http://IP:25556，对应代码中的：`-p</a> <http port>:8083<code>。不推荐使用默认的</code>自动`，这样每次重启会改变端口，造成访问地址的改变。</http></p>
+<p><img alt="端口映射" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805213345.png"></p>
+<p>点击应用即可，然后启动该容器。</p>
+<p>这里打开群晖IP:端口访问，如我的IP为<code>192.168.0.102</code>，可以看到已经可以成功打开。</p>
+<p><img alt="配置书库" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805214016.png"></p>
+<p>在书库配置中，设置为<code>/books</code>，点击保存。</p>
+<p>此时会提示<code>数据库路径无效，请输入正确的路径</code>。</p>
+<p><img alt="报错" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805214303.png"></p>
+<p>由于Calibre-web是基于Calibre这款软件的，书库里会有<code>metadata.db</code>的数据库文件，而我们创建的文件夹是没有任何文件。</p>
+<p>因此我们电脑中安装<a href="https://www.zhyong.cn/posts/59a8/">Calibre</a>，然后用电脑挂载群晖，在此位置建立一个空白书库（注意：群晖需要安装WebDAV Server）。</p>
+<p><img alt="创建书库" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805214931.png"></p>
+<p><img alt="创建书库" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805215333.png"></p>
+<p>完成后，就会在该位置生成一个<code>metadata.db</code>的文件。然后重试，提示配置已经更新。</p>
+<p><img alt="配置" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805215542.png"></p>
+<blockquote>
+<p>若仍出现问题，则在File Station中设置一下该文件夹的权限，设置为<code>Everyone</code>为读取、写入。</p>
+</blockquote>
+<p>点击登录，用户名：admin  密码：admin123</p>
+<p><img alt="登录" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805215718.png"></p>
+<p><img alt="终于成功" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805215737.png"></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="设置中文"><a href="#设置中文" class="headerlink" title="设置中文"></a>设置中文</h3><p>默认为英文界面，在admin——language设置即可。</p>
+<p><img alt="设置中文" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805220203.png"></p>
+<h3 id="开启网页上传，对于少量书籍上传非常实用"><a href="#开启网页上传，对于少量书籍上传非常实用" class="headerlink" title="开启网页上传，对于少量书籍上传非常实用"></a>开启网页上传，对于少量书籍上传非常实用</h3><p>在管理权限——编辑基本配置——功能配置中，其它功能也可在此开启。</p>
+<p><img alt="启用上传" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805220739.png"></p>
+<p>刷新一下页面，在右上角则出现<code>上传书籍</code>。测试上传书籍报错：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据库错误：(sqlite3.OperationalError) attempt to write a readonly database [SQL: INSERT INTO authors (name, sort, link) VALUES (?, ?, ?)] [parameters: (<span class="string">u'\u672a\u77e5'</span>, <span class="string">u'\u672a\u77e5'</span>, <span class="string">u''</span>)] (Background on this error at: http:<span class="regexp">//</span>sqlalche.me<span class="regexp">/e/</span>e3q8)。</span><br></pre></td></tr></table></figure>
+
+<p>原因在于无写入权限，将创建的文件夹设置为完全控制（读取、写入应该就可以了），然后重启容器，即可解决此问题。</p>
+<p><img alt data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805221331.png"></p>
+<p>成功在Web上传：</p>
+<p><img alt="web上传" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805221800.png"></p>
+<p>上传或编辑书籍时，可点击最下面的获取元数据，即可获得作者、解决、封面图片等各类信息，这是我非常喜欢的一个功能，很强大。获取后保存即可，封面更改有时会迟一点生效。</p>
+<p><img alt="获取元数据" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222044.png"></p>
+<h3 id="转换书籍为epub格式从而在线观看"><a href="#转换书籍为epub格式从而在线观看" class="headerlink" title="转换书籍为epub格式从而在线观看"></a>转换书籍为epub格式从而在线观看</h3><p>此程序可以在线观看TXT、pdf和epub格式，epub格式是一个通用的电子书格式，因此将其它书籍转换为此格式从而在线阅读。</p>
+<p><img alt="编辑书籍" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222044.png"></p>
+<p><img alt="转换为epub格式" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222528.png"></p>
+<p>这样就可以在线阅读了，有目录导航，可以添加书签，全屏阅读等，并且可以记住阅读位置，下一次打开接着阅读（不可跨设备，书签可以跨设备），体验非常棒。</p>
+<p><img alt="在线阅读" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222723.png"></p>
+<h3 id="设置Kindle推送"><a href="#设置Kindle推送" class="headerlink" title="设置Kindle推送"></a>设置Kindle推送</h3><p>可参考：<a href="https://bookfere.com/post/3.html" target="_blank" rel="noopener">Kindle 推送教程：教你用电子邮箱推送电子书 – 书伴</a></p>
+<p>Kindle推送稍微复杂点，首先必须有一个亚马逊账号，登录Kindle（Kindle软件或设备都可以）后，会有一个个人文档邮箱，然后在Kindle设备或APP或<a href="http://z.cn/myk" target="_blank" rel="noopener">登录亚马逊账号</a>都可以查看，以<code>@kindle.cn</code>结尾的邮箱。</p>
+<p>第一步，到Calibre web中，填写Kindle邮箱；</p>
+<p><img alt="Kindle邮箱" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805223730.png"></p>
+<p>第二步，配置邮件发送服务器；</p>
+<p><img alt="配置邮件服务器" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805223921.png"></p>
+<p>这里推荐使用163邮箱，主机名为<code>smtp.163.com</code>，配置如下：</p>
+<p><img alt="邮箱配置" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805224156.png"></p>
+<p>登录163邮箱，开启smtp服务，然后生成一个授权码：</p>
+<p><img alt="开启smtp" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805224514.png"></p>
+<p><img alt="授权码生成" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805224626.png"></p>
+<p>然后将授权码填入到SMTP密码一栏。</p>
+<p>第三步，将配置的发送邮件服务器添加到Kindle已认可邮箱列表</p>
+<p>在<a href="https://www.amazon.cn/mn/dcw/myx.html/ref=kinw_myk_redirect#/home/settings/payment" target="_blank" rel="noopener">设置</a>中，首选项——个人文档设置——已认可的发件人电子邮箱列表，添加该邮箱即可。</p>
+<p><img alt="添加认可的电子邮件" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805225048.png"></p>
+<p>全部完成后，即可一键发送电子书到Kindle设备了。</p>
+<h3 id="批量上传电子书"><a href="#批量上传电子书" class="headerlink" title="批量上传电子书"></a>批量上传电子书</h3><p>那么如果有大量电子书该如何上传呢？思路还是一样，直接用电脑挂载群晖的文件夹，使用<a href="https://calibre-ebook.com/" target="_blank" rel="noopener">Calibre</a>打开该书库，然后就可以批量上传、管理了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总之，搭建过程还是较为麻烦，涉及的方面较多，需要了解相关的基础知识，但是此篇教程我写的较为详细，相信只要耐心都能搭建成功，毕竟我使用这个有一段时间了，有的需要注意的地方我都写出来了，Docker映像也选择好了，注意文件夹的权限是一个大坑，搭建不成功很大方面是这个原因。</p>
+<p>另外内外穿透方面，这涉及的更多了，提供这一种思路，有能力自行折腾了。</p>
+<p>欢迎留言交流。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\59a8\" rel="bookmark">【PC】电子书阅读软件推荐calibre</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\64e\" rel="bookmark">使用Docker部署Solo博客系统</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\99b4\" rel="bookmark">群晖Docker安装code-server</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/fcef/" title="群晖Docker部署Calibre Web打造全功能书库">https://www.zhyong.cn/posts/fcef/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/calibre/" rel="tag"><i class="fa fa-tag"></i> calibre</a>
+              <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/8a21/" rel="next" title="Windows全局鼠标手势——MouseInc">
+                  <i class="fa fa-chevron-left"></i> Windows全局鼠标手势——MouseInc
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calibre-Web-安装步骤"><span class="nav-number">2.</span> <span class="nav-text">Calibre Web 安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置中文"><span class="nav-number">3.1.</span> <span class="nav-text">设置中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启网页上传，对于少量书籍上传非常实用"><span class="nav-number">3.2.</span> <span class="nav-text">开启网页上传，对于少量书籍上传非常实用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换书籍为epub格式从而在线观看"><span class="nav-number">3.3.</span> <span class="nav-text">转换书籍为epub格式从而在线观看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置Kindle推送"><span class="nav-number">3.4.</span> <span class="nav-text">设置Kindle推送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批量上传电子书"><span class="nav-number">3.5.</span> <span class="nav-text">批量上传电子书</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

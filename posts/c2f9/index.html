@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="简介Ripgrep 是命令行下一个基于行的搜索工具，RipGrep 使用 Rust 开发，可以在多平台下运行，支持 Mac、Linux 和 Windows 等平台。RipGrep 与 The Silver Searcher、Ack 和 GNU Grep 的功能类似。 项目地址：https:&#x2F;&#x2F;github.com&#x2F;BurntSushi&#x2F;ripgrep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="命令行文本搜索神器——RipGrep">
+<meta property="og:url" content="https://www.zhyong.cn/posts/c2f9/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="简介Ripgrep 是命令行下一个基于行的搜索工具，RipGrep 使用 Rust 开发，可以在多平台下运行，支持 Mac、Linux 和 Windows 等平台。RipGrep 与 The Silver Searcher、Ack 和 GNU Grep 的功能类似。 项目地址：https:&#x2F;&#x2F;github.com&#x2F;BurntSushi&#x2F;ripgrep">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201901/2019-01-30_23-44-12.png">
+<meta property="article:published_time" content="2019-01-30T15:19:01.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.632Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="command">
+<meta property="article:tag" content="awesome">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201901/2019-01-30_23-44-12.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/c2f9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>命令行文本搜索神器——RipGrep | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/c2f9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          命令行文本搜索神器——RipGrep<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%96%87%E6%9C%AC%E6%90%9C%E7%B4%A2%E7%A5%9E%E5%99%A8%E2%80%94%E2%80%94RipGrep.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-30 23:19:01" itemprop="dateCreated datePublished" datetime="2019-01-30T23:19:01+08:00">2019-01-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AllPlatforms/" itemprop="url" rel="index">
+                    <span itemprop="name">AllPlatforms</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/c2f9/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/c2f9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener">Ripgrep</a> 是命令行下一个基于行的搜索工具，RipGrep 使用 Rust 开发，可以在多平台下运行，支持 Mac、Linux 和 Windows 等平台。RipGrep 与 <a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener">The Silver Searcher</a>、<a href="https://beyondgrep.com/" target="_blank" rel="noopener">Ack</a> 和 <a href="https://www.gnu.org/software/grep/" target="_blank" rel="noopener">GNU Grep</a> 的功能类似。</p>
+<p>项目地址：<a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener">https://github.com/BurntSushi/ripgrep</a> </p>
+<a id="more"></a>
+
+<h2 id="为什么使用ripgrep"><a href="#为什么使用ripgrep" class="headerlink" title="为什么使用ripgrep"></a>为什么使用ripgrep</h2><h3 id="ripgrep性能测试"><a href="#ripgrep性能测试" class="headerlink" title="ripgrep性能测试"></a>ripgrep性能测试</h3><p>以搜索整个Linux内核源码（来自Github）：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Tool</th>
+<th>Command</th>
+<th align="center">Line count</th>
+<th align="center">Time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener">ripgrep (Unicode)</a></td>
+<td><code>rg -n -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
+<td align="center">450</td>
+<td align="center"><strong>0.106s</strong></td>
+</tr>
+<tr>
+<td align="center"><a href="https://www.kernel.org/pub/software/scm/git/docs/git-grep.html" target="_blank" rel="noopener">git grep</a></td>
+<td><code>LC_ALL=C git grep -E -n -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
+<td align="center">450</td>
+<td align="center">0.553s</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener">The Silver Searcher</a></td>
+<td><code>ag -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
+<td align="center">450</td>
+<td align="center">0.589s</td>
+</tr>
+<tr>
+<td align="center"><a href="https://www.kernel.org/pub/software/scm/git/docs/git-grep.html" target="_blank" rel="noopener">git grep (Unicode)</a></td>
+<td><code>LC_ALL=en_US.UTF-8 git grep -E -n -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
+<td align="center">450</td>
+<td align="center">2.266s</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/svent/sift" target="_blank" rel="noopener">sift</a></td>
+<td><code>sift --git -n -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
+<td align="center">450</td>
+<td align="center">3.505s</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/petdance/ack2" target="_blank" rel="noopener">ack</a></td>
+<td><code>ack -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
+<td align="center">1878</td>
+<td align="center">6.823s</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/monochromegane/the_platinum_searcher" target="_blank" rel="noopener">The Platinum Searcher</a></td>
+<td><code>pt -w -e &#39;[A-Z]+_SUSPEND&#39;</code></td>
+<td align="center">450</td>
+<td align="center">14.208s</td>
+</tr>
+</tbody></table>
+<p>由此可见<code>ripgrep</code>性能非常优异，搜索速度之快可见一斑。</p>
+<h3 id="个人使用"><a href="#个人使用" class="headerlink" title="个人使用"></a>个人使用</h3><p>之前非常推崇<a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener">The Silver Searcher</a>，但是由于新电脑对于Linux兼容性不是很好，一直使用Windows系统（虽然不喜欢），所以一直寻找可以在Windows上使用的命令行神器。但是<code>The Silver Searcher</code>在windows不能搜索中文，而<code>ripgrep</code>则不存在此问题。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201901/2019-01-30_23-44-12.png"></p>
+<h2 id="安装ripgrep"><a href="#安装ripgrep" class="headerlink" title="安装ripgrep"></a>安装ripgrep</h2><p>官方教程：<a href="https://github.com/BurntSushi/ripgrep#installation" target="_blank" rel="noopener">https://github.com/BurntSushi/ripgrep#installation</a><br>里面详细介绍了各个平台的安装方法。</p>
+<p>对于Windows系统来说，更加推荐直接从<a href="https://github.com/BurntSushi/ripgrep/releases" target="_blank" rel="noopener">releases</a>下载对应的<code>ripgrep</code>程序，解压并加入到环境变量中，使用命令行调用更加方便。开始时试着<code>choco install ripgrep</code>命令安装，在下载程序时卡住，结果耗费了时间却还没有安装好。</p>
+<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><p>具体教程请点击<a href="https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md" target="_blank" rel="noopener">官方文档</a></p>
+<p>根据著名的“二八原则”，我们只需要了解一个软件的 20% 用法即可解决我们遇到的 80% 问题。因此介绍一些简单的用法，能解决问题即可，详细了解请查看文档。</p>
+<ul>
+<li>在<code>README.md</code>中查找<code>fast</code>: <code>rg fast README.md</code></li>
+<li>一个单词中包含<code>fast</code>，不包括<code>fast</code>(正则表达式)：<code>rg &#39;fast\w+&#39; README.md</code></li>
+<li>一个单词中包含<code>fast</code>，包括<code>fast</code>: <code>rg &#39;fast\w*&#39; README.md</code></li>
+<li>递归搜索，当前目录搜索<code>fast</code>，包括所有子目录：<code>rg fast</code></li>
+</ul>
+<p>并且<code>ripgrep</code>会自动过滤掉一些文件，例如<code>.gitignore</code>、隐藏文件和二进制文件，在搜索时可放心使用此工具，对于编程或者特定的场景，可极大提高效率，推荐使用。</p>
+<blockquote>
+<p>参考：<br><a href="https://www.hi-linux.com/posts/29245.html#%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%86%85%E5%AE%B9%E5%8F%8A%E6%98%BE%E7%A4%BA%E5%85%B6%E4%B8%8A%E4%B8%8B%E5%86%85%E5%AE%B9%E5%90%84%E4%B8%A4%E8%A1%8C" target="_blank" rel="noopener">推荐一款命令行下最快的文本搜索神器 RipGrep</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\bf7c\" rel="bookmark">Linux视频下载神器——you-get</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\8ec7\" rel="bookmark">CentOS7安装Python3</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\3027\" rel="bookmark">tldr——快速使用Linux命令</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/c2f9/" title="命令行文本搜索神器——RipGrep">https://www.zhyong.cn/posts/c2f9/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/command/" rel="tag"><i class="fa fa-tag"></i> command</a>
+              <a href="/tags/awesome/" rel="tag"><i class="fa fa-tag"></i> awesome</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/fc22/" rel="next" title="hexo-next添加文章置顶功能和评分功能等">
+                  <i class="fa fa-chevron-left"></i> hexo-next添加文章置顶功能和评分功能等
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/b06a/" rel="prev" title="使用trilium笔记构建你的个人知识库">
+                  使用trilium笔记构建你的个人知识库 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用ripgrep"><span class="nav-number">2.</span> <span class="nav-text">为什么使用ripgrep</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ripgrep性能测试"><span class="nav-number">2.1.</span> <span class="nav-text">ripgrep性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人使用"><span class="nav-number">2.2.</span> <span class="nav-text">个人使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ripgrep"><span class="nav-number">3.</span> <span class="nav-text">安装ripgrep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用教程"><span class="nav-number">4.</span> <span class="nav-text">使用教程</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

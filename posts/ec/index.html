@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Vim拥有丰富的插件，使用功能强大的插件让我们如虎添翼，花了很长时间测试以及使用大量的插件，这里进行一下总结，方便以后查找使用。 安装vimplug插件推荐使用vimplug工具来管理多插件。github地址：https:&#x2F;&#x2F;github.com&#x2F;junegunn&#x2F;vim-plug执行下面代码直接安装： 12curl -fLo ~&#x2F;.vim&#x2F;autoload&#x2F;plug.vim --create-d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim插件推荐">
+<meta property="og:url" content="https://www.zhyong.cn/posts/ec/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="Vim拥有丰富的插件，使用功能强大的插件让我们如虎添翼，花了很长时间测试以及使用大量的插件，这里进行一下总结，方便以后查找使用。 安装vimplug插件推荐使用vimplug工具来管理多插件。github地址：https:&#x2F;&#x2F;github.com&#x2F;junegunn&#x2F;vim-plug执行下面代码直接安装： 12curl -fLo ~&#x2F;.vim&#x2F;autoload&#x2F;plug.vim --create-d">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-19T03:26:34.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.622Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="vim插件">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/ec/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>vim插件推荐 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/ec/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          vim插件推荐<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/vim%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-19 11:26:34" itemprop="dateCreated datePublished" datetime="2018-06-19T11:26:34+08:00">2018-06-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim/" itemprop="url" rel="index">
+                    <span itemprop="name">vim</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/ec/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/ec/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Vim拥有丰富的插件，使用功能强大的插件让我们如虎添翼，花了很长时间测试以及使用大量的插件，这里进行一下总结，方便以后查找使用。</p>
+<h2 id="安装vimplug插件"><a href="#安装vimplug插件" class="headerlink" title="安装vimplug插件"></a>安装<code>vimplug</code>插件</h2><p>推荐使用<code>vimplug</code>工具来管理多插件。<br>github地址：<a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">https://github.com/junegunn/vim-plug</a><br>执行下面代码直接安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h2><table>
+<thead>
+<tr>
+<th align="center">插件</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a href="https://github.com/junegunn/vim-easy-align" target="_blank" rel="noopener"> vim-easy-align </a></td>
+<td align="center">A Vim alignment plugin</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/scrooloose/nerdtree" target="_blank" rel="noopener"> nerdtree</a></td>
+<td align="center">A tree explorer plugin for vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/Xuyuanp/nerdtree-git-plugin" target="_blank" rel="noopener"> nerdtree-git-plugin</a></td>
+<td align="center">A plugin of NERDTree showing git status</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/vim-airline/vim-airline" target="_blank" rel="noopener"> vim-airline </a></td>
+<td align="center">lean &amp; mean status/tabline for vim that’s light as air</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/vim-airline/vim-airline-themes" target="_blank" rel="noopener"> vim-airline-themes </a></td>
+<td align="center">A collection of themes for vim-airline</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/flazz/vim-colorschemes" target="_blank" rel="noopener"> vim-colorschemes </a></td>
+<td align="center">one colorscheme pack to rule them all!</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/chxuan/change-colorscheme" target="_blank" rel="noopener"> change-colorscheme </a></td>
+<td align="center">A quick change theme plugin for vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/haya14busa/incsearch.vim" target="_blank" rel="noopener"> incsearch.vim </a></td>
+<td align="center">Improved incremental searching for Vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/easymotion/vim-easymotion" target="_blank" rel="noopener"> vim-easymotion </a></td>
+<td align="center">Vim motions on speed</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/Valloric/YouCompleteMe" target="_blank" rel="noopener"> YouCompleteMe </a></td>
+<td align="center">A code-completion engine for Vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/vim-scripts/L9" target="_blank" rel="noopener"> L9 </a></td>
+<td align="center">Vim-script library</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/tpope/vim-commentary" target="_blank" rel="noopener"> vim-commentary </a></td>
+<td align="center">comment stuff out</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/tpope/vim-fugitive" target="_blank" rel="noopener"> vim-fugitive </a></td>
+<td align="center">A Git wrapper so awesome, it should be illegal</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/airblade/vim-gitgutter" target="_blank" rel="noopener"> vim-gitgutter </a></td>
+<td align="center">A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/tpope/vim-repeat" target="_blank" rel="noopener"> vim-repeat </a></td>
+<td align="center">enable repeating supported plugin maps with “.”</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/tpope/vim-surround" target="_blank" rel="noopener"> vim-surround </a></td>
+<td align="center">quoting/parenthesizing made simple</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/tpope/vim-endwise" target="_blank" rel="noopener"> vim-endwise </a></td>
+<td align="center">wisely add “end” in ruby, endfunction/endif/more in vim script, etc</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/ryanoasis/vim-devicons" target="_blank" rel="noopener"> vim-devicons </a></td>
+<td align="center">Adds file type glyphs/icons to popular Vim plugins</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/jiangmiao/auto-pairs" target="_blank" rel="noopener">auto-pairs</a></td>
+<td align="center">Vim plugin, insert or delete brackets, parens, quotes in pair</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/Yggdroot/LeaderF" target="_blank" rel="noopener">LeaderF</a></td>
+<td align="center">An asynchronous fuzzy finder which is used to quickly locate files, buffers, mrus, tags, etc. in large project</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/godlygeek/tabular" target="_blank" rel="noopener">tabular</a></td>
+<td align="center">Vim script for text filtering and alignment</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/mileszs/ack.vim" target="_blank" rel="noopener">ack.vim</a></td>
+<td align="center">Vim plugin for the Perl module / CLI script ‘ack’</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/terryma/vim-smooth-scroll" target="_blank" rel="noopener">vim-smooth-scroll</a></td>
+<td align="center">Make scrolling in Vim more pleasant</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/majutsushi/tagbar" target="_blank" rel="noopener">tagbar</a></td>
+<td align="center">Vim plugin that displays tags in a window, ordered by scope</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/iamcco/mathjax-support-for-mkdp" target="_blank" rel="noopener">mathjax-support-for-mkdp</a></td>
+<td align="center">mathjax support for markdown-preview.vim plugin</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/iamcco/markdown-preview.vim" target="_blank" rel="noopener">markdown-preview.vim</a></td>
+<td align="center">Real-time markdown preview plugin for vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/terryma/vim-expand-region" target="_blank" rel="noopener">vim-expand-region</a></td>
+<td align="center">Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/mhinz/vim-startify" target="_blank" rel="noopener">vim-startify</a></td>
+<td align="center">The fancy start screen for Vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/terryma/vim-multiple-cursors" target="_blank" rel="noopener">vim-multiple-cursors</a></td>
+<td align="center">True Sublime Text style multiple selections for Vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/mbbill/undotree" target="_blank" rel="noopener">undotree</a></td>
+<td align="center">The ultimate undo history visualizer for VIM</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/junegunn/fzf" target="_blank" rel="noopener">fzf</a></td>
+<td align="center">A command-line fuzzy finder</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/ConradIrwin/vim-bracketed-paste" target="_blank" rel="noopener">vim-bracketed-paste</a></td>
+<td align="center">Handles bracketed-paste-mode in vim (aka. automatic <code>:set paste</code>)</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/artur-shaik/vim-javacomplete2" target="_blank" rel="noopener">vim-javacomplete2</a></td>
+<td align="center">Updated javacomplete plugin for vim.</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/junegunn/goyo.vim" target="_blank" rel="noopener">goyo.vim</a></td>
+<td align="center">Distraction-free writing in Vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/amix/vim-zenroom2" target="_blank" rel="noopener">vim-zenroom2</a></td>
+<td align="center">A Vim extension that emulates iA Writer environment when editing Markdown, reStructuredText or text files</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/vim-scripts/bufexplorer.zip" target="_blank" rel="noopener">bufexplorer.zip</a></td>
+<td align="center">Buffer Explorer / Browser</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/maxbrunsfeld/vim-yankstack" target="_blank" rel="noopener">vim-yankstack</a></td>
+<td align="center">A lightweight implementation of emacs’s kill-ring for vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/w0rp/ale" target="_blank" rel="noopener">ale</a></td>
+<td align="center">Asynchronous Lint Engine</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/fatih/vim-go" target="_blank" rel="noopener">vim-go</a></td>
+<td align="center">Go development plugin for Vim</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/Chiel92/vim-autoformat" target="_blank" rel="noopener">vim-autoformat</a></td>
+<td align="center">Provide easy code formatting in Vim by integrating existing code formatters</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+      
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/ec/" title="vim插件推荐">https://www.zhyong.cn/posts/ec/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vim%E6%8F%92%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> vim插件</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/8410/" rel="next" title="hexo优化">
+                  <i class="fa fa-chevron-left"></i> hexo优化
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/bfd3/" rel="prev" title="使用ssh密钥连接Github">
+                  使用ssh密钥连接Github <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装vimplug插件"><span class="nav-number">1.</span> <span class="nav-text">安装vimplug插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件列表"><span class="nav-number">2.</span> <span class="nav-text">插件列表</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

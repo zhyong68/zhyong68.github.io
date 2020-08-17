@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="本篇教程通过在Windows本地系统中搭建aria2服务并通过本地或第三方Web控制面板来进行多线程、多源下载。其实个人感觉效果不大，但是它太著名了，每次忍不住尝试它！  本地系统环境：Windows10 1903aria2命令行程序：aria2aria2 Web前端：AriaNg  什么是aria2 aria2是一个轻量级的多协议和多源，跨平台的命令行下载程序， 它支持HTTP &#x2F; HTTPS，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本地配置Aria2下载程序及Web控制面板">
+<meta property="og:url" content="https://www.zhyong.cn/posts/510f/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="本篇教程通过在Windows本地系统中搭建aria2服务并通过本地或第三方Web控制面板来进行多线程、多源下载。其实个人感觉效果不大，但是它太著名了，每次忍不住尝试它！  本地系统环境：Windows10 1903aria2命令行程序：aria2aria2 Web前端：AriaNg  什么是aria2 aria2是一个轻量级的多协议和多源，跨平台的命令行下载程序， 它支持HTTP &#x2F; HTTPS，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801201550.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801203531.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801205040.png">
+<meta property="article:published_time" content="2019-08-01T10:53:57.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.634Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="aria2">
+<meta property="article:tag" content="下载神器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801201550.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/510f/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>本地配置Aria2下载程序及Web控制面板 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/510f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          本地配置Aria2下载程序及Web控制面板<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AEAria2%E4%B8%8B%E8%BD%BD%E7%A8%8B%E5%BA%8F%E5%8F%8AWeb%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E6%9D%A5%E5%8A%A0%E9%80%9F%E4%B8%8B%E8%BD%BD.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-01 18:53:57" itemprop="dateCreated datePublished" datetime="2019-08-01T18:53:57+08:00">2019-08-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">实用工具</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/510f/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/510f/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="本篇教程"><a href="#本篇教程" class="headerlink" title="本篇教程"></a>本篇教程</h2><p>通过在Windows本地系统中搭建<a href="https://aria2.github.io/" target="_blank" rel="noopener">aria2</a>服务并通过本地或第三方Web控制面板来进行多线程、多源下载。<del>其实个人感觉效果不大，但是它太著名了，每次忍不住尝试它！</del></p>
+<blockquote>
+<p>本地系统环境：Windows10 1903<br>aria2命令行程序：<a href="https://github.com/aria2/aria2/releases" target="_blank" rel="noopener">aria2</a><br>aria2 Web前端：<a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">AriaNg</a></p>
+</blockquote>
+<h2 id="什么是aria2"><a href="#什么是aria2" class="headerlink" title="什么是aria2"></a>什么是aria2</h2><blockquote>
+<p>aria2是一个轻量级的多协议和多源，跨平台的命令行下载程序， 它支持HTTP / HTTPS，FTP，SFTP，BitTorrent和Metalink。</p>
+</blockquote>
+<a id="more"></a>
+
+<p>在Github页面中介绍的详细特征：</p>
+<ul>
+<li>通过HTTP（S）/ FTP / SFTP / BitTorrent下载文件</li>
+<li>分段下载</li>
+<li>Metalink版本4（RFC 5854）支持（HTTP / FTP / SFTP / BitTorrent）</li>
+<li>Metalink 3.0版支持（HTTP / FTP / SFTP / BitTorrent）</li>
+<li>Metalink / HTTP（RFC 6249）支持</li>
+<li>HTTP / 1.1实现</li>
+<li>HTTP代理支持</li>
+<li>HTTP BASIC身份验证支持</li>
+<li>HTTP代理身份验证支持</li>
+<li>众所周知的代理环境变量：http_proxy，https_proxy，ftp_proxy，all_proxy和no_proxy</li>
+<li>HTTP gzip，deflate内容编码支持</li>
+<li>使用HTTPS中的给定可信CA证书验证对等方</li>
+<li>HTTPS中的客户端证书身份验证</li>
+<li>分块传输编码支持</li>
+<li>使用Firefox3格式，Chromium / Google Chrome和Mozilla / Firefox（1.x / 2.x）/ Netscape格式从文件加载Cookie。</li>
+<li>以Mozilla / Firefox（1.x / 2.x）/ Netscape格式保存Cookies。</li>
+<li>自定义HTTP标头支持</li>
+<li>持久连接支持</li>
+<li>FTP / SFTP通过HTTP代理</li>
+<li>下载/上传速度限制</li>
+<li>BitTorrent扩展：快速扩展，DHT，PEX，MSE / PSE，多跟踪器，UDP跟踪器</li>
+<li>BitTorrent WEB-Seeding。 aria2请求块大于片段大小以减少请求开销。 它还支持片段大小的流水线请求。</li>
+<li>BitTorrent本地同行发现</li>
+<li>完全重命名/更改BitTorrent下载的目录结构</li>
+<li>JSON-RPC（通过HTTP和WebSocket）/ XML-RPC接口</li>
+<li>作为守护进程运行</li>
+<li>在多文件torrent / Metalink中选择性下载</li>
+<li>Metalink中的块校验和验证</li>
+<li>可以在Metalink中禁用分段下载</li>
+<li>Netrc的支持</li>
+<li>配置文件支持</li>
+<li>下载在文本文件或stdin中找到的URI，可以选择指定目标目录和输出文件名</li>
+<li>参数化URI支持</li>
+<li>使用Happy Eyeballs支持IPv6</li>
+<li>磁盘缓存可减少磁盘活动</li>
+</ul>
+<p>一句话概括，<strong>Aria2就是一个命令行的下载神器。</strong></p>
+<p>官方主页：<a href="https://aria2.github.io/" target="_blank" rel="noopener">https://aria2.github.io/</a><br>Github地址：<a href="https://github.com/aria2/aria2" target="_blank" rel="noopener">https://github.com/aria2/aria2</a></p>
+<p>我们可以在<a href="https://github.com/aria2/aria2/releases" target="_blank" rel="noopener">Releases · aria2/aria2</a>下载最新的aria2程序。</p>
+<h2 id="什么是AriaNg"><a href="#什么是AriaNg" class="headerlink" title="什么是AriaNg"></a>什么是AriaNg</h2><p>由于aria2是一个命令行程序，配置以及设置都较麻烦，而AriaNg是一个现代化的web前端，使aria2更容易使用。AriaNg是纯html页面，不需要任何依赖以及运行环境。</p>
+<p>也就是说，我们使用浏览器打开此html页面就可以使用了。</p>
+<p>Github地址：<a href="https://github.com/mayswind/AriaNg" target="_blank" rel="noopener">https://github.com/mayswind/AriaNg</a></p>
+<p>这里我们在<a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">Releases · mayswind/AriaNg</a>下载带有<code>AllInOne.zip</code>的文件，该文件为一个html页面，使用起来更加方便。</p>
+<h2 id="搭建本地服务"><a href="#搭建本地服务" class="headerlink" title="搭建本地服务"></a>搭建本地服务</h2><p><strong>第一步</strong>，将下载的最新版Aria2解压，这里我下载的是<a href="https://github.com/aria2/aria2/releases/download/release-1.34.0/aria2-1.34.0-win-64bit-build1.zip" target="_blank" rel="noopener">aria2-1.34.0-win-64bit-build1.zip
+</a>，解压到合适的目录。</p>
+<p><strong>第二步</strong>，我们下载Aria2的配置文件和控制脚本解压到Aria2同目录。</p>
+<p>配置文件下载：<a href="https://www.lanzous.com/i59u3pc" target="_blank" rel="noopener">https://www.lanzous.com/i59u3pc</a></p>
+<p>解压后<code>aria2.conf</code>为配置文件，我们可以设置aria2的下载目录：找到<code>dir=Download</code>进行设置，可以为相对目录或绝对目录，如：<code>F:\Downloads\aria2 Download</code>，（目录最好为全英文，中文会乱码）其它可自行设置或默认即可。</p>
+<p><strong>第三步</strong>，控制脚本下载：<a href="https://www.lanzous.com/i59u3qd" target="_blank" rel="noopener">https://www.lanzous.com/i59u3qd</a></p>
+<p>同样解压到aria2同目录，文件作用如下：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Start</span>.</span></span>bat</span><br><span class="line">带命令行窗口输出启动 Aria2</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Start</span>.</span></span>vbs</span><br><span class="line">不带命令行窗口启动 Aria2</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Stop</span>.</span></span>bat</span><br><span class="line">停止 Aria2</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Status</span>.</span></span>bat</span><br><span class="line">查看 Aria2 进程状态</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Restart</span>.</span></span>bat</span><br><span class="line">重启 Aria2</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Boot</span>.</span></span>bat</span><br><span class="line">开启或关闭 Aria2 开机启动</span><br></pre></td></tr></table></figure>
+
+<p>此时我们的目录如下：</p>
+<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801201550.png"></p>
+<p><strong>第四步</strong>，双击<code>Start.bat</code>或<code>Start.vbs</code>即可启动Aria2，弹出防火墙允许通过即可。</p>
+<p>运行命令行显示：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">08/01 20:17:24 [WARN] Neither --rpc-secret nor a combination of --rpc-user <span class="keyword">and</span> --rpc-passwd is set. This is insecure. It is extremely recommended <span class="keyword">to</span> specify --rpc-secret with the adequate secrecy <span class="keyword">or</span> now deprecated --rpc-user <span class="keyword">and</span> --rpc-passwd.</span><br><span class="line"></span><br><span class="line">08/01 20:17:24 [NOTICE] IPv4 RPC: listening on TCP<span class="built_in"> port </span>6800</span><br><span class="line"></span><br><span class="line">08/01 20:17:24 [NOTICE]<span class="built_in"> IPv6 </span>RPC: listening on TCP<span class="built_in"> port </span>6800</span><br></pre></td></tr></table></figure>
+
+<p>即代表成功启动了Aria2。后面我们通过Web控制面板来使用Aria2应用。</p>
+<p><strong>最后一步</strong>，下载AllInOne.zip控制面板：<a href="https://github.com/mayswind/AriaNg/releases/download/1.1.1/AriaNg-1.1.1-AllInOne.zip" target="_blank" rel="noopener">https://github.com/mayswind/AriaNg/releases/download/1.1.1/AriaNg-1.1.1-AllInOne.zip</a><br>解压到任意目录，使用浏览器打开<code>index.html</code></p>
+<p>打开即提示已经连接到本地的Aria2.</p>
+<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801203531.png"></p>
+<p>或者我们使用在线的Web面板：<del>如我搭建的 <a href="http://dl.zhyong.cn" target="_blank" rel="noopener">http://dl.zhyong.cn</a></del> ，<a href="http://www.nasdiy.net/AriaNg/" target="_blank" rel="noopener">AriaNg控制台</a> | <a href="http://www.nasdiy.net/yaaw/" target="_blank" rel="noopener">yaaw控制台</a> | <a href="http://www.nasdiy.net/aria2/" target="_blank" rel="noopener">aria2-webui控制台</a> 进行相应配置即可。</p>
+<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801205040.png"></p>
+<p>这样我们就可以新建下载任务来进行下载了，下载速度爽歪歪。更加推荐使用在线的Web控制面板，更加方便，控制面板也仅仅是纯html页面，保证安全。</p>
+<h2 id="一步搞定"><a href="#一步搞定" class="headerlink" title="一步搞定"></a>一步搞定</h2><p>下载：<a href="https://www.lanzous.com/i59va3i" target="_blank" rel="noopener">https://www.lanzous.com/i59va3i</a></p>
+<p>解压后双击<code>Start.bat</code>启动Aria2，打开在线Web或本地Web控制面板连接即可，默认下载目录为解压目录的<code>Download</code>文件夹。</p>
+<h2 id="在服务器搭建Aria2"><a href="#在服务器搭建Aria2" class="headerlink" title="在服务器搭建Aria2"></a>在服务器搭建Aria2</h2><p>上面我们搭建的是本地的Aria2服务，当然我们也可以在服务器端搭建，用于离线下载或加速下载。</p>
+<p>服务器端脚本：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</span><br><span class="line"><span class="comment">#备用地址</span></span><br><span class="line">wget -N --no-check-certificate https://www.moerats.com/usr/shell/Aria2/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</span><br></pre></td></tr></table></figure>
+
+<p>管理脚本及配置信息都可以在<code>aria2.sh</code>中进行。</p>
+<p>前端的Web控制面板可以自己搭建，下载 <a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">https://github.com/mayswind/AriaNg/releases</a> 放在Nginx服务器上即可，或者使用我的面板：<a href="http://dl.zhyong.cn" target="_blank" rel="noopener">http://dl.zhyong.cn</a> 以及官方面板：<a href="http://ariang.mayswind.net/latest/" target="_blank" rel="noopener">http://ariang.mayswind.net/latest/</a></p>
+<blockquote>
+<p>参考：<a href="https://www.mivm.cn/windows-aria2/" target="_blank" rel="noopener">Windows 配置 Aria2 及 Web 管理面板教程 | 米V米</a><br><a href="https://www.moerats.com/archives/251/" target="_blank" rel="noopener">BT种子/磁力链接下载工具：Aria2一键安装管理脚本 - Rat’s Blog</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\a615\" rel="bookmark">PanDownload+Aria2：实现百度网盘高速下载</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/510f/" title="本地配置Aria2下载程序及Web控制面板">https://www.zhyong.cn/posts/510f/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/aria2/" rel="tag"><i class="fa fa-tag"></i> aria2</a>
+              <a href="/tags/%E4%B8%8B%E8%BD%BD%E7%A5%9E%E5%99%A8/" rel="tag"><i class="fa fa-tag"></i> 下载神器</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/ae96/" rel="next" title="使用Chevereto搭建个人图床">
+                  <i class="fa fa-chevron-left"></i> 使用Chevereto搭建个人图床
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/4184/" rel="prev" title="Windows下RedisDump的安装">
+                  Windows下RedisDump的安装 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本篇教程"><span class="nav-number">1.</span> <span class="nav-text">本篇教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是aria2"><span class="nav-number">2.</span> <span class="nav-text">什么是aria2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是AriaNg"><span class="nav-number">3.</span> <span class="nav-text">什么是AriaNg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建本地服务"><span class="nav-number">4.</span> <span class="nav-text">搭建本地服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一步搞定"><span class="nav-number">5.</span> <span class="nav-text">一步搞定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在服务器搭建Aria2"><span class="nav-number">6.</span> <span class="nav-text">在服务器搭建Aria2</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

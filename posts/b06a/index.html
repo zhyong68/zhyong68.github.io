@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="简介著名的在线笔记印象笔记、有道云笔记等，笔记软件我们之前介绍过全平台Markdown笔记软件——Notable 和 VNote——一个更懂程序员和Markdown的笔记，类似软件有太多太多，但面对如此多而杂的笔记平台或者软件该如何选择？是否有一个软件有更加全面的功能呢？trilium笔记可能能够满足我们的一些需求。 Github上的简介：Trilium 笔记 是一个分层笔记应用程序，重点是建立大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用trilium笔记构建你的个人知识库">
+<meta property="og:url" content="https://www.zhyong.cn/posts/b06a/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="简介著名的在线笔记印象笔记、有道云笔记等，笔记软件我们之前介绍过全平台Markdown笔记软件——Notable 和 VNote——一个更懂程序员和Markdown的笔记，类似软件有太多太多，但面对如此多而杂的笔记平台或者软件该如何选择？是否有一个软件有更加全面的功能呢？trilium笔记可能能够满足我们的一些需求。 Github上的简介：Trilium 笔记 是一个分层笔记应用程序，重点是建立大">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-02-10_20-12-20.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/relation-map-dev-process-demo.gif">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/day-notes.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-02-10_21-11-20.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-02-10_19-45-05.png">
+<meta property="og:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/protecting-note.gif">
+<meta property="article:published_time" content="2019-02-10T11:48:04.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.629Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="soft">
+<meta property="article:tag" content="知识">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-02-10_20-12-20.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/b06a/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>使用trilium笔记构建你的个人知识库 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/b06a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          使用trilium笔记构建你的个人知识库<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E4%BD%BF%E7%94%A8trilium%E7%AC%94%E8%AE%B0%E6%9E%84%E5%BB%BA%E4%BD%A0%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%9F%A5%E8%AF%86%E5%BA%93.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-10 19:48:04" itemprop="dateCreated datePublished" datetime="2019-02-10T19:48:04+08:00">2019-02-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AllPlatforms/" itemprop="url" rel="index">
+                    <span itemprop="name">AllPlatforms</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/b06a/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/b06a/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>著名的在线笔记印象笔记、有道云笔记等，笔记软件我们之前介绍过<a href="https://www.zhyong.cn/posts/c36d/">全平台Markdown笔记软件——Notable</a> 和 <a href="https://www.zhyong.cn/posts/8d2f/">VNote——一个更懂程序员和Markdown的笔记</a>，类似软件有太多太多，但面对如此多而杂的笔记平台或者软件该如何选择？是否有一个软件有更加全面的功能呢？trilium笔记可能能够满足我们的一些需求。</p>
+<p>Github上的简介：<a href="https://github.com/zadam/trilium" target="_blank" rel="noopener">Trilium 笔记</a> 是一个分层笔记应用程序，重点是建立大型个人知识库。</p>
+<p>因此，Trilium 是一个更加全面，可以说是无所不能的笔记软件，也是因为如此，上手Trilium 笔记可能有一定的难度，需要一定的耐心和编程基础。</p>
+<p>软件截图：</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-02-10_20-12-20.png"></p>
+<a id="more"></a>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载地址：<a href="https://github.com/zadam/trilium/releases" target="_blank" rel="noopener">https://github.com/zadam/trilium/releases</a><br>包括Windows、Linux和Mac平台，以及Linux服务器端，用于搭建 trilium 笔记的服务器端，可<a href="https://github.com/zadam/trilium/wiki/Server-installation" target="_blank" rel="noopener">查看官方教程</a>。</p>
+<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><p>详见官方Wiki：<a href="https://github.com/zadam/trilium/wiki/Patterns-of-personal-knowledge-base" target="_blank" rel="noopener">Patterns of personal knowledge base · zadam/trilium Wiki</a><br>Document是SQLite数据库，包含所有注释，树结构，元数据和大部分配置。</p>
+<h3 id="笔记保存位置"><a href="#笔记保存位置" class="headerlink" title="笔记保存位置"></a>笔记保存位置</h3><ul>
+<li>Linux: <code>/home/[user]/.local/share</code></li>
+<li>Windows: <code>C:\Users\[user]\AppData\Roaming</code></li>
+<li>Mac: <code>/Users/[user]/Library/Application Support</code></li>
+</ul>
+<h3 id="演示文档"><a href="#演示文档" class="headerlink" title="演示文档"></a>演示文档</h3><p>第一次运行Trilium时，它将自动生成演示文档作为起点，很好地展示了Trilium的功能。例如：<a href="https://github.com/zadam/trilium/wiki/Relation-map" target="_blank" rel="noopener">关系图</a>, <a href="https://github.com/zadam/trilium/wiki/Day-notes" target="_blank" rel="noopener">日记</a>，<a href="https://github.com/zadam/trilium/wiki/Weight-tracker" target="_blank" rel="noopener">权量跟踪器</a>, <a href="https://github.com/zadam/trilium/wiki/Task-manager" target="_blank" rel="noopener">任务管理器</a> 等。它可以添加标签功能，并且一份笔记可以放在多个位置。</p>
+<p>演示文档最好不要删除，之前就因为删除了而导致不能使用部分功能。若删除了可<a href="https://github.com/zadam/trilium/raw/master/db/demo.tar" target="_blank" rel="noopener">下载</a>最新的文档并导入到树中。</p>
+<h4 id="关系图"><a href="#关系图" class="headerlink" title="关系图"></a>关系图</h4><p>关系映射也是一种类型笔记，可以可视化它们的关系。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/relation-map-dev-process-demo.gif"></p>
+<h4 id="日记"><a href="#日记" class="headerlink" title="日记"></a>日记</h4><p>记笔记的一种常见模式就是将许多笔记围绕某个日期，例如你有一些任务必须在某个日期完成，在特定的日期开会，这些想法都是围绕它们发生的日期。因此Trilium 提供创建“日工作空间”，如图：</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/day-notes.png"></p>
+<p>由此可见，一个日期下有多个文本，还有一些子记等，且可以设置“权重”，可以通过下面介绍的“权重跟踪器”来展示。</p>
+<h4 id="权重跟踪器"><a href="#权重跟踪器" class="headerlink" title="权重跟踪器"></a>权重跟踪器</h4><p>点击右上角的<code>Weight tracker</code>即可展示。</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-02-10_21-11-20.png"></p>
+<h4 id="任务管理器"><a href="#任务管理器" class="headerlink" title="任务管理器"></a>任务管理器</h4><p>点击软件右上角的<code>New task</code>即可创建任务：</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-02-10_19-45-05.png"></p>
+<p>任务管理器管理未完成（TODO）任务和已完成任务（非空doneDate属性）。未完成的任务按位置和任意标记进一步分类 - 每当您更改任务注释中的标记属性时，此任务就会自动移动到适当的位置。这可以更好地帮助我们规划学习、工作。</p>
+<h3 id="使用受保护的日记"><a href="#使用受保护的日记" class="headerlink" title="使用受保护的日记"></a>使用受保护的日记</h3><p>默认情况下，Notes不受保护。如果您希望保护您的笔记，请单击标题旁边的盾牌图标，如下所示：</p>
+<p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/protecting-note.gif"></p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p><a href="https://github.com/zadam/trilium/wiki/Attributes" target="_blank" rel="noopener">属性</a>搜索：<code>@abc</code> - 匹配带有标签abc的注释<br>全文搜索： 搜索文本和代码注释内容。仅适用于未受保护的内容。</p>
+<p>其它功能如服务器安装、同步等详见<a href="https://github.com/zadam/trilium/wiki" target="_blank" rel="noopener">Wiki</a>，</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\1926\" rel="bookmark">Gif动画录制软件——ScreenToGif</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\64cd\" rel="bookmark">Listen 1 ——全网音乐轻松听</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\8d2f\" rel="bookmark">VNote——一个更懂程序员和Markdown的笔记</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\42fe\" rel="bookmark">TrafficMonitor——Windows任务栏显示实时网速、CPU和内存监控软件</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/b06a/" title="使用trilium笔记构建你的个人知识库">https://www.zhyong.cn/posts/b06a/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/soft/" rel="tag"><i class="fa fa-tag"></i> soft</a>
+              <a href="/tags/%E7%9F%A5%E8%AF%86/" rel="tag"><i class="fa fa-tag"></i> 知识</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/c2f9/" rel="next" title="命令行文本搜索神器——RipGrep">
+                  <i class="fa fa-chevron-left"></i> 命令行文本搜索神器——RipGrep
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/e220/" rel="prev" title="【TED】 如何掌控你的自由时间">
+                  【TED】 如何掌控你的自由时间 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用教程"><span class="nav-number">3.</span> <span class="nav-text">使用教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#笔记保存位置"><span class="nav-number">3.1.</span> <span class="nav-text">笔记保存位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#演示文档"><span class="nav-number">3.2.</span> <span class="nav-text">演示文档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关系图"><span class="nav-number">3.2.1.</span> <span class="nav-text">关系图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日记"><span class="nav-number">3.2.2.</span> <span class="nav-text">日记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权重跟踪器"><span class="nav-number">3.2.3.</span> <span class="nav-text">权重跟踪器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任务管理器"><span class="nav-number">3.2.4.</span> <span class="nav-text">任务管理器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用受保护的日记"><span class="nav-number">3.3.</span> <span class="nav-text">使用受保护的日记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索"><span class="nav-number">3.4.</span> <span class="nav-text">搜索</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

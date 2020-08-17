@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="RAMOS系统简介 内存操作系统(RAMOS)是全内存运行，启动后不依赖硬盘的Windows系统。它的原理是利用特殊的软件把多余的内存虚拟为内存盘，然后将制作好的操作系统镜像释放到这个虚拟内存盘中运行，让Windows操作系统和应用软件完全工作于内存之中，从而让操作系统和应用软件获得极快的打开和运行速度，因为操作系统和软件全部是在内存中运行的，所以重启后针对系统盘的操作都会被还原，避免了病毒和恶意">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RAMOS系统简介及制作">
+<meta property="og:url" content="https://www.zhyong.cn/posts/5edf/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="RAMOS系统简介 内存操作系统(RAMOS)是全内存运行，启动后不依赖硬盘的Windows系统。它的原理是利用特殊的软件把多余的内存虚拟为内存盘，然后将制作好的操作系统镜像释放到这个虚拟内存盘中运行，让Windows操作系统和应用软件完全工作于内存之中，从而让操作系统和应用软件获得极快的打开和运行速度，因为操作系统和软件全部是在内存中运行的，所以重启后针对系统盘的操作都会被还原，避免了病毒和恶意">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-09T09:41:35.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.605Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="ramos">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/5edf/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>RAMOS系统简介及制作 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/5edf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          RAMOS系统简介及制作<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/RAMOS%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%88%B6%E4%BD%9C.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-09 17:41:35" itemprop="dateCreated datePublished" datetime="2018-11-09T17:41:35+08:00">2018-11-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/5edf/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/5edf/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="RAMOS系统简介"><a href="#RAMOS系统简介" class="headerlink" title="RAMOS系统简介"></a>RAMOS系统简介</h2><blockquote>
+<p>内存操作系统(RAMOS)是全内存运行，启动后不依赖硬盘的Windows系统。它的原理是利用特殊的软件把多余的内存虚拟为内存盘，然后将制作好的操作系统镜像释放到这个虚拟内存盘中运行，让Windows操作系统和应用软件完全工作于内存之中，从而让操作系统和应用软件获得极快的打开和运行速度，因为操作系统和软件全部是在内存中运行的，所以重启后针对系统盘的操作都会被还原，避免了病毒和恶意软件对系统的损坏，但也可以对操作系统和软件进行热备份操作，确保对操作系统和软件的设置及安装重启生效。</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="RAMOS的优缺点"><a href="#RAMOS的优缺点" class="headerlink" title="RAMOS的优缺点"></a>RAMOS的优缺点</h2><ul>
+<li>现在的电脑磁盘性能是整机的瓶颈，由于内存读写速度比普通硬盘快，因此RAMOS的运行速度也就更快，而且成功加载到内存后，可以脱离本机硬盘运行，极大地提升计算机性能和电池续航能力，任一模式都比顶级ssd快；</li>
+<li>不会受到病毒感染，即使RAMOS中毒，重启即可解决；</li>
+<li>RAMOS是一个或多个镜像文件，可以放在电脑任意位置，便于维护管理；</li>
+<li>由于需要将系统和应用加载到内存中，对内存有一定的要求，可能需要使用精简版系统来制作</li>
+</ul>
+<h2 id="RAMOS制作过程"><a href="#RAMOS制作过程" class="headerlink" title="RAMOS制作过程"></a>RAMOS制作过程</h2><h3 id="RAMOS一键批处理"><a href="#RAMOS一键批处理" class="headerlink" title="RAMOS一键批处理"></a>RAMOS一键批处理</h3><p>原贴地址：<a href="http://bbs.wuyou.net/forum.php?mod=viewthread&amp;tid=388107&amp;extra=page%3D1" target="_blank" rel="noopener">http://bbs.wuyou.net/forum.php?mod=viewthread&amp;tid=388107&amp;extra=page%3D1</a><br>进入原贴下载或者<a href="https://zhyong-cn-soft.oss-cn-shanghai.aliyuncs.com/RAMOS%E4%B8%80%E9%94%AE%E6%89%B9%E5%A4%84%E7%90%86%E5%A4%9A%E5%90%88%E4%B8%80V3.7.4.rar" target="_blank" rel="noopener">本地下载 RAMOS一键批处理多合一V3.7.4</a></p>
+<h4 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h4><ul>
+<li>WIN7及以上操作系统，32/64位均可，可以安装在物理C盘或者VHD中，物理内存比C盘已用空间大3G或更多，物理内存推荐8G或以上（越大越好），C盘已用5G以内（满足功能的前提下越小越好），推荐用精简系统</li>
+<li>模式选择:传统BIOS+MBR硬盘推荐傻瓜模式制作，UEFI+GPT硬盘+64位系统推荐进入高级模式选择1-4或模式0制作。推荐BIOS+MBR硬盘模式</li>
+<li>制作流程:关闭原系统虚拟内存和休眠文件（推荐），正常重启电脑，然后把【一键批处理多合一 】批处理整个文件夹放到系统C盘以外的盘符，并确保该盘符有足够的硬盘空间用于存放C盘已用空间的镜像备份ramos.sna和compact.wim临时文件，重启之后在原系统中右击【P驱RAMOS一键批处理多合一】批处理，以管理员身份运行，批处理会自动安装primo或ramdisk驱动或Firadisk驱动，并制作相关vdf镜像。</li>
+<li>保存VDF到D盘或E盘，输入路径例如VDF\CPRAMOS，批处理会全自动制作好RAMOS，自动重启即可</li>
+</ul>
+<p><strong>备注：</strong>尽可能在原系统装好该装的驱动，安装驱动后热备份可能会导致RAMOS无法启动，当RAMOS重启进入不了的时候，重新制作即可，具体可查看一键批处理中的<code>简要制作说明及更新日志.txt</code></p>
+<h4 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h4><p>我操作的流程基本如下：</p>
+<ol>
+<li>首先安装一个系统，我选择的是<code>2017.1.14俄大神最新版win7企业版-x86-x64-PIP</code>，可以安装到c盘或者VHD方式（推荐）安装，安装好C盘占用约2~3G，且稳定性很好。<br>俄大神win7系统百度网盘下载: <a href="https://pan.baidu.com/s/1oHeGfKcLs3d9XLzLMNVgog" target="_blank" rel="noopener">https://pan.baidu.com/s/1oHeGfKcLs3d9XLzLMNVgog</a>  提取码: xtbn<br>若下载速度较慢可查看我之前的一篇关于百度网盘下载的文章：<a href="https://www.zhyong.cn/posts/d790/">https://www.zhyong.cn/posts/d790/</a></li>
+<li>安装好驱动以及一些必要软件，激活windows等，并转移个人文件夹，如下载，文档等到其它位置，便于进入RAMOS系统后保存个人文件，可使用<code>个人文件转移工具</code>一键转移，<a href="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/soft/pft_v1.8.rar" target="_blank" rel="noopener">点击下载</a></li>
+<li>以管理员身份运行一键脚本</li>
+<li>由于的的电脑为Bios+Mbr硬盘，直接按0使用傻瓜式操作。</li>
+</ol>
+<p>输入盘符和镜像目录即可，制作过程中……</p>
+<p>制作好之后自动加入RAMOS启动项，自动重启并进入RAMOS系统。<br>注意由于是将系统加载到内存中，保存到“C”盘的文件（如桌面）重启后会丢失，注意保存！<br>5. 如果在RAMOS系统中修改了文件，如安装软件等需要保存，则可进行一键热备份：<code>开始菜单——&gt;所有程序——&gt;Backup——&gt;Backup的批处理文件</code>运行即可。</p>
+<h3 id="手动制作"><a href="#手动制作" class="headerlink" title="手动制作"></a>手动制作</h3><p>无忧论坛上的教程：<a href="http://bbs.wuyou.net/forum.php?mod=viewthread&amp;tid=385891" target="_blank" rel="noopener">http://bbs.wuyou.net/forum.php?mod=viewthread&amp;tid=385891</a></p>
+<p>具体还是没有亲自做，等手动制作了再来补充。</p>
+<h2 id="个人体验"><a href="#个人体验" class="headerlink" title="个人体验"></a>个人体验</h2><p>使用傻瓜式制作完成后，运行速度确实很快，但是也有其弊端，比如文件不能保存，内存占用过高，若修改了部分系统文件（如注册表）则需要运行热备份来保存等。但是极致的速度体验，可降低磁盘损耗，替代影子系统、虚拟机系统，用于测试等还是非常不错的。</p>
+<p><strong>在此感谢无忧论坛上的前辈们！</strong></p>
+<blockquote>
+<p>参考：<br><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=410474" target="_blank" rel="noopener">RAMOS （内存操作系统）-无忧百科（不断完善中）</a><br><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=388107&extra=page%3D1" target="_blank" rel="noopener">【RAMOS一键批处理多合一 V3.7.4】在线制作P驱R驱F驱内存系统工具【win系列通用】</a><br><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=385891" target="_blank" rel="noopener">速度超99.9%电脑的64位RAMOS 分享使用体验及制作方法</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\a139\" rel="bookmark">Proxifier——给某个单独应用配置代理上网服务</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\1aac\" rel="bookmark">Windows终端工具——Hyper使用及配置</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\d83d\" rel="bookmark">sublime text3安装及配置</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\6b1d\" rel="bookmark">win10激活工具</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\e9c9\" rel="bookmark">优雅的屏保fliqlo</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/5edf/" title="RAMOS系统简介及制作">https://www.zhyong.cn/posts/5edf/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"><i class="fa fa-tag"></i> windows</a>
+              <a href="/tags/ramos/" rel="tag"><i class="fa fa-tag"></i> ramos</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/d83d/" rel="next" title="sublime text3安装及配置">
+                  <i class="fa fa-chevron-left"></i> sublime text3安装及配置
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/81c5/" rel="prev" title="使用Sublime Text3打造轻量级Python IDE">
+                  使用Sublime Text3打造轻量级Python IDE <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RAMOS系统简介"><span class="nav-number">1.</span> <span class="nav-text">RAMOS系统简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAMOS的优缺点"><span class="nav-number">2.</span> <span class="nav-text">RAMOS的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAMOS制作过程"><span class="nav-number">3.</span> <span class="nav-text">RAMOS制作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RAMOS一键批处理"><span class="nav-number">3.1.</span> <span class="nav-text">RAMOS一键批处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用说明"><span class="nav-number">3.1.1.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体过程"><span class="nav-number">3.1.2.</span> <span class="nav-text">具体过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手动制作"><span class="nav-number">3.2.</span> <span class="nav-text">手动制作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人体验"><span class="nav-number">4.</span> <span class="nav-text">个人体验</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

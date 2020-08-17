@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="最近在学习Python爬虫，学习并使用了一个非常强大的解析库：gawel&#x2F;pyquery: A jquery-like library for python，语法和Jquery非常类似，可以非常方便地提取信息，因此也顺便挑战了一下爬取豆瓣电影TOP 250，链接为：https:&#x2F;&#x2F;movie.douban.com&#x2F;top250?start&#x3D;0&amp;filter&#x3D; ，由于刚开始学习爬虫，代码将就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Python爬取豆瓣电影TOP250">
+<meta property="og:url" content="https://www.zhyong.cn/posts/bc93/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="最近在学习Python爬虫，学习并使用了一个非常强大的解析库：gawel&#x2F;pyquery: A jquery-like library for python，语法和Jquery非常类似，可以非常方便地提取信息，因此也顺便挑战了一下爬取豆瓣电影TOP 250，链接为：https:&#x2F;&#x2F;movie.douban.com&#x2F;top250?start&#x3D;0&amp;filter&#x3D; ，由于刚开始学习爬虫，代码将就">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908211418.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908213105.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908222611.png">
+<meta property="og:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908223216.png">
+<meta property="article:published_time" content="2019-09-08T12:55:29.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.628Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="爬虫库">
+<meta property="article:tag" content="pyquery">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908211418.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/bc93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>使用Python爬取豆瓣电影TOP250 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/bc93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          使用Python爬取豆瓣电影TOP250<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/%E4%BD%BF%E7%94%A8Python%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1TOP250.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-08 20:55:29" itemprop="dateCreated datePublished" datetime="2019-09-08T20:55:29+08:00">2019-09-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python3%E7%88%AC%E8%99%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">Python3爬虫</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/bc93/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/bc93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近在学习Python爬虫，学习并使用了一个非常强大的解析库：<a href="https://github.com/gawel/pyquery" target="_blank" rel="noopener">gawel/pyquery: A jquery-like library for python</a>，语法和Jquery非常类似，可以非常方便地提取信息，因此也顺便挑战了一下爬取豆瓣电影TOP 250，链接为：<a href="https://movie.douban.com/top250?start=0&amp;filter=" target="_blank" rel="noopener">https://movie.douban.com/top250?start=0&amp;filter=</a> ，由于<font color="red">刚开始学习</font>爬虫，代码将就着看，也简单的总结了一下。</p>
+<ol>
+<li>豆瓣电影页面采取了反爬虫措施，因此在爬虫时速度不宜过快，使用<code>time.sleep()</code>函数进行休眠，否则会封IP，或者使用代理进行，但我尝试了一些免费代理并没有成功。</li>
+<li>爬虫的文件存储为cvs格式，使用<code>logging</code>进行日志记录，方便查看进度</li>
+<li>由于个别页面并不是统一的格式，如有的电影(如<a href="https://movie.douban.com/subject/1291561/" target="_blank" rel="noopener">千与千寻</a>)有官方网站，大部分没有，大部分可以正常对应cvs页面，但对于这些特殊的页面则可能存在误差，最终文件我是手动修改的，并将其转换为excel。</li>
+<li>由于还未涉及到数据分析，也就没有对该数据进行分析了</li>
+</ol>
+<a id="more"></a>
+
+<h2 id="数据的爬取"><a href="#数据的爬取" class="headerlink" title="数据的爬取"></a>数据的爬取</h2><p>以下为简单的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment">#豆瓣Top250信息爬取：https://movie.douban.com/top250?start=0&amp;filter=</span></span><br><span class="line"><span class="comment">#使用休眠方法爬取 爬取速度非常慢，防止豆瓣封IP</span></span><br><span class="line"></span><br><span class="line">start_url=<span class="string">'https://movie.douban.com/top250?start=%s&amp;filter='</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#存储目录</span></span><br><span class="line">csv_file=<span class="string">'douban_top250.csv'</span></span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO,format=<span class="string">'%(asctime)s-%(name)s-%(levelname)s-%(message)s'</span>)</span><br><span class="line">logger=logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line">head_str=<span class="string">'电影名称,年份,概括,导演,编剧,主演,类型,制片国家,语言,上映日期,片长,别名,评分,评价人数,链接'</span></span><br><span class="line">csv_heads=head_str.split(<span class="string">','</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#写入头信息</span></span><br><span class="line"><span class="keyword">with</span> open(csv_file,<span class="string">'w'</span>,encoding=<span class="string">'utf_8_sig'</span>,newline=<span class="string">''</span>) <span class="keyword">as</span> f:</span><br><span class="line">    writer=csv.writer(f)</span><br><span class="line">    writer.writerow(csv_heads)</span><br><span class="line"></span><br><span class="line">real_page=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">250</span>,<span class="number">25</span>):</span><br><span class="line"></span><br><span class="line">    logger.info(<span class="string">"正在休眠5s，请稍后……"</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    real_page+=<span class="number">1</span></span><br><span class="line">    logger.info(<span class="string">'正在获取第%s页的信息'</span>,real_page)</span><br><span class="line">    page_url=start_url % page <span class="comment">#当前页链接</span></span><br><span class="line">    page_doc=pq(page_url)</span><br><span class="line">    single_doc=page_doc(<span class="string">'.item'</span>) <span class="comment">#获取单项信息</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> single_doc.items():</span><br><span class="line">        <span class="comment">#电影名称,年份,概括,导演,编剧,主演,类型,制片国家,语言,上映日期,片长,别名,评分,评价人数,链接</span></span><br><span class="line">        info_list=[]</span><br><span class="line">        <span class="comment">#评分</span></span><br><span class="line">        rate=item(<span class="string">'.star .rating_num'</span>).text()</span><br><span class="line">        <span class="comment">#评价人数</span></span><br><span class="line">        rate_nums=item(<span class="string">'.star span'</span>).eq(<span class="number">3</span>).text()</span><br><span class="line">        <span class="comment">#概括</span></span><br><span class="line">        quote=item(<span class="string">'.bd p'</span>).eq(<span class="number">1</span>).text()</span><br><span class="line">    </span><br><span class="line">        <span class="comment">#进入详情页面提取信息</span></span><br><span class="line">        detail_url=item(<span class="string">'.pic a'</span>).attr(<span class="string">'href'</span>)</span><br><span class="line">        detail_doc=pq(detail_url)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#为防止封IP，休眠5s</span></span><br><span class="line">        logger.info(<span class="string">"正在休眠3s，请稍后……"</span>)</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#电影名称和年份</span></span><br><span class="line">        title=detail_doc(<span class="string">'h1 span'</span>).eq(<span class="number">0</span>).text()</span><br><span class="line">        year=detail_doc(<span class="string">'h1 .year'</span>).text()[<span class="number">1</span>:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        info_list.append(title)</span><br><span class="line">        info_list.append(year)   </span><br><span class="line">        info_list.append(quote)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#基本信息</span></span><br><span class="line">        infos=detail_doc(<span class="string">'#info'</span>).text().split(<span class="string">'\n'</span>)[:<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> range(len(infos)):</span><br><span class="line">            info=infos[index].split(<span class="string">':'</span>)[<span class="number">1</span>]</span><br><span class="line">            info_list.append(info)</span><br><span class="line">        info_list.append(rate)</span><br><span class="line">        info_list.append(rate_nums)</span><br><span class="line">        info_list.append(detail_url)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#部分电影有官方链接如https://movie.douban.com/subject/1291561/，去除该链接，但可能会误删，最终手动修复</span></span><br><span class="line">        <span class="keyword">if</span> len(info_list)==<span class="number">16</span>:</span><br><span class="line">            <span class="keyword">del</span> info_list[<span class="number">7</span>] <span class="comment">#删除官方网站</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> open(csv_file,<span class="string">'a'</span>,encoding=<span class="string">'utf_8_sig'</span>,newline=<span class="string">''</span>) <span class="keyword">as</span> f:</span><br><span class="line">            writer=csv.writer(f)</span><br><span class="line">            writer.writerow(info_list)</span><br><span class="line">        logger.info(<span class="string">'获取------%s------信息成功！'</span>,title)</span><br></pre></td></tr></table></figure>
+
+<p>最终爬取的文件截图如下，包括的字段为：电影名称,年份,概括,导演,编剧,主演,类型,制片国家,语言,上映日期,片长,别名,评分,评价人数,链接</p>
+<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908211418.png"></p>
+<p>下载链接：<a href="https://www.lanzous.com/i6317he" target="_blank" rel="noopener">https://www.lanzous.com/i6317he</a></p>
+<h2 id="简单的数据分析"><a href="#简单的数据分析" class="headerlink" title="简单的数据分析"></a>简单的数据分析</h2><p>由于对Python的数据分析还不了解，简单地用Excel进行分析。</p>
+<p><img alt="豆瓣电影TOP250制片国家分布" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908213105.png"></p>
+<p><img alt="豆瓣电影TOP250年份分布" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908222611.png"></p>
+<p><img alt="年份占比" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908223216.png"></p>
+<p>豆瓣电影TOP250中，制片国为美国的电影占了118部，而中国大陆仅有14部，20时间90年代后到至今的30年中，TOP250高达86%，而中国电影虽拍的非常多，但高质量的影片依然不足。同问，中国何时能再次拍出“霸王别姬”？</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\90fa\" rel="bookmark">Anaconda简单介绍及使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\8ec7\" rel="bookmark">CentOS7安装Python3</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\8015\" rel="bookmark">一条Python命令搭建下载服务器——实现局域网文件共享</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\81c5\" rel="bookmark">使用Sublime Text3打造轻量级Python IDE</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\7240\" rel="bookmark">Python爬虫（一）：urllib学习</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/bc93/" title="使用Python爬取豆瓣电影TOP250">https://www.zhyong.cn/posts/bc93/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/%E7%88%AC%E8%99%AB%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 爬虫库</a>
+              <a href="/tags/pyquery/" rel="tag"><i class="fa fa-tag"></i> pyquery</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/b9ba/" rel="next" title="一键解锁网易云音乐灰色歌曲小工具">
+                  <i class="fa fa-chevron-left"></i> 一键解锁网易云音乐灰色歌曲小工具
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/959b/" rel="prev" title="CentOS7部署code-server并配置Nginx反向代理">
+                  CentOS7部署code-server并配置Nginx反向代理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的爬取"><span class="nav-number">1.</span> <span class="nav-text">数据的爬取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的数据分析"><span class="nav-number">2.</span> <span class="nav-text">简单的数据分析</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

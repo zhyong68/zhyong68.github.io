@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
+  <link rel="mask-icon" href="/images/favcion.ico" color="#222">
+  <link rel="manifest" href="/images/favcion.ico">
+  <link rel="alternate" href="/atom.xml" title="YouForever" type="application/atom+xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="简介VS Code是一款功能非常强大、拥有丰富插件的跨平台(Windows,Mac,Linux)开源免费的编辑器，非常好用。最近在学习Python过程中，更是感受到了它的强大，其功能不亚于专业的IDE。 code-server是VS Code运行在远程服务器上，然后通过浏览器访问即可使用VS Code，本篇文章详细介绍了如何远程部署code-server以及过程中遇到的问题及对应的解决方案。 Gi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7部署code-server并配置Nginx反向代理">
+<meta property="og:url" content="https://www.zhyong.cn/posts/959b/index.html">
+<meta property="og:site_name" content="YouForever">
+<meta property="og:description" content="简介VS Code是一款功能非常强大、拥有丰富插件的跨平台(Windows,Mac,Linux)开源免费的编辑器，非常好用。最近在学习Python过程中，更是感受到了它的强大，其功能不亚于专业的IDE。 code-server是VS Code运行在远程服务器上，然后通过浏览器访问即可使用VS Code，本篇文章详细介绍了如何远程部署code-server以及过程中遇到的问题及对应的解决方案。 Gi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/screenshot.png">
+<meta property="og:image" content="https://pic.zhyong.cn/images/2019/09/15/20190915140819.png">
+<meta property="og:image" content="https://pic.zhyong.cn/images/2019/10/06/20191006232321.png">
+<meta property="og:image" content="https://pic.zhyong.cn/images/2019/09/15/20190915151250.png">
+<meta property="og:image" content="https://pic.zhyong.cn/images/2019/09/15/20190915143919.png">
+<meta property="og:image" content="https://pic.zhyong.cn/images/2019/09/15/20190915150814.png">
+<meta property="article:published_time" content="2019-09-15T03:25:44.000Z">
+<meta property="article:modified_time" content="2020-08-17T09:52:20.597Z">
+<meta property="article:author" content="ZhangYong">
+<meta property="article:tag" content="vscode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/screenshot.png">
+
+<link rel="canonical" href="https://www.zhyong.cn/posts/959b/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CentOS7部署code-server并配置Nginx反向代理 | YouForever</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140236290-1"></script>
+    <script>
+      var host = window.location.hostname;
+      if (host !== "localhost" || !true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-140236290-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?85438a15feadad301faf98510f700de2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YouForever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">专注于互联网分享</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-fw fa-newspaper-o"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/959b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          CentOS7部署code-server并配置Nginx反向代理<a href="https://github.com/zhyong68/hexo-files-7.5.0/tree/master/source/_posts/CentOS7%E9%83%A8%E7%BD%B2code-server%E5%B9%B6%E9%85%8D%E7%BD%AENginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-15 11:25:44" itemprop="dateCreated datePublished" datetime="2019-09-15T11:25:44+08:00">2019-09-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BB%BA%E7%AB%99%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">建站系统</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/959b/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/959b/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>是一款功能非常强大、拥有丰富插件的跨平台(Windows,Mac,Linux)开源免费的编辑器，非常好用。最近在学习Python过程中，更是感受到了它的强大，其功能不亚于专业的IDE。</p>
+<p>code-server是VS Code运行在远程服务器上，然后通过浏览器访问即可使用VS Code，本篇文章详细介绍了如何远程部署code-server以及过程中遇到的问题及对应的解决方案。</p>
+<p>Github地址：<a href="https://github.com/cdr/code-server" target="_blank" rel="noopener">https://github.com/cdr/code-server</a></p>
+<a id="more"></a>
+
+<p><img alt="Github上的演示" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/screenshot.png"></p>
+<h2 id="CentOS部署coder-server"><a href="#CentOS部署coder-server" class="headerlink" title="CentOS部署coder-server"></a>CentOS部署coder-server</h2><p><a href="https://github.com/cdr/code-server" target="_blank" rel="noopener">cdr/code-server</a>部署方式有两种，可以使用docker部署，或者直接下载二进制文件即可运行。这里我使用二进制进行部署。</p>
+<blockquote>
+<p>我直接使用远程服务器部署，可以随时使用任何电脑来写代码，非常方便。当然也可以使用Windows10 WSL或者本地Linux部署。</p>
+</blockquote>
+<ol>
+<li><p>使用ssh连接远程服务器</p>
+</li>
+<li><p>在<a href="https://github.com/cdr/code-server/releases" target="_blank" rel="noopener">Releases · cdr/code-server</a>下载最新版本的code-server</p>
+</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/cdr/code-server/releases/download/2.1478-vsc1.38.1/code-server2.1478-vsc1.38.1-linux-x86_64.tar.gz</span><br><span class="line"></span><br><span class="line">tar xzvf code-server1.1156-vsc1.33.1-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>启功<code>code-server</code></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> code-server1.1156-vsc1.33.1-linux-x64/</span><br><span class="line">./code-server</span><br></pre></td></tr></table></figure>
+<p>但是很不幸，控制台输出错误（亲测Ubuntu18可直接启动），错误信息：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost code-server1.939-vsc1.33.1-linux-x64]<span class="comment"># ./code-server</span></span><br><span class="line"><span class="string">./code-server</span>: <span class="string">/lib64/libstdc</span>++<span class="string">.so.6</span>: <span class="keyword">version</span> `GLIBCXX_3.4.20' not found <span class="params">(required by ./code-server)</span></span><br><span class="line"><span class="string">./code-server</span>: <span class="string">/lib64/libstdc</span>++<span class="string">.so.6</span>: <span class="keyword">version</span> `GLIBCXX_3.4.21' not found <span class="params">(required by ./code-server)</span></span><br><span class="line"><span class="string">./code-server</span>: <span class="string">/lib64/libstdc</span>++<span class="string">.so.6</span>: <span class="keyword">version</span> `CXXABI_1.3.9' not found <span class="params">(required by ./code-server)</span></span><br></pre></td></tr></table></figure>
+
+<p>具体解决方法查看最下面的<a href="https://blog.csdn.net/sinat_36008080/article/details/89604382" target="_blank" rel="noopener">参考1</a>，我使用参考文章的方法一解决的。具体步骤如下：</p>
+<ul>
+<li>获取<code>libstdc++.so.6.0.25</code>版本库:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line">wget https://adbin.top/packages/lib64.tar.gz</span><br><span class="line">tar xzvf lib64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>备份原来的<code>libstdc++.so.6</code>,并链接刚刚解压的<code>libstdc++.so.6</code>文件</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/lib64</span><br><span class="line">mv libstdc++.so.6 libstdc++.so.6.bak</span><br><span class="line">ln -s /opt/lib64/libstdc++.so.6.0.25 libstdc++.so.6</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>完成后即可解决<code>libstdc++.so.6</code>的问题，进入目录启动<code>code-server</code>，控制台输出：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(node:29316) [DEP0005] DeprecationWarning: Buffer() is deprecated due to securit                                                                                                             y and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or                                                                                                              Buffer.from() methods instead.</span><br><span class="line">INFO  code-server v1.1156-vsc1.33.1</span><br><span class="line">INFO  Additional documentation: http://github.com/cdr/code-server</span><br><span class="line">INFO  Initializing &#123;<span class="string">"data-dir"</span>:<span class="string">"/root/.local/share/code-server"</span>,<span class="string">"extensions-dir"</span>                                                                                                             :<span class="string">"/root/.local/share/code-server/extensions"</span>,<span class="string">"working-dir"</span>:<span class="string">"/root/code-server1.1                                                                                                             156-vsc1.33.1-linux-x64"</span>,<span class="string">"log-dir"</span>:<span class="string">"/root/.cache/code-server/logs/20190915051238                                                                                                             441"</span>&#125;</span><br><span class="line">INFO  Starting webserver... &#123;<span class="string">"host"</span>:<span class="string">"0.0.0.0"</span>,<span class="string">"port"</span>:8443&#125;</span><br><span class="line">WARN  No certificate specified. This could be insecure.</span><br><span class="line">WARN  Documentation on securing your setup: https://github.com/cdr/code-server/b                                                                                                             lob/master/doc/security/ssl.md</span><br><span class="line">INFO</span><br><span class="line">INFO  Password: fb4110db1c8215010522d8ab</span><br><span class="line">INFO</span><br><span class="line">INFO  Started (click the link below to open):</span><br><span class="line">INFO  https://localhost:8443/</span><br><span class="line">INFO</span><br><span class="line">INFO  Starting shared process [1/5]...</span><br><span class="line">WARN  stderr &#123;<span class="string">"data"</span>:<span class="string">"(node:29330) [DEP0005] DeprecationWarning: Buffer() is dep                                                                                                             recated due to security and usability issues. Please use the Buffer.alloc(), Buf                                                                                                             fer.allocUnsafe(), or Buffer.from() methods instead.\n"</span>&#125;</span><br><span class="line">INFO  Connected to shared process</span><br></pre></td></tr></table></figure>
+
+<p>浏览器输入<code>https://IP:8443</code>或者<code>https://域名:端口</code>即可访问，访问密码为控制台输出的<code>Password</code>后的字段。</p>
+<div class="note info">
+            <ol><li>注意必须使用https进行访问</li><li>SSL证书为code server自签发的证书，可能会被浏览器提示不安全，直接访问即可（后面会解决）</li><li>记得放行<code>8443</code>端口，我是使用<a href="https://www.bt.cn/" target="_blank" rel="noopener">宝塔面板</a>控制的，在”首页-安全”里面放行即可</li><li>重新启动后，密码会重新生成</li><li>推荐使用国内的或低延迟的服务器部署</li></ol>
+          </div>
+
+<p>成功访问。</p>
+<p>到这里，我们就基本完成了code-server的部署。</p>
+<h2 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h2><p>虽然我们已成功部署了code-server服务，但有几个问题仍然不可避免！</p>
+<ul>
+<li>问题1：我们使用ssh连接的方式启动<code>code-server</code>，一旦断开ssh连接，那么code-server就不可以再使用了</li>
+<li>问题2：code-server自签的证书被浏览器提示不安全</li>
+<li>问题3：域名+端口的访问方式实在是太麻烦，而且还会暴露端口，不安全</li>
+</ul>
+<p>那么接下来我们一一来解决这些问题。问题2、3我是使用宝塔面板来操作的，<a href="https://www.bt.cn/?invite_code=MV9vdmlra2U=" target="_blank" rel="noopener">详细点击</a></p>
+<h2 id="优化code-server服务"><a href="#优化code-server服务" class="headerlink" title="优化code-server服务"></a>优化code-server服务</h2><p>我们针对上述三个问题来进行解决。</p>
+<ol>
+<li>问题1：我们使用ssh连接的方式启动<code>code-server</code>，一旦断开ssh连接，那么code-server就不可以再使用了<br>这里我使用的方式是借用tmux，tmux是一款优秀的终端复用软件，它比Screen更加强大：<a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">tmux/tmux: tmux source code</a><br>我们在centOS安装tmux:<code>sudo  yum install tmux</code> ，tmux的使用教程可查看<a href="http://louiszhai.github.io/2017/09/30/tmux/#%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D" target="_blank" rel="noopener">参考2</a>.<br>安装完成后，我们使用tmux来启动<code>code-server</code></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用一个名为codeserver的会话</span></span><br><span class="line">tmux new -s codeserver</span><br><span class="line"><span class="comment"># 在tmux中启动code-server</span></span><br><span class="line">./code-server</span><br><span class="line"><span class="comment"># 断开tmux会话，下次还可以接着用</span></span><br><span class="line"><span class="comment"># 或者使用快捷键Ctrl+b + d，三次按键就可以断开当前会话，这里我们只能使用快捷键</span></span><br><span class="line">tmux detach（这里只能使用快捷键 Ctrl+b +d）</span><br><span class="line"><span class="comment"># 重新进入codeserver会话，有两种方式</span></span><br><span class="line">tmux a <span class="comment"># 默认进入第一个会话</span></span><br><span class="line">tmux a -t codeserver <span class="comment"># 进入到名称为codeserver的会话</span></span><br><span class="line"><span class="comment"># 查看会话列表</span></span><br><span class="line">tmux ls</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就完美解决了这个问题，不再需要一直登录ssh了。</p>
+<ol start="2">
+<li>问题2：code-server自签的证书被浏览器提示不安全</li>
+</ol>
+<div class="note danger">
+            <p>必须先添加SSL证书，然后设置反向代理。</p>
+          </div>
+
+<p>该步骤结合第三步，先添加一个站点，设置好域名，不需要任何环境，php版本设置为纯静态，然后在面板的SSL中申请Let’s Encrypt免费SSL证书即可。</p>
+<ol start="3">
+<li>问题3：域名+端口的访问方式实在是太麻烦，而且还会暴露端口，不安全</li>
+</ol>
+<p>这里我们改变默认端口进行访问，并且使用Nginx反向代理：<a href="https://github.com/cdr/code-server/blob/master/doc/quickstart.md" target="_blank" rel="noopener">code-server/quickstart.md</a> ，使用宝塔面板来操作。</p>
+<p>修改端口：我们可以选择合适的端口开启code-server，如: <code>./code-server --port 28865</code></p>
+<p>添加Nginx反向代理：</p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/09/15/20190915140819.png"></p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/10/06/20191006232321.png"></p>
+<p><font color="red"><strong>注意</strong>，这里有一个很重要的事情，在反向代理的配置文件中，按如下方式设置配置文件，否则登录完成后一片全黑，不能正常显示。</font></p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/09/15/20190915151250.png"></p>
+<p>这是官方推荐的Nginx反向代理配置模板：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">listen</span> [::]:<span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> code.example.com code.example.org;</span><br><span class="line">  <span class="attribute">location</span> /some/path/ &#123; <span class="comment"># Or / if hosting at the root.</span></span><br><span class="line">      <span class="attribute">proxy_pass</span> http://localhost:8080/;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Connection upgrade;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Accept-Encoding gzip;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>设置完成后，我们就可以直接使用域名来访问code-server了，而且也没有证书不安全的提示，完美解决了上述问题。</p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/09/15/20190915143919.png"></p>
+<p><img alt data-src="https://pic.zhyong.cn/images/2019/09/15/20190915150814.png"></p>
+<p>这样我们就可以愉快地在浏览器上使用VsCode了，使用浏览器第一次登录后，需要等待一段时间，再次使用基本都是秒开的，这一点非常不错，赶紧去体验一番了。</p>
+<blockquote>
+<p>参考：<br><a href="https://blog.csdn.net/sinat_36008080/article/details/89604382" target="_blank" rel="noopener">centos7 ./code-server: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.20’ not found 解决方法</a><br><a href="http://louiszhai.github.io/2017/09/30/tmux/#%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D" target="_blank" rel="noopener">Tmux使用手册 | louis blog</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\99b4\" rel="bookmark">群晖Docker安装code-server</a></div>
+    </li>
+  </ul>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>ZhangYong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.zhyong.cn/posts/959b/" title="CentOS7部署code-server并配置Nginx反向代理">https://www.zhyong.cn/posts/959b/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vscode/" rel="tag"><i class="fa fa-tag"></i> vscode</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/posts/bc93/" rel="next" title="使用Python爬取豆瓣电影TOP250">
+                  <i class="fa fa-chevron-left"></i> 使用Python爬取豆瓣电影TOP250
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/posts/5839/" rel="prev" title="CentOS7编译安装最新版Git">
+                  CentOS7编译安装最新版Git <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS部署coder-server"><span class="nav-number">2.</span> <span class="nav-text">CentOS部署coder-server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在的问题"><span class="nav-number">3.</span> <span class="nav-text">存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化code-server服务"><span class="nav-number">4.</span> <span class="nav-text">优化code-server服务</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="ZhangYong"
+    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+  <p class="site-author-name" itemprop="name">ZhangYong</p>
+  <div class="site-description" itemprop="description">记录，点滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhyong68" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zhyong68" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2522187170@qq.com" title="E-Mail &amp;rarr; mailto:2522187170@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhyong2" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;zhyong2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/stiverick68/" title="Instagram &amp;rarr; https:&#x2F;&#x2F;www.instagram.com&#x2F;stiverick68&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/was172" title="CSDN &amp;rarr; https:&#x2F;&#x2F;blog.csdn.net&#x2F;was172" rel="noopener" target="_blank"><i class="fa fa-fw fa-cut"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.longyating.com/" title="https:&#x2F;&#x2F;www.longyating.com&#x2F;" rel="noopener" target="_blank">龙娅婷</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://michael728.github.io/" title="https:&#x2F;&#x2F;michael728.github.io&#x2F;" rel="noopener" target="_blank">Michael翔</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
+      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhangYong</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://6865-hexo-blog-1d9614-1254441582.tcb.qcloud.la/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'forest',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
+    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
+    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
