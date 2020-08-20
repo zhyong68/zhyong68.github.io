@@ -1865,7 +1865,12 @@ TIME OUT</code></pre>]]></content>
   <entry>
     <title>hexo-next添加代码块复制功能</title>
     <url>/posts/ca02/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="下载clipboard-js"><a href="#下载clipboard-js" class="headerlink" title="下载clipboard.js"></a>下载clipboard.js</h2><p>下载第三方插件：<a href="https://github.com/zenorocha/clipboard.js" target="_blank" rel="noopener">clipboard.js</a>,或者<a href="https://raw.githubusercontent.com/zenorocha/clipboard.js/master/dist/clipboard.min.js" target="_blank" rel="noopener">直接下载</a>(右键另存为)。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>目前<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">Next主题</a>已经支持代码块复制功能，在配置文件<code>_config.yml</code>中设置<code>copy_button</code>为<code>true</code>即可。</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">copy_button:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  # Show text copy result.</span><br><span class="line">  show_result: <span class="literal">false</span></span><br><span class="line">  # Available values:<span class="built_in"> default </span>| flat | mac</span><br><span class="line">  style:</span><br></pre></td></tr></table></figure>
+
+<p>以下是原文。</p>
+<hr>
+<h2 id="下载clipboard-js"><a href="#下载clipboard-js" class="headerlink" title="下载clipboard.js"></a>下载clipboard.js</h2><p>下载第三方插件：<a href="https://github.com/zenorocha/clipboard.js" target="_blank" rel="noopener">clipboard.js</a>,或者<a href="https://raw.githubusercontent.com/zenorocha/clipboard.js/master/dist/clipboard.min.js" target="_blank" rel="noopener">直接下载</a>(右键另存为)。</p>
 <p>保存文件到<code>theme/next/source/js/src</code>下。</p>
 <a id="more"></a>
 

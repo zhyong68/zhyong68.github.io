@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.zhyong.cn/posts/ca02/</loc>
+    <lastmod>2020-08-20</lastmod>
+  </url>  <url>
     <loc>https://www.zhyong.cn/posts/3b9/</loc>
     <lastmod>2020-08-17</lastmod>
   </url>  <url>
@@ -209,9 +212,6 @@
     <lastmod>2020-08-17</lastmod>
   </url>  <url>
     <loc>https://www.zhyong.cn/posts/1da9/</loc>
-    <lastmod>2020-08-17</lastmod>
-  </url>  <url>
-    <loc>https://www.zhyong.cn/posts/ca02/</loc>
     <lastmod>2020-08-17</lastmod>
   </url>  <url>
     <loc>https://www.zhyong.cn/posts/fc22/</loc>
