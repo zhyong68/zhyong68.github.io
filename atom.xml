@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.zhyong.cn/"/>
-  <updated>2020-08-17T09:52:20.637Z</updated>
+  <updated>2020-09-22T12:45:07.085Z</updated>
   <id>https://www.zhyong.cn/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Wise Registry Cleaner——一款免费的注册表清理工具</title>
+    <link href="https://www.zhyong.cn/posts/5b85/"/>
+    <id>https://www.zhyong.cn/posts/5b85/</id>
+    <published>2020-09-22T12:08:02.000Z</published>
+    <updated>2020-09-22T12:45:07.085Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对于Windows系统来说，注册表是一个非常复杂且重要的层次型数据库，用于存储系统和应用程序的设置信息。系统长时间的使用，会导致系统变得越来越卡，相信很多Windows用户都有此类经历，这其实和注册表有一定的关联。大量冗余的注册表信息会拖慢系统的运行速度，因此经常对注册表进行清理是一个较好的习惯，比起使用某某安全卫士来进行优化加速效果要好得多。&lt;/p&gt;
+&lt;p&gt;Wise Registry Cleaner是一款免费的注册表软件。它主要具有三大功能：&lt;strong&gt;注册表清理、系统优化和注册表整理&lt;/strong&gt;，并且还能对注册表备份和还原。清理注册表有一定的风险，因此建议&lt;strong&gt;提前备份好注册表&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;官方网站：&lt;a href=&quot;https://www.wisecleaner.com/wise-registry-cleaner.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.wisecleaner.com/wise-registry-cleaner.html&lt;/a&gt;&lt;br&gt;若下载速度慢，可选择&lt;a href=&quot;https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/soft/WRCFree_10.3.1.690.exe&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;本地下载&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922201143.png&quot; alt=&quot;软件截图&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实用工具" scheme="https://www.zhyong.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="推荐" scheme="https://www.zhyong.cn/tags/%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="注册表清理" scheme="https://www.zhyong.cn/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%B8%85%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>QTranslate--小巧强大的多引擎翻译工具</title>
+    <link href="https://www.zhyong.cn/posts/a3c2/"/>
+    <id>https://www.zhyong.cn/posts/a3c2/</id>
+    <published>2020-09-22T11:13:49.000Z</published>
+    <updated>2020-09-22T12:28:36.395Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;QTranslate是Windows的免费翻译器，一款功能非常强大、体积小巧的多引擎翻译工具，支持谷歌翻译、必应翻译、有道翻译、百度翻译等多个翻译服务，支持快捷键操作，支持在任意软件中进行翻译，如Word，记事本等。软件纯净、功能强大、使用简单，并且支持语音输入、朗读文本，实在是良心软件，翻译利器。&lt;/p&gt;
+&lt;p&gt;软件官网：&lt;a href=&quot;https://quest-app.appspot.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://quest-app.appspot.com/&lt;/a&gt;&lt;br&gt;若下载速度慢，可以&lt;a href=&quot;https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/soft/QTranslate.6.8.0.1.exe&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;本地下载 v6.8.0.1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922193004.png&quot; alt=&quot;软件截图&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="实用工具" scheme="https://www.zhyong.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="推荐" scheme="https://www.zhyong.cn/tags/%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="翻译软件" scheme="https://www.zhyong.cn/tags/%E7%BF%BB%E8%AF%91%E8%BD%AF%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>群晖Docker部署Calibre Web打造全功能书库</title>
@@ -384,13 +435,14 @@
     <link href="https://www.zhyong.cn/posts/72d5/"/>
     <id>https://www.zhyong.cn/posts/72d5/</id>
     <published>2019-08-14T12:51:39.000Z</published>
-    <updated>2020-09-22T09:41:30.952Z</updated>
+    <updated>2020-09-22T09:57:16.535Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;20200922更新-Windows控制台无需框架版&quot;&gt;&lt;a href=&quot;#20200922更新-Windows控制台无需框架版&quot; class=&quot;headerlink&quot; title=&quot;20200922更新 Windows控制台无需框架版&quot;&gt;&lt;/a&gt;20200922更新 Windows控制台无需框架版&lt;/h2&gt;&lt;p&gt;此版本是目前官方最新的控制台版本，可以下载无损音质，音乐文件保存到程序所在目录。&lt;/p&gt;
+      &lt;h2 id=&quot;20200922更新-Windows控制台无需框架版&quot;&gt;&lt;a href=&quot;#20200922更新-Windows控制台无需框架版&quot; class=&quot;headerlink&quot; title=&quot;20200922更新 Windows控制台无需框架版&quot;&gt;&lt;/a&gt;20200922更新 Windows控制台无需框架版&lt;/h2&gt;&lt;p&gt;此版本是目前官方最新的控制台版本，调用网易云音乐的接口，可以批量下载网易云歌单，默认下载无损音质，音乐文件保存到程序所在目录。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;下载地址&lt;/strong&gt;：&lt;a href=&quot;https://www.lanzoux.com/iICDBgu2dwd&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.lanzoux.com/iICDBgu2dwd&lt;/a&gt; 密码:dkx7&lt;/p&gt;
-&lt;h2 id=&quot;20200516更新：已经有UI版本&quot;&gt;&lt;a href=&quot;#20200516更新：已经有UI版本&quot; class=&quot;headerlink&quot; title=&quot;20200516更新：已经有UI版本&quot;&gt;&lt;/a&gt;&lt;del&gt;20200516更新：已经有UI版本&lt;/del&gt;&lt;/h2&gt;&lt;p&gt;今天看了一下，已经有UI了，体验还不错，可搜索，可正常下载&lt;br&gt;蓝奏云：&lt;a href=&quot;https://nitian1207.lanzous.com/icdbfzg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Music-Downloader-UI.rar &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922175439.png&quot; alt=&quot;控制台界面&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;20200516更新：已经有UI版本&quot;&gt;&lt;a href=&quot;#20200516更新：已经有UI版本&quot; class=&quot;headerlink&quot; title=&quot;20200516更新：已经有UI版本&quot;&gt;&lt;/a&gt;&lt;del&gt;20200516更新：已经有UI版本&lt;/del&gt;&lt;/h2&gt;&lt;p&gt;&lt;del&gt;今天看了一下，已经有UI了，体验还不错，可搜索，可正常下载&lt;/del&gt;&lt;br&gt;蓝奏云：&lt;a href=&quot;https://nitian1207.lanzous.com/icdbfzg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Music-Downloader-UI.rar &lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200516164210.png&quot; alt=&quot;UI界面&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;20191006更新：作者推出Music-Downloader-Console版本&quot;&gt;&lt;a href=&quot;#20191006更新：作者推出Music-Downloader-Console版本&quot; class=&quot;headerlink&quot; title=&quot;20191006更新：作者推出Music-Downloader-Console版本&quot;&gt;&lt;/a&gt;&lt;font color=red&gt;20191006更新&lt;/font&gt;：作者推出Music-Downloader-Console版本&lt;/h2&gt;&lt;p&gt;目前作者已开发出Console版本，使用稍微复杂（其实也非常简单了），因为接口被封禁，本程序只支持网易云音乐，下载的音乐全部为无损品质，同时可以下载歌词。（注：下载音乐时输入&lt;code&gt;-1&lt;/code&gt;则下载全部）&lt;/p&gt;
@@ -475,63 +527,6 @@
     
     
       <category term="爬虫库" scheme="https://www.zhyong.cn/tags/%E7%88%AC%E8%99%AB%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PanDownload+Aria2：实现百度网盘高速下载</title>
-    <link href="https://www.zhyong.cn/posts/a615/"/>
-    <id>https://www.zhyong.cn/posts/a615/</id>
-    <published>2019-08-08T13:09:45.000Z</published>
-    <updated>2020-08-17T09:52:20.603Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前面我们提到关于本地搭建Aria2+Web页面实现加速下载的教程：&lt;a href=&quot;https://www.zhyong.cn/posts/510f/&quot;&gt;本地配置 Aria2 下载程序及 Web 控制面板来加速下载 | YouForever&lt;/a&gt;。今天我们就讲解如何通过Aria2来实现百度网盘的高速下载。&lt;/p&gt;
-&lt;p&gt;经常使用&lt;a href=&quot;https://pan.baidu.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;百度网盘&lt;/a&gt;的用户可能知道有一个PanDownload的下载神器，实现百度网盘下载，主程序可到 &lt;a href=&quot;https://pandownload.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://pandownload.com/&lt;/a&gt; 去下载，由于使用的人数过多，现在的加速效果已经非常有限了。今天我们讲解的是如何通过PanDownload网页版+本地Aria2实现百度网盘高速下载。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://pic.zhyong.cn/images/2019/08/08/44f73a7870f104119607ef2b92eb89d9.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="百度网盘" scheme="https://www.zhyong.cn/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
-    
-      <category term="aria2" scheme="https://www.zhyong.cn/tags/aria2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>百度网盘不限速的跨平台客户端：pan-light</title>
-    <link href="https://www.zhyong.cn/posts/8a9/"/>
-    <id>https://www.zhyong.cn/posts/8a9/</id>
-    <published>2019-08-08T12:31:04.000Z</published>
-    <updated>2020-08-17T09:52:20.635Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;2020年5月16日更新&quot;&gt;&lt;a href=&quot;#2020年5月16日更新&quot; class=&quot;headerlink&quot; title=&quot;2020年5月16日更新&quot;&gt;&lt;/a&gt;2020年5月16日更新&lt;/h2&gt;&lt;p&gt;随着PanDownload的维护者入狱，想要高速下载百度网盘的文件难上加难了。目前此项目也有半年未维护了，现在使用下载速度很慢了。想要高速下载，可能只能通过官方渠道，合租可能是个解决方案。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;又发现了一个好项目了：百度网盘不限速客户端, golang + qt5, 跨平台图形界面：&lt;a href=&quot;https://pan-light.peterq.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://pan-light.peterq.cn/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;此项目在Github上开源，&lt;a href=&quot;https://github.com/peterq/pan-light&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/peterq/pan-light&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;经过测试，下载速度非常快，全速下载（下有截图），喜欢的可以Star关注！&lt;/p&gt;
-&lt;p&gt;注意：此项目目前仍处于开发阶段，可能不是很稳定。&lt;/p&gt;
-&lt;h2 id=&quot;软件特性&quot;&gt;&lt;a href=&quot;#软件特性&quot; class=&quot;headerlink&quot; title=&quot;软件特性&quot;&gt;&lt;/a&gt;软件特性&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;利用golang轻量级协程, 高并发分段下载, 可通过调节并发数达到最佳下载速度; 下载进度状态数据持久化到磁盘, 实现软件重启后可断点续传;&lt;/li&gt;
-&lt;li&gt;客户端本地实现简单代理, 突破百度防盗链, 将网盘视频喂给qt视频播放组件, 从而在线播放视频&lt;/li&gt;
-&lt;li&gt;在线体验: 用户无需下载, 通过网页即可在线体验本软件部分功能; 该系统可应用于其他客户端产品的在线体验;&lt;/li&gt;
-&lt;li&gt;在线体验原理: 闲置的个人pc, 通过 docker 开启若干个’虚拟机’, 虚拟机内安装好了本软件以及vnc服务. 用户打开网页, 在服务端的调度下, 网页通过 web rtc 和闲置pc建立p2p连接. 闲置pc将会打通一条用户网页到docker内部’隧道’. 网页连接虚拟机vnc服务进行远程控制&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="实用工具" scheme="https://www.zhyong.cn/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="百度网盘" scheme="https://www.zhyong.cn/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
-    
-      <category term="AllPlatforms" scheme="https://www.zhyong.cn/tags/AllPlatforms/"/>
     
   </entry>
   

@@ -249,6 +249,165 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/5935/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/5935/" class="post-title-link" itemprop="url">windows添加任意程序到右键菜单</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-23 19:27:22" itemprop="dateCreated datePublished" datetime="2018-08-23T19:27:22+08:00">2018-08-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li>使用win+R运行输入<code>regedit</code>,打开注册表；</li>
+<li>依次找到 计算机 ——&gt; HKEY_CLASSES_ROOT ——&gt; * ——&gt; shell ，新建项,命名为Emacs;</li>
+<li>在项”Emacs”下新建字符串值，命名为<code>icon</code>,值为：<code>D:\emacs\bin\runemacs.exe,0</code>;</li>
+<li>在项”Emacs”下新建项”Command”,”Command”项下默认值修改为<code>D:\emacs\bin\runemacs.exe %1</code>;</li>
+<li>设置完成后，确认，退出，即可在右键菜单中出现”Emacs”菜单项及相应的图标。</li>
+</ol>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/a838/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/a838/" class="post-title-link" itemprop="url">windows包管理工具——Chocolatey</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-10 18:31:11" itemprop="dateCreated datePublished" datetime="2018-08-10T18:31:11+08:00">2018-08-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>The package manager for Windows Chocolatey - Software Management Automation</p>
+</blockquote>
+<p>官方网址：<a href="https://chocolatey.org/" target="_blank" rel="noopener">https://chocolatey.org/</a></p>
+<h2 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h2><p>使用cmd命令行安装：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@"%SystemRoot%\System32\WindowsPowerShell\v1<span class="number">.0</span>\powershell.exe<span class="string">" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "</span>iex ((New-Object System.Net.WebClient).DownloadString(<span class="string">'https://chocolatey.org/install.ps1'</span>))<span class="string">" &amp;&amp; SET "</span>PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin<span class="string">"</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/a838/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/a139/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -890,164 +1049,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/59a3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
-      <meta itemprop="name" content="ZhangYong">
-      <meta itemprop="description" content="记录，点滴">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YouForever">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/59a3/" class="post-title-link" itemprop="url">awk命令详解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-07 13:08:52" itemprop="dateCreated datePublished" datetime="2018-07-07T13:08:52+08:00">2018-07-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="awk功能特点"><a href="#awk功能特点" class="headerlink" title="awk功能特点"></a>awk功能特点</h2><p>awk是一个非常重要的命令或者认为是一种语言。因为他可以做数学运算，流程控制语句，流控制，还有样式装入的功能。反正是非常强大。awk是三位创建者编写的。把awk定义为：样式扫描处理语言。</p>
-<p>awk吸收了c语言的很多特点，与c语言有点类似。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/59a3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/beb8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
-      <meta itemprop="name" content="ZhangYong">
-      <meta itemprop="description" content="记录，点滴">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YouForever">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/beb8/" class="post-title-link" itemprop="url">Windows10-1803安装Ubuntu子系统</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-01 21:49:06" itemprop="dateCreated datePublished" datetime="2018-07-01T21:49:06+08:00">2018-07-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/" itemprop="url" rel="index">
-                    <span itemprop="name">Windows</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Windows功能"><a href="#Windows功能" class="headerlink" title="Windows功能"></a>Windows功能</h2><p>今天安装了Windows10的1803版本，对于自带的热点功能和日历非常喜欢。<br><img src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/2018-07-01_160500.png" alt="pic"><br><img src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201807/2018-07-01_160719.png" alt="pic"></p>
-<p>还有就是安装Linux子系统，太炫酷了。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/beb8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1098,7 +1099,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1111,7 +1112,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -249,6 +249,170 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/37e2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/37e2/" class="post-title-link" itemprop="url">Hexo-NexT 添加最近更新板块</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-19 02:24:29" itemprop="dateCreated datePublished" datetime="2019-05-19T02:24:29+08:00">2019-05-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo%E5%BB%BA%E7%AB%99/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo建站</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>由于经常性更新一些文章，为更好地展示，因此添加<code>最近更新</code>板块，和之前的一篇文章<a href="https://www.zhyong.cn/posts/7f8f/">next主题添加近期文章板块 | YouForever</a>相似。通过搜索并没有找到相关的内容，因此自己根据添加近期文章折腾出来了，在此分享。</p>
+<p>主要的添加内容为：</p>
+<figure class="highlight md"><figcaption><span>themes\next\layout\_macro\sidebar.swig</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.updated_posts %&#125;</span><br><span class="line"><span class="code">      &lt;div class="links-of-blogroll motion-element &#123;&#123; "links-of-blogroll-" + theme.updated_posts_layout  &#125;&#125;"&gt;</span></span><br><span class="line"><span class="code">      &lt;div class="links-of-blogroll-title"&gt;</span></span><br><span class="line"><span class="code">        &lt;i class="fa fa-edit fa-&#123;&#123; theme.updated_posts_icon | lower &#125;&#125;" aria-hidden="true"&gt;&lt;/i&gt;</span></span><br><span class="line"><span class="code">        &#123;&#123; theme.updated_posts_title &#125;&#125;</span></span><br><span class="line"><span class="code">      &lt;/div&gt;</span></span><br><span class="line"><span class="code">      &lt;ul class="links-of-blogroll-list"&gt;</span></span><br><span class="line"><span class="code">        &#123;% set posts = site.posts.sort('-updated') %&#125;</span></span><br><span class="line"><span class="code">        &#123;% for post in posts.slice('0', '5') %&#125;</span></span><br><span class="line"><span class="code">          &lt;li&gt;</span></span><br><span class="line"><span class="code">            &lt;a href="&#123;&#123; url_for(post.path) &#125;&#125;" title="&#123;&#123; post.title &#125;&#125;" target="_blank"&gt;&#123;&#123; post.title &#125;&#125;&lt;/a&gt;</span></span><br><span class="line"><span class="code">          &lt;/li&gt;</span></span><br><span class="line"><span class="code">        &#123;% endfor %&#125;</span></span><br><span class="line"><span class="code">      &lt;/ul&gt;</span></span><br><span class="line"><span class="code">    &lt;/div&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/37e2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/1926/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/1926/" class="post-title-link" itemprop="url">Gif动画录制软件——ScreenToGif</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-15 22:52:35" itemprop="dateCreated datePublished" datetime="2019-05-15T22:52:35+08:00">2019-05-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Soft/" itemprop="url" rel="index">
+                    <span itemprop="name">Soft</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>字不如表，表不如图，图不如画。虽然在与人交流过程中，图片很好地帮助了我们，但有时候，一个Gif动画可能会更加形象和便于理解。经常在Github上看到使用Gif动画来演示一些操作步骤和使用教程，而我也经常写一些文章，于是便产生了这样的需求。</p>
+<blockquote>
+<p>Gif定义：图像互换格式（GIF，Graphics Interchange Format）是一种位图图形文件格式，可构成一种最简单的动画，以8位色（即256种颜色）重现真彩色的图像。它实际上是一种压缩文档，采用LZW压缩算法进行编码，有效地减少了图像文件在网络上传输的时间。</p>
+</blockquote>
+<p>这里推荐一款开源免费的Gif录制工具：ScreenToGif<br>官方网址：<a href="https://www.screentogif.com/?l=zh_cn" target="_blank" rel="noopener">https://www.screentogif.com/?l=zh_cn</a><br>Github地址：<a href="https://github.com/NickeManarin/ScreenToGif" target="_blank" rel="noopener">https://github.com/NickeManarin/ScreenToGif</a></p>
+<p>软件截图：</p>
+<p><img src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-15_23-09-53.png" alt="启动界面"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/1926/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/92af/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -916,163 +1080,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/59a8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
-      <meta itemprop="name" content="ZhangYong">
-      <meta itemprop="description" content="记录，点滴">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YouForever">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/59a8/" class="post-title-link" itemprop="url">【PC】电子书阅读软件推荐calibre</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-23 19:56:17" itemprop="dateCreated datePublished" datetime="2019-02-23T19:56:17+08:00">2019-02-23</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Soft/" itemprop="url" rel="index">
-                    <span itemprop="name">Soft</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>经常喜欢下载一些电子书，电子书常见的格式有<code>.azw3</code>，<code>.epub</code>，<code>.mobi</code>等，或者更加常见的<code>.pdf</code>格式。<code>.pdf</code>格式只需要一款pdf阅读器即可打开，但是对于<code>.azw3</code>，<code>.epub</code>，<code>.mobi</code>等格式，必须要特定的软件才能打开，因此非常需要一款PC端的电子书阅读器。这里推荐个人使用的三款电子书阅读软件，分别是Calibre（全平台 功能强大）、Book Bazaar Reader、Starrea（收费），体验都很不错。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/59a8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/e220/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
-      <meta itemprop="name" content="ZhangYong">
-      <meta itemprop="description" content="记录，点滴">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YouForever">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/e220/" class="post-title-link" itemprop="url">【TED】 如何掌控你的自由时间</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-11 19:36:45" itemprop="dateCreated datePublished" datetime="2019-02-11T19:36:45+08:00">2019-02-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">知识学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>分享一篇美国著名畅销书作家劳拉·万德坎姆的TED 演讲——如何掌控你的自由时间，视频来自于<a href="http://open.163.com/movie/2016/12/I/B/MC82BCQAN_MC8U8L3IB.html" target="_blank" rel="noopener">网易公开课</a>。</p>
-<p>一直以来，我都是想学很多东西，想尝试很多新鲜的事物，但到最后却什么都没有做成。很多时间，在不经意间流逝，突然清醒，却已过了一个春秋。看了这个演讲之后，对我的启发很大。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/e220/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1123,7 +1130,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1136,7 +1143,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

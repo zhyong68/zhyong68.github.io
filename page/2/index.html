@@ -249,6 +249,165 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/5839/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/5839/" class="post-title-link" itemprop="url">CentOS7编译安装最新版Git</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-15 16:58:16" itemprop="dateCreated datePublished" datetime="2019-09-15T16:58:16+08:00">2019-09-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux环境</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="卸载默认Git"><a href="#卸载默认Git" class="headerlink" title="卸载默认Git"></a>卸载默认Git</h2><p>查看当前安装的Git版本：<code>git --version</code>，默认版本是<code>1.8.3.1</code>，版本过低。<br>若存在，则卸载Git：<code>yum remove git</code><br>验证是否卸载：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@JD ~]# git --<span class="keyword">version</span></span><br><span class="line">-bash: /bin/git: <span class="keyword">No</span> such <span class="keyword">file</span> or directory</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/5839/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/959b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="name" content="ZhangYong">
+      <meta itemprop="description" content="记录，点滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YouForever">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/959b/" class="post-title-link" itemprop="url">CentOS7部署code-server并配置Nginx反向代理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-15 11:25:44" itemprop="dateCreated datePublished" datetime="2019-09-15T11:25:44+08:00">2019-09-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BB%BA%E7%AB%99%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">建站系统</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>是一款功能非常强大、拥有丰富插件的跨平台(Windows,Mac,Linux)开源免费的编辑器，非常好用。最近在学习Python过程中，更是感受到了它的强大，其功能不亚于专业的IDE。</p>
+<p>code-server是VS Code运行在远程服务器上，然后通过浏览器访问即可使用VS Code，本篇文章详细介绍了如何远程部署code-server以及过程中遇到的问题及对应的解决方案。</p>
+<p>Github地址：<a href="https://github.com/cdr/code-server" target="_blank" rel="noopener">https://github.com/cdr/code-server</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/959b/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/bc93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -637,9 +796,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="20200922更新-Windows控制台无需框架版"><a href="#20200922更新-Windows控制台无需框架版" class="headerlink" title="20200922更新 Windows控制台无需框架版"></a>20200922更新 Windows控制台无需框架版</h2><p>此版本是目前官方最新的控制台版本，可以下载无损音质，音乐文件保存到程序所在目录。</p>
+          <h2 id="20200922更新-Windows控制台无需框架版"><a href="#20200922更新-Windows控制台无需框架版" class="headerlink" title="20200922更新 Windows控制台无需框架版"></a>20200922更新 Windows控制台无需框架版</h2><p>此版本是目前官方最新的控制台版本，调用网易云音乐的接口，可以批量下载网易云歌单，默认下载无损音质，音乐文件保存到程序所在目录。</p>
 <p><strong>下载地址</strong>：<a href="https://www.lanzoux.com/iICDBgu2dwd" target="_blank" rel="noopener">https://www.lanzoux.com/iICDBgu2dwd</a> 密码:dkx7</p>
-<h2 id="20200516更新：已经有UI版本"><a href="#20200516更新：已经有UI版本" class="headerlink" title="20200516更新：已经有UI版本"></a><del>20200516更新：已经有UI版本</del></h2><p>今天看了一下，已经有UI了，体验还不错，可搜索，可正常下载<br>蓝奏云：<a href="https://nitian1207.lanzous.com/icdbfzg" target="_blank" rel="noopener">Music-Downloader-UI.rar </a></p>
+<p><img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922175439.png" alt="控制台界面"></p>
+<h2 id="20200516更新：已经有UI版本"><a href="#20200516更新：已经有UI版本" class="headerlink" title="20200516更新：已经有UI版本"></a><del>20200516更新：已经有UI版本</del></h2><p><del>今天看了一下，已经有UI了，体验还不错，可搜索，可正常下载</del><br>蓝奏云：<a href="https://nitian1207.lanzous.com/icdbfzg" target="_blank" rel="noopener">Music-Downloader-UI.rar </a></p>
 <p><img src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200516164210.png" alt="UI界面"></p>
 <hr>
 <h2 id="20191006更新：作者推出Music-Downloader-Console版本"><a href="#20191006更新：作者推出Music-Downloader-Console版本" class="headerlink" title="20191006更新：作者推出Music-Downloader-Console版本"></a><font color=red>20191006更新</font>：作者推出Music-Downloader-Console版本</h2><p>目前作者已开发出Console版本，使用稍微复杂（其实也非常简单了），因为接口被封禁，本程序只支持网易云音乐，下载的音乐全部为无损品质，同时可以下载歌词。（注：下载音乐时输入<code>-1</code>则下载全部）</p>
@@ -907,164 +1067,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/a615/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
-      <meta itemprop="name" content="ZhangYong">
-      <meta itemprop="description" content="记录，点滴">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YouForever">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/a615/" class="post-title-link" itemprop="url">PanDownload+Aria2：实现百度网盘高速下载</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-08-08 21:09:45" itemprop="dateCreated datePublished" datetime="2019-08-08T21:09:45+08:00">2019-08-08</time>
-            </span>
-
-          
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>前面我们提到关于本地搭建Aria2+Web页面实现加速下载的教程：<a href="https://www.zhyong.cn/posts/510f/">本地配置 Aria2 下载程序及 Web 控制面板来加速下载 | YouForever</a>。今天我们就讲解如何通过Aria2来实现百度网盘的高速下载。</p>
-<p>经常使用<a href="https://pan.baidu.com" target="_blank" rel="noopener">百度网盘</a>的用户可能知道有一个PanDownload的下载神器，实现百度网盘下载，主程序可到 <a href="https://pandownload.com/" target="_blank" rel="noopener">https://pandownload.com/</a> 去下载，由于使用的人数过多，现在的加速效果已经非常有限了。今天我们讲解的是如何通过PanDownload网页版+本地Aria2实现百度网盘高速下载。</p>
-<p><img src="https://pic.zhyong.cn/images/2019/08/08/44f73a7870f104119607ef2b92eb89d9.png" alt=""></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/a615/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/8a9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
-      <meta itemprop="name" content="ZhangYong">
-      <meta itemprop="description" content="记录，点滴">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YouForever">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/8a9/" class="post-title-link" itemprop="url">百度网盘不限速的跨平台客户端：pan-light</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-08-08 20:31:04" itemprop="dateCreated datePublished" datetime="2019-08-08T20:31:04+08:00">2019-08-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">实用工具</span>
-                  </a>
-                </span>
-            </span>
-
-          
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="2020年5月16日更新"><a href="#2020年5月16日更新" class="headerlink" title="2020年5月16日更新"></a>2020年5月16日更新</h2><p>随着PanDownload的维护者入狱，想要高速下载百度网盘的文件难上加难了。目前此项目也有半年未维护了，现在使用下载速度很慢了。想要高速下载，可能只能通过官方渠道，合租可能是个解决方案。</p>
-<hr>
-<p>又发现了一个好项目了：百度网盘不限速客户端, golang + qt5, 跨平台图形界面：<a href="https://pan-light.peterq.cn/" target="_blank" rel="noopener">https://pan-light.peterq.cn/</a></p>
-<p>此项目在Github上开源，<a href="https://github.com/peterq/pan-light" target="_blank" rel="noopener">https://github.com/peterq/pan-light</a></p>
-<p>经过测试，下载速度非常快，全速下载（下有截图），喜欢的可以Star关注！</p>
-<p>注意：此项目目前仍处于开发阶段，可能不是很稳定。</p>
-<h2 id="软件特性"><a href="#软件特性" class="headerlink" title="软件特性"></a>软件特性</h2><ul>
-<li>利用golang轻量级协程, 高并发分段下载, 可通过调节并发数达到最佳下载速度; 下载进度状态数据持久化到磁盘, 实现软件重启后可断点续传;</li>
-<li>客户端本地实现简单代理, 突破百度防盗链, 将网盘视频喂给qt视频播放组件, 从而在线播放视频</li>
-<li>在线体验: 用户无需下载, 通过网页即可在线体验本软件部分功能; 该系统可应用于其他客户端产品的在线体验;</li>
-<li>在线体验原理: 闲置的个人pc, 通过 docker 开启若干个’虚拟机’, 虚拟机内安装好了本软件以及vnc服务. 用户打开网页, 在服务端的调度下, 网页通过 web rtc 和闲置pc建立p2p连接. 闲置pc将会打通一条用户网页到docker内部’隧道’. 网页连接虚拟机vnc服务进行远程控制</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/8a9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1115,7 +1117,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">119</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1128,7 +1130,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

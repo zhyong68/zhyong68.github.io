@@ -725,9 +725,10 @@
   <entry>
     <title>Music-Downloader：功能强大的音乐下载器</title>
     <url>/posts/72d5/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="20200922更新-Windows控制台无需框架版"><a href="#20200922更新-Windows控制台无需框架版" class="headerlink" title="20200922更新 Windows控制台无需框架版"></a>20200922更新 Windows控制台无需框架版</h2><p>此版本是目前官方最新的控制台版本，可以下载无损音质，音乐文件保存到程序所在目录。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="20200922更新-Windows控制台无需框架版"><a href="#20200922更新-Windows控制台无需框架版" class="headerlink" title="20200922更新 Windows控制台无需框架版"></a>20200922更新 Windows控制台无需框架版</h2><p>此版本是目前官方最新的控制台版本，调用网易云音乐的接口，可以批量下载网易云歌单，默认下载无损音质，音乐文件保存到程序所在目录。</p>
 <p><strong>下载地址</strong>：<a href="https://www.lanzoux.com/iICDBgu2dwd" target="_blank" rel="noopener">https://www.lanzoux.com/iICDBgu2dwd</a> 密码:dkx7</p>
-<h2 id="20200516更新：已经有UI版本"><a href="#20200516更新：已经有UI版本" class="headerlink" title="20200516更新：已经有UI版本"></a><del>20200516更新：已经有UI版本</del></h2><p>今天看了一下，已经有UI了，体验还不错，可搜索，可正常下载<br>蓝奏云：<a href="https://nitian1207.lanzous.com/icdbfzg" target="_blank" rel="noopener">Music-Downloader-UI.rar </a></p>
+<p><img alt="控制台界面" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922175439.png"></p>
+<h2 id="20200516更新：已经有UI版本"><a href="#20200516更新：已经有UI版本" class="headerlink" title="20200516更新：已经有UI版本"></a><del>20200516更新：已经有UI版本</del></h2><p><del>今天看了一下，已经有UI了，体验还不错，可搜索，可正常下载</del><br>蓝奏云：<a href="https://nitian1207.lanzous.com/icdbfzg" target="_blank" rel="noopener">Music-Downloader-UI.rar </a></p>
 <p><img alt="UI界面" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200516164210.png"></p>
 <hr>
 <h2 id="20191006更新：作者推出Music-Downloader-Console版本"><a href="#20191006更新：作者推出Music-Downloader-Console版本" class="headerlink" title="20191006更新：作者推出Music-Downloader-Console版本"></a><font color="red">20191006更新</font>：作者推出Music-Downloader-Console版本</h2><p>目前作者已开发出Console版本，使用稍微复杂（其实也非常简单了），因为接口被封禁，本程序只支持网易云音乐，下载的音乐全部为无损品质，同时可以下载歌词。（注：下载音乐时输入<code>-1</code>则下载全部）</p>
@@ -5403,6 +5404,63 @@ TIME OUT</code></pre>]]></content>
       <tags>
         <tag>记录</tag>
         <tag>黑群晖</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>QTranslate--小巧强大的多引擎翻译工具</title>
+    <url>/posts/a3c2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>QTranslate是Windows的免费翻译器，一款功能非常强大、体积小巧的多引擎翻译工具，支持谷歌翻译、必应翻译、有道翻译、百度翻译等多个翻译服务，支持快捷键操作，支持在任意软件中进行翻译，如Word，记事本等。软件纯净、功能强大、使用简单，并且支持语音输入、朗读文本，实在是良心软件，翻译利器。</p>
+<p>软件官网：<a href="https://quest-app.appspot.com/" target="_blank" rel="noopener">https://quest-app.appspot.com/</a><br>若下载速度慢，可以<a href="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/soft/QTranslate.6.8.0.1.exe" target="_blank" rel="noopener">本地下载 v6.8.0.1</a></p>
+<p><img alt="软件截图" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922193004.png"></p>
+<a id="more"></a>
+
+<h2 id="快捷键及简单使用"><a href="#快捷键及简单使用" class="headerlink" title="快捷键及简单使用"></a>快捷键及简单使用</h2><p>在主界面可按<code>F1</code>查看帮助，强大的快捷键使得我们使用起来更加方便。</p>
+<p><strong>默认的全局快捷键</strong>:</p>
+<p>双击Ctrl =&gt; 显示主窗口（以及选定文本的译文）<br>Ctrl+Q =&gt; 翻译选定文本并显示在弹出窗口<br>Ctrl+Shift+Q =&gt; 显示词典窗口<br>Ctrl+E =&gt; 朗读选定文本</p>
+<p><strong>主窗口快捷键</strong>:</p>
+<p>Ctrl+Enter =&gt; 翻译文本<br>Ctrl+N =&gt; 清除当前翻译</p>
+<p>Ctrl+D =&gt; 显示词典<br>Ctrl+Alt+1..9 =&gt; 用选定的第1-9个翻译服务显示词典<br>Ctrl+H =&gt; 显示翻译历史记录<br>Ctrl+K =&gt; 显示软键盘<br>Ctrl+Tab/Ctrl+Shift+Tab/Ctrl+1..9 =&gt; 切换到后一个/前一个/第1-9个翻译服务<br>Shift+Esc =&gt; 重设语言组合为自动检测<br>Ctrl+Shift+1..9 =&gt; 选择语言组合<br>Ctrl+I =&gt; 互换翻译方向<br>Ctrl+空格 =&gt; 显示 建议/自动完成 下拉菜单<br>F1 =&gt; 显示帮助<br>F11 =&gt; 打开/关闭全屏模式<br>Alt+左箭头 =&gt; 转到前一个翻译<br>Alt+右箭头 =&gt; 转到后一个翻译<br>Ctrl+上箭头 =&gt; 把翻译复制到文本输入框</p>
+<p><strong>基本的操作</strong>：</p>
+<ul>
+<li>左键单击系统托盘里的程序图标，可启用/关闭鼠标选择模式；</li>
+<li>左键双击系统托盘里的程序图标会显示主窗口；</li>
+<li>左键双击弹出窗口顶部会打开包含当前翻译的主窗口；</li>
+<li>左键单击翻译服务提供商的名称会切换服务提供商并重新翻译文本；</li>
+<li>中键单击翻译服务提供商的名称会在浏览器打开翻译服务网页；</li>
+<li>右键单击翻译服务提供商的名称可以多选服务，这样一来可以同时获取不同服务提供商的翻译结果，方便比较。</li>
+</ul>
+<h2 id="一些选项设置"><a href="#一些选项设置" class="headerlink" title="一些选项设置"></a>一些选项设置</h2><p>在选项设置中，可以设置开机自启（好东西当然要开机自启了，何况基本对开机速度无影响），在服务中设置常用的翻译引擎和词典，可以设置外观，设置在特定程序中禁用QTranslate等。</p>
+<p><img alt="勾选需要的搜索引擎" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922195404.png"></p>
+<blockquote>
+<p>使用QTranslate后，我默默地卸载了浏览器翻译插件……</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>实用工具</category>
+      </categories>
+      <tags>
+        <tag>推荐</tag>
+        <tag>翻译软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Wise Registry Cleaner——一款免费的注册表清理工具</title>
+    <url>/posts/5b85/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>对于Windows系统来说，注册表是一个非常复杂且重要的层次型数据库，用于存储系统和应用程序的设置信息。系统长时间的使用，会导致系统变得越来越卡，相信很多Windows用户都有此类经历，这其实和注册表有一定的关联。大量冗余的注册表信息会拖慢系统的运行速度，因此经常对注册表进行清理是一个较好的习惯，比起使用某某安全卫士来进行优化加速效果要好得多。</p>
+<p>Wise Registry Cleaner是一款免费的注册表软件。它主要具有三大功能：<strong>注册表清理、系统优化和注册表整理</strong>，并且还能对注册表备份和还原。清理注册表有一定的风险，因此建议<strong>提前备份好注册表</strong>。</p>
+<p>官方网站：<a href="https://www.wisecleaner.com/wise-registry-cleaner.html" target="_blank" rel="noopener">https://www.wisecleaner.com/wise-registry-cleaner.html</a><br>若下载速度慢，可选择<a href="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/soft/WRCFree_10.3.1.690.exe" target="_blank" rel="noopener">本地下载</a></p>
+<p><img alt="软件截图" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922201143.png"></p>
+<a id="more"></a>
+
+<p>使用起来就非常简单了，执行注册表清理，然后扫描注册表，扫描后点击清理即可。在系统优化中，这是一个更加实用的功能，包括对系统稳定性、系统运行速度、网络访问速度和固态硬盘的优化。特别是对<strong>固态硬盘的优化</strong>，事实表明Windows的碎片整理确实严重损害固态硬盘。一看我的也没有禁止，之前都是手动禁止的。现在可以一键优化，赞。</p>
+<p><img alt="系统优化" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200922203605.png"></p>
+]]></content>
+      <categories>
+        <category>实用工具</category>
+      </categories>
+      <tags>
+        <tag>推荐</tag>
+        <tag>注册表清理</tag>
       </tags>
   </entry>
 </search>
