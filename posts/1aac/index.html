@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -257,7 +257,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/1aac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -292,27 +292,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/1aac/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/1aac/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -323,25 +302,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一直以来，都想找一个可以替换windows自带的cmd工具，常见的有<a href="http://cmder.net/" target="_blank" rel="noopener">cmder</a>,<a href="http://babun.github.io/" target="_blank" rel="noopener">Babun</a>,甚至是<a href="https://gitforwindows.org/" target="_blank" rel="noopener">git bash</a>,详见知乎问答：<a href="https://www.zhihu.com/question/19739424" target="_blank" rel="noopener">Windows 下有哪些替代 CMD 的命令行工具？</a>。</p>
-<p>之前玩Mac系统的时候，就了解到了高颜值全平台的终端：<a href="https://hyper.is/" target="_blank" rel="noopener">Hyper</a>，GitHub地址：<a href="https://github.com/zeit/hyper" target="_blank" rel="noopener">https://github.com/zeit/hyper</a> ，今天就在Windows下进行简单配置并使用。这里我们使用的是配合Windows10的Linux子系统进行配置Hyper，使用更加方便。相对于Babun（可以参考我之前的一篇文章：<a href="https://www.zhyong.cn/posts/4d73/">https://www.zhyong.cn/posts/4d73/</a> ），更接近于原生Shell操作。</p>
-<a id="more"></a>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一直以来，都想找一个可以替换windows自带的cmd工具，常见的有<a target="_blank" rel="noopener" href="http://cmder.net/">cmder</a>,<a target="_blank" rel="noopener" href="http://babun.github.io/">Babun</a>,甚至是<a target="_blank" rel="noopener" href="https://gitforwindows.org/">git bash</a>,详见知乎问答：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/19739424">Windows 下有哪些替代 CMD 的命令行工具？</a>。</p>
+<p>之前玩Mac系统的时候，就了解到了高颜值全平台的终端：<a target="_blank" rel="noopener" href="https://hyper.is/">Hyper</a>，GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/zeit/hyper">https://github.com/zeit/hyper</a> ，今天就在Windows下进行简单配置并使用。这里我们使用的是配合Windows10的Linux子系统进行配置Hyper，使用更加方便。相对于Babun（可以参考我之前的一篇文章：<a href="https://www.zhyong.cn/posts/4d73/">https://www.zhyong.cn/posts/4d73/</a> ），更接近于原生Shell操作。</p>
+<span id="more"></span>
 
-<h2 id="安装及配置"><a href="#安装及配置" class="headerlink" title="安装及配置"></a>安装及配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载地址：<a href="https://github.com/zeit/hyper/releases，选择对应的平台进行下载，这里我们选择的是Windows平台，直接双击即可安装。" target="_blank" rel="noopener">https://github.com/zeit/hyper/releases，选择对应的平台进行下载，这里我们选择的是Windows平台，直接双击即可安装。</a><br>文件说明：安装后在用户家目录有两个文件：一个是插件文件夹：<code>.hyper_plugins</code>，一个是配置文件：<code>.hyper.js</code>。</p>
-<h3 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h3><p>推荐主题：<a href="https://github.com/arkhamdev/hyperterm-monokai" target="_blank" rel="noopener">https://github.com/arkhamdev/hyperterm-monokai</a><br>直接克隆到家目录下插件文件夹中即可，然后修改配置文件(直接编辑家目录下的配置文件或者打开Hyper-&gt;edit-&gt;Preferences,搜索<code>Plugins</code>)，将<code>hyperterm-monokai</code>添加到插件配置文件即可。</p>
+<h2 id="安装及配置"><a href="#安装及配置" class="headerlink" title="安装及配置"></a>安装及配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/zeit/hyper/releases%EF%BC%8C%E9%80%89%E6%8B%A9%E5%AF%B9%E5%BA%94%E7%9A%84%E5%B9%B3%E5%8F%B0%E8%BF%9B%E8%A1%8C%E4%B8%8B%E8%BD%BD%EF%BC%8C%E8%BF%99%E9%87%8C%E6%88%91%E4%BB%AC%E9%80%89%E6%8B%A9%E7%9A%84%E6%98%AFWindows%E5%B9%B3%E5%8F%B0%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%8F%8C%E5%87%BB%E5%8D%B3%E5%8F%AF%E5%AE%89%E8%A3%85%E3%80%82">https://github.com/zeit/hyper/releases，选择对应的平台进行下载，这里我们选择的是Windows平台，直接双击即可安装。</a><br>文件说明：安装后在用户家目录有两个文件：一个是插件文件夹：<code>.hyper_plugins</code>，一个是配置文件：<code>.hyper.js</code>。</p>
+<h3 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h3><p>推荐主题：<a target="_blank" rel="noopener" href="https://github.com/arkhamdev/hyperterm-monokai">https://github.com/arkhamdev/hyperterm-monokai</a><br>直接克隆到家目录下插件文件夹中即可，然后修改配置文件(直接编辑家目录下的配置文件或者打开Hyper-&gt;edit-&gt;Preferences,搜索<code>Plugins</code>)，将<code>hyperterm-monokai</code>添加到插件配置文件即可。</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201812/2018-12-15_17-17-25.png"></p>
 <h3 id="启动Hyper直接进入Shell"><a href="#启动Hyper直接进入Shell" class="headerlink" title="启动Hyper直接进入Shell"></a>启动Hyper直接进入Shell</h3><p><strong>注意：</strong>此操作前提是已经安装Linux子系统,安装方法：<a href="https://www.zhyong.cn/posts/beb8/">https://www.zhyong.cn/posts/beb8/</a> 。<br>正常情况下，我们打开cmd或者Hyper，输入<code>bash</code>命令进入<code>Shell</code>，通过修改配置文件直接进入Shell，更加方便。<br>同样打开Hyper的配置文件，搜索<code>shell</code>,按提示设置即可。</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201812/2018-12-15_17-24-43.png"></p>
 <h3 id="ls颜色设置"><a href="#ls颜色设置" class="headerlink" title="ls颜色设置"></a>ls颜色设置</h3><p>使用ls命令时默认显示Windows文件夹颜色太难看了，通过设置即可。<br>在<code>~/.bashrc</code>中最下面添加：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># for ls colors</span></span><br><span class="line">LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34:st=37;44:ex=01;32:<span class="emphasis">*.tar=01;31:*</span>.tgz=01;31:<span class="emphasis">*.arc=01;31:*</span>.arj=01;31:<span class="emphasis">*.taz=01;31:*</span>.lha=01;31:<span class="emphasis">*.lz4=01;31:*</span>.lzh=01;31:<span class="emphasis">*.lzma=01;31:*</span>.tlz=01;31:<span class="emphasis">*.txz=01;31:*</span>.tzo=01;31:<span class="emphasis">*.t7z=01;31:*</span>.zip=01;31:<span class="emphasis">*.z=01;31:*</span>.Z=01;31:<span class="emphasis">*.dz=01;31:*</span>.gz=01;31:<span class="emphasis">*.lrz=01;31:*</span>.lz=01;31:<span class="emphasis">*.lzo=01;31:*</span>.xz=01;31:<span class="emphasis">*.bz2=01;31:*</span>.bz=01;31:<span class="emphasis">*.tbz=01;31:*</span>.tbz2=01;31:<span class="emphasis">*.tz=01;31:*</span>.deb=01;31:<span class="emphasis">*.rpm=01;31:*</span>.jar=01;31:<span class="emphasis">*.war=01;31:*</span>.ear=01;31:<span class="emphasis">*.sar=01;31:*</span>.rar=01;31:<span class="emphasis">*.alz=01;31:*</span>.ace=01;31:<span class="emphasis">*.zoo=01;31:*</span>.cpio=01;31:<span class="emphasis">*.7z=01;31:*</span>.rz=01;31:<span class="emphasis">*.cab=01;31:*</span>.jpg=01;35:<span class="emphasis">*.jpeg=01;35:*</span>.gif=01;35:<span class="emphasis">*.bmp=01;35:*</span>.pbm=01;35:<span class="emphasis">*.pgm=01;35:*</span>.ppm=01;35:<span class="emphasis">*.tga=01;35:*</span>.xbm=01;35:<span class="emphasis">*.xpm=01;35:*</span>.tif=01;35:<span class="emphasis">*.tiff=01;35:*</span>.png=01;35:<span class="emphasis">*.svg=01;35:*</span>.svgz=01;35:<span class="emphasis">*.mng=01;35:*</span>.pcx=01;35:<span class="emphasis">*.mov=01;35:*</span>.mpg=01;35:<span class="emphasis">*.mpeg=01;35:*</span>.m2v=01;35:<span class="emphasis">*.mkv=01;35:*</span>.webm=01;35:<span class="emphasis">*.ogm=01;35:*</span>.mp4=01;35:<span class="emphasis">*.m4v=01;35:*</span>.mp4v=01;35:<span class="emphasis">*.vob=01;35:*</span>.qt=01;35:<span class="emphasis">*.nuv=01;35:*</span>.wmv=01;35:<span class="emphasis">*.asf=01;35:*</span>.rm=01;35:<span class="emphasis">*.rmvb=01;35:*</span>.flc=01;35:<span class="emphasis">*.avi=01;35:*</span>.fli=01;35:<span class="emphasis">*.flv=01;35:*</span>.gl=01;35:<span class="emphasis">*.dl=01;35:*</span>.xcf=01;35:<span class="emphasis">*.xwd=01;35:*</span>.yuv=01;35:<span class="emphasis">*.cgm=01;35:*</span>.emf=01;35:<span class="emphasis">*.axv=01;35:*</span>.anx=01;35:<span class="emphasis">*.ogv=01;35:*</span>.ogx=01;35:<span class="emphasis">*.aac=00;36:*</span>.au=00;36:<span class="emphasis">*.flac=00;36:*</span>.m4a=00;36:<span class="emphasis">*.mid=00;36:*</span>.midi=00;36:<span class="emphasis">*.mka=00;36:*</span>.mp3=00;36:<span class="emphasis">*.mpc=00;36:*</span>.ogg=00;36:<span class="emphasis">*.ra=00;36:*</span>.wav=00;36:<span class="emphasis">*.axa=00;36:*</span>.oga=00;36:<span class="emphasis">*.spx=00;36:*</span>.xspf=00;36:"</span><br><span class="line">export LS_COLORS</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for ls colors</span></span><br><span class="line"><span class="attribute">LS_COLORS</span>=<span class="string">&quot;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:&quot;</span></span><br><span class="line"><span class="builtin-name">export</span> LS_COLORS</span><br></pre></td></tr></table></figure>
 <p>然后执行<code>source ~/.bashrc</code>即可解决。</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201812/2018-12-15_17-40-55.png"></p>
 <p>最终，打开Hyper界面如下：</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201812/2018-12-15_17-58-41.png"></p>
-<h2 id="Hyper相关资源"><a href="#Hyper相关资源" class="headerlink" title="Hyper相关资源"></a>Hyper相关资源</h2><p>Awesome Hyper: <a href="https://github.com/bnb/awesome-hyper" target="_blank" rel="noopener">https://github.com/bnb/awesome-hyper</a> ,上面有大量插件主题可以。<br>官方插件：<a href="https://hyper.is/plugins" target="_blank" rel="noopener">https://hyper.is/plugins</a></p>
+<h2 id="Hyper相关资源"><a href="#Hyper相关资源" class="headerlink" title="Hyper相关资源"></a>Hyper相关资源</h2><p>Awesome Hyper: <a target="_blank" rel="noopener" href="https://github.com/bnb/awesome-hyper">https://github.com/bnb/awesome-hyper</a> ,上面有大量插件主题可以。<br>官方插件：<a target="_blank" rel="noopener" href="https://hyper.is/plugins">https://hyper.is/plugins</a></p>
 <h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>优点：高颜值，全平台，插件丰富，在Windows上配合的Linux子系统使用体验更好。<br>缺点：相比较原生Cmd启动速度略慢</p>
 <blockquote>
-<p>参考：<a href="https://cibifang.com/win10%E7%BB%88%E7%AB%AF%E4%BC%98%E5%8C%96-%E9%AB%98%E9%A2%9C%E5%80%BCwindows%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7hyper%E5%85%A8%E9%9D%A2%E4%BB%8B%E7%BB%8D/" target="_blank" rel="noopener">win10终端(WSL)优化 : 高颜值 windows命令行工具 Hyper全面介绍</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://cibifang.com/win10%E7%BB%88%E7%AB%AF%E4%BC%98%E5%8C%96-%E9%AB%98%E9%A2%9C%E5%80%BCwindows%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7hyper%E5%85%A8%E9%9D%A2%E4%BB%8B%E7%BB%8D/">win10终端(WSL)优化 : 高颜值 windows命令行工具 Hyper全面介绍</a></p>
 </blockquote>
 
     </div>
@@ -359,10 +338,10 @@
       <div class="popular-posts-title"><a href="\posts\3027\" rel="bookmark">tldr——快速使用Linux命令</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
+      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
+      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\bf7c\" rel="bookmark">Linux视频下载神器——you-get</a></div>
@@ -422,7 +401,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -447,14 +432,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装及配置"><span class="nav-number">2.</span> <span class="nav-text">安装及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置主题"><span class="nav-number">2.2.</span> <span class="nav-text">设置主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Hyper直接进入Shell"><span class="nav-number">2.3.</span> <span class="nav-text">启动Hyper直接进入Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls颜色设置"><span class="nav-number">2.4.</span> <span class="nav-text">ls颜色设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyper相关资源"><span class="nav-number">3.</span> <span class="nav-text">Hyper相关资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评价"><span class="nav-number">4.</span> <span class="nav-text">评价</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">安装及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%BB%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">设置主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8Hyper%E7%9B%B4%E6%8E%A5%E8%BF%9B%E5%85%A5Shell"><span class="nav-number">2.3.</span> <span class="nav-text">启动Hyper直接进入Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.4.</span> <span class="nav-text">ls颜色设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyper%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90"><span class="nav-number">3.</span> <span class="nav-text">Hyper相关资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E4%BB%B7"><span class="nav-number">4.</span> <span class="nav-text">评价</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -463,20 +448,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -533,14 +518,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -676,31 +658,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/1aac/",
+      identifier: "posts/1aac/",
+      title: "Windows终端工具——Hyper使用及配置",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

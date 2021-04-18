@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -255,7 +255,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/5559/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -290,27 +290,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/5559/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/5559/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -324,12 +303,12 @@
         <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
 <p>A command-line fuzzy finder<br>It’s an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.<br>命令行模糊查找器<br>这是一个交互式Unix命令行过滤器，可以与任何列表一起使用。 文件，命令历史记录，进程，主机名，书签，git commit等。</p>
 </blockquote>
-<p>GitHub地址：<a href="https://github.com/junegunn/fzf" target="_blank" rel="noopener">https://github.com/junegunn/fzf</a></p>
-<a id="more"></a>
+<p>GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a></p>
+<span id="more"></span>
 
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Ubuntu安装"><a href="#Ubuntu安装" class="headerlink" title="Ubuntu安装"></a>Ubuntu安装</h3><p><code>sudo apt-get install fzf</code></p>
-<h3 id="vim插件安装"><a href="#vim插件安装" class="headerlink" title="vim插件安装"></a>vim插件安装</h3><p>使用<a href="https://github.com/junegunn/vim-plug" target="_blank" rel="noopener">vim-plug</a>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"已经安装fzf,加入如下配置，:PlugInstall fzf 即可安装。</span><br><span class="line">Plug '~/.fzf'</span><br><span class="line">"未安装fzf</span><br><span class="line">Plug 'junegunn/fzf', &#123; 'dir': '~/.fzf', 'do': './install --all'  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="vim插件安装"><a href="#vim插件安装" class="headerlink" title="vim插件安装"></a>vim插件安装</h3><p>使用<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;已经安装fzf,加入如下配置，:PlugInstall fzf 即可安装。</span><br><span class="line">Plug &#x27;~/.fzf&#x27;</span><br><span class="line">&quot;未安装fzf</span><br><span class="line">Plug &#x27;junegunn/fzf&#x27;, &#123; &#x27;dir&#x27;: &#x27;~/.fzf&#x27;, &#x27;do&#x27;: &#x27;./install --all&#x27;  &#125;</span><br></pre></td></tr></table></figure>
 
 <p>备注：使用vim插件安装fzf后，在shell中不能调用，需加入到环境变量中：<code>vim ~/.profile</code>，加入：<code>PATH=&quot;~/.fzf/bin:$PATH&quot;</code>,刷新即可。</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
@@ -338,7 +317,7 @@
 <li>可以使用鼠标滚动、单击、双击</li>
 </ul>
 <h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p>fzf在默认状态下是全屏幕，但是可以使用<code>--height</code>选项调整布局：<br><code>fzf --height 40%</code><br>如果喜欢<code>top-down</code>布局，可以使用<code>--reverse</code>来代替默认的<code>boottom-up</code>，默认为<code>bottom-up</code>布局。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-19.jpg"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-19.jpg"></p>
 <h2 id="搜索语法"><a href="#搜索语法" class="headerlink" title="搜索语法"></a>搜索语法</h2><p>可以使用多个语法组合使用，如：<code>^music .mp3$ sbtrkt !fire</code>.</p>
 <table>
 <thead>
@@ -462,7 +441,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -487,14 +472,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu安装"><span class="nav-number">2.1.</span> <span class="nav-text">Ubuntu安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim插件安装"><span class="nav-number">2.2.</span> <span class="nav-text">vim插件安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局"><span class="nav-number">4.</span> <span class="nav-text">布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索语法"><span class="nav-number">5.</span> <span class="nav-text">搜索语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量"><span class="nav-number">6.</span> <span class="nav-text">环境变量</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">Ubuntu安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">vim插件安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E5%B1%80"><span class="nav-number">4.</span> <span class="nav-text">布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E8%AF%AD%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">搜索语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">6.</span> <span class="nav-text">环境变量</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -503,20 +488,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -573,14 +558,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -716,31 +698,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/5559/",
+      identifier: "posts/5559/",
+      title: "Linux命令行模糊搜索神器fzf",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

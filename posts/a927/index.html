@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -252,7 +252,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/a927/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -287,27 +287,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/a927/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/a927/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -329,7 +308,7 @@
 <li>安装Node.js</li>
 <li>安装git</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p><code>$ npm install -g hexo-cli</code><br>安装完成之后，新建一个文件夹，执行以下命令进行初始化</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
@@ -342,15 +321,15 @@
 <li>themes 是主题文件夹，Hexo会根据主题来生成不同的静态页面。</li>
 <li>scaffolds是模板件夹，当新建文章的时候，Hexo会根据模板来建立文件。</li>
 </ul>
-<h2 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h2><p><code>git clone https://github.com/iissnan/hexo-theme-next.git themes/next</code><br>再打开Hexo主文件夹中的<code>_config.yml</code>文件，修改<code>theme</code>属性，注意<code>theme:</code>后要加空格<br><code>theme: next</code></p>
+<h2 id="安装NexT主题"><a href="#安装NexT主题" class="headerlink" title="安装NexT主题"></a>安装NexT主题</h2><p><code>git clone https://github.com/iissnan/hexo-theme-next.git themes/next</code><br>再打开Hexo主文件夹中的<code>_config.yml</code>文件，修改<code>theme</code>属性，注意<code>theme: </code>后要加空格<br><code>theme: next</code></p>
 <h2 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo g <span class="comment">#生成静态页面，生成的内容在public文件夹下</span></span><br><span class="line"><span class="variable">$ </span>hexo s <span class="comment">#启动本地服务，进行文章预览调试。hexo s --debug 命令可以用来调试</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="部署到github上"><a href="#部署到github上" class="headerlink" title="部署到github上"></a>部署到github上</h2><h3 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"your name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@email.com"</span></span><br></pre></td></tr></table></figure>
+<h2 id="部署到github上"><a href="#部署到github上" class="headerlink" title="部署到github上"></a>部署到github上</h2><h3 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;your name&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;email@email.com&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h3><p>打开Hexo主文件夹下的<code>_config.yml</code>，设置其中的<code>deploy</code>参数</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git </span><br><span class="line">    <span class="attribute">repo</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:stiverick610/stiverick610.github.io.git</span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>安装<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a>插件<br><code>$ npm install hexo-deployer-git --save</code><br>安装完成插件之后，使用以下命令部署<br><code>$ hexo d -g #在部署前先生成</code></p>
-<h1 id="Next主题拓展及常用命令"><a href="#Next主题拓展及常用命令" class="headerlink" title="Next主题拓展及常用命令"></a>Next主题拓展及常用命令</h1><h2 id="主题拓展"><a href="#主题拓展" class="headerlink" title="主题拓展"></a>主题拓展</h2><p><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT主题文档</a></p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">    type:</span> git </span><br><span class="line"><span class="symbol">    repo:</span> git@github.com:stiverick610/stiverick610.github.io.git</span><br><span class="line"><span class="symbol">    branch:</span> master</span><br></pre></td></tr></table></figure>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>安装<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>插件<br><code>$ npm install hexo-deployer-git --save</code><br>安装完成插件之后，使用以下命令部署<br><code>$ hexo d -g #在部署前先生成</code></p>
+<h1 id="Next主题拓展及常用命令"><a href="#Next主题拓展及常用命令" class="headerlink" title="Next主题拓展及常用命令"></a>Next主题拓展及常用命令</h1><h2 id="主题拓展"><a href="#主题拓展" class="headerlink" title="主题拓展"></a>主题拓展</h2><p><a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/">NexT主题文档</a></p>
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment">#清理之前生成的内容，即public文件</span></span><br><span class="line">$ hexo g <span class="comment">#生成静态文件</span></span><br><span class="line">$ hexo d <span class="comment">#部署</span></span><br><span class="line">$ hexo s <span class="comment">#启动本地服务，可以通过http://localhost:4000查看</span></span><br><span class="line">$ hexo s --debug <span class="comment">#使用debug模式启动服务</span></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -419,7 +398,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -444,14 +429,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#省略前期工作"><span class="nav-number">1.</span> <span class="nav-text">省略前期工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装前提"><span class="nav-number">2.1.</span> <span class="nav-text">安装前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo-1"><span class="nav-number">2.2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装NexT主题"><span class="nav-number">2.3.</span> <span class="nav-text">安装NexT主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地调试"><span class="nav-number">2.4.</span> <span class="nav-text">本地调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github上"><span class="nav-number">2.5.</span> <span class="nav-text">部署到github上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置git"><span class="nav-number">2.5.1.</span> <span class="nav-text">配置git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Hexo"><span class="nav-number">2.5.2.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署"><span class="nav-number">2.5.3.</span> <span class="nav-text">部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Next主题拓展及常用命令"><span class="nav-number">3.</span> <span class="nav-text">Next主题拓展及常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主题拓展"><span class="nav-number">3.1.</span> <span class="nav-text">主题拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">3.2.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9C%81%E7%95%A5%E5%89%8D%E6%9C%9F%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">省略前期工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%89%8D%E6%8F%90"><span class="nav-number">2.1.</span> <span class="nav-text">安装前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo-1"><span class="nav-number">2.2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85NexT%E4%B8%BB%E9%A2%98"><span class="nav-number">2.3.</span> <span class="nav-text">安装NexT主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95"><span class="nav-number">2.4.</span> <span class="nav-text">本地调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0github%E4%B8%8A"><span class="nav-number">2.5.</span> <span class="nav-text">部署到github上</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEgit"><span class="nav-number">2.5.1.</span> <span class="nav-text">配置git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEHexo"><span class="nav-number">2.5.2.</span> <span class="nav-text">配置Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">2.5.3.</span> <span class="nav-text">部署</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Next%E4%B8%BB%E9%A2%98%E6%8B%93%E5%B1%95%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">Next主题拓展及常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E6%8B%93%E5%B1%95"><span class="nav-number">3.1.</span> <span class="nav-text">主题拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -460,20 +445,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -530,14 +515,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -673,31 +655,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/a927/",
+      identifier: "posts/a927/",
+      title: "使用hexo搭建个人博客",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

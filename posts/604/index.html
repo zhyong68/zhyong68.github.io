@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -276,7 +276,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/604/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -311,27 +311,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/604/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/604/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -342,75 +321,75 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>最近安装上了号称世界排名第一的基于Arch Linux的发行版<a href="https://manjaro.org/" target="_blank" rel="noopener">Manjaro</a>,并进行了一些配置，可以<a href="https://www.zhyong.cn/posts/edab/">点击查看</a>。安装了很多好的软件和命令行工具，以此记录，给以后的自己和需要的人。</p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>最近安装上了号称世界排名第一的基于Arch Linux的发行版<a target="_blank" rel="noopener" href="https://manjaro.org/">Manjaro</a>,并进行了一些配置，可以<a href="https://www.zhyong.cn/posts/edab/">点击查看</a>。安装了很多好的软件和命令行工具，以此记录，给以后的自己和需要的人。</p>
 <p>首先查看我的manjaro详细信息，一个<code>screenfetch</code>命令:</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-3.jpg"></p>
 <h2 id="Manjaro系统"><a href="#Manjaro系统" class="headerlink" title="Manjaro系统"></a>Manjaro系统</h2><h3 id="Manjaro系统简介"><a href="#Manjaro系统简介" class="headerlink" title="Manjaro系统简介"></a>Manjaro系统简介</h3><p>Wiki上的介绍</p>
 <blockquote>
 <p>Manjaro Linux（或简称Manjaro）是基于Arch Linux的Linux发行版，使用Xfce和KDE Plasma作为默认桌面环境，和Arch一样，采用滚动更新。其目标是为PC提供易于使用的自由的操作系统。<br>Manjaro Linux基于Arch Linux，但拥有自己独立的软件仓库。Manjaro的目标是让强大的Arch更方便用户使用，Manjaro使用著名的Pacman且可以直接利用AUR上的资源。Manjaro本身使用三个软件仓库：不稳定库，即含有那些不成熟的Arch包，这些包与Arch源有1-2天的延后；测试库，每周同步一次，包含那些Arch不稳定源的包；以及稳定库，包含那些由开发团队确认稳定的软件。</p>
 </blockquote>
-<h3 id="Manjaro包管理"><a href="#Manjaro包管理" class="headerlink" title="Manjaro包管理"></a>Manjaro包管理</h3><p><a href="https://wiki.archlinux.org/index.php/Pacman_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener">Pacman</a>: pacman 是 Arch Linux 的软件包管理器，具有依赖处理和构建软件包的功能;<br><a href="https://github.com/archlinuxfr/yaourt" target="_blank" rel="noopener">Yaourt</a>: Pacman 与 AUR 这两者相结合的绝佳工具的bash脚本。安装：<code>sudo pacman -S yaourt</code></p>
+<h3 id="Manjaro包管理"><a href="#Manjaro包管理" class="headerlink" title="Manjaro包管理"></a>Manjaro包管理</h3><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Pacman_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Pacman</a>: pacman 是 Arch Linux 的软件包管理器，具有依赖处理和构建软件包的功能;<br><a target="_blank" rel="noopener" href="https://github.com/archlinuxfr/yaourt">Yaourt</a>: Pacman 与 AUR 这两者相结合的绝佳工具的bash脚本。安装：<code>sudo pacman -S yaourt</code></p>
 <h2 id="常用软件和命令"><a href="#常用软件和命令" class="headerlink" title="常用软件和命令"></a>常用软件和命令</h2><h3 id="搜狗输入法"><a href="#搜狗输入法" class="headerlink" title="搜狗输入法"></a>搜狗输入法</h3><p>安装:</p>
 <figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx-<span class="literal">im</span>     <span class="comment"># 全部安装</span></span><br><span class="line">sudo pacman -S fcitx-configtool     <span class="comment"># 图形化配置工具</span></span><br><span class="line">sudo pacman -S fcitx-sogoupinyin</span><br></pre></td></tr></table></figure>
 <p>配置：<br><code>vi ~/.xprofile</code>，添加如下内容：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">GTK_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">QT_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">XMODIFIERS</span>=”@im=fcitx”</span><br></pre></td></tr></table></figure>
 <p>同样可以安装谷歌输入法：<code>sudo pacman -S fcitx-googlepinyin</code></p>
 <h3 id="办公软件WPS"><a href="#办公软件WPS" class="headerlink" title="办公软件WPS"></a>办公软件WPS</h3><p>安装软件和缺失字体：</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S wps-office</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S ttf-wps-fonts</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo pacman -S wps-office</span></span><br><span class="line"><span class="attribute">sudo pacman -S ttf-wps-fonts</span></span><br></pre></td></tr></table></figure>
 <p>解决无法输入中文问题：<br><code>sudo vim /usr/bin/wps</code>，在第一行（<code>#!/bin/bash</code>）下面添加：</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> XMODIFIERS=<span class="string">"@im=fcitx"</span></span><br><span class="line"><span class="keyword">export</span> QT_IM_MODULE=<span class="string">"fcitx"</span></span><br><span class="line">gOpt=</span><br><span class="line"><span class="comment">#gOptExt=-multiply</span></span><br><span class="line">gTemplateExt=(<span class="string">"wpt"</span> <span class="string">"dot"</span> <span class="string">"dotx"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">XMODIFIERS</span>=<span class="string">&quot;@im=fcitx&quot;</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">QT_IM_MODULE</span>=<span class="string">&quot;fcitx&quot;</span></span><br><span class="line">gOpt=</span><br><span class="line"><span class="comment">#gOptExt=-multiply</span></span><br><span class="line">gTemplateExt=(<span class="string">&quot;wpt&quot;</span> <span class="string">&quot;dot&quot;</span> <span class="string">&quot;dotx&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-4.jpg"></p>
 <h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><p>安装：<code>sudo pacman -S vim</code><br>配置：<a href="https://www.zhyong.cn/posts/edab/#%E5%AE%89%E8%A3%85vim">https://www.zhyong.cn/posts/edab/#%E5%AE%89%E8%A3%85vim</a><br><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-5.jpg"></p>
 <h3 id="QQ"><a href="#QQ" class="headerlink" title="QQ"></a>QQ</h3><p>安装TIM或QQ的任意一种：<code>pacman -S deepin.com.qq.office</code>或<code>pacman -S deepin.com.qq.im</code><br>注：KDE里无法正常使用wine QQ方案</p>
-<h3 id="Linux微信"><a href="#Linux微信" class="headerlink" title="Linux微信"></a>Linux微信</h3><p><a href="https://github.com/geeeeeeeeek/electronic-wechat" target="_blank" rel="noopener">electronic-wechat</a>:<code>sudo pacman -S electronic-wechat</code><br><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-6.jpg"></p>
+<h3 id="Linux微信"><a href="#Linux微信" class="headerlink" title="Linux微信"></a>Linux微信</h3><p><a target="_blank" rel="noopener" href="https://github.com/geeeeeeeeek/electronic-wechat">electronic-wechat</a>:<code>sudo pacman -S electronic-wechat</code><br><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-6.jpg"></p>
 <h3 id="谷歌浏览器"><a href="#谷歌浏览器" class="headerlink" title="谷歌浏览器"></a>谷歌浏览器</h3><p>安装：<code>sudo pacman -S google-chrome</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-7.jpg"></p>
-<h3 id="Pycharm"><a href="#Pycharm" class="headerlink" title="Pycharm"></a>Pycharm</h3><p>python编辑器<a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">pycharm</a>:<code>sudo pacman -S pycharm</code></p>
+<h3 id="Pycharm"><a href="#Pycharm" class="headerlink" title="Pycharm"></a>Pycharm</h3><p>python编辑器<a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/">pycharm</a>:<code>sudo pacman -S pycharm</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-8.jpg"></p>
 <h3 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h3><p>安装：<code>sudo pacman -S netease-cloud-music</code>,良心之作。</p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-9.jpg"></p>
-<h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h3><p>Markdown编辑器：<a href="https://typora.io/" target="_blank" rel="noopener">Typora</a>:<code>yaourt typora</code></p>
+<h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h3><p>Markdown编辑器：<a target="_blank" rel="noopener" href="https://typora.io/">Typora</a>:<code>yaourt typora</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-10.jpg"></p>
-<h3 id="GitKraken"><a href="#GitKraken" class="headerlink" title="GitKraken"></a>GitKraken</h3><p>强大的全平台Git客户端<a href="https://www.gitkraken.com" target="_blank" rel="noopener">GitKraken</a>: <code>yaourt GitKraken</code></p>
+<h3 id="GitKraken"><a href="#GitKraken" class="headerlink" title="GitKraken"></a>GitKraken</h3><p>强大的全平台Git客户端<a target="_blank" rel="noopener" href="https://www.gitkraken.com/">GitKraken</a>: <code>yaourt GitKraken</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-11.jpg"></p>
-<h3 id="Gimp"><a href="#Gimp" class="headerlink" title="Gimp"></a>Gimp</h3><p>图像编辑器<a href="https://www.gimp.org/" target="_blank" rel="noopener">Gimp</a>:<code>sudo pacman -S gimp</code></p>
+<h3 id="Gimp"><a href="#Gimp" class="headerlink" title="Gimp"></a>Gimp</h3><p>图像编辑器<a target="_blank" rel="noopener" href="https://www.gimp.org/">Gimp</a>:<code>sudo pacman -S gimp</code></p>
 <p><img alt="gimp" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-12.jpg"></p>
 <h3 id="Foxit"><a href="#Foxit" class="headerlink" title="Foxit"></a>Foxit</h3><p>强大的PDF阅读器Foxit: <code>yaourt foxit</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-13.jpg"></p>
-<h3 id="深度截图"><a href="#深度截图" class="headerlink" title="深度截图"></a>深度截图</h3><p>小巧强大的截图工具<a href="https://github.com/linuxdeepin/deepin-screenshot" target="_blank" rel="noopener">深度截图</a>：<code>sudo pacman -S deepin-screenshot</code></p>
+<h3 id="深度截图"><a href="#深度截图" class="headerlink" title="深度截图"></a>深度截图</h3><p>小巧强大的截图工具<a target="_blank" rel="noopener" href="https://github.com/linuxdeepin/deepin-screenshot">深度截图</a>：<code>sudo pacman -S deepin-screenshot</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-14.jpg"></p>
-<h3 id="electron-netease-cloud-music"><a href="#electron-netease-cloud-music" class="headerlink" title="electron-netease-cloud-music"></a>electron-netease-cloud-music</h3><p>网易云音乐非官方客户端<a href="https://github.com/Rocket1184/electron-netease-cloud-music" target="_blank" rel="noopener">electron-netease-cloud-music</a>: <code>sudo pacman -S electron-netease-cloud-music</code></p>
+<h3 id="electron-netease-cloud-music"><a href="#electron-netease-cloud-music" class="headerlink" title="electron-netease-cloud-music"></a>electron-netease-cloud-music</h3><p>网易云音乐非官方客户端<a target="_blank" rel="noopener" href="https://github.com/Rocket1184/electron-netease-cloud-music">electron-netease-cloud-music</a>: <code>sudo pacman -S electron-netease-cloud-music</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-15.jpg"></p>
-<h3 id="网易云音乐命令行版"><a href="#网易云音乐命令行版" class="headerlink" title="网易云音乐命令行版"></a>网易云音乐命令行版</h3><p>网易云命令行播放器（很赞)<a href="https://github.com/darknessomi/musicbox" target="_blank" rel="noopener">NetEase-MusicBox</a>: <code>yaourt musicbox</code>,使用方法<a href="https://github.com/darknessomi/musicbox/blob/master/README.md#%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E9%94%AE" target="_blank" rel="noopener">点击查看</a></p>
+<h3 id="网易云音乐命令行版"><a href="#网易云音乐命令行版" class="headerlink" title="网易云音乐命令行版"></a>网易云音乐命令行版</h3><p>网易云命令行播放器（很赞)<a target="_blank" rel="noopener" href="https://github.com/darknessomi/musicbox">NetEase-MusicBox</a>: <code>yaourt musicbox</code>,使用方法<a target="_blank" rel="noopener" href="https://github.com/darknessomi/musicbox/blob/master/README.md#%E9%94%AE%E7%9B%98%E5%BF%AB%E6%8D%B7%E9%94%AE">点击查看</a></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-16.jpg"></p>
-<h3 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="阿里云OSS"></a>阿里云OSS</h3><p>阿里云<a href="https://github.com/aliyun/oss-browser" target="_blank" rel="noopener">OSS客户端</a>: 点击下载：<a href="https://oss-attachment.cn-hangzhou.oss.aliyun-inc.com/oss-browser/1.7.2/oss-browser-linux-x64.zip" target="_blank" rel="noopener">oss Browser1.7.2</a>,解压到目录，运行<code>oss-browser</code>即可。<br>若出现：<code>./oss-browser: error while loading shared libraries: libgconf-2.so.4: cannot open shared object file: No such file or directory</code>,解决：<br><code>sudo pacman -S gconf</code><br><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-17.jpg"></p>
-<h3 id="OneDrive-Linux"><a href="#OneDrive-Linux" class="headerlink" title="OneDrive Linux"></a>OneDrive Linux</h3><p>onedrive Linux客户端：<a href="https://github.com/skilion/onedrive" target="_blank" rel="noopener">https://github.com/skilion/onedrive</a><br>安装：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S curl sqlite dlang # 安装依赖</span><br><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/skilion/onedrive.git</span><br><span class="line"><span class="keyword">cd</span> onedrive</span><br><span class="line"><span class="keyword">make</span></span><br><span class="line">sudo <span class="keyword">make</span> install</span><br></pre></td></tr></table></figure>
+<h3 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="阿里云OSS"></a>阿里云OSS</h3><p>阿里云<a target="_blank" rel="noopener" href="https://github.com/aliyun/oss-browser">OSS客户端</a>: 点击下载：<a target="_blank" rel="noopener" href="https://oss-attachment.cn-hangzhou.oss.aliyun-inc.com/oss-browser/1.7.2/oss-browser-linux-x64.zip">oss Browser1.7.2</a>,解压到目录，运行<code>oss-browser</code>即可。<br>若出现：<code>./oss-browser: error while loading shared libraries: libgconf-2.so.4: cannot open shared object file: No such file or directory</code>,解决：<br><code>sudo pacman -S gconf</code><br><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-17.jpg"></p>
+<h3 id="OneDrive-Linux"><a href="#OneDrive-Linux" class="headerlink" title="OneDrive Linux"></a>OneDrive Linux</h3><p>onedrive Linux客户端：<a target="_blank" rel="noopener" href="https://github.com/skilion/onedrive">https://github.com/skilion/onedrive</a><br>安装：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S curl sqlite dlang <span class="comment"># 安装依赖</span></span><br><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/skilion/</span>onedrive.git</span><br><span class="line">cd onedrive</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 <p><strong>注意：</strong>首次运行时，必须在命令行中运行并进行授权，运行之前进行配置，否则会自动下载onedrive中所有文件。<br>配置：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/.config/onedrive</span><br><span class="line">cp .<span class="built_in">/config </span>~/.config/onedrive/config</span><br><span class="line">vim ~/.config/onedrive/config</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~<span class="regexp">/.config/</span>onedrive</span><br><span class="line">cp .<span class="regexp">/config ~/</span>.config<span class="regexp">/onedrive/</span>config</span><br><span class="line">vim ~<span class="regexp">/.config/</span>onedrive/config</span><br></pre></td></tr></table></figure>
 <p>默认可以不改变，对于需要同步的文件夹，推荐使用<code>sync_list</code>，更加简单明了。<br>在<code>~/.config/onedrive</code>新建<code>sync_list</code>文件，文件的每一行代表sync_dir的相对路径。在所有操作期间，将跳过与文件的任何行不匹配的所有文件和目录。如：</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Backup</span></span><br><span class="line"><span class="type">Documents</span>/latest_re<span class="keyword">port</span>.docx</span><br><span class="line"><span class="type">Work</span>/<span class="type">ProjectX</span></span><br><span class="line"><span class="title">notes</span>.txt</span><br></pre></td></tr></table></figure>
 <p>当添加新文件或改动文件时，需手动上传同步：<code>onedrive --resync --verbose</code><br>当然也可以自动同步：</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl --<span class="keyword">user</span> <span class="title">enable</span> onedrive</span><br><span class="line">systemctl --<span class="keyword">user</span> <span class="title">start</span> onedrive</span><br></pre></td></tr></table></figure>
 
-<h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><p>强大的shell命令脚本解释器<a href="http://www.zsh.org/" target="_blank" rel="noopener">zsh</a>: <a href="https://www.zhyong.cn/posts/edab/#%E5%AE%89%E8%A3%85zsh">https://www.zhyong.cn/posts/edab/#%E5%AE%89%E8%A3%85zsh</a> </p>
+<h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><p>强大的shell命令脚本解释器<a target="_blank" rel="noopener" href="http://www.zsh.org/">zsh</a>: <a href="https://www.zhyong.cn/posts/edab/#%E5%AE%89%E8%A3%85zsh">https://www.zhyong.cn/posts/edab/#%E5%AE%89%E8%A3%85zsh</a> </p>
 <p><img alt="zsh" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-18.jpg"></p>
-<h3 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h3><p>强大的命令行下载工具<a href="https://github.com/aria2/aria2" target="_blank" rel="noopener">aria2</a>: <code>sudo pacman -S aria2</code></p>
-<h3 id="you-get"><a href="#you-get" class="headerlink" title="you-get"></a>you-get</h3><p>强大的Web内容（视频，音频，图片）下载工具<a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">you-get</a>: <code>sudo pacman -S you-get</code></p>
-<h3 id="brook"><a href="#brook" class="headerlink" title="brook"></a>brook</h3><p>轻量级跨平台的go语言代理工具<a href="https://github.com/txthinking/brook" target="_blank" rel="noopener">brook</a>: <code>sudo pacman -S brook</code></p>
-<h3 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h3><p>目录跳转神奇<a href="https://github.com/wting/autojump" target="_blank" rel="noopener">autojump</a>: <code>sudo pacman -S autojump</code>,安装完成后需进行简单配置：<br>在<code>~/.zshrc</code>中添加：</p>
+<h3 id="aria2"><a href="#aria2" class="headerlink" title="aria2"></a>aria2</h3><p>强大的命令行下载工具<a target="_blank" rel="noopener" href="https://github.com/aria2/aria2">aria2</a>: <code>sudo pacman -S aria2</code></p>
+<h3 id="you-get"><a href="#you-get" class="headerlink" title="you-get"></a>you-get</h3><p>强大的Web内容（视频，音频，图片）下载工具<a target="_blank" rel="noopener" href="https://github.com/soimort/you-get">you-get</a>: <code>sudo pacman -S you-get</code></p>
+<h3 id="brook"><a href="#brook" class="headerlink" title="brook"></a>brook</h3><p>轻量级跨平台的go语言代理工具<a target="_blank" rel="noopener" href="https://github.com/txthinking/brook">brook</a>: <code>sudo pacman -S brook</code></p>
+<h3 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h3><p>目录跳转神奇<a target="_blank" rel="noopener" href="https://github.com/wting/autojump">autojump</a>: <code>sudo pacman -S autojump</code>,安装完成后需进行简单配置：<br>在<code>~/.zshrc</code>中添加：</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">source</span> <span class="regexp">/usr/</span>share<span class="regexp">/autojump/</span>autojump.zsh</span><br></pre></td></tr></table></figure>
 <p>如果默认<code>Shell</code>是bash的话，在<code>~/.bashrc</code>中添加：<code>source /usr/share/autojump/autojump.bash</code></p>
-<h3 id="fzf"><a href="#fzf" class="headerlink" title="fzf"></a>fzf</h3><p>模糊搜素神奇<a href="https://github.com/junegunn/fzf" target="_blank" rel="noopener">fzf</a>: <code>sudo pacman -S fzf</code>，具体配置查看文档，我的配置是添加alias:<code>alias fzf=&quot;fzf --height 40%&quot;</code>，可在<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a>配置文件中添加<code>fzf</code>插件。<br>个人认为通过<code>vim  **</code>再按<code>Tab</code>键更好地利用了<code>fzf</code>命令，类似的还有<code>kill **</code>等。<br><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-19.jpg"></p>
-<h3 id="ag"><a href="#ag" class="headerlink" title="ag"></a>ag</h3><p>一个速度极快的类似ack的代码搜索工具<a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener">ag</a>: <code>sudo pacman -S the_silver_searcher</code></p>
+<h3 id="fzf"><a href="#fzf" class="headerlink" title="fzf"></a>fzf</h3><p>模糊搜素神奇<a target="_blank" rel="noopener" href="https://github.com/junegunn/fzf">fzf</a>: <code>sudo pacman -S fzf</code>，具体配置查看文档，我的配置是添加alias:<code>alias fzf=&quot;fzf --height 40%&quot;</code>，可在<a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a>配置文件中添加<code>fzf</code>插件。<br>个人认为通过<code>vim  **</code>再按<code>Tab</code>键更好地利用了<code>fzf</code>命令，类似的还有<code>kill **</code>等。<br><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-19.jpg"></p>
+<h3 id="ag"><a href="#ag" class="headerlink" title="ag"></a>ag</h3><p>一个速度极快的类似ack的代码搜索工具<a target="_blank" rel="noopener" href="https://github.com/ggreer/the_silver_searcher">ag</a>: <code>sudo pacman -S the_silver_searcher</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-20.jpg"></p>
-<h3 id="thefuck"><a href="#thefuck" class="headerlink" title="thefuck"></a>thefuck</h3><p>自动纠正上一个控制台命令<a href="https://github.com/nvbn/thefuck" target="_blank" rel="noopener">thefuck</a>: <code>sudo pacman -S thefuck</code></p>
+<h3 id="thefuck"><a href="#thefuck" class="headerlink" title="thefuck"></a>thefuck</h3><p>自动纠正上一个控制台命令<a target="_blank" rel="noopener" href="https://github.com/nvbn/thefuck">thefuck</a>: <code>sudo pacman -S thefuck</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-21.jpg"></p>
-<h3 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h3><p>强大的终端复用工具<a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">tmux</a>: <code>sudo pacman -S tmux</code></p>
+<h3 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h3><p>强大的终端复用工具<a target="_blank" rel="noopener" href="https://github.com/tmux/tmux">tmux</a>: <code>sudo pacman -S tmux</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-22.jpg"></p>
-<h3 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h3><p>字符模式下交互查看git项目<a href="https://github.com/jonas/tig" target="_blank" rel="noopener">tig</a>: <code>sudo pacman -S tig</code></p>
+<h3 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h3><p>字符模式下交互查看git项目<a target="_blank" rel="noopener" href="https://github.com/jonas/tig">tig</a>: <code>sudo pacman -S tig</code></p>
 <p><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516-23.jpg"></p>
 
     </div>
@@ -493,7 +472,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -518,14 +503,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manjaro系统"><span class="nav-number">2.</span> <span class="nav-text">Manjaro系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Manjaro系统简介"><span class="nav-number">2.1.</span> <span class="nav-text">Manjaro系统简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manjaro包管理"><span class="nav-number">2.2.</span> <span class="nav-text">Manjaro包管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用软件和命令"><span class="nav-number">3.</span> <span class="nav-text">常用软件和命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搜狗输入法"><span class="nav-number">3.1.</span> <span class="nav-text">搜狗输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#办公软件WPS"><span class="nav-number">3.2.</span> <span class="nav-text">办公软件WPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">3.3.</span> <span class="nav-text">vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QQ"><span class="nav-number">3.4.</span> <span class="nav-text">QQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux微信"><span class="nav-number">3.5.</span> <span class="nav-text">Linux微信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谷歌浏览器"><span class="nav-number">3.6.</span> <span class="nav-text">谷歌浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pycharm"><span class="nav-number">3.7.</span> <span class="nav-text">Pycharm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网易云音乐"><span class="nav-number">3.8.</span> <span class="nav-text">网易云音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora"><span class="nav-number">3.9.</span> <span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitKraken"><span class="nav-number">3.10.</span> <span class="nav-text">GitKraken</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gimp"><span class="nav-number">3.11.</span> <span class="nav-text">Gimp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Foxit"><span class="nav-number">3.12.</span> <span class="nav-text">Foxit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度截图"><span class="nav-number">3.13.</span> <span class="nav-text">深度截图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#electron-netease-cloud-music"><span class="nav-number">3.14.</span> <span class="nav-text">electron-netease-cloud-music</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网易云音乐命令行版"><span class="nav-number">3.15.</span> <span class="nav-text">网易云音乐命令行版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阿里云OSS"><span class="nav-number">3.16.</span> <span class="nav-text">阿里云OSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OneDrive-Linux"><span class="nav-number">3.17.</span> <span class="nav-text">OneDrive Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh"><span class="nav-number">3.18.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aria2"><span class="nav-number">3.19.</span> <span class="nav-text">aria2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#you-get"><span class="nav-number">3.20.</span> <span class="nav-text">you-get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#brook"><span class="nav-number">3.21.</span> <span class="nav-text">brook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#autojump"><span class="nav-number">3.22.</span> <span class="nav-text">autojump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fzf"><span class="nav-number">3.23.</span> <span class="nav-text">fzf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ag"><span class="nav-number">3.24.</span> <span class="nav-text">ag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#thefuck"><span class="nav-number">3.25.</span> <span class="nav-text">thefuck</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tmux"><span class="nav-number">3.26.</span> <span class="nav-text">tmux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tig"><span class="nav-number">3.27.</span> <span class="nav-text">tig</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manjaro%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">Manjaro系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Manjaro%E7%B3%BB%E7%BB%9F%E7%AE%80%E4%BB%8B"><span class="nav-number">2.1.</span> <span class="nav-text">Manjaro系统简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manjaro%E5%8C%85%E7%AE%A1%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">Manjaro包管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%92%8C%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">常用软件和命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">搜狗输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6WPS"><span class="nav-number">3.2.</span> <span class="nav-text">办公软件WPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">3.3.</span> <span class="nav-text">vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QQ"><span class="nav-number">3.4.</span> <span class="nav-text">QQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux%E5%BE%AE%E4%BF%A1"><span class="nav-number">3.5.</span> <span class="nav-text">Linux微信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">3.6.</span> <span class="nav-text">谷歌浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pycharm"><span class="nav-number">3.7.</span> <span class="nav-text">Pycharm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90"><span class="nav-number">3.8.</span> <span class="nav-text">网易云音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora"><span class="nav-number">3.9.</span> <span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitKraken"><span class="nav-number">3.10.</span> <span class="nav-text">GitKraken</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gimp"><span class="nav-number">3.11.</span> <span class="nav-text">Gimp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Foxit"><span class="nav-number">3.12.</span> <span class="nav-text">Foxit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE"><span class="nav-number">3.13.</span> <span class="nav-text">深度截图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#electron-netease-cloud-music"><span class="nav-number">3.14.</span> <span class="nav-text">electron-netease-cloud-music</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88"><span class="nav-number">3.15.</span> <span class="nav-text">网易云音乐命令行版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91OSS"><span class="nav-number">3.16.</span> <span class="nav-text">阿里云OSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OneDrive-Linux"><span class="nav-number">3.17.</span> <span class="nav-text">OneDrive Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh"><span class="nav-number">3.18.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aria2"><span class="nav-number">3.19.</span> <span class="nav-text">aria2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#you-get"><span class="nav-number">3.20.</span> <span class="nav-text">you-get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#brook"><span class="nav-number">3.21.</span> <span class="nav-text">brook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#autojump"><span class="nav-number">3.22.</span> <span class="nav-text">autojump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fzf"><span class="nav-number">3.23.</span> <span class="nav-text">fzf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ag"><span class="nav-number">3.24.</span> <span class="nav-text">ag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#thefuck"><span class="nav-number">3.25.</span> <span class="nav-text">thefuck</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tmux"><span class="nav-number">3.26.</span> <span class="nav-text">tmux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tig"><span class="nav-number">3.27.</span> <span class="nav-text">tig</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -534,20 +519,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -604,14 +589,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -747,31 +729,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/604/",
+      identifier: "posts/604/",
+      title: "Manjaro常用软件和命令行推荐",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

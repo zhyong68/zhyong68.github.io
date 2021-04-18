@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -256,7 +256,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/510f/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -291,27 +291,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/510f/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/510f/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -322,14 +301,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="本篇教程"><a href="#本篇教程" class="headerlink" title="本篇教程"></a>本篇教程</h2><p>通过在Windows本地系统中搭建<a href="https://aria2.github.io/" target="_blank" rel="noopener">aria2</a>服务并通过本地或第三方Web控制面板来进行多线程、多源下载。<del>其实个人感觉效果不大，但是它太著名了，每次忍不住尝试它！</del></p>
+        <h2 id="本篇教程"><a href="#本篇教程" class="headerlink" title="本篇教程"></a>本篇教程</h2><p>通过在Windows本地系统中搭建<a target="_blank" rel="noopener" href="https://aria2.github.io/">aria2</a>服务并通过本地或第三方Web控制面板来进行多线程、多源下载。<del>其实个人感觉效果不大，但是它太著名了，每次忍不住尝试它！</del></p>
 <blockquote>
-<p>本地系统环境：Windows10 1903<br>aria2命令行程序：<a href="https://github.com/aria2/aria2/releases" target="_blank" rel="noopener">aria2</a><br>aria2 Web前端：<a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">AriaNg</a></p>
+<p>本地系统环境：Windows10 1903<br>aria2命令行程序：<a target="_blank" rel="noopener" href="https://github.com/aria2/aria2/releases">aria2</a><br>aria2 Web前端：<a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg/releases">AriaNg</a></p>
 </blockquote>
 <h2 id="什么是aria2"><a href="#什么是aria2" class="headerlink" title="什么是aria2"></a>什么是aria2</h2><blockquote>
 <p>aria2是一个轻量级的多协议和多源，跨平台的命令行下载程序， 它支持HTTP / HTTPS，FTP，SFTP，BitTorrent和Metalink。</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>在Github页面中介绍的详细特征：</p>
 <ul>
@@ -370,44 +349,44 @@
 <li>磁盘缓存可减少磁盘活动</li>
 </ul>
 <p>一句话概括，<strong>Aria2就是一个命令行的下载神器。</strong></p>
-<p>官方主页：<a href="https://aria2.github.io/" target="_blank" rel="noopener">https://aria2.github.io/</a><br>Github地址：<a href="https://github.com/aria2/aria2" target="_blank" rel="noopener">https://github.com/aria2/aria2</a></p>
-<p>我们可以在<a href="https://github.com/aria2/aria2/releases" target="_blank" rel="noopener">Releases · aria2/aria2</a>下载最新的aria2程序。</p>
+<p>官方主页：<a target="_blank" rel="noopener" href="https://aria2.github.io/">https://aria2.github.io/</a><br>Github地址：<a target="_blank" rel="noopener" href="https://github.com/aria2/aria2">https://github.com/aria2/aria2</a></p>
+<p>我们可以在<a target="_blank" rel="noopener" href="https://github.com/aria2/aria2/releases">Releases · aria2/aria2</a>下载最新的aria2程序。</p>
 <h2 id="什么是AriaNg"><a href="#什么是AriaNg" class="headerlink" title="什么是AriaNg"></a>什么是AriaNg</h2><p>由于aria2是一个命令行程序，配置以及设置都较麻烦，而AriaNg是一个现代化的web前端，使aria2更容易使用。AriaNg是纯html页面，不需要任何依赖以及运行环境。</p>
 <p>也就是说，我们使用浏览器打开此html页面就可以使用了。</p>
-<p>Github地址：<a href="https://github.com/mayswind/AriaNg" target="_blank" rel="noopener">https://github.com/mayswind/AriaNg</a></p>
-<p>这里我们在<a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">Releases · mayswind/AriaNg</a>下载带有<code>AllInOne.zip</code>的文件，该文件为一个html页面，使用起来更加方便。</p>
-<h2 id="搭建本地服务"><a href="#搭建本地服务" class="headerlink" title="搭建本地服务"></a>搭建本地服务</h2><p><strong>第一步</strong>，将下载的最新版Aria2解压，这里我下载的是<a href="https://github.com/aria2/aria2/releases/download/release-1.34.0/aria2-1.34.0-win-64bit-build1.zip" target="_blank" rel="noopener">aria2-1.34.0-win-64bit-build1.zip
+<p>Github地址：<a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg">https://github.com/mayswind/AriaNg</a></p>
+<p>这里我们在<a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg/releases">Releases · mayswind/AriaNg</a>下载带有<code>AllInOne.zip</code>的文件，该文件为一个html页面，使用起来更加方便。</p>
+<h2 id="搭建本地服务"><a href="#搭建本地服务" class="headerlink" title="搭建本地服务"></a>搭建本地服务</h2><p><strong>第一步</strong>，将下载的最新版Aria2解压，这里我下载的是<a target="_blank" rel="noopener" href="https://github.com/aria2/aria2/releases/download/release-1.34.0/aria2-1.34.0-win-64bit-build1.zip">aria2-1.34.0-win-64bit-build1.zip
 </a>，解压到合适的目录。</p>
 <p><strong>第二步</strong>，我们下载Aria2的配置文件和控制脚本解压到Aria2同目录。</p>
-<p>配置文件下载：<a href="https://www.lanzous.com/i59u3pc" target="_blank" rel="noopener">https://www.lanzous.com/i59u3pc</a></p>
+<p>配置文件下载：<a target="_blank" rel="noopener" href="https://www.lanzous.com/i59u3pc">https://www.lanzous.com/i59u3pc</a></p>
 <p>解压后<code>aria2.conf</code>为配置文件，我们可以设置aria2的下载目录：找到<code>dir=Download</code>进行设置，可以为相对目录或绝对目录，如：<code>F:\Downloads\aria2 Download</code>，（目录最好为全英文，中文会乱码）其它可自行设置或默认即可。</p>
-<p><strong>第三步</strong>，控制脚本下载：<a href="https://www.lanzous.com/i59u3qd" target="_blank" rel="noopener">https://www.lanzous.com/i59u3qd</a></p>
+<p><strong>第三步</strong>，控制脚本下载：<a target="_blank" rel="noopener" href="https://www.lanzous.com/i59u3qd">https://www.lanzous.com/i59u3qd</a></p>
 <p>同样解压到aria2同目录，文件作用如下：</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Start</span>.</span></span>bat</span><br><span class="line">带命令行窗口输出启动 Aria2</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Start</span>.</span></span>vbs</span><br><span class="line">不带命令行窗口启动 Aria2</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Stop</span>.</span></span>bat</span><br><span class="line">停止 Aria2</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Status</span>.</span></span>bat</span><br><span class="line">查看 Aria2 进程状态</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Restart</span>.</span></span>bat</span><br><span class="line">重启 Aria2</span><br><span class="line"></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Boot</span>.</span></span>bat</span><br><span class="line">开启或关闭 Aria2 开机启动</span><br></pre></td></tr></table></figure>
 
 <p>此时我们的目录如下：</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801201550.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801201550.png"></p>
 <p><strong>第四步</strong>，双击<code>Start.bat</code>或<code>Start.vbs</code>即可启动Aria2，弹出防火墙允许通过即可。</p>
 <p>运行命令行显示：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">08/01 20:17:24 [WARN] Neither --rpc-secret nor a combination of --rpc-user <span class="keyword">and</span> --rpc-passwd is set. This is insecure. It is extremely recommended <span class="keyword">to</span> specify --rpc-secret with the adequate secrecy <span class="keyword">or</span> now deprecated --rpc-user <span class="keyword">and</span> --rpc-passwd.</span><br><span class="line"></span><br><span class="line">08/01 20:17:24 [NOTICE] IPv4 RPC: listening on TCP<span class="built_in"> port </span>6800</span><br><span class="line"></span><br><span class="line">08/01 20:17:24 [NOTICE]<span class="built_in"> IPv6 </span>RPC: listening on TCP<span class="built_in"> port </span>6800</span><br></pre></td></tr></table></figure>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">08</span>/<span class="number">01</span> <span class="number">20</span>:<span class="number">17</span>:<span class="number">24</span> [WARN] Neither --rpc-secret nor a combination of --rpc-user <span class="keyword">and</span> --rpc-passwd is set. This is insecure. It is ext<span class="comment">remely recommended to specify --rpc-secret with the adequate secrecy or now deprecated --rpc-user and --rpc-passwd.</span></span><br><span class="line"></span><br><span class="line"><span class="number">08</span>/<span class="number">01</span> <span class="number">20</span>:<span class="number">17</span>:<span class="number">24</span> [NOTICE] IPv4 RPC: listening <span class="keyword">on</span> TCP port <span class="number">6800</span></span><br><span class="line"></span><br><span class="line"><span class="number">08</span>/<span class="number">01</span> <span class="number">20</span>:<span class="number">17</span>:<span class="number">24</span> [NOTICE] IPv6 RPC: listening <span class="keyword">on</span> TCP port <span class="number">6800</span></span><br></pre></td></tr></table></figure>
 
 <p>即代表成功启动了Aria2。后面我们通过Web控制面板来使用Aria2应用。</p>
-<p><strong>最后一步</strong>，下载AllInOne.zip控制面板：<a href="https://github.com/mayswind/AriaNg/releases/download/1.1.1/AriaNg-1.1.1-AllInOne.zip" target="_blank" rel="noopener">https://github.com/mayswind/AriaNg/releases/download/1.1.1/AriaNg-1.1.1-AllInOne.zip</a><br>解压到任意目录，使用浏览器打开<code>index.html</code></p>
+<p><strong>最后一步</strong>，下载AllInOne.zip控制面板：<a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg/releases/download/1.1.1/AriaNg-1.1.1-AllInOne.zip">https://github.com/mayswind/AriaNg/releases/download/1.1.1/AriaNg-1.1.1-AllInOne.zip</a><br>解压到任意目录，使用浏览器打开<code>index.html</code></p>
 <p>打开即提示已经连接到本地的Aria2.</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801203531.png"></p>
-<p>或者我们使用在线的Web面板：<del>如我搭建的 <a href="http://dl.zhyong.cn" target="_blank" rel="noopener">http://dl.zhyong.cn</a></del> ，<a href="http://www.nasdiy.net/AriaNg/" target="_blank" rel="noopener">AriaNg控制台</a> | <a href="http://www.nasdiy.net/yaaw/" target="_blank" rel="noopener">yaaw控制台</a> | <a href="http://www.nasdiy.net/aria2/" target="_blank" rel="noopener">aria2-webui控制台</a> 进行相应配置即可。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801205040.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801203531.png"></p>
+<p>或者我们使用在线的Web面板：<del>如我搭建的 <a target="_blank" rel="noopener" href="http://dl.zhyong.cn/">http://dl.zhyong.cn</a></del> ，<a target="_blank" rel="noopener" href="http://www.nasdiy.net/AriaNg/">AriaNg控制台</a> | <a target="_blank" rel="noopener" href="http://www.nasdiy.net/yaaw/">yaaw控制台</a> | <a target="_blank" rel="noopener" href="http://www.nasdiy.net/aria2/">aria2-webui控制台</a> 进行相应配置即可。</p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20190801205040.png"></p>
 <p>这样我们就可以新建下载任务来进行下载了，下载速度爽歪歪。更加推荐使用在线的Web控制面板，更加方便，控制面板也仅仅是纯html页面，保证安全。</p>
-<h2 id="一步搞定"><a href="#一步搞定" class="headerlink" title="一步搞定"></a>一步搞定</h2><p>下载：<a href="https://www.lanzous.com/i59va3i" target="_blank" rel="noopener">https://www.lanzous.com/i59va3i</a></p>
+<h2 id="一步搞定"><a href="#一步搞定" class="headerlink" title="一步搞定"></a>一步搞定</h2><p>下载：<a target="_blank" rel="noopener" href="https://www.lanzous.com/i59va3i">https://www.lanzous.com/i59va3i</a></p>
 <p>解压后双击<code>Start.bat</code>启动Aria2，打开在线Web或本地Web控制面板连接即可，默认下载目录为解压目录的<code>Download</code>文件夹。</p>
 <h2 id="在服务器搭建Aria2"><a href="#在服务器搭建Aria2" class="headerlink" title="在服务器搭建Aria2"></a>在服务器搭建Aria2</h2><p>上面我们搭建的是本地的Aria2服务，当然我们也可以在服务器端搭建，用于离线下载或加速下载。</p>
 <p>服务器端脚本：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</span><br><span class="line"><span class="comment">#备用地址</span></span><br><span class="line">wget -N --no-check-certificate https://www.moerats.com/usr/shell/Aria2/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; bash aria2.sh</span><br></pre></td></tr></table></figure>
 
 <p>管理脚本及配置信息都可以在<code>aria2.sh</code>中进行。</p>
-<p>前端的Web控制面板可以自己搭建，下载 <a href="https://github.com/mayswind/AriaNg/releases" target="_blank" rel="noopener">https://github.com/mayswind/AriaNg/releases</a> 放在Nginx服务器上即可，或者使用我的面板：<a href="http://dl.zhyong.cn" target="_blank" rel="noopener">http://dl.zhyong.cn</a> 以及官方面板：<a href="http://ariang.mayswind.net/latest/" target="_blank" rel="noopener">http://ariang.mayswind.net/latest/</a></p>
+<p>前端的Web控制面板可以自己搭建，下载 <a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg/releases">https://github.com/mayswind/AriaNg/releases</a> 放在Nginx服务器上即可，或者使用我的面板：<a target="_blank" rel="noopener" href="http://dl.zhyong.cn/">http://dl.zhyong.cn</a> 以及官方面板：<a target="_blank" rel="noopener" href="http://ariang.mayswind.net/latest/">http://ariang.mayswind.net/latest/</a></p>
 <blockquote>
-<p>参考：<a href="https://www.mivm.cn/windows-aria2/" target="_blank" rel="noopener">Windows 配置 Aria2 及 Web 管理面板教程 | 米V米</a><br><a href="https://www.moerats.com/archives/251/" target="_blank" rel="noopener">BT种子/磁力链接下载工具：Aria2一键安装管理脚本 - Rat’s Blog</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.mivm.cn/windows-aria2/">Windows 配置 Aria2 及 Web 管理面板教程 | 米V米</a><br><a target="_blank" rel="noopener" href="https://www.moerats.com/archives/251/">BT种子/磁力链接下载工具：Aria2一键安装管理脚本 - Rat’s Blog</a></p>
 </blockquote>
 
     </div>
@@ -476,7 +455,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -501,14 +486,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本篇教程"><span class="nav-number">1.</span> <span class="nav-text">本篇教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是aria2"><span class="nav-number">2.</span> <span class="nav-text">什么是aria2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是AriaNg"><span class="nav-number">3.</span> <span class="nav-text">什么是AriaNg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建本地服务"><span class="nav-number">4.</span> <span class="nav-text">搭建本地服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一步搞定"><span class="nav-number">5.</span> <span class="nav-text">一步搞定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在服务器搭建Aria2"><span class="nav-number">6.</span> <span class="nav-text">在服务器搭建Aria2</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E7%AF%87%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">本篇教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFaria2"><span class="nav-number">2.</span> <span class="nav-text">什么是aria2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFAriaNg"><span class="nav-number">3.</span> <span class="nav-text">什么是AriaNg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">搭建本地服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%AD%A5%E6%90%9E%E5%AE%9A"><span class="nav-number">5.</span> <span class="nav-text">一步搞定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BAAria2"><span class="nav-number">6.</span> <span class="nav-text">在服务器搭建Aria2</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -517,20 +502,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -587,14 +572,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -730,31 +712,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/510f/",
+      identifier: "posts/510f/",
+      title: "本地配置Aria2下载程序及Web控制面板",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -89,8 +89,8 @@
 <meta property="article:published_time" content="2019-05-02T01:58:55.000Z">
 <meta property="article:modified_time" content="2020-08-17T09:52:20.631Z">
 <meta property="article:author" content="ZhangYong">
-<meta property="article:tag" content="U盘启动">
 <meta property="article:tag" content="WinPE">
+<meta property="article:tag" content="U盘启动">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-27-21.png">
 
@@ -277,7 +277,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/bb8d/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -312,27 +312,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/bb8d/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/bb8d/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -353,7 +332,7 @@
 <li>设置自动恢复工具；从不可启动的设备中恢复数据；</li>
 <li>添加自定义外壳程序或GUI来使此类任务自动化。</li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="WinPE的分类"><a href="#WinPE的分类" class="headerlink" title="WinPE的分类"></a>WinPE的分类</h2><p>一是桌面操作，即带有资源管理器的PE，这种PE操作方便，界面美观友好，缺点是启动不如另外两种类型的PE迅速（因为开机时要花时间加载资源管理器）、资源占用较大。总体而言，比较适合初学者用户使用，也因为操作类似于真实的系统而得名RAMOS，同时也是最常见的PE类型。</p>
 <p>二是半桌面操作，即不含有资源管理器，但含有作者编写的一种程序代替，最典型的例子就要数安装原版系统时所用的安装PE，这种PE启动较快，资源占用较少，同时操作也比较方便，适合有一定电脑经验的用户使用。</p>
@@ -362,26 +341,26 @@
 <p>U+是使用ultraiso（软碟通）软件把PE写入U盘，并由ultraiso自动加入U+主引导和分区引导，制作启动U盘的技术。目前兼容性最好的是U+V2，它可以把PE部署到U盘hdd或zip的可见区、隐藏区、高端隐藏区或深度隐藏区。</p>
 <p>B+是使用无忧论坛版主Pauly制作的功能强大的引导扇区维护工具bootice对U盘进行操作，使之具备启动功能的方法，因为B+相对复杂些，目前使用的人还不是特别多。</p>
 <p>UD是使用时空论坛bean制作的fbinst或者jianliulin制作的GUI界面fbinsttool产生的一个分区，可以在硬盘、U盘或者储存卡上分出一个隐藏的分区，其特性是除了基于fbinst的工具可以进行读取之外的任何软件或者系统都无法读取其中的数据，具有防病毒、木马和防格式化等功能。而且对U盘的普通格式化也不会破坏隐藏FBA文件。而且许多GUI工具可以调用fbinst程序，使得一键制作U盘启动功能越来越傻瓜化，UD也受到广大技术员及电脑爱好者的喜爱，成为目前较主流的U盘启动制作方式。</p>
-<p><strong>注：</strong>以上理论知识来源于<a href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html" target="_blank" rel="noopener">女娲工坊扯闲篇儿</a>的视频教程，在此感谢！</p>
-<h2 id="准备工具和软件"><a href="#准备工具和软件" class="headerlink" title="准备工具和软件"></a>准备工具和软件</h2><p>软件和工具大部分来自于<a href="http://bbs.wuyou.net/forum.php" target="_blank" rel="noopener">无忧启动论坛</a>，非常感谢。</p>
+<p><strong>注：</strong>以上理论知识来源于<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html">女娲工坊扯闲篇儿</a>的视频教程，在此感谢！</p>
+<h2 id="准备工具和软件"><a href="#准备工具和软件" class="headerlink" title="准备工具和软件"></a>准备工具和软件</h2><p>软件和工具大部分来自于<a target="_blank" rel="noopener" href="http://bbs.wuyou.net/forum.php">无忧启动论坛</a>，非常感谢。</p>
 <ul>
 <li>金士顿 32G USB3.0 U盘一个</li>
-<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=404451" target="_blank" rel="noopener">新年新U+利器神器——ultraiso9.7.1</a>：U+启动</li>
-<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=57675" target="_blank" rel="noopener">【BOOTICE: 启动维护工具】-（2016-06-17 v1.3.4 测试）</a>：B+启动</li>
-<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=189221" target="_blank" rel="noopener">fbinstTool 1.701 for fbinst v1.7【2017-03-18】变形金刚版</a>：UD启动</li>
-<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=365856" target="_blank" rel="noopener">Message启动菜单个性化制作! 2016年5月23日更新1.0.3.3 完结版</a>：制作UD启动的Message文件，作为背景以及相关设置</li>
-<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=412834" target="_blank" rel="noopener">Qemu启动测试器x64</a>：用于测试U盘启动，而不需要在物理机上进行测试</li>
+<li><a target="_blank" rel="noopener" href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=404451">新年新U+利器神器——ultraiso9.7.1</a>：U+启动</li>
+<li><a target="_blank" rel="noopener" href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=57675">【BOOTICE: 启动维护工具】-（2016-06-17 v1.3.4 测试）</a>：B+启动</li>
+<li><a target="_blank" rel="noopener" href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=189221">fbinstTool 1.701 for fbinst v1.7【2017-03-18】变形金刚版</a>：UD启动</li>
+<li><a target="_blank" rel="noopener" href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=365856">Message启动菜单个性化制作! 2016年5月23日更新1.0.3.3 完结版</a>：制作UD启动的Message文件，作为背景以及相关设置</li>
+<li><a target="_blank" rel="noopener" href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=412834">Qemu启动测试器x64</a>：用于测试U盘启动，而不需要在物理机上进行测试</li>
 </ul>
-<p>在此我将上述五个软件打包好了：<a href="https://www.lanzous.com/i5hb22h" target="_blank" rel="noopener">点击下载</a></p>
+<p>在此我将上述五个软件打包好了：<a target="_blank" rel="noopener" href="https://www.lanzous.com/i5hb22h">点击下载</a></p>
 <p>除了制作软件，当然我们还需要制作好的WinPE，这样我们才能使用这三种方式写入U盘来进行启动。</p>
 <p>由于网上各种各样的PE实在是太多太多，质量也参差不齐，按照我的经验，推荐这三款PE：</p>
 <ul>
-<li><a href="http://www.wepe.com.cn/" target="_blank" rel="noopener">微PE工具箱 - 最好用的WinPE装机维护工具</a>：微PE工具箱V2.0 64位</li>
-<li><a href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=414164" target="_blank" rel="noopener">纯净、开放、美观、方便的WINDOWS 10 17763 PE X64</a></li>
-<li><a href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html" target="_blank" rel="noopener">Nüwa workshop：Win10PE 2in1——2019年4月28日</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.wepe.com.cn/">微PE工具箱 - 最好用的WinPE装机维护工具</a>：微PE工具箱V2.0 64位</li>
+<li><a target="_blank" rel="noopener" href="http://bbs.wuyou.net/forum.php?mod=viewthread&tid=414164">纯净、开放、美观、方便的WINDOWS 10 17763 PE X64</a></li>
+<li><a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html">Nüwa workshop：Win10PE 2in1——2019年4月28日</a></li>
 </ul>
-<p>以上三种PE均无流氓行为，且均支持Legacy Bios和Uefi Bios启动，兼容性较好。<br>下载链接：<a href="https://pan.baidu.com/s/1vIMu5aEt0fj8f1up1AN-lA" target="_blank" rel="noopener">https://pan.baidu.com/s/1vIMu5aEt0fj8f1up1AN-lA</a>  提取码：1nfi ，下载后请校验文件。</p>
-<p><strong><font color="red">注意：</font></strong>请选择一个空的U盘或提前备份U盘所有数据，避免因U盘原先的隐藏分区等干扰，以下三种方式制作启动盘提前使用<code>FbinstTool</code>格式化U盘。<br>选择U盘，启动设置——格式化——重置磁盘，点击格式化!</p>
+<p>以上三种PE均无流氓行为，且均支持Legacy Bios和Uefi Bios启动，兼容性较好。<br>下载链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1vIMu5aEt0fj8f1up1AN-lA">https://pan.baidu.com/s/1vIMu5aEt0fj8f1up1AN-lA</a>  提取码：1nfi ，下载后请校验文件。</p>
+<p>**<font color="red">注意：</font>**请选择一个空的U盘或提前备份U盘所有数据，避免因U盘原先的隐藏分区等干扰，以下三种方式制作启动盘提前使用<code>FbinstTool</code>格式化U盘。<br>选择U盘，启动设置——格式化——重置磁盘，点击格式化!</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_12-27-21.png"></p>
 <p>请下载需要的软件和PE，下面详细介绍每种方式的制作过程。</p>
 <h2 id="一些说明"><a href="#一些说明" class="headerlink" title="一些说明"></a>一些说明</h2><p><strong>Legacy Bios和Uefi Bios的一些说明：</strong><br>开机流程：</p>
@@ -425,18 +404,18 @@
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_13-42-17.png"></p>
 <p>到此，制作过程本应该已经结束，但是Bootice工具的问题，不能以U+v2的方式启动PE。有两种解决方法：</p>
 <p><strong>1. 使用U+方式制作后备份mbr，然后使用B+方式制作PE后恢复mbr</strong></p>
-<p>根据<a href="http://www.iqiyi.com/w_19rzoj6hs1.html?list=19rrm7pfuq#curid=21006550509_66213fc45f132f6edb5a65b721303137" target="_blank" rel="noopener">女娲工坊扯闲篇儿之八 ：（中级难度）如何用BOOTICE制作干净启动盘</a>中的说明，使用Bootice引导代码类型是U+v2的启动方式，因U盘不同而不同，可以通过以U+方式制作PE，然后备份MBR（备份扇区2-100不等，推荐100）。</p>
+<p>根据<a target="_blank" rel="noopener" href="http://www.iqiyi.com/w_19rzoj6hs1.html?list=19rrm7pfuq#curid=21006550509_66213fc45f132f6edb5a65b721303137">女娲工坊扯闲篇儿之八 ：（中级难度）如何用BOOTICE制作干净启动盘</a>中的说明，使用Bootice引导代码类型是U+v2的启动方式，因U盘不同而不同，可以通过以U+方式制作PE，然后备份MBR（备份扇区2-100不等，推荐100）。</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-13-40.png"></p>
 <p>然后以B+方式制作PE，再将备份的MBR进行恢复即可，亲测可用！此方式较复杂，以下为另一种简单方式。</p>
 <p><strong>2. 修改U+v2的主引导，改为U+引导：</strong></p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-21-44.png"></p>
 <p><strong>更新或更换PE：</strong></p>
 <p>使用Bootice将隐藏分区设置为可见，格式化，将解压好的ISO文件全部复制进去，再将另外一个分区设置可见（则此分区自动隐藏）。</p>
-<p><strong><font color="red">注：</font></strong>格式化分区后，会默认将PRB设置为<code>BOOTMGR引导程序</code>（MRB不影响），若PE文件为grldr引导，则需手动修复PBR，否则不需要。</p>
+<p>**<font color="red">注：</font>**格式化分区后，会默认将PRB设置为<code>BOOTMGR引导程序</code>（MRB不影响），若PE文件为grldr引导，则需手动修复PBR，否则不需要。</p>
 <p><img alt="手动修复PBR" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_14-32-24.png"></p>
 <p>注意需再将U+v2的主引导记录文件(MBR)恢复即可。</p>
 <h2 id="使用UD制作WinPE（高级难度）"><a href="#使用UD制作WinPE（高级难度）" class="headerlink" title="使用UD制作WinPE（高级难度）"></a>使用UD制作WinPE（高级难度）</h2><p>上述我们制作的都是单PE，这里我们通过UD制作一个多PE。</p>
-<p><strong>所需材料</strong>：U盘、FbinstTool1.7、Qemu启动测试器x64、WePE_64_V2.0.iso、Win10PE2in1.2019.5V2.iso、Win10x64PE_17763.iso、<a href="https://zhyong-cn-soft.oss-cn-shanghai.aliyuncs.com/%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6.7z" target="_blank" rel="noopener">引导文件</a></p>
+<p><strong>所需材料</strong>：U盘、FbinstTool1.7、Qemu启动测试器x64、WePE_64_V2.0.iso、Win10PE2in1.2019.5V2.iso、Win10x64PE_17763.iso、<a target="_blank" rel="noopener" href="https://zhyong-cn-soft.oss-cn-shanghai.aliyuncs.com/%E5%BC%95%E5%AF%BC%E6%96%87%E4%BB%B6.7z">引导文件</a></p>
 <p>目前公认兼容性最好的启动U盘模式是三分区，前端UD隐藏用于传统BIOS启动，中间可见分区存储数据，后面U+V2高端隐藏用于UEFI BIOS启动。</p>
 <p>这里我们制作一个UD五分区的PE。</p>
 <p>第一分区我们用来引导Legacy Bios的启动文件（3G），第二分区作为数据区（U盘大小减去其它四分区），用来存储个人数据，第三、四、五分区用来存放Uefi引导的PE文件（分别占用1G，共3G）。</p>
@@ -477,7 +456,7 @@
 <li><p>完成后，修改grldr菜单：点击菜单栏下面的Grldr菜单，替换如下，Ctrl+s保持即可，若删除或添加PE，则按照此模板修改即可。</p>
 </li>
 </ol>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">timeout 10</span><br><span class="line">default 0</span><br><span class="line">gfxmenu <span class="params">(ud)</span><span class="string">/MESSAGE</span></span><br><span class="line"></span><br><span class="line">title 【01】极致纯净微PE 2.0 x64</span><br><span class="line">map <span class="params">(bd)</span><span class="string">/WePE_64_V2.0.iso</span> <span class="params">(0xff)</span> </span><br><span class="line">map <span class="params">--hook</span></span><br><span class="line">chainloader <span class="params">(0xff)</span></span><br><span class="line"></span><br><span class="line">title 【02】纯净_开放_美观_Win10x64PE_17763</span><br><span class="line">map <span class="params">(bd)</span><span class="string">/Win10x64PE_17763.iso</span> <span class="params">(0xff)</span> </span><br><span class="line">map <span class="params">--hook</span></span><br><span class="line">chainloader <span class="params">(0xff)</span></span><br><span class="line"></span><br><span class="line">title 【03】女娲工坊 Win10PE2in1</span><br><span class="line">map <span class="params">(bd)</span><span class="string">/Win10PE2in1.2019.5V2.iso</span> <span class="params">(0xff)</span> </span><br><span class="line">map <span class="params">--hook</span></span><br><span class="line">chainloader <span class="params">(0xff)</span></span><br><span class="line"></span><br><span class="line">title 【04】启动本机WINDOWS操作系统</span><br><span class="line"><span class="keyword">echo</span> $[1106] Loading Start Hard disk Windows, Please Wait <span class="string">...</span></span><br><span class="line">find <span class="params">--set-root</span> <span class="params">--ignore-floppies</span> <span class="params">--ignore-cd</span> <span class="string">/ntldr</span> || find <span class="params">--set-root</span> <span class="params">--ignore-floppies</span> <span class="params">--ignore-cd</span> <span class="string">/bootmgr</span></span><br><span class="line">map <span class="params">()</span> <span class="params">(hd0)</span></span><br><span class="line">map <span class="params">(hd0)</span> <span class="params">()</span></span><br><span class="line">map <span class="params">--rehook</span></span><br><span class="line">find <span class="params">--set-root</span> <span class="params">--ignore-floppies</span> <span class="params">--ignore-cd</span> <span class="string">/ntldr</span> || find <span class="params">--set-root</span> <span class="params">--ignore-floppies</span> <span class="params">--ignore-cd</span> <span class="string">/bootmgr</span></span><br><span class="line">chainloader <span class="string">/ntldr</span> || chainloader <span class="string">/bootmgr</span></span><br><span class="line"></span><br><span class="line">title 【05】重启</span><br><span class="line">	reboot</span><br><span class="line"></span><br><span class="line">title 【06】关机</span><br><span class="line">	halt</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">timeout</span> <span class="number">10</span></span><br><span class="line"><span class="attribute">default</span> <span class="number">0</span></span><br><span class="line"><span class="attribute">gfxmenu</span> (ud)/MESSAGE</span><br><span class="line"></span><br><span class="line"><span class="attribute">title</span> 【<span class="number">01</span>】极致纯净微PE <span class="number">2</span>.<span class="number">0</span> x<span class="number">64</span></span><br><span class="line"><span class="attribute">map</span> (bd)/WePE_<span class="number">64</span>_V<span class="number">2</span>.<span class="number">0</span>.iso (<span class="number">0</span>xff) </span><br><span class="line"><span class="attribute">map</span> --hook</span><br><span class="line"><span class="attribute">chainloader</span> (<span class="number">0</span>xff)</span><br><span class="line"></span><br><span class="line"><span class="attribute">title</span> 【<span class="number">02</span>】纯净_开放_美观_Win<span class="number">10</span>x<span class="number">64</span>PE_<span class="number">17763</span></span><br><span class="line"><span class="attribute">map</span> (bd)/Win<span class="number">10</span>x<span class="number">64</span>PE_<span class="number">17763</span>.iso (<span class="number">0</span>xff) </span><br><span class="line"><span class="attribute">map</span> --hook</span><br><span class="line"><span class="attribute">chainloader</span> (<span class="number">0</span>xff)</span><br><span class="line"></span><br><span class="line"><span class="attribute">title</span> 【<span class="number">03</span>】女娲工坊 Win<span class="number">10</span>PE<span class="number">2</span>in<span class="number">1</span></span><br><span class="line"><span class="attribute">map</span> (bd)/Win<span class="number">10</span>PE<span class="number">2</span>in<span class="number">1</span>.<span class="number">2019</span>.<span class="number">5</span>V<span class="number">2</span>.iso (<span class="number">0</span>xff) </span><br><span class="line"><span class="attribute">map</span> --hook</span><br><span class="line"><span class="attribute">chainloader</span> (<span class="number">0</span>xff)</span><br><span class="line"></span><br><span class="line"><span class="attribute">title</span> 【<span class="number">04</span>】启动本机WINDOWS操作系统</span><br><span class="line"><span class="attribute">echo</span> $[<span class="number">1106</span>] Loading Start Hard disk Windows, Please Wait ...</span><br><span class="line"><span class="attribute">find</span> --set-root --ignore-floppies --ignore-cd /ntldr || find --set-root --ignore-floppies --ignore-cd /bootmgr</span><br><span class="line"><span class="attribute">map</span> () (hd<span class="number">0</span>)</span><br><span class="line"><span class="attribute">map</span> (hd<span class="number">0</span>) ()</span><br><span class="line"><span class="attribute">map</span> --rehook</span><br><span class="line"><span class="attribute">find</span> --set-root --ignore-floppies --ignore-cd /ntldr || find --set-root --ignore-floppies --ignore-cd /bootmgr</span><br><span class="line"><span class="attribute">chainloader</span> /ntldr || chainloader /bootmgr</span><br><span class="line"></span><br><span class="line"><span class="attribute">title</span> 【<span class="number">05</span>】重启</span><br><span class="line">	<span class="attribute">reboot</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">title</span> 【<span class="number">06</span>】关机</span><br><span class="line">	<span class="attribute">halt</span></span><br></pre></td></tr></table></figure>
 
 <p>然后下图操作：</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-02_17-12-22.png"></p>
@@ -499,7 +478,7 @@
 <p>至此，完美制作出UD5分区多PE启动盘。此启动盘兼容性好，支持Legacy Bios和Uefi Bios，支持无损更新或更换PE，且安全性非常高。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>花了9个小时写了这篇文章，关于系统启动、U盘启动和PE方面的知识是比较复杂的，这里也仅仅是对于制作U盘启动的三种方式进行简单总结，相对于网上所谓的一键制作（黑箱操作），这三种方式更加透明且经过大量检验，可放心使用。所用到的所有工具和PE我都注明来源并提供下载，在此非常感谢女娲工坊制作的相关视频。</p>
 <blockquote>
-<p>参考：<a href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html" target="_blank" rel="noopener">Win10PE 2in1——2019年4月28日，附4小时视频教程及全套制作工具</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="http://bbs.pcbeta.com/viewthread-1775085-1-2.html">Win10PE 2in1——2019年4月28日，附4小时视频教程及全套制作工具</a></p>
 </blockquote>
 
     </div>
@@ -535,8 +514,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/U%E7%9B%98%E5%90%AF%E5%8A%A8/" rel="tag"><i class="fa fa-tag"></i> U盘启动</a>
               <a href="/tags/WinPE/" rel="tag"><i class="fa fa-tag"></i> WinPE</a>
+              <a href="/tags/U%E7%9B%98%E5%90%AF%E5%8A%A8/" rel="tag"><i class="fa fa-tag"></i> U盘启动</a>
           </div>
 
         
@@ -568,7 +547,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -593,14 +578,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是WinPE"><span class="nav-number">1.</span> <span class="nav-text">什么是WinPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WinPE的主要作用"><span class="nav-number">2.</span> <span class="nav-text">WinPE的主要作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WinPE的分类"><span class="nav-number">3.</span> <span class="nav-text">WinPE的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#制作自己的WinPE"><span class="nav-number">4.</span> <span class="nav-text">制作自己的WinPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工具和软件"><span class="nav-number">5.</span> <span class="nav-text">准备工具和软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些说明"><span class="nav-number">6.</span> <span class="nav-text">一些说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用U-方式制作WinPE（初级难度）"><span class="nav-number">7.</span> <span class="nav-text">使用U+方式制作WinPE（初级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用B-方式制作WinPE（中级难度）"><span class="nav-number">8.</span> <span class="nav-text">使用B+方式制作WinPE（中级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用UD制作WinPE（高级难度）"><span class="nav-number">9.</span> <span class="nav-text">使用UD制作WinPE（高级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFWinPE"><span class="nav-number">1.</span> <span class="nav-text">什么是WinPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WinPE%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">WinPE的主要作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WinPE%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">WinPE的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84WinPE"><span class="nav-number">4.</span> <span class="nav-text">制作自己的WinPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">准备工具和软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E8%AF%B4%E6%98%8E"><span class="nav-number">6.</span> <span class="nav-text">一些说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8U-%E6%96%B9%E5%BC%8F%E5%88%B6%E4%BD%9CWinPE%EF%BC%88%E5%88%9D%E7%BA%A7%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">使用U+方式制作WinPE（初级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8B-%E6%96%B9%E5%BC%8F%E5%88%B6%E4%BD%9CWinPE%EF%BC%88%E4%B8%AD%E7%BA%A7%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="nav-number">8.</span> <span class="nav-text">使用B+方式制作WinPE（中级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8UD%E5%88%B6%E4%BD%9CWinPE%EF%BC%88%E9%AB%98%E7%BA%A7%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="nav-number">9.</span> <span class="nav-text">使用UD制作WinPE（高级难度）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">10.</span> <span class="nav-text">后记</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -609,20 +594,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -679,14 +664,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -822,31 +804,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/bb8d/",
+      identifier: "posts/bb8d/",
+      title: "分别使用U+、B+、UD制作WinPE启动盘",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

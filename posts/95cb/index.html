@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -264,7 +264,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/95cb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -299,27 +299,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/95cb/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/95cb/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -330,20 +309,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Hexo框架博客：<a href="https://hexo.io/zh-cn/index.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/index.html</a><br>博客主题：[Next主题7.1.1](<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">theme-next/hexo-theme-next: Elegant and powerful theme for Hexo.</a>)</p>
+        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Hexo框架博客：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">https://hexo.io/zh-cn/index.html</a><br>博客主题：[Next主题7.1.1](<a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">theme-next/hexo-theme-next: Elegant and powerful theme for Hexo.</a>)</p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>之前hexo博客的评论系统为来必力，加载速度及其之慢，导致将post模板中<code>comments</code>都默认为false。</p>
-<p>无意中，浏览博客时发现<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine——一款极简的无后端评论系统</a>。</p>
+<p>无意中，浏览博客时发现<a target="_blank" rel="noopener" href="https://valine.js.org/">Valine——一款极简的无后端评论系统</a>。</p>
 <p>优点呢，加载快，无需登录，支持Markdown，支持表情包，支持预览，简直<strong>神一样的存在</strong>，而且现在还限制了发送频率，一定程度防止了垃圾评论。</p>
 <p><img alt="评论截图" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20200516204829.png"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="获取APP-ID和APP-KEY"><a href="#获取APP-ID和APP-KEY" class="headerlink" title="获取APP ID和APP KEY"></a>获取<code>APP ID</code>和<code>APP KEY</code></h3><ul>
-<li>点击<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">登录</a>或<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">注册</a><code>Leancloud</code>;</li>
+<li>点击<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signup">登录</a>或<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signup">注册</a><code>Leancloud</code>;</li>
 <li>创建应用</li>
 <li>获取APP ID 和APP KEY:刚刚创建的应用&gt;设置&gt;应用KEY</li>
 </ul>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>打开hexo源文件，编辑next主题文件——<code>_config.yml</code>,搜索<code>valine</code>即可找到Valine配置,启用并填写相应的APP ID和APP KEY。</p>
-<p>配置中<code>avatar</code>选项为默认头像，配置方法：<a href="https://github.com/xCss/Valine/wiki/avatar-setting-for-valine" target="_blank" rel="noopener">https://github.com/xCss/Valine/wiki/avatar-setting-for-valine</a></p>
+<p>配置中<code>avatar</code>选项为默认头像，配置方法：<a target="_blank" rel="noopener" href="https://github.com/xCss/Valine/wiki/avatar-setting-for-valine">https://github.com/xCss/Valine/wiki/avatar-setting-for-valine</a></p>
 <table>
 <thead>
 <tr>
@@ -380,20 +359,20 @@
 <p>若<code>avatar</code>的值不等于6种参数中的一种，则默认为<code>mm</code></p>
 </blockquote>
 <p>重新部署即可(需开启评论功能)！</p>
-<p>参考：<a href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/" target="_blank" rel="noopener">https://ioliu.cn/2017/add-valine-comments-to-your-blog/</a></p>
-<h2 id="Valine-评论系统中的邮件提醒"><a href="#Valine-评论系统中的邮件提醒" class="headerlink" title="Valine 评论系统中的邮件提醒"></a>Valine 评论系统中的邮件提醒</h2><p>进入<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">Leancloud</a>&gt;选择你的评论所存放的应用&gt;设置&gt;邮件模板，按下图设置好用于重置密码的邮件主题&gt;然后保存:</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hi, </span><span class="template-variable">&#123;&#123;username&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">你在 </span><span class="template-variable">&#123;&#123;appname&#125;&#125;</span><span class="xml"> 的评论收到了新的回复，请点击查看：</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"你的网址首页链接"</span> <span class="attr">style</span>=<span class="string">"display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;"</span>&gt;</span>马上查看<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>参考：<a target="_blank" rel="noopener" href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/">https://ioliu.cn/2017/add-valine-comments-to-your-blog/</a></p>
+<h2 id="Valine-评论系统中的邮件提醒"><a href="#Valine-评论系统中的邮件提醒" class="headerlink" title="Valine 评论系统中的邮件提醒"></a>Valine 评论系统中的邮件提醒</h2><p>进入<a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signup">Leancloud</a>&gt;选择你的评论所存放的应用&gt;设置&gt;邮件模板，按下图设置好用于重置密码的邮件主题&gt;然后保存:</p>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hi, </span><span class="template-variable">&#123;&#123;<span class="name">username</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">你在 </span><span class="template-variable">&#123;&#123;<span class="name">appname</span>&#125;&#125;</span><span class="xml"> 的评论收到了新的回复，请点击查看：</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;你的网址首页链接&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;&quot;</span>&gt;</span>马上查看<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <p>注意设置首页链接！</p>
 <p>然后初始化即可：<br>在next主题配置文件中设置：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">var</span> valine = <span class="keyword">new</span> Valine(&#123;</span><br><span class="line">    el: <span class="string">'.comment'</span>,</span><br><span class="line">    notify: <span class="literal">true</span>, <span class="comment">// 邮件提醒!!!</span></span><br><span class="line">    verify: <span class="literal">true</span>, <span class="comment">// 验证码</span></span><br><span class="line">    app_id: <span class="string">'your appid'</span>,</span><br><span class="line">    app_key: <span class="string">'your appkey'</span>,</span><br><span class="line">    placeholder: <span class="string">'ヾﾉ≧∀≦)o来啊，快活啊!'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">var</span> valine = <span class="keyword">new</span> Valine(&#123;</span><br><span class="line">    el: <span class="string">&#x27;.comment&#x27;</span>,</span><br><span class="line">    notify: <span class="literal">true</span>, <span class="comment">// 邮件提醒!!!</span></span><br><span class="line">    verify: <span class="literal">true</span>, <span class="comment">// 验证码</span></span><br><span class="line">    app_id: <span class="string">&#x27;your appid&#x27;</span>,</span><br><span class="line">    app_key: <span class="string">&#x27;your appkey&#x27;</span>,</span><br><span class="line">    placeholder: <span class="string">&#x27;ヾﾉ≧∀≦)o来啊，快活啊!&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>将邮件提醒设置为true即可，邮件提醒时需要输入验证码（数学简单计算）.</p>
-<p>参考：<a href="https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE" target="_blank" rel="noopener">https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE">https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE</a></p>
 <h2 id="使用Valine-Admin拓展"><a href="#使用Valine-Admin拓展" class="headerlink" title="使用Valine-Admin拓展"></a>使用Valine-Admin拓展</h2><blockquote>
-<p>Valine-Admin ：一个 Valine 的拓展应用，用来增强 Valine 的邮件通知。<br>github地址：<a href="https://github.com/zhaojun1998/Valine-Admin" target="_blank" rel="noopener">https://github.com/zhaojun1998/Valine-Admin</a></p>
+<p>Valine-Admin ：一个 Valine 的拓展应用，用来增强 Valine 的邮件通知。<br>github地址：<a target="_blank" rel="noopener" href="https://github.com/zhaojun1998/Valine-Admin">https://github.com/zhaojun1998/Valine-Admin</a></p>
 </blockquote>
-<p>使用方法见README:<a href="https://github.com/zhaojun1998/Valine-Admin/blob/master/README.md" target="_blank" rel="noopener">https://github.com/zhaojun1998/Valine-Admin/blob/master/README.md</a><br><strong>备注</strong>：SMTP服务器选择QQ邮箱，SMTP_PASS即QQ密码，这样测试成功！开始使用Gmail失败。</p>
+<p>使用方法见README:<a target="_blank" rel="noopener" href="https://github.com/zhaojun1998/Valine-Admin/blob/master/README.md">https://github.com/zhaojun1998/Valine-Admin/blob/master/README.md</a><br><strong>备注</strong>：SMTP服务器选择QQ邮箱，SMTP_PASS即QQ密码，这样测试成功！开始使用Gmail失败。</p>
 <h2 id="LeanCloud-休眠策略"><a href="#LeanCloud-休眠策略" class="headerlink" title="LeanCloud 休眠策略"></a>LeanCloud 休眠策略</h2><p>免费版的 LeanCloud 容器，是有强制性休眠策略的，不能 24 小时运行：</p>
 <ul>
 <li>每天必须休眠 6 个小时</li>
@@ -405,32 +384,32 @@
 <p><strong>找到新的方法，查看更新内容。</strong></p>
 <hr>
 <h2 id="20190520更新"><a href="#20190520更新" class="headerlink" title="20190520更新"></a><font color="red">20190520更新</font></h2><p>突然发现博客似乎很久没有手动评论的邮件提醒了。特意评论博客，查看了云引擎下的应用日志：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="symbol">Error:</span> Invalid <span class="symbol">login:</span> <span class="number">535</span> <span class="symbol">Error:</span> <span class="symbol">http:</span>/<span class="regexp">/service.mail.qq.com/cgi</span>-bin/help?subtype=<span class="number">1</span>&amp;&amp;id=<span class="number">28</span>&amp;&amp;no=<span class="number">1001256</span></span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._formatError (<span class="regexp">/home/leanengine</span><span class="regexp">/app/node</span>_modules/nodemailer/<span class="class"><span class="keyword">lib</span>/<span class="title">smtp</span>-<span class="title">connection</span>/<span class="title">index</span>.<span class="title">js</span>:605:19)</span></span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._actionAUTHComplete (<span class="regexp">/home/leanengine</span><span class="regexp">/app/node</span>_modules/nodemailer/<span class="class"><span class="keyword">lib</span>/<span class="title">smtp</span>-<span class="title">connection</span>/<span class="title">index</span>.<span class="title">js</span>:1340:34)</span></span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._responseActions.push.str (<span class="regexp">/home/leanengine</span><span class="regexp">/app/node</span>_modules/nodemailer/<span class="class"><span class="keyword">lib</span>/<span class="title">smtp</span>-<span class="title">connection</span>/<span class="title">index</span>.<span class="title">js</span>:378:26)</span></span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._processResponse (<span class="regexp">/home/leanengine</span><span class="regexp">/app/node</span>_modules/nodemailer/<span class="class"><span class="keyword">lib</span>/<span class="title">smtp</span>-<span class="title">connection</span>/<span class="title">index</span>.<span class="title">js</span>:764:20)</span></span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._onData (<span class="regexp">/home/leanengine</span><span class="regexp">/app/node</span>_modules/nodemailer/<span class="class"><span class="keyword">lib</span>/<span class="title">smtp</span>-<span class="title">connection</span>/<span class="title">index</span>.<span class="title">js</span>:570:14)</span></span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at TLSSocket._socket.on.chunk (<span class="regexp">/home/leanengine</span><span class="regexp">/app/node</span>_modules/nodemailer/<span class="class"><span class="keyword">lib</span>/<span class="title">smtp</span>-<span class="title">connection</span>/<span class="title">index</span>.<span class="title">js</span>:522:47)</span></span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at emitOne (events.<span class="symbol">js:</span><span class="number">96</span>:<span class="number">13</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at TLSSocket.emit (events.<span class="symbol">js:</span><span class="number">188</span>:<span class="number">7</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at readableAddChunk (_stream_readable.<span class="symbol">js:</span><span class="number">176</span>:<span class="number">18</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at TLSSocket.Readable.push (_stream_readable.<span class="symbol">js:</span><span class="number">134</span>:<span class="number">10</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">  <span class="symbol">code:</span> <span class="string">'EAUTH'</span>,</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">  <span class="symbol">response:</span> <span class="string">'535 Error: http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=1001256'</span>,</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">  <span class="symbol">responseCode:</span> <span class="number">535</span>,</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">  <span class="symbol">command:</span> <span class="string">'AUTH PLAIN'</span> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123; Error: Invalid login: <span class="number">535</span> Error: http:<span class="regexp">//</span>service.mail.qq.com<span class="regexp">/cgi-bin/</span>help?subtype=<span class="number">1</span>&amp;&amp;id=<span class="number">28</span>&amp;&amp;no=<span class="number">1001256</span></span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._formatError (<span class="regexp">/home/</span>leanengine<span class="regexp">/app/</span>node_modules<span class="regexp">/nodemailer/</span>lib<span class="regexp">/smtp-connection/i</span>ndex.js:<span class="number">605</span>:<span class="number">19</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._actionAUTHComplete (<span class="regexp">/home/</span>leanengine<span class="regexp">/app/</span>node_modules<span class="regexp">/nodemailer/</span>lib<span class="regexp">/smtp-connection/i</span>ndex.js:<span class="number">1340</span>:<span class="number">34</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._responseActions.push.str (<span class="regexp">/home/</span>leanengine<span class="regexp">/app/</span>node_modules<span class="regexp">/nodemailer/</span>lib<span class="regexp">/smtp-connection/i</span>ndex.js:<span class="number">378</span>:<span class="number">26</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._processResponse (<span class="regexp">/home/</span>leanengine<span class="regexp">/app/</span>node_modules<span class="regexp">/nodemailer/</span>lib<span class="regexp">/smtp-connection/i</span>ndex.js:<span class="number">764</span>:<span class="number">20</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at SMTPConnection._onData (<span class="regexp">/home/</span>leanengine<span class="regexp">/app/</span>node_modules<span class="regexp">/nodemailer/</span>lib<span class="regexp">/smtp-connection/i</span>ndex.js:<span class="number">570</span>:<span class="number">14</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at TLSSocket._socket.on.chunk (<span class="regexp">/home/</span>leanengine<span class="regexp">/app/</span>node_modules<span class="regexp">/nodemailer/</span>lib<span class="regexp">/smtp-connection/i</span>ndex.js:<span class="number">522</span>:<span class="number">47</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at emitOne (events.js:<span class="number">96</span>:<span class="number">13</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at TLSSocket.emit (events.js:<span class="number">188</span>:<span class="number">7</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at readableAddChunk (_stream_readable.js:<span class="number">176</span>:<span class="number">18</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">    at TLSSocket.Readable.push (_stream_readable.js:<span class="number">134</span>:<span class="number">10</span>)</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">  code: <span class="string">&#x27;EAUTH&#x27;</span>,</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">  response: <span class="string">&#x27;535 Error: http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=1001256&#x27;</span>,</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">  responseCode: <span class="number">535</span>,</span><br><span class="line">STDOUT web1 <span class="number">17</span>:<span class="number">56</span>:<span class="number">34</span></span><br><span class="line">  command: <span class="string">&#x27;AUTH PLAIN&#x27;</span> &#125;</span><br></pre></td></tr></table></figure>
 
 <p>发现是QQ邮箱的<code>Error: Invalid login: 535 Error</code>，搜索发现是因为QQ邮箱升级，没有授权码导致的（之前使用的是QQ邮箱秘密而不需要授权码），因此登录QQ邮箱，生成一个授权码(需要QQ安全中心APP扫描)。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-20-47.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-20-47.png"></p>
 <p>然后将生成好的授权码替代之前的QQ密码即可。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-24-11.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-24-11.png"></p>
 <p>重启实例即可。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-25-45.png"></p>
-<h2 id="通过云函数解决LeanCloud休眠问题"><a href="#通过云函数解决LeanCloud休眠问题" class="headerlink" title="通过云函数解决LeanCloud休眠问题"></a>通过云函数解决LeanCloud休眠问题</h2><p>详细查看：<a href="https://deserts.io/valine-admin-document/" target="_blank" rel="noopener">Valine Admin 配置手册</a></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-25-45.png"></p>
+<h2 id="通过云函数解决LeanCloud休眠问题"><a href="#通过云函数解决LeanCloud休眠问题" class="headerlink" title="通过云函数解决LeanCloud休眠问题"></a>通过云函数解决LeanCloud休眠问题</h2><p>详细查看：<a target="_blank" rel="noopener" href="https://deserts.io/valine-admin-document/">Valine Admin 配置手册</a></p>
 <p><font color="red">注意：此操作是基于以前的内容进行的，确保您已经设置好了一切。</font></p>
 <p>云函数的定时任务是写在代码里的，因此修改代码库为：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//gi</span>thub.com<span class="regexp">/DesertsP/</span>Valine-Admin.git</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-33-38.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-33-38.png"></p>
 <p>切换到部署标签页，分支使用<code>master</code>，点击部署即可。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-38-55.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-38-55.png"></p>
 <p>等待部署完成。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-43-53.png"></p>
-<p>评论管理。访问设置的二级域名https://二级域名.leanapp.cn/sign-up，注册管理员登录信息，如：<a href="https://zhyong.leanapp.cn/sign-up" target="_blank" rel="noopener">https://zhyong.leanapp.cn/sign-up</a> 。支持的邮箱：<a href="https://nodemailer.com/smtp/well-known/#supported-services" target="_blank" rel="noopener">Well-known services</a></p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_20-39-08.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-43-53.png"></p>
+<p>评论管理。访问设置的二级域名https://二级域名.leanapp.cn/sign-up，注册管理员登录信息，如：<a target="_blank" rel="noopener" href="https://zhyong.leanapp.cn/sign-up">https://zhyong.leanapp.cn/sign-up</a> 。支持的邮箱：<a target="_blank" rel="noopener" href="https://nodemailer.com/smtp/well-known/#supported-services">Well-known services</a></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_20-39-08.png"></p>
 <p>注意：管理账号的注册邮箱必须和环境变量中的<code>SENDER_EMAIL</code>保持一致，<strong>否则不能发送邮件</strong>。</p>
 <blockquote>
 <p>注：使用原版Valine如果遇到注册页面不显示直接跳转至登录页的情况，请手动删除<code>_User</code>表中的管理员账号。</p>
 </blockquote>
-<p>完成后，访问二级域名(如：<a href="https://zhyong.leanapp.cn" target="_blank" rel="noopener">https://zhyong.leanapp.cn</a>) 的评论管理界面，界面更加好看，功能也增加了不少（如标记垃圾邮件，重发通知）</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-47-47.png"></p>
+<p>完成后，访问二级域名(如：<a target="_blank" rel="noopener" href="https://zhyong.leanapp.cn/">https://zhyong.leanapp.cn</a>) 的评论管理界面，界面更加好看，功能也增加了不少（如标记垃圾邮件，重发通知）</p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-47-47.png"></p>
 <p>（重点）通过云函数设置定时任务：</p>
 <ul>
 <li>自动唤醒，定时访问Web APP二级域名防止云引擎休眠</li>
@@ -438,17 +417,17 @@
 </ul>
 <p>进入<code>云引擎</code>-&gt;<code>定时任务</code>中，创建定时器，创建两个定时任务。</p>
 <p>注意设置<code>ADMIN_URL</code>环境变量，添加的环境变量包括：</p>
-<p><img alt data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-20_23-39-48.png"></p>
-<p><strong><font color="red">注意：</font></strong>必须安装此项进行填写，填写必填项和建议项！！！</p>
+<p><img data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201906/2019-05-20_23-39-48.png"></p>
+<p>**<font color="red">注意：</font>**必须安装此项进行填写，填写必填项和建议项！！！</p>
 <ol>
 <li>选择<code>self-wake</code>云函数，Cron表达式为<code>0 0/30 7-23 * * ?</code>，表示每天早6点到晚23点每隔30分钟访问云引擎</li>
 </ol>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-52-28.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-52-28.png"></p>
 <p>唤醒成功日志：<code>web1 21:00:04 自唤醒任务执行成功，响应状态码为: 200</code></p>
 <ol start="2">
 <li>选择<code>resend-mails</code>云函数，Cron表达式为<code>0 0 8 * * ?</code>，表示每天早8点检查过去24小时内漏发的通知邮件并补发。</li>
 </ol>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-54-24.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/2019-05-20_19-54-24.png"></p>
 <p><strong>注意：</strong>添加定时器后记得点击启动方可生效。</p>
 <p>部署完成，完美解决！</p>
 
@@ -529,7 +508,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -554,14 +539,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取APP-ID和APP-KEY"><span class="nav-number">3.1.</span> <span class="nav-text">获取APP ID和APP KEY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Valine-评论系统中的邮件提醒"><span class="nav-number">4.</span> <span class="nav-text">Valine 评论系统中的邮件提醒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Valine-Admin拓展"><span class="nav-number">5.</span> <span class="nav-text">使用Valine-Admin拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LeanCloud-休眠策略"><span class="nav-number">6.</span> <span class="nav-text">LeanCloud 休眠策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决LeanCloud休眠问题"><span class="nav-number">7.</span> <span class="nav-text">解决LeanCloud休眠问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20190520更新"><span class="nav-number">8.</span> <span class="nav-text">20190520更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过云函数解决LeanCloud休眠问题"><span class="nav-number">9.</span> <span class="nav-text">通过云函数解决LeanCloud休眠问题</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96APP-ID%E5%92%8CAPP-KEY"><span class="nav-number">3.1.</span> <span class="nav-text">获取APP ID和APP KEY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92"><span class="nav-number">4.</span> <span class="nav-text">Valine 评论系统中的邮件提醒</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Valine-Admin%E6%8B%93%E5%B1%95"><span class="nav-number">5.</span> <span class="nav-text">使用Valine-Admin拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LeanCloud-%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5"><span class="nav-number">6.</span> <span class="nav-text">LeanCloud 休眠策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3LeanCloud%E4%BC%91%E7%9C%A0%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">解决LeanCloud休眠问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20190520%E6%9B%B4%E6%96%B0"><span class="nav-number">8.</span> <span class="nav-text">20190520更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E4%BA%91%E5%87%BD%E6%95%B0%E8%A7%A3%E5%86%B3LeanCloud%E4%BC%91%E7%9C%A0%E9%97%AE%E9%A2%98"><span class="nav-number">9.</span> <span class="nav-text">通过云函数解决LeanCloud休眠问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -570,20 +555,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -640,14 +625,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -783,31 +765,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/95cb/",
+      identifier: "posts/95cb/",
+      title: "Hexo博客添加Valine评论系统",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

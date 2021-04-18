@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -280,7 +280,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/fcef/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -315,27 +315,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/fcef/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/fcef/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -346,22 +325,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><p>平时喜欢搜集网络上的精品电子书，那么管理成为了一个问题，放在硬盘的一堆电子书文件，想看也不知道看哪本，正好之前<a href="https://www.zhyong.cn/posts/f10c/">安装的黑群晖</a>，了解到<a href="https://github.com/janeczku/calibre-web" target="_blank" rel="noopener">Calibre web</a>这样的一个开源项目，于是就完成了这样的项目搭建。功能包括：</p>
+        <h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><p>平时喜欢搜集网络上的精品电子书，那么管理成为了一个问题，放在硬盘的一堆电子书文件，想看也不知道看哪本，正好之前<a href="https://www.zhyong.cn/posts/f10c/">安装的黑群晖</a>，了解到<a target="_blank" rel="noopener" href="https://github.com/janeczku/calibre-web">Calibre web</a>这样的一个开源项目，于是就完成了这样的项目搭建。功能包括：</p>
 <ol>
 <li>管理自己的电子书，可管理海量书籍，包括书籍的分类、作者、简介等</li>
 <li>可在线观看、书籍格式转换、推送到Kindle等</li>
 <li>可选：通过frp等内外穿透工具实现任意地方访问</li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="Calibre-Web-安装步骤"><a href="#Calibre-Web-安装步骤" class="headerlink" title="Calibre Web 安装步骤"></a>Calibre Web 安装步骤</h2><blockquote>
 <p>前提：安装好了群晖并安装了Docker（需要CPU支持）</p>
 </blockquote>
 <p>首先打开群晖管理界面的Docker，在注册表里搜索<code>calibre-web</code>，选择第二个Docker映像双击下载。</p>
 <p><img alt="推荐使用" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805205948.png"></p>
-<p>对应的Docker Hub地址：<a href="https://registry.hub.docker.com/r/technosoft2000/calibre-web/" target="_blank" rel="noopener">technosoft2000/calibre-web - Docker Hub</a></p>
+<p>对应的Docker Hub地址：<a target="_blank" rel="noopener" href="https://registry.hub.docker.com/r/technosoft2000/calibre-web/">technosoft2000/calibre-web - Docker Hub</a></p>
 <blockquote>
-<p>PS：试过很多的Calibre web镜像，这个镜像是功能最强大的，包括电子书格式转换和在线阅读，而<a href="https://registry.hub.docker.com/r/linuxserver/calibre-web/" target="_blank" rel="noopener">linuxserver/calibre-web </a>只能没有在线阅读和转换的功能。</p>
+<p>PS：试过很多的Calibre web镜像，这个镜像是功能最强大的，包括电子书格式转换和在线阅读，而<a target="_blank" rel="noopener" href="https://registry.hub.docker.com/r/linuxserver/calibre-web/">linuxserver/calibre-web </a>只能没有在线阅读和转换的功能。</p>
 </blockquote>
 <details>
 <summary>technosoft2000的镜像详细功能如下</summary>
@@ -398,7 +377,7 @@
 <p><img alt="设置好名称" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805212452.png"></p>
 <p>勾选启用自动重新启动，对应代码中的<code>--restart=always</code>，可根据需要设置，若不勾选，则重启群晖则不自动运行此容器。</p>
 <p><img alt="自动启动" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805212809.png"></p>
-<p>点击<code>卷</code>，添加文件夹，选择刚刚创建用于存放电子书的文件夹，转载路径为<code>/books</code>，对应代码中的<code>-v &lt;your Calibre books folder&gt;:/books</code></p>
+<p>点击<code>卷</code>，添加文件夹，选择刚刚创建用于存放电子书的文件夹，转载路径为<code>/books</code>，对应代码中的<code>-v &lt;your Calibre books folder&gt;:/books </code></p>
 <p><img alt="映射文件夹" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805213049.png"></p>
 <p>然后点击<code>端口映射</code>，设置一个本地端口，不冲突即可，如我的为25556，那么之后访问即：<a href="http://IP:25556，对应代码中的：`-p">http://IP:25556，对应代码中的：`-p</a> <http port>:8083<code>。不推荐使用默认的</code>自动`，这样每次重启会改变端口，造成访问地址的改变。</http></p>
 <p><img alt="端口映射" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805213345.png"></p>
@@ -425,10 +404,10 @@
 <h3 id="开启网页上传，对于少量书籍上传非常实用"><a href="#开启网页上传，对于少量书籍上传非常实用" class="headerlink" title="开启网页上传，对于少量书籍上传非常实用"></a>开启网页上传，对于少量书籍上传非常实用</h3><p>在管理权限——编辑基本配置——功能配置中，其它功能也可在此开启。</p>
 <p><img alt="启用上传" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805220739.png"></p>
 <p>刷新一下页面，在右上角则出现<code>上传书籍</code>。测试上传书籍报错：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据库错误：(sqlite3.OperationalError) attempt to write a readonly database [SQL: INSERT INTO authors (name, sort, link) VALUES (?, ?, ?)] [parameters: (<span class="string">u'\u672a\u77e5'</span>, <span class="string">u'\u672a\u77e5'</span>, <span class="string">u''</span>)] (Background on this error at: http:<span class="regexp">//</span>sqlalche.me<span class="regexp">/e/</span>e3q8)。</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据库错误：(sqlite3.OperationalError) attempt to write a readonly database [SQL: INSERT INTO authors (name, sort, link) VALUES (?, ?, ?)] [parameters: (<span class="string">u&#x27;\u672a\u77e5&#x27;</span>, <span class="string">u&#x27;\u672a\u77e5&#x27;</span>, <span class="string">u&#x27;&#x27;</span>)] (Background on this error at: http:<span class="regexp">//</span>sqlalche.me<span class="regexp">/e/</span>e3q8)。</span><br></pre></td></tr></table></figure>
 
 <p>原因在于无写入权限，将创建的文件夹设置为完全控制（读取、写入应该就可以了），然后重启容器，即可解决此问题。</p>
-<p><img alt data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805221331.png"></p>
+<p><img data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805221331.png"></p>
 <p>成功在Web上传：</p>
 <p><img alt="web上传" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805221800.png"></p>
 <p>上传或编辑书籍时，可点击最下面的获取元数据，即可获得作者、解决、封面图片等各类信息，这是我非常喜欢的一个功能，很强大。获取后保存即可，封面更改有时会迟一点生效。</p>
@@ -438,8 +417,8 @@
 <p><img alt="转换为epub格式" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222528.png"></p>
 <p>这样就可以在线阅读了，有目录导航，可以添加书签，全屏阅读等，并且可以记住阅读位置，下一次打开接着阅读（不可跨设备，书签可以跨设备），体验非常棒。</p>
 <p><img alt="在线阅读" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805222723.png"></p>
-<h3 id="设置Kindle推送"><a href="#设置Kindle推送" class="headerlink" title="设置Kindle推送"></a>设置Kindle推送</h3><p>可参考：<a href="https://bookfere.com/post/3.html" target="_blank" rel="noopener">Kindle 推送教程：教你用电子邮箱推送电子书 – 书伴</a></p>
-<p>Kindle推送稍微复杂点，首先必须有一个亚马逊账号，登录Kindle（Kindle软件或设备都可以）后，会有一个个人文档邮箱，然后在Kindle设备或APP或<a href="http://z.cn/myk" target="_blank" rel="noopener">登录亚马逊账号</a>都可以查看，以<code>@kindle.cn</code>结尾的邮箱。</p>
+<h3 id="设置Kindle推送"><a href="#设置Kindle推送" class="headerlink" title="设置Kindle推送"></a>设置Kindle推送</h3><p>可参考：<a target="_blank" rel="noopener" href="https://bookfere.com/post/3.html">Kindle 推送教程：教你用电子邮箱推送电子书 – 书伴</a></p>
+<p>Kindle推送稍微复杂点，首先必须有一个亚马逊账号，登录Kindle（Kindle软件或设备都可以）后，会有一个个人文档邮箱，然后在Kindle设备或APP或<a target="_blank" rel="noopener" href="http://z.cn/myk">登录亚马逊账号</a>都可以查看，以<code>@kindle.cn</code>结尾的邮箱。</p>
 <p>第一步，到Calibre web中，填写Kindle邮箱；</p>
 <p><img alt="Kindle邮箱" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805223730.png"></p>
 <p>第二步，配置邮件发送服务器；</p>
@@ -451,10 +430,10 @@
 <p><img alt="授权码生成" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805224626.png"></p>
 <p>然后将授权码填入到SMTP密码一栏。</p>
 <p>第三步，将配置的发送邮件服务器添加到Kindle已认可邮箱列表</p>
-<p>在<a href="https://www.amazon.cn/mn/dcw/myx.html/ref=kinw_myk_redirect#/home/settings/payment" target="_blank" rel="noopener">设置</a>中，首选项——个人文档设置——已认可的发件人电子邮箱列表，添加该邮箱即可。</p>
+<p>在<a target="_blank" rel="noopener" href="https://www.amazon.cn/mn/dcw/myx.html/ref=kinw_myk_redirect#/home/settings/payment">设置</a>中，首选项——个人文档设置——已认可的发件人电子邮箱列表，添加该邮箱即可。</p>
 <p><img alt="添加认可的电子邮件" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200805225048.png"></p>
 <p>全部完成后，即可一键发送电子书到Kindle设备了。</p>
-<h3 id="批量上传电子书"><a href="#批量上传电子书" class="headerlink" title="批量上传电子书"></a>批量上传电子书</h3><p>那么如果有大量电子书该如何上传呢？思路还是一样，直接用电脑挂载群晖的文件夹，使用<a href="https://calibre-ebook.com/" target="_blank" rel="noopener">Calibre</a>打开该书库，然后就可以批量上传、管理了。</p>
+<h3 id="批量上传电子书"><a href="#批量上传电子书" class="headerlink" title="批量上传电子书"></a>批量上传电子书</h3><p>那么如果有大量电子书该如何上传呢？思路还是一样，直接用电脑挂载群晖的文件夹，使用<a target="_blank" rel="noopener" href="https://calibre-ebook.com/">Calibre</a>打开该书库，然后就可以批量上传、管理了。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总之，搭建过程还是较为麻烦，涉及的方面较多，需要了解相关的基础知识，但是此篇教程我写的较为详细，相信只要耐心都能搭建成功，毕竟我使用这个有一段时间了，有的需要注意的地方我都写出来了，Docker映像也选择好了，注意文件夹的权限是一个大坑，搭建不成功很大方面是这个原因。</p>
 <p>另外内外穿透方面，这涉及的更多了，提供这一种思路，有能力自行折腾了。</p>
 <p>欢迎留言交流。</p>
@@ -472,6 +451,9 @@
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\64e\" rel="bookmark">使用Docker部署Solo博客系统</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\6743\" rel="bookmark">树莓派3B+ Docker部署甜糖星愿</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\99b4\" rel="bookmark">群晖Docker安装code-server</a></div>
@@ -531,7 +513,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -556,14 +544,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能简介"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calibre-Web-安装步骤"><span class="nav-number">2.</span> <span class="nav-text">Calibre Web 安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置中文"><span class="nav-number">3.1.</span> <span class="nav-text">设置中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启网页上传，对于少量书籍上传非常实用"><span class="nav-number">3.2.</span> <span class="nav-text">开启网页上传，对于少量书籍上传非常实用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换书籍为epub格式从而在线观看"><span class="nav-number">3.3.</span> <span class="nav-text">转换书籍为epub格式从而在线观看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置Kindle推送"><span class="nav-number">3.4.</span> <span class="nav-text">设置Kindle推送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批量上传电子书"><span class="nav-number">3.5.</span> <span class="nav-text">批量上传电子书</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">功能简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calibre-Web-%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">Calibre Web 安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87"><span class="nav-number">3.1.</span> <span class="nav-text">设置中文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E7%BD%91%E9%A1%B5%E4%B8%8A%E4%BC%A0%EF%BC%8C%E5%AF%B9%E4%BA%8E%E5%B0%91%E9%87%8F%E4%B9%A6%E7%B1%8D%E4%B8%8A%E4%BC%A0%E9%9D%9E%E5%B8%B8%E5%AE%9E%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">开启网页上传，对于少量书籍上传非常实用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E4%B9%A6%E7%B1%8D%E4%B8%BAepub%E6%A0%BC%E5%BC%8F%E4%BB%8E%E8%80%8C%E5%9C%A8%E7%BA%BF%E8%A7%82%E7%9C%8B"><span class="nav-number">3.3.</span> <span class="nav-text">转换书籍为epub格式从而在线观看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEKindle%E6%8E%A8%E9%80%81"><span class="nav-number">3.4.</span> <span class="nav-text">设置Kindle推送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E4%B8%8A%E4%BC%A0%E7%94%B5%E5%AD%90%E4%B9%A6"><span class="nav-number">3.5.</span> <span class="nav-text">批量上传电子书</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -572,20 +560,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -642,14 +630,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -785,31 +770,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/fcef/",
+      identifier: "posts/fcef/",
+      title: "群晖Docker部署Calibre Web打造全功能书库",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

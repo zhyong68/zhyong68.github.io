@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -270,7 +270,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/f10c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -305,27 +305,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/f10c/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/f10c/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -341,7 +320,7 @@
 <p>NAS百度百科<br>NAS（Network Attached Storage：网络附属存储）按字面简单说就是连接在网络上，具备资料存储功能的装置，因此也称为“网络存储器”。它是一种专用数据存储服务器。</p>
 </blockquote>
 <p>是啊，群晖官方的不香吗，可以方便地远程访问，也不需要折腾，买来了加上硬盘就可直接使用，但是看看价格2000-4000不等，再单独购买几个T的硬盘，算了算了。黑群晖，或者说“民间版”群晖（Synology DSM），普通的PC上就可以安装，自由DIY，而且硬件要求不高（老旧主机、蜗牛星际，PVE、ESXI虚拟机等都可安装），官方的政策也很宽松，安装不算复杂，配合内网穿透也能方便地远程控制访问（配合OpenWRT软路由），黑群晖也是一个完美的存在。有了NAS之后，才体会到文件存储的方便、快捷。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>我可以使用NAS存放喜欢的视频、音乐而不占本地硬盘的空间，可以多设备方便地获取这些文件，可以远程访问家里的NAS文件，远程关机、远程唤醒（远程唤醒需OpenWRT软路由），可以将NAS作为下载服务器，挂载一下即可下载，等等。</p>
 <p>最重要的是群晖的DSM里面大量套件，而且个平台客户端齐全，可以Web访问等。</p>
@@ -352,7 +331,7 @@
 </blockquote>
 <h2 id="我的硬件"><a href="#我的硬件" class="headerlink" title="我的硬件"></a>我的硬件</h2><p>黑群晖安装设备：CS-B Q87华硕主板+i5 4690CPU+8G威刚内存+5T机械硬盘（希捷4T+2*500G），另外配一个U盘（8G足够）用作系统引导</p>
 <p>我的黑群晖硬件，加电源、机箱价格约为1800元，除了CPU其它全新，当然一台老主机、旧笔记本都可以安装。</p>
-<h2 id="安装黑群晖"><a href="#安装黑群晖" class="headerlink" title="安装黑群晖"></a>安装黑群晖</h2><p>准备就绪，开始安装。这篇帖子<a href="https://www.nas2x.com/threads/dsm-6-2-2-20200206.29/" target="_blank" rel="noopener">黑群辉DSM 6.2.2 系统安装图文教程 </a>已经详细地介绍了安装过程，按照此步骤耐心地做，基本不会有问题。我安装过程没有留图，这里简单介绍下步骤。</p>
+<h2 id="安装黑群晖"><a href="#安装黑群晖" class="headerlink" title="安装黑群晖"></a>安装黑群晖</h2><p>准备就绪，开始安装。这篇帖子<a target="_blank" rel="noopener" href="https://www.nas2x.com/threads/dsm-6-2-2-20200206.29/">黑群辉DSM 6.2.2 系统安装图文教程 </a>已经详细地介绍了安装过程，按照此步骤耐心地做，基本不会有问题。我安装过程没有留图，这里简单介绍下步骤。</p>
 <p>需要的软件：</p>
 <p><img alt="相关软件" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/20200517091620.png"></p>
 <p>安装的版本旧按推荐的来即可,老主板选择传统Bios，现在基本都支持Uefi引导了。</p>
@@ -360,14 +339,14 @@
 <p>在上面链接下载这五个文件即可。详细看上述图文教程，我列了概要。</p>
 <ol>
 <li>下载上述四个文件</li>
-<li>插入U盘，使用<a href="https://www.nas2x.com/downloads/chipeasy-en-chs.10/" target="_blank" rel="noopener">ChipEasy芯片无忧</a>打开查找VID和PID，然后使用DeskGenius打开synoboot.img，修改相应的配置保存</li>
+<li>插入U盘，使用<a target="_blank" rel="noopener" href="https://www.nas2x.com/downloads/chipeasy-en-chs.10/">ChipEasy芯片无忧</a>打开查找VID和PID，然后使用DeskGenius打开synoboot.img，修改相应的配置保存</li>
 <li>使用Win32DiskImager将修改好的img文件写入U盘（注意备份U盘，此操作会格式化U盘）</li>
 <li>插到安装的设备上，设置Bios第一启动为U盘，然后启动设备（设备需连接到路由器）</li>
-<li>另一条电脑连接同一局域网，在浏览器中输入<a href="http://find.synology.com/" target="_blank" rel="noopener">http://find.synology.com/</a>即可查找到DSM，查询不到下载客户端查找</li>
+<li>另一条电脑连接同一局域网，在浏览器中输入<a target="_blank" rel="noopener" href="http://find.synology.com/">http://find.synology.com/</a>即可查找到DSM，查询不到下载客户端查找</li>
 <li>下面在浏览器中上传pat安装文件安装即可，设置好即可，重启，然后就可以在浏览器访问了。</li>
 </ol>
 <h2 id="完成后配置"><a href="#完成后配置" class="headerlink" title="完成后配置"></a>完成后配置</h2><p><strong>首先需添加硬盘/存储空间</strong>：</p>
-<p>详细图文教程：<a href="https://www.nas2x.com/threads/synology-dsm-hdd.30/" target="_blank" rel="noopener">群辉Synology DSM 添加HDD硬盘/存储空间的方法</a>，直接照着操作就可以了。</p>
+<p>详细图文教程：<a target="_blank" rel="noopener" href="https://www.nas2x.com/threads/synology-dsm-hdd.30/">群辉Synology DSM 添加HDD硬盘/存储空间的方法</a>，直接照着操作就可以了。</p>
 <p><strong>注意关闭自动升级（重要）</strong>：</p>
 <ul>
 <li>计划任务里面关闭DSM自动更新选项</li>
@@ -434,7 +413,7 @@
 <p><font color="red"><strong>注意：</strong></font>NAS正常关机后（是“正常关机”，因为在NAS运行时突然停电的非正常关机，在电力恢复后是可以自动开机的），电源被重新插拔或停电，远程唤醒就会失效。</p>
 <p>关于群晖的NAS使用，基本我了解的就这么多了，绝对是文件存储利器。有这方面需求的朋友，可以尝试搭建！</p>
 <blockquote>
-<p>参考：<a href="https://zhuanlan.zhihu.com/p/64085840" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/64085840</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/64085840">https://zhuanlan.zhihu.com/p/64085840</a></p>
 </blockquote>
 
     </div>
@@ -503,7 +482,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -528,14 +513,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要安装黑群晖"><span class="nav-number">1.</span> <span class="nav-text">为什么要安装黑群晖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的硬件"><span class="nav-number">2.</span> <span class="nav-text">我的硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装黑群晖"><span class="nav-number">3.</span> <span class="nav-text">安装黑群晖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完成后配置"><span class="nav-number">4.</span> <span class="nav-text">完成后配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给黑群晖安装套件及使用体验"><span class="nav-number">5.</span> <span class="nav-text">给黑群晖安装套件及使用体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启Web直接访问套件"><span class="nav-number">6.</span> <span class="nav-text">开启Web直接访问套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAS文件传输与管理"><span class="nav-number">7.</span> <span class="nav-text">NAS文件传输与管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶：远程唤醒NAS"><span class="nav-number">8.</span> <span class="nav-text">进阶：远程唤醒NAS</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AE%89%E8%A3%85%E9%BB%91%E7%BE%A4%E6%99%96"><span class="nav-number">1.</span> <span class="nav-text">为什么要安装黑群晖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E7%A1%AC%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">我的硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%BB%91%E7%BE%A4%E6%99%96"><span class="nav-number">3.</span> <span class="nav-text">安装黑群晖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%88%90%E5%90%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">完成后配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E9%BB%91%E7%BE%A4%E6%99%96%E5%AE%89%E8%A3%85%E5%A5%97%E4%BB%B6%E5%8F%8A%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">给黑群晖安装套件及使用体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFWeb%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E5%A5%97%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">开启Web直接访问套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NAS%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="nav-number">7.</span> <span class="nav-text">NAS文件传输与管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%EF%BC%9A%E8%BF%9C%E7%A8%8B%E5%94%A4%E9%86%92NAS"><span class="nav-number">8.</span> <span class="nav-text">进阶：远程唤醒NAS</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -544,20 +529,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -614,14 +599,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -757,31 +739,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/f10c/",
+      identifier: "posts/f10c/",
+      title: "黑群晖DSM安装教程及详细配置",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

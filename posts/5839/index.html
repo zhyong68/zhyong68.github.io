@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -55,12 +55,12 @@
   };
 </script>
 
-  <meta name="description" content="卸载默认Git查看当前安装的Git版本：git --version，默认版本是1.8.3.1，版本过低。若存在，则卸载Git：yum remove git验证是否卸载： 12[root@JD ~]# git --version-bash: &#x2F;bin&#x2F;git: No such file or directory">
+  <meta name="description" content="卸载默认Git查看当前安装的Git版本：git --version，默认版本是1.8.3.1，版本过低。若存在，则卸载Git： yum remove git验证是否卸载： 12[root@JD ~]# git --version-bash: &#x2F;bin&#x2F;git: No such file or directory">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7编译安装最新版Git">
 <meta property="og:url" content="https://www.zhyong.cn/posts/5839/index.html">
 <meta property="og:site_name" content="YouForever">
-<meta property="og:description" content="卸载默认Git查看当前安装的Git版本：git --version，默认版本是1.8.3.1，版本过低。若存在，则卸载Git：yum remove git验证是否卸载： 12[root@JD ~]# git --version-bash: &#x2F;bin&#x2F;git: No such file or directory">
+<meta property="og:description" content="卸载默认Git查看当前安装的Git版本：git --version，默认版本是1.8.3.1，版本过低。若存在，则卸载Git： yum remove git验证是否卸载： 12[root@JD ~]# git --version-bash: &#x2F;bin&#x2F;git: No such file or directory">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-09-15T08:58:16.000Z">
 <meta property="article:modified_time" content="2020-08-17T09:52:20.596Z">
@@ -251,7 +251,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/5839/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -286,27 +286,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/5839/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/5839/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -317,14 +296,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="卸载默认Git"><a href="#卸载默认Git" class="headerlink" title="卸载默认Git"></a>卸载默认Git</h2><p>查看当前安装的Git版本：<code>git --version</code>，默认版本是<code>1.8.3.1</code>，版本过低。<br>若存在，则卸载Git：<code>yum remove git</code><br>验证是否卸载：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@JD ~]# git --<span class="keyword">version</span></span><br><span class="line">-bash: /bin/git: <span class="keyword">No</span> such <span class="keyword">file</span> or directory</span><br></pre></td></tr></table></figure>
+        <h2 id="卸载默认Git"><a href="#卸载默认Git" class="headerlink" title="卸载默认Git"></a>卸载默认Git</h2><p>查看当前安装的Git版本：<code>git --version</code>，默认版本是<code>1.8.3.1</code>，版本过低。<br>若存在，则卸载Git：<code> yum remove git</code><br>验证是否卸载：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@JD ~]<span class="comment"># git --version</span></span><br><span class="line">-bash: <span class="regexp">/bin/gi</span>t: No such file or directory</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install zlib-devel curl-devel openssl-devel perl cpio expat-devel gettext-devel openssl zlib autoconf tk perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
 
-<h2 id="到Releases-·-git-git下载最新的Git源码包"><a href="#到Releases-·-git-git下载最新的Git源码包" class="headerlink" title="到Releases · git/git下载最新的Git源码包"></a>到<a href="https://github.com/git/git/releases" target="_blank" rel="noopener">Releases · git/git</a>下载最新的Git源码包</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line">wget https://github.com/git/git/archive/v2.23.0.tar.gz <span class="comment">#下载最新版本的Git，实际链接自行修改</span></span><br><span class="line">tar xzvf v2.23.0.tar.gz <span class="comment">#解压</span></span><br><span class="line">mv git-2.23.0/ /usr/src/ <span class="comment">#移动到/usr/src下</span></span><br></pre></td></tr></table></figure>
+<h2 id="到Releases-·-git-git下载最新的Git源码包"><a href="#到Releases-·-git-git下载最新的Git源码包" class="headerlink" title="到Releases · git/git下载最新的Git源码包"></a>到<a target="_blank" rel="noopener" href="https://github.com/git/git/releases">Releases · git/git</a>下载最新的Git源码包</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line">wget https://github.com/git/git/archive/v2.23.0.tar.gz <span class="comment">#下载最新版本的Git，实际链接自行修改</span></span><br><span class="line">tar xzvf v2.23.0.tar.gz <span class="comment">#解压</span></span><br><span class="line">mv git-2.23.0/ /usr/src/ <span class="comment">#移动到/usr/src下</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="编译安装，一般由3个步骤组成：配置-configure-、编译-make-、安装-make-install-。"><a href="#编译安装，一般由3个步骤组成：配置-configure-、编译-make-、安装-make-install-。" class="headerlink" title="编译安装，一般由3个步骤组成：配置(configure)、编译(make)、安装(make install)。"></a>编译安装，一般由3个步骤组成：配置(configure)、编译(make)、安装(make install)。</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/src/git-2.23.0</span><br><span class="line">make configure</span><br><span class="line">./configure prefix=/usr/<span class="built_in">local</span>/git/ <span class="comment"># 配置git安装路径</span></span><br><span class="line">make &amp;&amp; make install <span class="comment">#编译并且安装</span></span><br></pre></td></tr></table></figure>
 
@@ -336,7 +315,7 @@
 
 <p>这样我们就在CentOS上成功安装最新版本的GIt！</p>
 <blockquote>
-<p>参考：<br><a href="https://www.jianshu.com/p/be7ee68a68a6" target="_blank" rel="noopener">git源码编译安装</a></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/be7ee68a68a6">git源码编译安装</a></p>
 </blockquote>
 
     </div>
@@ -404,7 +383,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -429,14 +414,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载默认Git"><span class="nav-number">1.</span> <span class="nav-text">卸载默认Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装依赖包"><span class="nav-number">2.</span> <span class="nav-text">安装依赖包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#到Releases-·-git-git下载最新的Git源码包"><span class="nav-number">3.</span> <span class="nav-text">到Releases · git&#x2F;git下载最新的Git源码包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装，一般由3个步骤组成：配置-configure-、编译-make-、安装-make-install-。"><span class="nav-number">4.</span> <span class="nav-text">编译安装，一般由3个步骤组成：配置(configure)、编译(make)、安装(make install)。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将Git命令添加到Bash"><span class="nav-number">5.</span> <span class="nav-text">将Git命令添加到Bash</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E9%BB%98%E8%AE%A4Git"><span class="nav-number">1.</span> <span class="nav-text">卸载默认Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">2.</span> <span class="nav-text">安装依赖包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B0Releases-%C2%B7-git-git%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%9A%84Git%E6%BA%90%E7%A0%81%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">到Releases · git&#x2F;git下载最新的Git源码包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%EF%BC%8C%E4%B8%80%E8%88%AC%E7%94%B13%E4%B8%AA%E6%AD%A5%E9%AA%A4%E7%BB%84%E6%88%90%EF%BC%9A%E9%85%8D%E7%BD%AE-configure-%E3%80%81%E7%BC%96%E8%AF%91-make-%E3%80%81%E5%AE%89%E8%A3%85-make-install-%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">编译安装，一般由3个步骤组成：配置(configure)、编译(make)、安装(make install)。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86Git%E5%91%BD%E4%BB%A4%E6%B7%BB%E5%8A%A0%E5%88%B0Bash"><span class="nav-number">5.</span> <span class="nav-text">将Git命令添加到Bash</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -445,20 +430,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -515,14 +500,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -658,31 +640,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/5839/",
+      identifier: "posts/5839/",
+      title: "CentOS7编译安装最新版Git",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

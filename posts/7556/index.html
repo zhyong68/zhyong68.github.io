@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -55,12 +55,12 @@
   };
 </script>
 
-  <meta name="description" content="Redis简介Redis 是一个高性能的key-value数据库。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)和zset(有序集合)、Hash(哈希类型的映射表)。这些数据类型都支持push&#x2F;pop、add&#x2F;remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。">
+  <meta name="description" content="Redis简介Redis 是一个高性能的key-value数据库。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)和zset(有序集合)、Hash(哈希类型的映射表)。这些数据类型都支持push&#x2F;pop、add&#x2F;remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis学习笔记">
 <meta property="og:url" content="https://www.zhyong.cn/posts/7556/index.html">
 <meta property="og:site_name" content="YouForever">
-<meta property="og:description" content="Redis简介Redis 是一个高性能的key-value数据库。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)和zset(有序集合)、Hash(哈希类型的映射表)。这些数据类型都支持push&#x2F;pop、add&#x2F;remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。">
+<meta property="og:description" content="Redis简介Redis 是一个高性能的key-value数据库。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)和zset(有序集合)、Hash(哈希类型的映射表)。这些数据类型都支持push&#x2F;pop、add&#x2F;remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-08-11T11:14:17.000Z">
 <meta property="article:modified_time" content="2020-08-17T09:52:20.605Z">
@@ -251,7 +251,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/7556/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -286,27 +286,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/7556/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/7556/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -317,34 +296,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>Redis 是一个高性能的key-value数据库。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)和zset(有序集合)、Hash(哈希类型的映射表)。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。</p>
-<a id="more"></a>
+        <h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>Redis 是一个高性能的key-value数据库。和Memcached类似，它支持存储的value类型相对更多，包括string(字符串)、list(链表)、set(集合)和zset(有序集合)、Hash(哈希类型的映射表)。这些数据类型都支持push/pop、add/remove及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。</p>
+<span id="more"></span>
 
-<h2 id="Redis下载安装"><a href="#Redis下载安装" class="headerlink" title="Redis下载安装"></a>Redis下载安装</h2><p>下载地址：<a href="https://github.com/microsoftarchive/redis/releases" target="_blank" rel="noopener">https://github.com/microsoftarchive/redis/releases</a><br>RedisDesktopManager-Windows（Redis图形化管理界面）：<a href="https://github.com/necan/RedisDesktopManager-Windows/releases" target="_blank" rel="noopener">https://github.com/necan/RedisDesktopManager-Windows/releases</a><br>Redis数据库导入/导出：<a href="https://www.zhyong.cn/posts/4184/">Windows 下 RedisDump 的安装 | YouForever</a></p>
+<h2 id="Redis下载安装"><a href="#Redis下载安装" class="headerlink" title="Redis下载安装"></a>Redis下载安装</h2><p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases">https://github.com/microsoftarchive/redis/releases</a><br>RedisDesktopManager-Windows（Redis图形化管理界面）：<a target="_blank" rel="noopener" href="https://github.com/necan/RedisDesktopManager-Windows/releases">https://github.com/necan/RedisDesktopManager-Windows/releases</a><br>Redis数据库导入/导出：<a href="https://www.zhyong.cn/posts/4184/">Windows 下 RedisDump 的安装 | YouForever</a></p>
 <p>安装完成后将路径（如我的为<code>D:\Program Files\Redis</code>）添加到环境变量中。</p>
 <h2 id="Redis命令"><a href="#Redis命令" class="headerlink" title="Redis命令"></a>Redis命令</h2><p>Redis客户端：<code>redis-cli</code> 默认连接本地redis。</p>
 <p>连接远程redis服务器：<code>redis-cli -h host -p port -a password</code></p>
 <h2 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h2><p>Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。</p>
 <h3 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h3><p>string是redis最基本的数据类型，一个key对应一个value。string类型是二进制安全的，可以包含任何数据，最大可存储512M。</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; SET name 'runoob'</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GET name</span><br><span class="line"><span class="string">"runoob"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; SET name &#x27;runoob&#x27;</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GET name</span><br><span class="line"><span class="string">&quot;runoob&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Hash-哈希"><a href="#Hash-哈希" class="headerlink" title="Hash(哈希)"></a>Hash(哈希)</h3><p>Redis hash是一个键值对集合，是一个string类型的field和value的映射表，适合用于存储对象。</p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; HMSET runoob field1 <span class="string">"hello"</span> field2 <span class="string">"world"</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; HGET runoob field1</span><br><span class="line"><span class="string">"hello"</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; HGET runoob field2</span><br><span class="line"><span class="string">"world"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; HMSET runoob field1 <span class="string">&quot;hello&quot;</span> field2 <span class="string">&quot;world&quot;</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; HGET runoob field1</span><br><span class="line"><span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; HGET runoob field2</span><br><span class="line"><span class="string">&quot;world&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="List-列表"><a href="#List-列表" class="headerlink" title="List(列表)"></a>List(列表)</h3><p>Redis列表是简单的字符串列表，是有序的。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; DEL runoob</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush runoob redis</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush runoob mongodb</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush runoob rabitmq</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lrange runoob <span class="number">0</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"rabitmq"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"mongodb"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"redis"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; DEL runoob</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; lpush runoob redis</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; lpush runoob mongodb</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; lpush runoob rabitmq</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; lrange runoob <span class="number">0</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;rabitmq&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;mongodb&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;redis&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h3><p>Redis的Set是string类型的无序列表。使用<code>sadd</code>添加一个string元素到set集合中，成功返回1，如果key对应的set不存在则返回错误。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; DEL runoob</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; sadd runoob redis</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; sadd runoob mongodb</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; sadd runoob rabitmq</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; sadd runoob rabitmq</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; smembers runoob</span><br><span class="line"><span class="number">1</span>) <span class="string">"redis"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"rabitmq"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"mongodb"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; DEL runoob</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd runoob redis</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd runoob mongodb</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd runoob rabitmq</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd runoob rabitmq</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers runoob</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;redis&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;rabitmq&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;mongodb&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="zset-sorted-set-有序集合"><a href="#zset-sorted-set-有序集合" class="headerlink" title="zset(sorted set:有序集合)"></a>zset(sorted set:有序集合)</h3><p>将Set中的元素增加一个权重参数score,元素按score有序排列，zset的成员是唯一的,但分数(score)却可以重复。</p>
 <p>zadd命令：添加元素到集合，若元素在集合中则更新对应的score。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; DEL runoob</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; zadd runoob <span class="number">0</span> redis</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; zadd runoob <span class="number">0</span> mongodb</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; zadd runoob <span class="number">0</span> rabitmq</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; zadd runoob <span class="number">0</span> rabitmq</span><br><span class="line">(<span class="built_in">int</span>eger) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; ZRANGEBYSCORE runoob <span class="number">0</span> <span class="number">1000</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"mongodb"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"rabitmq"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"redis"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; DEL runoob</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; zadd runoob <span class="number">0</span> redis</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; zadd runoob <span class="number">0</span> mongodb</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; zadd runoob <span class="number">0</span> rabitmq</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; zadd runoob <span class="number">0</span> rabitmq</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; ZRANGEBYSCORE runoob <span class="number">0</span> <span class="number">1000</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;mongodb&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;rabitmq&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;redis&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Python操作Redis的简单实例"><a href="#Python操作Redis的简单实例" class="headerlink" title="Python操作Redis的简单实例"></a>Python操作Redis的简单实例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># lredis-server保持开启状态 如果在客户端设置了密码 添加password=密码即可</span></span><br><span class="line">pool = redis.ConnectionPool(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">6379</span>, db=<span class="number">0</span>)</span><br><span class="line">r = redis.StrictRedis(connection_pool=pool)</span><br><span class="line"><span class="comment"># 字符串</span></span><br><span class="line">r.set(<span class="string">'test'</span>, <span class="string">'aaa'</span>)</span><br><span class="line"><span class="keyword">print</span> r.get(<span class="string">'test'</span>)</span><br><span class="line"><span class="comment"># 列表</span></span><br><span class="line"><span class="comment"># 注意python、lrange两个range的范围</span></span><br><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">11</span>):</span><br><span class="line">    r.lpush(<span class="string">'list'</span>, x)</span><br><span class="line">    x = x + <span class="number">1</span></span><br><span class="line"><span class="keyword">print</span> r.lrange(<span class="string">'list'</span>, <span class="string">'0'</span>, <span class="string">'10'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 哈希</span></span><br><span class="line">dict_hash = &#123;<span class="string">'name'</span>: <span class="string">'tang'</span>, <span class="string">'password'</span>: <span class="string">'tang_passwd'</span>&#125;</span><br><span class="line">r.hmset(<span class="string">'hash_test'</span>, dict_hash)</span><br><span class="line"><span class="keyword">print</span> r.hgetall(<span class="string">'hash_test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 集合</span></span><br><span class="line">r.sadd(<span class="string">'set_test'</span>, <span class="string">'aaa'</span>, <span class="string">'bbb'</span>)</span><br><span class="line">r.sadd(<span class="string">'set_test'</span>, <span class="string">'ccc'</span>)</span><br><span class="line">r.sadd(<span class="string">'set_test'</span>, <span class="string">'ddd'</span>)</span><br><span class="line"><span class="keyword">print</span> r.smembers(<span class="string">'set_test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 有序集</span></span><br><span class="line">r.zadd(<span class="string">'zset_test'</span>, &#123;<span class="string">'aaa'</span>: <span class="number">1</span>, <span class="string">'bbb'</span>: <span class="number">1</span>&#125;)</span><br><span class="line">r.zadd(<span class="string">'zset_test'</span>, &#123;<span class="string">'ccc'</span>: <span class="number">1</span>&#125;)</span><br><span class="line">r.zadd(<span class="string">'zset_test'</span>, &#123;<span class="string">'ddd'</span>: <span class="number">1</span>&#125;)</span><br><span class="line"><span class="keyword">print</span> r.zrange(<span class="string">'zset_test'</span>, <span class="number">0</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Python操作Redis的简单实例"><a href="#Python操作Redis的简单实例" class="headerlink" title="Python操作Redis的简单实例"></a>Python操作Redis的简单实例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># lredis-server保持开启状态 如果在客户端设置了密码 添加password=密码即可</span></span><br><span class="line">pool = redis.ConnectionPool(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, db=<span class="number">0</span>)</span><br><span class="line">r = redis.StrictRedis(connection_pool=pool)</span><br><span class="line"><span class="comment"># 字符串</span></span><br><span class="line">r.<span class="built_in">set</span>(<span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;aaa&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> r.get(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line"><span class="comment"># 列表</span></span><br><span class="line"><span class="comment"># 注意python、lrange两个range的范围</span></span><br><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">11</span>):</span><br><span class="line">    r.lpush(<span class="string">&#x27;list&#x27;</span>, x)</span><br><span class="line">    x = x + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span> r.lrange(<span class="string">&#x27;list&#x27;</span>, <span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;10&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 哈希</span></span><br><span class="line">dict_hash = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;tang&#x27;</span>, <span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;tang_passwd&#x27;</span>&#125;</span><br><span class="line">r.hmset(<span class="string">&#x27;hash_test&#x27;</span>, dict_hash)</span><br><span class="line"><span class="built_in">print</span> r.hgetall(<span class="string">&#x27;hash_test&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 集合</span></span><br><span class="line">r.sadd(<span class="string">&#x27;set_test&#x27;</span>, <span class="string">&#x27;aaa&#x27;</span>, <span class="string">&#x27;bbb&#x27;</span>)</span><br><span class="line">r.sadd(<span class="string">&#x27;set_test&#x27;</span>, <span class="string">&#x27;ccc&#x27;</span>)</span><br><span class="line">r.sadd(<span class="string">&#x27;set_test&#x27;</span>, <span class="string">&#x27;ddd&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> r.smembers(<span class="string">&#x27;set_test&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 有序集</span></span><br><span class="line">r.zadd(<span class="string">&#x27;zset_test&#x27;</span>, &#123;<span class="string">&#x27;aaa&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;bbb&#x27;</span>: <span class="number">1</span>&#125;)</span><br><span class="line">r.zadd(<span class="string">&#x27;zset_test&#x27;</span>, &#123;<span class="string">&#x27;ccc&#x27;</span>: <span class="number">1</span>&#125;)</span><br><span class="line">r.zadd(<span class="string">&#x27;zset_test&#x27;</span>, &#123;<span class="string">&#x27;ddd&#x27;</span>: <span class="number">1</span>&#125;)</span><br><span class="line"><span class="built_in">print</span> r.zrange(<span class="string">&#x27;zset_test&#x27;</span>, <span class="number">0</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>参考：<a href="https://www.runoob.com/redis/redis-tutorial.html" target="_blank" rel="noopener">Redis 教程 | 菜鸟教程</a><br><a href="https://www.wikiwand.com/zh/Redis#" target="_blank" rel="noopener">Redis - Wikiwand</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-tutorial.html">Redis 教程 | 菜鸟教程</a><br><a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh/Redis#">Redis - Wikiwand</a></p>
 </blockquote>
 
     </div>
@@ -412,7 +391,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -437,14 +422,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis简介"><span class="nav-number">1.</span> <span class="nav-text">Redis简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis下载安装"><span class="nav-number">2.</span> <span class="nav-text">Redis下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis命令"><span class="nav-number">3.</span> <span class="nav-text">Redis命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis数据类型"><span class="nav-number">4.</span> <span class="nav-text">Redis数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String（字符串）"><span class="nav-number">4.1.</span> <span class="nav-text">String（字符串）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash-哈希"><span class="nav-number">4.2.</span> <span class="nav-text">Hash(哈希)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-列表"><span class="nav-number">4.3.</span> <span class="nav-text">List(列表)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-集合"><span class="nav-number">4.4.</span> <span class="nav-text">Set(集合)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zset-sorted-set-有序集合"><span class="nav-number">4.5.</span> <span class="nav-text">zset(sorted set:有序集合)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python操作Redis的简单实例"><span class="nav-number">5.</span> <span class="nav-text">Python操作Redis的简单实例</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">Redis简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">Redis下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E5%91%BD%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">Redis命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">Redis数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">String（字符串）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash-%E5%93%88%E5%B8%8C"><span class="nav-number">4.2.</span> <span class="nav-text">Hash(哈希)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-%E5%88%97%E8%A1%A8"><span class="nav-number">4.3.</span> <span class="nav-text">List(列表)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-%E9%9B%86%E5%90%88"><span class="nav-number">4.4.</span> <span class="nav-text">Set(集合)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zset-sorted-set-%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88"><span class="nav-number">4.5.</span> <span class="nav-text">zset(sorted set:有序集合)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python%E6%93%8D%E4%BD%9CRedis%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">Python操作Redis的简单实例</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -453,20 +438,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -523,14 +508,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -666,31 +648,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/7556/",
+      identifier: "posts/7556/",
+      title: "Redis学习笔记",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

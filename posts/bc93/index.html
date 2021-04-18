@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -258,7 +258,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/bc93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -293,27 +293,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/bc93/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/bc93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -324,21 +303,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近在学习Python爬虫，学习并使用了一个非常强大的解析库：<a href="https://github.com/gawel/pyquery" target="_blank" rel="noopener">gawel/pyquery: A jquery-like library for python</a>，语法和Jquery非常类似，可以非常方便地提取信息，因此也顺便挑战了一下爬取豆瓣电影TOP 250，链接为：<a href="https://movie.douban.com/top250?start=0&amp;filter=" target="_blank" rel="noopener">https://movie.douban.com/top250?start=0&amp;filter=</a> ，由于<font color="red">刚开始学习</font>爬虫，代码将就着看，也简单的总结了一下。</p>
+        <p>最近在学习Python爬虫，学习并使用了一个非常强大的解析库：<a target="_blank" rel="noopener" href="https://github.com/gawel/pyquery">gawel/pyquery: A jquery-like library for python</a>，语法和Jquery非常类似，可以非常方便地提取信息，因此也顺便挑战了一下爬取豆瓣电影TOP 250，链接为：<a target="_blank" rel="noopener" href="https://movie.douban.com/top250?start=0&amp;filter=">https://movie.douban.com/top250?start=0&amp;filter=</a> ，由于<font color="red">刚开始学习</font>爬虫，代码将就着看，也简单的总结了一下。</p>
 <ol>
 <li>豆瓣电影页面采取了反爬虫措施，因此在爬虫时速度不宜过快，使用<code>time.sleep()</code>函数进行休眠，否则会封IP，或者使用代理进行，但我尝试了一些免费代理并没有成功。</li>
 <li>爬虫的文件存储为cvs格式，使用<code>logging</code>进行日志记录，方便查看进度</li>
-<li>由于个别页面并不是统一的格式，如有的电影(如<a href="https://movie.douban.com/subject/1291561/" target="_blank" rel="noopener">千与千寻</a>)有官方网站，大部分没有，大部分可以正常对应cvs页面，但对于这些特殊的页面则可能存在误差，最终文件我是手动修改的，并将其转换为excel。</li>
+<li>由于个别页面并不是统一的格式，如有的电影(如<a target="_blank" rel="noopener" href="https://movie.douban.com/subject/1291561/">千与千寻</a>)有官方网站，大部分没有，大部分可以正常对应cvs页面，但对于这些特殊的页面则可能存在误差，最终文件我是手动修改的，并将其转换为excel。</li>
 <li>由于还未涉及到数据分析，也就没有对该数据进行分析了</li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="数据的爬取"><a href="#数据的爬取" class="headerlink" title="数据的爬取"></a>数据的爬取</h2><p>以下为简单的代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment">#豆瓣Top250信息爬取：https://movie.douban.com/top250?start=0&amp;filter=</span></span><br><span class="line"><span class="comment">#使用休眠方法爬取 爬取速度非常慢，防止豆瓣封IP</span></span><br><span class="line"></span><br><span class="line">start_url=<span class="string">'https://movie.douban.com/top250?start=%s&amp;filter='</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#存储目录</span></span><br><span class="line">csv_file=<span class="string">'douban_top250.csv'</span></span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO,format=<span class="string">'%(asctime)s-%(name)s-%(levelname)s-%(message)s'</span>)</span><br><span class="line">logger=logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line">head_str=<span class="string">'电影名称,年份,概括,导演,编剧,主演,类型,制片国家,语言,上映日期,片长,别名,评分,评价人数,链接'</span></span><br><span class="line">csv_heads=head_str.split(<span class="string">','</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#写入头信息</span></span><br><span class="line"><span class="keyword">with</span> open(csv_file,<span class="string">'w'</span>,encoding=<span class="string">'utf_8_sig'</span>,newline=<span class="string">''</span>) <span class="keyword">as</span> f:</span><br><span class="line">    writer=csv.writer(f)</span><br><span class="line">    writer.writerow(csv_heads)</span><br><span class="line"></span><br><span class="line">real_page=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">250</span>,<span class="number">25</span>):</span><br><span class="line"></span><br><span class="line">    logger.info(<span class="string">"正在休眠5s，请稍后……"</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    real_page+=<span class="number">1</span></span><br><span class="line">    logger.info(<span class="string">'正在获取第%s页的信息'</span>,real_page)</span><br><span class="line">    page_url=start_url % page <span class="comment">#当前页链接</span></span><br><span class="line">    page_doc=pq(page_url)</span><br><span class="line">    single_doc=page_doc(<span class="string">'.item'</span>) <span class="comment">#获取单项信息</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> single_doc.items():</span><br><span class="line">        <span class="comment">#电影名称,年份,概括,导演,编剧,主演,类型,制片国家,语言,上映日期,片长,别名,评分,评价人数,链接</span></span><br><span class="line">        info_list=[]</span><br><span class="line">        <span class="comment">#评分</span></span><br><span class="line">        rate=item(<span class="string">'.star .rating_num'</span>).text()</span><br><span class="line">        <span class="comment">#评价人数</span></span><br><span class="line">        rate_nums=item(<span class="string">'.star span'</span>).eq(<span class="number">3</span>).text()</span><br><span class="line">        <span class="comment">#概括</span></span><br><span class="line">        quote=item(<span class="string">'.bd p'</span>).eq(<span class="number">1</span>).text()</span><br><span class="line">    </span><br><span class="line">        <span class="comment">#进入详情页面提取信息</span></span><br><span class="line">        detail_url=item(<span class="string">'.pic a'</span>).attr(<span class="string">'href'</span>)</span><br><span class="line">        detail_doc=pq(detail_url)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#为防止封IP，休眠5s</span></span><br><span class="line">        logger.info(<span class="string">"正在休眠3s，请稍后……"</span>)</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#电影名称和年份</span></span><br><span class="line">        title=detail_doc(<span class="string">'h1 span'</span>).eq(<span class="number">0</span>).text()</span><br><span class="line">        year=detail_doc(<span class="string">'h1 .year'</span>).text()[<span class="number">1</span>:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        info_list.append(title)</span><br><span class="line">        info_list.append(year)   </span><br><span class="line">        info_list.append(quote)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#基本信息</span></span><br><span class="line">        infos=detail_doc(<span class="string">'#info'</span>).text().split(<span class="string">'\n'</span>)[:<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> range(len(infos)):</span><br><span class="line">            info=infos[index].split(<span class="string">':'</span>)[<span class="number">1</span>]</span><br><span class="line">            info_list.append(info)</span><br><span class="line">        info_list.append(rate)</span><br><span class="line">        info_list.append(rate_nums)</span><br><span class="line">        info_list.append(detail_url)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#部分电影有官方链接如https://movie.douban.com/subject/1291561/，去除该链接，但可能会误删，最终手动修复</span></span><br><span class="line">        <span class="keyword">if</span> len(info_list)==<span class="number">16</span>:</span><br><span class="line">            <span class="keyword">del</span> info_list[<span class="number">7</span>] <span class="comment">#删除官方网站</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> open(csv_file,<span class="string">'a'</span>,encoding=<span class="string">'utf_8_sig'</span>,newline=<span class="string">''</span>) <span class="keyword">as</span> f:</span><br><span class="line">            writer=csv.writer(f)</span><br><span class="line">            writer.writerow(info_list)</span><br><span class="line">        logger.info(<span class="string">'获取------%s------信息成功！'</span>,title)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment">#豆瓣Top250信息爬取：https://movie.douban.com/top250?start=0&amp;filter=</span></span><br><span class="line"><span class="comment">#使用休眠方法爬取 爬取速度非常慢，防止豆瓣封IP</span></span><br><span class="line"></span><br><span class="line">start_url=<span class="string">&#x27;https://movie.douban.com/top250?start=%s&amp;filter=&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#存储目录</span></span><br><span class="line">csv_file=<span class="string">&#x27;douban_top250.csv&#x27;</span></span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO,<span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s-%(name)s-%(levelname)s-%(message)s&#x27;</span>)</span><br><span class="line">logger=logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line">head_str=<span class="string">&#x27;电影名称,年份,概括,导演,编剧,主演,类型,制片国家,语言,上映日期,片长,别名,评分,评价人数,链接&#x27;</span></span><br><span class="line">csv_heads=head_str.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#写入头信息</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(csv_file,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf_8_sig&#x27;</span>,newline=<span class="string">&#x27;&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    writer=csv.writer(f)</span><br><span class="line">    writer.writerow(csv_heads)</span><br><span class="line"></span><br><span class="line">real_page=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">250</span>,<span class="number">25</span>):</span><br><span class="line"></span><br><span class="line">    logger.info(<span class="string">&quot;正在休眠5s，请稍后……&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    real_page+=<span class="number">1</span></span><br><span class="line">    logger.info(<span class="string">&#x27;正在获取第%s页的信息&#x27;</span>,real_page)</span><br><span class="line">    page_url=start_url % page <span class="comment">#当前页链接</span></span><br><span class="line">    page_doc=pq(page_url)</span><br><span class="line">    single_doc=page_doc(<span class="string">&#x27;.item&#x27;</span>) <span class="comment">#获取单项信息</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> single_doc.items():</span><br><span class="line">        <span class="comment">#电影名称,年份,概括,导演,编剧,主演,类型,制片国家,语言,上映日期,片长,别名,评分,评价人数,链接</span></span><br><span class="line">        info_list=[]</span><br><span class="line">        <span class="comment">#评分</span></span><br><span class="line">        rate=item(<span class="string">&#x27;.star .rating_num&#x27;</span>).text()</span><br><span class="line">        <span class="comment">#评价人数</span></span><br><span class="line">        rate_nums=item(<span class="string">&#x27;.star span&#x27;</span>).eq(<span class="number">3</span>).text()</span><br><span class="line">        <span class="comment">#概括</span></span><br><span class="line">        quote=item(<span class="string">&#x27;.bd p&#x27;</span>).eq(<span class="number">1</span>).text()</span><br><span class="line">    </span><br><span class="line">        <span class="comment">#进入详情页面提取信息</span></span><br><span class="line">        detail_url=item(<span class="string">&#x27;.pic a&#x27;</span>).attr(<span class="string">&#x27;href&#x27;</span>)</span><br><span class="line">        detail_doc=pq(detail_url)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#为防止封IP，休眠5s</span></span><br><span class="line">        logger.info(<span class="string">&quot;正在休眠3s，请稍后……&quot;</span>)</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#电影名称和年份</span></span><br><span class="line">        title=detail_doc(<span class="string">&#x27;h1 span&#x27;</span>).eq(<span class="number">0</span>).text()</span><br><span class="line">        year=detail_doc(<span class="string">&#x27;h1 .year&#x27;</span>).text()[<span class="number">1</span>:-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        info_list.append(title)</span><br><span class="line">        info_list.append(year)   </span><br><span class="line">        info_list.append(quote)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#基本信息</span></span><br><span class="line">        infos=detail_doc(<span class="string">&#x27;#info&#x27;</span>).text().split(<span class="string">&#x27;\n&#x27;</span>)[:-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(infos)):</span><br><span class="line">            info=infos[index].split(<span class="string">&#x27;:&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line">            info_list.append(info)</span><br><span class="line">        info_list.append(rate)</span><br><span class="line">        info_list.append(rate_nums)</span><br><span class="line">        info_list.append(detail_url)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#部分电影有官方链接如https://movie.douban.com/subject/1291561/，去除该链接，但可能会误删，最终手动修复</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(info_list)==<span class="number">16</span>:</span><br><span class="line">            <span class="keyword">del</span> info_list[<span class="number">7</span>] <span class="comment">#删除官方网站</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(csv_file,<span class="string">&#x27;a&#x27;</span>,encoding=<span class="string">&#x27;utf_8_sig&#x27;</span>,newline=<span class="string">&#x27;&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            writer=csv.writer(f)</span><br><span class="line">            writer.writerow(info_list)</span><br><span class="line">        logger.info(<span class="string">&#x27;获取------%s------信息成功！&#x27;</span>,title)</span><br></pre></td></tr></table></figure>
 
 <p>最终爬取的文件截图如下，包括的字段为：电影名称,年份,概括,导演,编剧,主演,类型,制片国家,语言,上映日期,片长,别名,评分,评价人数,链接</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908211418.png"></p>
-<p>下载链接：<a href="https://www.lanzous.com/i6317he" target="_blank" rel="noopener">https://www.lanzous.com/i6317he</a></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908211418.png"></p>
+<p>下载链接：<a target="_blank" rel="noopener" href="https://www.lanzous.com/i6317he">https://www.lanzous.com/i6317he</a></p>
 <h2 id="简单的数据分析"><a href="#简单的数据分析" class="headerlink" title="简单的数据分析"></a>简单的数据分析</h2><p>由于对Python的数据分析还不了解，简单地用Excel进行分析。</p>
 <p><img alt="豆瓣电影TOP250制片国家分布" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908213105.png"></p>
 <p><img alt="豆瓣电影TOP250年份分布" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20190908222611.png"></p>
@@ -424,7 +403,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -449,14 +434,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的爬取"><span class="nav-number">1.</span> <span class="nav-text">数据的爬取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的数据分析"><span class="nav-number">2.</span> <span class="nav-text">简单的数据分析</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E7%88%AC%E5%8F%96"><span class="nav-number">1.</span> <span class="nav-text">数据的爬取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">简单的数据分析</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -465,20 +450,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -535,14 +520,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -678,31 +660,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/bc93/",
+      identifier: "posts/bc93/",
+      title: "使用Python爬取豆瓣电影TOP250",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

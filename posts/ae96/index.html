@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -258,7 +258,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/ae96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -293,27 +293,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/ae96/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/ae96/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -324,48 +303,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>国内有比较好的免费图床，比如经常看到的是使用微博图床（现在用的人多了也不好用了）、个人搭建维护的<a href="https://sm.ms/" target="_blank" rel="noopener">sm.ms</a>。sm.ms无外链限制，无流量限制的图床，支持 HTTPS，目前运行稳定，评价很不错。我的博客的图片一直存放在阿里云OSS上，现在博客的访问量稍大，一个月费用也达到了10几元。正好手里有一台国内的服务器，因此就想使用服务器搭建个人图床使用。博客是想一直维护下去，把图片放在免费的图床或者其它地方还是不放心。</p>
-<p>言归正传，在网上进行大量的搜索，想找到一款较好的自建的图床程序，终于找到了<a href="https://chevereto.com/" target="_blank" rel="noopener">Chevereto</a>。它有收费版和免费版，收费版多了硬盘扩展，社交分享功能和技术支持。对于个人图床而言，免费版已经够用了。于是开始搭建。</p>
-<a id="more"></a>
+        <p>国内有比较好的免费图床，比如经常看到的是使用微博图床（现在用的人多了也不好用了）、个人搭建维护的<a target="_blank" rel="noopener" href="https://sm.ms/">sm.ms</a>。sm.ms无外链限制，无流量限制的图床，支持 HTTPS，目前运行稳定，评价很不错。我的博客的图片一直存放在阿里云OSS上，现在博客的访问量稍大，一个月费用也达到了10几元。正好手里有一台国内的服务器，因此就想使用服务器搭建个人图床使用。博客是想一直维护下去，把图片放在免费的图床或者其它地方还是不放心。</p>
+<p>言归正传，在网上进行大量的搜索，想找到一款较好的自建的图床程序，终于找到了<a target="_blank" rel="noopener" href="https://chevereto.com/">Chevereto</a>。它有收费版和免费版，收费版多了硬盘扩展，社交分享功能和技术支持。对于个人图床而言，免费版已经够用了。于是开始搭建。</p>
+<span id="more"></span>
 
-<p>Chevereto免费版的Github地址：<a href="https://github.com/Chevereto/Chevereto-Free" target="_blank" rel="noopener">https://github.com/Chevereto/Chevereto-Free</a><br>网站Demo：<a href="https://demo.chevereto.com/" target="_blank" rel="noopener">https://demo.chevereto.com/</a></p>
+<p>Chevereto免费版的Github地址：<a target="_blank" rel="noopener" href="https://github.com/Chevereto/Chevereto-Free">https://github.com/Chevereto/Chevereto-Free</a><br>网站Demo：<a target="_blank" rel="noopener" href="https://demo.chevereto.com/">https://demo.chevereto.com/</a></p>
 <h2 id="服务器环境"><a href="#服务器环境" class="headerlink" title="服务器环境"></a>服务器环境</h2><p>搭建Chevereto免费版要求：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PHP <span class="number">7</span> (PHP <span class="number">5.6</span> min)</span><br><span class="line">MySQL <span class="number">8</span> / MariaDB <span class="number">10</span> (ALL PRIVILEGES)</span><br><span class="line">Apache / NGiNX web server</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">PHP</span> <span class="number">7</span> (PHP <span class="number">5</span>.<span class="number">6</span> min)</span><br><span class="line"><span class="attribute">MySQL</span> <span class="number">8</span> / MariaDB <span class="number">10</span> (<span class="literal">ALL</span> PRIVILEGES)</span><br><span class="line"><span class="attribute">Apache</span> / NGiNX web server</span><br></pre></td></tr></table></figure>
 
-<p>系统系统：CentOS7.4<br>Web环境：使用<a href="https://www.bt.cn/?invite_code=MV9vdmlra2U=" target="_blank" rel="noopener">宝塔面板</a>搭建的Lnmp环境：Nginx 1.16.0 , Php 7.2 , Mysql 5.7<br>Chevereto免费版版本：1.1.3</p>
+<p>系统系统：CentOS7.4<br>Web环境：使用<a target="_blank" rel="noopener" href="https://www.bt.cn/?invite_code=MV9vdmlra2U=">宝塔面板</a>搭建的Lnmp环境：Nginx 1.16.0 , Php 7.2 , Mysql 5.7<br>Chevereto免费版版本：1.1.3</p>
 <p>对Linux系统或者环境搭建不熟悉的可以使用宝塔面板来操作，可视化非常适合小白，可以很方便地搭建个人的网站。</p>
 <p>由于对Nginx不是很熟悉，因此我使用宝塔面板来进行搭建。</p>
 <h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><ol>
 <li><p>首先创建一个网站<br>我使用的是一个二级域名，创建数据库，ftp账号，选择php环境</p>
 </li>
-<li><p>本地使用ftp连接服务器<br>推荐使用开源的<a href="https://www.filezilla.cn/" target="_blank" rel="noopener">FileZilla中文网 - 免费开源的FTP解决方案</a>客户端，我用的是TotalCommand(简称TC)资源管理器，自带ftp连接。</p>
+<li><p>本地使用ftp连接服务器<br>推荐使用开源的<a target="_blank" rel="noopener" href="https://www.filezilla.cn/">FileZilla中文网 - 免费开源的FTP解决方案</a>客户端，我用的是TotalCommand(简称TC)资源管理器，自带ftp连接。</p>
 </li>
 </ol>
 <p><img alt="使用TC进行ftp连接" data-src="https://pic.zhyong.cn/images/2019/07/29/20190729215039.png"></p>
 <ol start="3">
-<li><p>下载最新的Chevereto程序<br>最新版的Chevereto程序可以去Github下载：<a href="https://github.com/Chevereto/Chevereto-Free/releases" target="_blank" rel="noopener">Releases · Chevereto/Chevereto-Free</a>，直接下载到本地</p>
+<li><p>下载最新的Chevereto程序<br>最新版的Chevereto程序可以去Github下载：<a target="_blank" rel="noopener" href="https://github.com/Chevereto/Chevereto-Free/releases">Releases · Chevereto/Chevereto-Free</a>，直接下载到本地</p>
 </li>
-<li><p>解压使用ftp上传到服务器，同时可以删除服务器内的index.html和404.html文件,<code>.htaccess</code>直接替换<br>最终文件目录如下：<br><img alt data-src="https://pic.zhyong.cn/images/2019/07/29/20190729220044.png"></p>
+<li><p>解压使用ftp上传到服务器，同时可以删除服务器内的index.html和404.html文件,<code>.htaccess</code>直接替换<br>最终文件目录如下：<br><img data-src="https://pic.zhyong.cn/images/2019/07/29/20190729220044.png"></p>
 </li>
 <li><p>此时访问网站会出现404错误，需要修改Nginx配置文件，我们直接在宝塔面板里修改即可。<br>在<code>SERVER</code>里添加如下代码：</p>
 </li>
 </ol>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> / &#123;</span><br><span class="line"><span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?<span class="variable">$query_string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">try_files <span class="variable">$uri</span> <span class="variable">$uri</span><span class="regexp">/ /i</span>ndex.php?<span class="variable">$query_string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/07/29/20190729221752.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/07/29/20190729221752.png"></p>
 <ol start="6">
-<li><p>访问网站进行配置数据库即可<br>完成后访问首页，默认为英文，设置里面修改为简体中文即可。<br><img alt data-src="https://pic.zhyong.cn/images/2019/07/29/20190729222337.png"></p>
+<li><p>访问网站进行配置数据库即可<br>完成后访问首页，默认为英文，设置里面修改为简体中文即可。<br><img data-src="https://pic.zhyong.cn/images/2019/07/29/20190729222337.png"></p>
 </li>
-<li><p>配置ssl<br>直接上传图片，图片只能以http链接显示，因此我们需配置ssl进行https访问，我们可以直接使用宝塔面板申请<a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let’s Encrypt</a>免费证书，而且到期后自动续签，并开启强制HTTPS。<br><img alt="配置ssl" data-src="https://pic.zhyong.cn/images/2019/07/29/20190729223041.png"><br>完成后图片的外链即可使用https显示。</p>
+<li><p>配置ssl<br>直接上传图片，图片只能以http链接显示，因此我们需配置ssl进行https访问，我们可以直接使用宝塔面板申请<a target="_blank" rel="noopener" href="https://letsencrypt.org/">Let’s Encrypt</a>免费证书，而且到期后自动续签，并开启强制HTTPS。<br><img alt="配置ssl" data-src="https://pic.zhyong.cn/images/2019/07/29/20190729223041.png"><br>完成后图片的外链即可使用https显示。</p>
 </li>
-<li><p>上传图片后查看嵌入代码选择需要的链接<br><img alt data-src="https://pic.zhyong.cn/images/2019/07/29/20190729223408.png"></p>
+<li><p>上传图片后查看嵌入代码选择需要的链接<br><img data-src="https://pic.zhyong.cn/images/2019/07/29/20190729223408.png"></p>
 </li>
 </ol>
 <p>搭建过程非常顺利，也没有涉及到文件权限以及程序的重启等代码，一步完成，完美。</p>
 <p>默认图床是任何人都可以上传图片，我们可以通过<code>用户</code>——<code>仪表盘</code>——<code>设置</code>，在最下面设置<code>网站运营模式</code>，设置为<code>个人</code>即只有自己可以上传图片。可以设置三种模式：任何人可以上传、注册上传和仅自己上传，根据需求选择。</p>
 <p>本篇博客的图片即使用自建的图床，使用起来支持拖拽上传，而且可以很方便地复制各种嵌入代码，用户体验非常好。</p>
 <blockquote>
-<p>参考：<a href="https://www.moerats.com/archives/390/" target="_blank" rel="noopener">一款强大好用的图床程序：chevereto安装教程 - Rat’s Blog</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.moerats.com/archives/390/">一款强大好用的图床程序：chevereto安装教程 - Rat’s Blog</a></p>
 </blockquote>
 
     </div>
@@ -427,7 +406,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -452,14 +437,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器环境"><span class="nav-number">1.</span> <span class="nav-text">服务器环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建过程"><span class="nav-number">2.</span> <span class="nav-text">搭建过程</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">服务器环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">搭建过程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -468,20 +453,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -538,14 +523,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -681,31 +663,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/ae96/",
+      identifier: "posts/ae96/",
+      title: "使用Chevereto搭建个人图床",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

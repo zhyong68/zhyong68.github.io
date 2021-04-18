@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -254,7 +254,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/64e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -289,27 +289,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/64e/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/64e/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -322,13 +301,13 @@
       
         <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>为什么又搭建了一个博客呢？国内的高性能服务器，闲着也是闲着，还是多折腾一下吧！</p>
 <p>Solo博客系统是用Java语言开发的博客程序，具有优异的性能。这里使用Docker部署，也是官方推荐的部署方式，配合宝塔控制面板，搭建过程还是比较方便的。这里记录一下我的搭建过程以及使用Solo的一些总结。</p>
-<p>我使用Solo搭建完成的网站： <del><a href="https://article.zhyong.cn/" target="_blank" rel="noopener">https://article.zhyong.cn/</a></del></p>
-<p>Github地址：<a href="https://github.com/b3log/solo" target="_blank" rel="noopener">b3log/solo: 🎸 一款小而美的博客系统，专为程序员设计。</a><br>官方网站：<a href="https://solo.b3log.org/" target="_blank" rel="noopener">Solo - Java 博客系统，Java 开源博客系统</a></p>
-<a id="more"></a>
+<p>我使用Solo搭建完成的网站： <del><a target="_blank" rel="noopener" href="https://article.zhyong.cn/">https://article.zhyong.cn/</a></del></p>
+<p>Github地址：<a target="_blank" rel="noopener" href="https://github.com/b3log/solo">b3log/solo: 🎸 一款小而美的博客系统，专为程序员设计。</a><br>官方网站：<a target="_blank" rel="noopener" href="https://solo.b3log.org/">Solo - Java 博客系统，Java 开源博客系统</a></p>
+<span id="more"></span>
 
-<h2 id="相关环境"><a href="#相关环境" class="headerlink" title="相关环境"></a>相关环境</h2><p>服务器系统：CentOS Linux 7.6.1810<br>Nginx版本：1.16.0<br>Mysql版本：5.7.26<br>本地SSH连接工具：<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" target="_blank" rel="noopener">PuTTY Release 0.71</a></p>
-<h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><p>官方教程：<a href="https://hacpai.com/article/1492881378588#toc_h2_10" target="_blank" rel="noopener">Solo 用户指南 - 黑客派</a></p>
-<p>这里我使用<a href="https://www.bt.cn/?invite_code=MV9vdmlra2U=" target="_blank" rel="noopener">宝塔面板</a>安装的Nginx和Mysql，Mysql数据库推荐5.7及以上。由于使用Docker部署，需要简单了解一下Docker的使用，推荐菜鸟教程：<a href="https://www.runoob.com/docker/docker-tutorial.html" target="_blank" rel="noopener">Docker 教程 | 菜鸟教程</a>，我们可以在这里检索Docker的各版本的安装教程以及相关使用。</p>
+<h2 id="相关环境"><a href="#相关环境" class="headerlink" title="相关环境"></a>相关环境</h2><p>服务器系统：CentOS Linux 7.6.1810<br>Nginx版本：1.16.0<br>Mysql版本：5.7.26<br>本地SSH连接工具：<a target="_blank" rel="noopener" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY Release 0.71</a></p>
+<h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><p>官方教程：<a target="_blank" rel="noopener" href="https://hacpai.com/article/1492881378588#toc_h2_10">Solo 用户指南 - 黑客派</a></p>
+<p>这里我使用<a target="_blank" rel="noopener" href="https://www.bt.cn/?invite_code=MV9vdmlra2U=">宝塔面板</a>安装的Nginx和Mysql，Mysql数据库推荐5.7及以上。由于使用Docker部署，需要简单了解一下Docker的使用，推荐菜鸟教程：<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-tutorial.html">Docker 教程 | 菜鸟教程</a>，我们可以在这里检索Docker的各版本的安装教程以及相关使用。</p>
 <p>这里以CentOS为例，介绍从安装Docker到部署（可查看上面的官方教程的链接）Solo的过程。</p>
 <h3 id="CentOS安装Docker"><a href="#CentOS安装Docker" class="headerlink" title="CentOS安装Docker"></a>CentOS安装Docker</h3><p>首先卸载旧版本Docker：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">                docker-client \</span><br><span class="line">                docker-client-latest \</span><br><span class="line">                docker-common \</span><br><span class="line">                docker-latest \</span><br><span class="line">                docker-latest-logrotate \</span><br><span class="line">                docker-logrotate \</span><br><span class="line">                docker-selinux \</span><br><span class="line">                docker-engine-selinux \</span><br><span class="line">                docker-engine</span><br></pre></td></tr></table></figure>
@@ -338,7 +317,7 @@
 
 <p>若能正常运行hello-world，则表示docker以及成功安装好了。</p>
 <h3 id="使用宝塔面板新建一个网站"><a href="#使用宝塔面板新建一个网站" class="headerlink" title="使用宝塔面板新建一个网站"></a>使用宝塔面板新建一个网站</h3><p>首先我们看一下官方的Docker搭建代码：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach --name solo --network=host \</span><br><span class="line">    --env RUNTIME_DB=<span class="string">"MYSQL"</span> \</span><br><span class="line">    --env JDBC_USERNAME=<span class="string">"root"</span> \</span><br><span class="line">    --env JDBC_PASSWORD=<span class="string">"123456"</span> \</span><br><span class="line">    --env JDBC_DRIVER=<span class="string">"com.mysql.cj.jdbc.Driver"</span> \</span><br><span class="line">    --env JDBC_URL=<span class="string">"jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC"</span> \</span><br><span class="line">    b3log/solo --listen_port=8080 --server_scheme=http --server_host=localhost --server_port=</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach --name solo --network=host \</span><br><span class="line">    --env RUNTIME_DB=<span class="string">&quot;MYSQL&quot;</span> \</span><br><span class="line">    --env JDBC_USERNAME=<span class="string">&quot;root&quot;</span> \</span><br><span class="line">    --env JDBC_PASSWORD=<span class="string">&quot;123456&quot;</span> \</span><br><span class="line">    --env JDBC_DRIVER=<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span> \</span><br><span class="line">    --env JDBC_URL=<span class="string">&quot;jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC&quot;</span> \</span><br><span class="line">    b3log/solo --listen_port=8080 --server_scheme=http --server_host=localhost --server_port=</span><br></pre></td></tr></table></figure>
 
 <p>启动参数说明：</p>
 <ul>
@@ -351,14 +330,14 @@
 <p>然后我们可以申请SSL证书，直接在面板里申请即可，我申请的是Let’s Encrypt证书，并强制HTTPS访问。</p>
 <p>然后在宝塔面板的数据库中手动添加数据库，根据Solo博客系统的数据库要求创建：创建数据库名称为<code>solo</code>（或其它，对应位置修改Docker部署代码即可），字符集使用<code>utf8mb4</code>，排序规则 <code>utf8mb4_general_ci</code>。</p>
 <p>然后部署我们的Docker代码：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach --name solo --network=host \</span><br><span class="line">    --env RUNTIME_DB=<span class="string">"MYSQL"</span> \</span><br><span class="line">    --env JDBC_USERNAME=<span class="string">"root"</span> \</span><br><span class="line">    --env JDBC_PASSWORD=<span class="string">"123456"</span> \</span><br><span class="line">    --env JDBC_DRIVER=<span class="string">"com.mysql.cj.jdbc.Driver"</span> \</span><br><span class="line">    --env JDBC_URL=<span class="string">"jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=True&amp;serverTimezone=UTC"</span> \</span><br><span class="line">    b3log/solo --listen_port=8080 --server_scheme=https --server_host=article.zhyong.cn --server_port=</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach --name solo --network=host \</span><br><span class="line">    --env RUNTIME_DB=<span class="string">&quot;MYSQL&quot;</span> \</span><br><span class="line">    --env JDBC_USERNAME=<span class="string">&quot;root&quot;</span> \</span><br><span class="line">    --env JDBC_PASSWORD=<span class="string">&quot;123456&quot;</span> \</span><br><span class="line">    --env JDBC_DRIVER=<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span> \</span><br><span class="line">    --env JDBC_URL=<span class="string">&quot;jdbc:mysql://127.0.0.1:3306/solo?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=True&amp;serverTimezone=UTC&quot;</span> \</span><br><span class="line">    b3log/solo --listen_port=8080 --server_scheme=https --server_host=article.zhyong.cn --server_port=</span><br></pre></td></tr></table></figure>
 
 <p>这样我们就成功使用Docker部署了Solo博客系统并启动了，接下来我们使用Nginx配置反向代理。</p>
 <p>官方的Nginx反向代理代码：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">upstream</span> backend &#123;</span><br><span class="line">    <span class="attribute">server</span> localhost:<span class="number">8080</span>; <span class="comment"># Solo 监听端口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  <span class="number">88250</span>.b3log.org; <span class="comment"># 博客域名，如我的就为 article.zhyong.cn</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span> <span class="literal">off</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://backend<span class="variable">$request_uri</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span>  Host <span class="variable">$host</span>:<span class="variable">$server_port</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span>  X-Real-IP  <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">client_max_body_size</span>  <span class="number">10m</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">upstream</span> backend &#123;</span><br><span class="line">    <span class="attribute">server</span> localhost:<span class="number">8080</span>; <span class="comment"># Solo 监听端口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  <span class="number">88250</span>.b3log.org; <span class="comment"># 博客域名，如我的就为 article.zhyong.cn</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span> <span class="literal">off</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://backend$request_uri;</span><br><span class="line">        <span class="attribute">proxy_set_header</span>  Host $host:$server_port;</span><br><span class="line">        <span class="attribute">proxy_set_header</span>  X-Real-IP  $remote_addr;</span><br><span class="line">        <span class="attribute">client_max_body_size</span>  <span class="number">10m</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里我们仅需参考一下即可，因为我们使用宝塔面板时自动帮我们生成了Nginx的一些配置，我们手动修改小部分即可。</p>
-<p><img alt data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20191006223713.png"></p>
+<p><img data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/old/20191006223713.png"></p>
 <p>这样全部完成，现在就打开网站吧~</p>
 <p>若出现问题，可以使用Docker删除容器再重新部署。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop solo</span><br><span class="line">docker rm solo</span><br></pre></td></tr></table></figure>
@@ -366,7 +345,7 @@
 <p><strong>部署过程中遇到的问题</strong>：docker启动代码中的<code>--server_host</code>必须使用对应的域名，否则打开网站报错！</p>
 <h2 id="使用感受及总结"><a href="#使用感受及总结" class="headerlink" title="使用感受及总结"></a>使用感受及总结</h2><p>总之，Solo博客系统是非常优秀的，简单说一下我的感受。</p>
 <p>最大的特色：小而美（我觉得介于WordPress和Typecho之间）</p>
-<p>它是轻量级的，使用起来非常方便，后台使用Github账号登录管理，且连接官方<a href="https://hacpai.com/" target="_blank" rel="noopener">黑客派</a>的Github登录账号，这样，官方为我们个人博客内置了文件存储服务（<a href="https://hacpai.com/article/1559928188793" target="_blank" rel="noopener">Solo 内置 HTTPS + CDN 文件存储 - 黑客派</a>），真的非常良心。后台管理时，不会刷新整个页面，以及拥有一个非常简洁美观的<a href="https://github.com/b3log/vditor" target="_blank" rel="noopener">Markdown编辑器</a>，内置了很多款美观大方的主题，可随意切换，并且手机端和电脑端可使用不同的主题（完爆自适应=.=），并且内置了30+代码高亮主题，可随意选择。</p>
+<p>它是轻量级的，使用起来非常方便，后台使用Github账号登录管理，且连接官方<a target="_blank" rel="noopener" href="https://hacpai.com/">黑客派</a>的Github登录账号，这样，官方为我们个人博客内置了文件存储服务（<a target="_blank" rel="noopener" href="https://hacpai.com/article/1559928188793">Solo 内置 HTTPS + CDN 文件存储 - 黑客派</a>），真的非常良心。后台管理时，不会刷新整个页面，以及拥有一个非常简洁美观的<a target="_blank" rel="noopener" href="https://github.com/b3log/vditor">Markdown编辑器</a>，内置了很多款美观大方的主题，可随意切换，并且手机端和电脑端可使用不同的主题（完爆自适应=.=），并且内置了30+代码高亮主题，可随意选择。</p>
 <p>这里讲一下我的简单优化：</p>
 <ol>
 <li>看板娘插件严重拖慢网站的访问速度，在工具——插件管理中将其关闭</li>
@@ -383,6 +362,9 @@
       
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\6743\" rel="bookmark">树莓派3B+ Docker部署甜糖星愿</a></div>
+    </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\99b4\" rel="bookmark">群晖Docker安装code-server</a></div>
     </li>
@@ -444,7 +426,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -469,14 +457,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关环境"><span class="nav-number">2.</span> <span class="nav-text">相关环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建过程"><span class="nav-number">3.</span> <span class="nav-text">搭建过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS安装Docker"><span class="nav-number">3.1.</span> <span class="nav-text">CentOS安装Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用宝塔面板新建一个网站"><span class="nav-number">3.2.</span> <span class="nav-text">使用宝塔面板新建一个网站</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用感受及总结"><span class="nav-number">4.</span> <span class="nav-text">使用感受及总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">相关环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">搭建过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS%E5%AE%89%E8%A3%85Docker"><span class="nav-number">3.1.</span> <span class="nav-text">CentOS安装Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99"><span class="nav-number">3.2.</span> <span class="nav-text">使用宝塔面板新建一个网站</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97%E5%8F%8A%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">使用感受及总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -485,20 +473,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -555,14 +543,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -698,31 +683,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/64e/",
+      identifier: "posts/64e/",
+      title: "使用Docker部署Solo博客系统",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

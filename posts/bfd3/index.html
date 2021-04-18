@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -253,7 +253,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/bfd3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -288,27 +288,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/bfd3/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/bfd3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -319,28 +298,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h2><p>Windows安装：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git - Downloading Package</a><br>Debian、Ubuntu：<code>sudo apt install git</code><br>CentOS：<code>sudo yum install git</code><br>Linux系统也可自行编译安装：<a href="https://www.zhyong.cn/posts/5839/">CentOS7 编译安装最新版 Git | YouForever</a></p>
+        <h2 id="安装Git工具"><a href="#安装Git工具" class="headerlink" title="安装Git工具"></a>安装Git工具</h2><p>Windows安装：<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">Git - Downloading Package</a><br>Debian、Ubuntu：<code>sudo apt install git</code><br>CentOS：<code>sudo yum install git</code><br>Linux系统也可自行编译安装：<a href="https://www.zhyong.cn/posts/5839/">CentOS7 编译安装最新版 Git | YouForever</a></p>
 <p>安装好之后进行基本的Git配置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name yourname</span><br><span class="line">git config --global user.email youremail@xx.com</span><br></pre></td></tr></table></figure>
 
 <p>将<code>yourname</code>和<code>youremail@xx.com</code>替换成自己的即可。</p>
-<a id="more"></a>
+<span id="more"></span>
 
-<h2 id="本地生成ssh密钥"><a href="#本地生成ssh密钥" class="headerlink" title="本地生成ssh密钥"></a>本地生成ssh密钥</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C "youremail@xx.com"</span><br></pre></td></tr></table></figure>
+<h2 id="本地生成ssh密钥"><a href="#本地生成ssh密钥" class="headerlink" title="本地生成ssh密钥"></a>本地生成ssh密钥</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail@xx.com&quot;</span><br></pre></td></tr></table></figure>
 <p>直接回车默认完成配置，生成的文件在家目录下的<code>.ssh</code>目录下。</p>
 <h2 id="将生成密钥添加到Github"><a href="#将生成密钥添加到Github" class="headerlink" title="将生成密钥添加到Github"></a>将生成密钥添加到Github</h2><p>查看本地生成的ssh密钥：``cat ~/.ssh/id_rsa.pub`，记住备用。</p>
 <p>登录自己的Github账号，在右上角用户名下拉——Settings下，新建一个ssh key</p>
 <p><img alt="github添加ssh key" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2020/20200615220319.png"></p>
 <p>填写任意<code>Title</code>和上面的密钥，保存即可，这样即全部完成。</p>
 <h2 id="测试是否能正常与Github连接"><a href="#测试是否能正常与Github连接" class="headerlink" title="测试是否能正常与Github连接"></a>测试是否能正常与Github连接</h2><p>在本地命令行输入：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T <span class="symbol">git@</span>github.com</span><br></pre></td></tr></table></figure>
 
 <p>如我的是：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS D:\hexo-files-7.5.0&gt; ssh -T git@github.com</span><br><span class="line">Warning: Permanently added the RSA host key <span class="keyword">for</span><span class="built_in"> IP address </span><span class="string">'140.82.112.4'</span> <span class="keyword">to</span> the list of known hosts.</span><br><span class="line">Hi zhyong68! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS D:\hexo-files-<span class="number">7.5</span>.<span class="number">0</span>&gt; ssh -T git@github.com</span><br><span class="line"><span class="symbol">Warning:</span> Permanently added the RSA host <span class="keyword">key</span> <span class="keyword">for</span> IP address <span class="comment">&#x27;140.82.112.4&#x27; to the list of known hosts.</span></span><br><span class="line">Hi zhyong68! You<span class="comment">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
 
 <p>即成功连接。</p>
 <blockquote>
-<p>官方文档：<a href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh" target="_blank" rel="noopener">Connecting to GitHub with SSH - GitHub Help</a></p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh">Connecting to GitHub with SSH - GitHub Help</a></p>
 </blockquote>
 
     </div>
@@ -402,7 +381,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -427,14 +412,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git工具"><span class="nav-number">1.</span> <span class="nav-text">安装Git工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地生成ssh密钥"><span class="nav-number">2.</span> <span class="nav-text">本地生成ssh密钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将生成密钥添加到Github"><span class="nav-number">3.</span> <span class="nav-text">将生成密钥添加到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试是否能正常与Github连接"><span class="nav-number">4.</span> <span class="nav-text">测试是否能正常与Github连接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">安装Git工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%88%90ssh%E5%AF%86%E9%92%A5"><span class="nav-number">2.</span> <span class="nav-text">本地生成ssh密钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5%E6%B7%BB%E5%8A%A0%E5%88%B0Github"><span class="nav-number">3.</span> <span class="nav-text">将生成密钥添加到Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E8%83%BD%E6%AD%A3%E5%B8%B8%E4%B8%8EGithub%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">测试是否能正常与Github连接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -443,20 +428,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -513,14 +498,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -656,31 +638,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/bfd3/",
+      identifier: "posts/bfd3/",
+      title: "使用ssh密钥连接Github",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

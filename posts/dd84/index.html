@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -262,7 +262,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/dd84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -297,27 +297,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/dd84/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/dd84/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -342,7 +321,7 @@
 <li>PoE 支持（Power-over-Ethernet，with PoE HAT）</li>
 <li>改进 PXE 网络与 USB 大容量存储启动</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>此次在网上花了￥300入了一个树莓派3B+，简单折腾，以此记录！</p>
 <h2 id="树莓派装机"><a href="#树莓派装机" class="headerlink" title="树莓派装机"></a>树莓派装机</h2><p>买的配件如下：</p>
@@ -353,10 +332,10 @@
 <h2 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h2><p>由于买来自带的系统中SD卡大量容量没有被格式化不能正常利用空间，查询无果后绝对重新安装系统！</p>
 <p>由于我的系统为Windows10，以Windows为例：</p>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li>下载树莓派系统：<a href="https://github.com/home-assistant/pi-gen/releases" target="_blank" rel="noopener">https://github.com/home-assistant/pi-gen/releases</a> ，若下载速度较慢可<a href="https://pan.baidu.com/s/1wbiC5Dqk_8SAW8GY1T8GAA" target="_blank" rel="noopener">百度网盘下载</a></li>
-<li>下载Win32 Disk Image，官网：<a href="http://sourceforge.net/projects/win32diskimager/" target="_blank" rel="noopener">http://sourceforge.net/projects/win32diskimager/</a> ，若打不开官网可<a href="https://zhyong-cn-soft.oss-cn-shanghai.aliyuncs.com/win32diskimager-1.0.0-install.exe" target="_blank" rel="noopener">直接下载</a></li>
-<li>若已安装系统，则使用<a href="http://www.diskgenius.cn/" target="_blank" rel="noopener">DiskGenius</a>格式化TF卡再进行重新分区，参考：<a href="https://www.jianshu.com/p/6af60049fdf1" target="_blank" rel="noopener">树莓派如何重装系统</a></li>
-<li>SSH连接软件<a href="https://www.putty.org" target="_blank" rel="noopener">putty</a>，<a href="https://www.netsarang.com/products/xsh_overview.html" target="_blank" rel="noopener">XShell</a>等</li>
+<li>下载树莓派系统：<a target="_blank" rel="noopener" href="https://github.com/home-assistant/pi-gen/releases">https://github.com/home-assistant/pi-gen/releases</a> ，若下载速度较慢可<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1wbiC5Dqk_8SAW8GY1T8GAA">百度网盘下载</a></li>
+<li>下载Win32 Disk Image，官网：<a target="_blank" rel="noopener" href="http://sourceforge.net/projects/win32diskimager/">http://sourceforge.net/projects/win32diskimager/</a> ，若打不开官网可<a target="_blank" rel="noopener" href="https://zhyong-cn-soft.oss-cn-shanghai.aliyuncs.com/win32diskimager-1.0.0-install.exe">直接下载</a></li>
+<li>若已安装系统，则使用<a target="_blank" rel="noopener" href="http://www.diskgenius.cn/">DiskGenius</a>格式化TF卡再进行重新分区，参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6af60049fdf1">树莓派如何重装系统</a></li>
+<li>SSH连接软件<a target="_blank" rel="noopener" href="https://www.putty.org/">putty</a>，<a target="_blank" rel="noopener" href="https://www.netsarang.com/products/xsh_overview.html">XShell</a>等</li>
 </ol>
 <h3 id="使用Win32-Disk-Image安装系统"><a href="#使用Win32-Disk-Image安装系统" class="headerlink" title="使用Win32 Disk Image安装系统"></a>使用Win32 Disk Image安装系统</h3><p>下载好最新的树莓派系统后解压，安装Win32 Disk Image工具，并格式化好TF卡，打开Win32 Disk Image，写入即可。</p>
 <p><img alt="pic" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/Raspberry/4.jfif"></p>
@@ -382,7 +361,7 @@
 </ul>
 <p>这样我们就可以愉快地玩耍树莓派了~</p>
 <blockquote>
-<p>参考：<br><a href="https://blog.csdn.net/cc_want/article/details/80606206" target="_blank" rel="noopener">win10通过网线连接树莓派和PC方法</a><br><a href="https://www.jianshu.com/p/6af60049fdf1" target="_blank" rel="noopener">树莓派如何重装系统</a><br><a href="https://blog.csdn.net/wsj_wsj_123/article/details/72353823" target="_blank" rel="noopener">用一根网线就可以连接笔记本和树莓派，不需要显示器</a></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/cc_want/article/details/80606206">win10通过网线连接树莓派和PC方法</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6af60049fdf1">树莓派如何重装系统</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wsj_wsj_123/article/details/72353823">用一根网线就可以连接笔记本和树莓派，不需要显示器</a></p>
 </blockquote>
 
     </div>
@@ -451,7 +430,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -476,14 +461,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派简介"><span class="nav-number">1.</span> <span class="nav-text">树莓派简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派装机"><span class="nav-number">2.</span> <span class="nav-text">树莓派装机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装系统"><span class="nav-number">3.</span> <span class="nav-text">安装系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">3.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Win32-Disk-Image安装系统"><span class="nav-number">3.2.</span> <span class="nav-text">使用Win32 Disk Image安装系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH连接"><span class="nav-number">4.</span> <span class="nav-text">SSH连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有线连接"><span class="nav-number">4.1.</span> <span class="nav-text">有线连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wifi连接"><span class="nav-number">4.2.</span> <span class="nav-text">Wifi连接</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">树莓派简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E8%A3%85%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">树莓派装机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">安装系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Win32-Disk-Image%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.2.</span> <span class="nav-text">使用Win32 Disk Image安装系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">SSH连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E7%BA%BF%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.1.</span> <span class="nav-text">有线连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wifi%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.2.</span> <span class="nav-text">Wifi连接</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -492,20 +477,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -562,14 +547,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -705,31 +687,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/dd84/",
+      identifier: "posts/dd84/",
+      title: "树莓派3B+重装系统并配置WiFi",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

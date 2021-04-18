@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -259,7 +259,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/8015/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -294,27 +294,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/8015/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/8015/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -325,20 +304,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>在平常生活或工作中，我们经常需要传输文件，比如将电脑上下载的App传送到手机上、同事之间传输一些大型的文件。当我们遇到此类问题时，首先想到的就是使用QQ或者微信，更深一层，去网上搜索一些文件传输工具，如<a href="https://send-anywhere.com/" target="_blank" rel="noopener">Send Anywhere</a>等。但是这些都显得太麻烦，我们都需要将文件传输到第三方服务器上，再通过需要接收数据的电脑或手机进行下载。</p>
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>在平常生活或工作中，我们经常需要传输文件，比如将电脑上下载的App传送到手机上、同事之间传输一些大型的文件。当我们遇到此类问题时，首先想到的就是使用QQ或者微信，更深一层，去网上搜索一些文件传输工具，如<a target="_blank" rel="noopener" href="https://send-anywhere.com/">Send Anywhere</a>等。但是这些都显得太麻烦，我们都需要将文件传输到第三方服务器上，再通过需要接收数据的电脑或手机进行下载。</p>
 <p>那么，有没有办法直接获取文件，而不通过这些繁琐的操作？</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201901/fileserver.png"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p><strong><font color="red">注意：</font></strong> 电脑手机等设备必须在同一局域网内。</p>
-<p>利用<a href="https://www.python.org/" target="_blank" rel="noopener">Python</a>语言，仅仅一条命令即可轻松实现文件下载服务器，将局域网上电脑文件传输到手机上或共享给其它电脑。</p>
+<p>利用<a target="_blank" rel="noopener" href="https://www.python.org/">Python</a>语言，仅仅一条命令即可轻松实现文件下载服务器，将局域网上电脑文件传输到手机上或共享给其它电脑。</p>
 <ol>
-<li>首先下载安装Python，推荐Python3以上版本，<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">点击进入下载</a>，安装好（注意勾选添加到环境变量，或者手动添加）。</li>
+<li>首先下载安装Python，推荐Python3以上版本，<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">点击进入下载</a>，安装好（注意勾选添加到环境变量，或者手动添加）。</li>
 <li>开启<code>http</code>服务器，打开需要共享的文件目录，进入命令行：</li>
 </ol>
 <ul>
-<li>Python2输入：<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m SimpleHTTPServer <span class="number">80</span></span><br></pre></td></tr></table></figure></li>
-<li>Python3输入：<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m http.server <span class="number">80</span></span><br></pre></td></tr></table></figure></li>
+<li>Python2输入：<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">python</span> -m SimpleHTTPServer <span class="number">80</span></span><br></pre></td></tr></table></figure></li>
+<li>Python3输入：<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">python</span> -m http.server <span class="number">80</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="3">
 <li>访问服务器：命令行的80是http默认端口号，这样只需要在浏览器打开共享电脑的IP即可，也可以换做其它端口，浏览器输入<code>IP:端口</code>访问。</li>
@@ -352,10 +331,10 @@
 <p>使用手机或电脑（连接在同一Wifi下或同一局域网下），输入<code>192.168.0.5</code>即可进行下载需要的文件。</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201901/2019-01-13-16-04-55.png"></p>
 <p>这样即可使用Python暂时搭建一个下载服务器，解决传输文件麻烦的问题(可惜不可以手机传输到电脑)，同时，你也可以通过此方法下载个人服务器上的文件，或者在个人服务器上搭建永久的服务，更推荐使用Nginx搭建(<a href="https://www.zhyong.cn/posts/30f/">使用Nginx搭建简单的下载服务器</a>)。</p>
-<h2 id="小技巧：快速打开cmd"><a href="#小技巧：快速打开cmd" class="headerlink" title="小技巧：快速打开cmd"></a>小技巧：快速打开cmd</h2><p>因为我们需要在共享文件所在目录中运行Python命令，即通过命令行要进入到该目录。通过在地址栏输入<code>cmd</code>即可快速打开命令行并进入所在目录，而在<code>cmd</code>中输入<code>explorer .</code>即可快速打开Windows资源管理器(<code>.</code>表示当前目录)。</p>
+<h2 id="小技巧：快速打开cmd"><a href="#小技巧：快速打开cmd" class="headerlink" title="小技巧：快速打开cmd"></a>小技巧：快速打开cmd</h2><p>因为我们需要在共享文件所在目录中运行Python命令，即通过命令行要进入到该目录。通过在地址栏输入<code>cmd</code>即可快速打开命令行并进入所在目录，而在<code>cmd</code>中输入<code>explorer . </code>即可快速打开Windows资源管理器(<code>.</code>表示当前目录)。</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201901/cmdexp.gif"></p>
 <blockquote>
-<p>参考：<a href="https://blog.csdn.net/shuihupo/article/details/82384361" target="_blank" rel="noopener">使用Python搭建简单的windows服务器</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/shuihupo/article/details/82384361">使用Python搭建简单的windows服务器</a></p>
 </blockquote>
 
     </div>
@@ -436,7 +415,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -461,14 +446,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧：快速打开cmd"><span class="nav-number">3.</span> <span class="nav-text">小技巧：快速打开cmd</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3"><span class="nav-number">2.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80cmd"><span class="nav-number">3.</span> <span class="nav-text">小技巧：快速打开cmd</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -477,20 +462,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -547,14 +532,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -690,31 +672,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/8015/",
+      identifier: "posts/8015/",
+      title: "一条Python命令搭建下载服务器——实现局域网文件共享",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

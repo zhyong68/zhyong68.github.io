@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -258,7 +258,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/a615/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -282,27 +282,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/a615/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/a615/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -314,34 +293,34 @@
 
       
         <p>前面我们提到关于本地搭建Aria2+Web页面实现加速下载的教程：<a href="https://www.zhyong.cn/posts/510f/">本地配置 Aria2 下载程序及 Web 控制面板来加速下载 | YouForever</a>。今天我们就讲解如何通过Aria2来实现百度网盘的高速下载。</p>
-<p>经常使用<a href="https://pan.baidu.com" target="_blank" rel="noopener">百度网盘</a>的用户可能知道有一个PanDownload的下载神器，实现百度网盘下载，主程序可到 <a href="https://pandownload.com/" target="_blank" rel="noopener">https://pandownload.com/</a> 去下载，由于使用的人数过多，现在的加速效果已经非常有限了。今天我们讲解的是如何通过PanDownload网页版+本地Aria2实现百度网盘高速下载。</p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/08/44f73a7870f104119607ef2b92eb89d9.png"></p>
-<a id="more"></a>
+<p>经常使用<a target="_blank" rel="noopener" href="https://pan.baidu.com/">百度网盘</a>的用户可能知道有一个PanDownload的下载神器，实现百度网盘下载，主程序可到 <a target="_blank" rel="noopener" href="https://pandownload.com/">https://pandownload.com/</a> 去下载，由于使用的人数过多，现在的加速效果已经非常有限了。今天我们讲解的是如何通过PanDownload网页版+本地Aria2实现百度网盘高速下载。</p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/08/08/44f73a7870f104119607ef2b92eb89d9.png"></p>
+<span id="more"></span>
 
 <h2 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h2><ul>
 <li>浏览器</li>
-<li>PanDownload网页版：<a href="https://pan.baiduwp.com/" target="_blank" rel="noopener">https://pan.baiduwp.com/</a></li>
+<li>PanDownload网页版：<a target="_blank" rel="noopener" href="https://pan.baiduwp.com/">https://pan.baiduwp.com/</a></li>
 <li>本地运行的Aria2服务：配置详见<a href="https://www.zhyong.cn/posts/510f/">教程</a></li>
 </ul>
 <h2 id="详细教程"><a href="#详细教程" class="headerlink" title="详细教程"></a>详细教程</h2><ol>
-<li><p>打开PanDownload网页版，输入百度网盘分享链接和提取密码，打开（或者使用油猴脚本：<a href="https://greasyfork.org/zh-CN/scripts/383501-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B6%85%E7%BA%A7%E5%8A%A9%E6%89%8B-%E6%8F%90%E5%8F%96%E7%A0%81%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%86%99-%E8%B5%84%E6%BA%90%E5%85%A8%E9%80%9F%E4%B8%8B%E8%BD%BD-%E9%93%BE%E6%8E%A5%E7%8A%B6%E6%80%81%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD" target="_blank" rel="noopener">百度网盘超级助手【提取码自动填写、资源全速下载、链接状态自动判断】</a>，使用教程：<a href="https://www.zhyong.cn/posts/d265/">自用油猴脚本推荐 —— 让浏览器成为神器 | YouForever</a>）;</p>
+<li><p>打开PanDownload网页版，输入百度网盘分享链接和提取密码，打开（或者使用油猴脚本：<a target="_blank" rel="noopener" href="https://greasyfork.org/zh-CN/scripts/383501-%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98%E8%B6%85%E7%BA%A7%E5%8A%A9%E6%89%8B-%E6%8F%90%E5%8F%96%E7%A0%81%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%86%99-%E8%B5%84%E6%BA%90%E5%85%A8%E9%80%9F%E4%B8%8B%E8%BD%BD-%E9%93%BE%E6%8E%A5%E7%8A%B6%E6%80%81%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD">百度网盘超级助手【提取码自动填写、资源全速下载、链接状态自动判断】</a>，使用教程：<a href="https://www.zhyong.cn/posts/d265/">自用油猴脚本推荐 —— 让浏览器成为神器 | YouForever</a>）;</p>
 </li>
 <li><p>点击需要下载的文件，有两个下载地址：第一个为本地下载，可调用第三方下载软件如IDM加速下载，第二个为Aria2下载，我们点击第二个：</p>
 </li>
 </ol>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/08/0b55bd40bc49400bc48fc97c775052dc.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/08/08/0b55bd40bc49400bc48fc97c775052dc.png"></p>
 <ol start="3">
 <li>启动本地的Aria2服务（双击Start.bat即可），输入配置信息，由于我们仅下载到本地，地址直接输入：<code>localhost</code>，可选择下载的文件夹（若有服务器搭建了Aria2服务，亦可下载到服务器）</li>
 </ol>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/08/253b796fb14d7a58c3a3f49b53ce2a58.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/08/08/253b796fb14d7a58c3a3f49b53ce2a58.png"></p>
 <ol start="4">
 <li>这样我们可以在本地的Aria2 Web面板查看相关信息</li>
 </ol>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/08/d40f9b10a45c518ab2cc5140080ea8e3.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/08/08/d40f9b10a45c518ab2cc5140080ea8e3.png"></p>
 <ol start="5">
 <li>测试了一下使用IDM下载第一个链接的文件，下载速度最高也仅仅到110kb/s</li>
 </ol>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/08/08/4df907df59debf767f6504efa34c433d.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/08/08/4df907df59debf767f6504efa34c433d.png"></p>
 <p>可见使用Aria2下载速度非常可观，使用起来也非常方便，推荐一试。</p>
 
     </div>
@@ -416,7 +395,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -441,14 +426,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用工具"><span class="nav-number">1.</span> <span class="nav-text">使用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细教程"><span class="nav-number">2.</span> <span class="nav-text">详细教程</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">使用工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">详细教程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -457,20 +442,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -527,14 +512,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -670,31 +652,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/a615/",
+      identifier: "posts/a615/",
+      title: "PanDownload+Aria2：实现百度网盘高速下载",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

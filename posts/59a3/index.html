@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -251,7 +251,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/59a3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -286,27 +286,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/59a3/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/59a3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -319,7 +298,7 @@
       
         <h2 id="awk功能特点"><a href="#awk功能特点" class="headerlink" title="awk功能特点"></a>awk功能特点</h2><p>awk是一个非常重要的命令或者认为是一种语言。因为他可以做数学运算，流程控制语句，流控制，还有样式装入的功能。反正是非常强大。awk是三位创建者编写的。把awk定义为：样式扫描处理语言。</p>
 <p>awk吸收了c语言的很多特点，与c语言有点类似。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="awk的调用方式"><a href="#awk的调用方式" class="headerlink" title="awk的调用方式"></a>awk的调用方式</h2><p>awk提供了三种调用方式，方别是：</p>
 <ol>
@@ -334,7 +313,7 @@
 <li>记录与字段<br>在 awk中，缺省的情况下总是将文本文件中的一行视为一个记录，而将一行中的某一部分作为记录中的一个字段。为了操作这些不同的字段，awk借用shell 的方法，用$1,$2,$3…这样的方式来顺序地表示行（记录）中的不同字段。特殊地，awk用$0表示整个行（记录）。不同的字段之间是用称作分隔 符的字符分隔开的。系统默认的分隔符是空格。awk允许在命令行中用-F re的形式来改变这个分隔符。事实上，awk用一个内置的变量FS来记忆这个分隔符</li>
 <li>内置变量<br>awk中有好几个这样的内置变量，例如，记录分隔符变量RS、当前工作的记录数NR等等。</li>
 </ol>
-<p><strong>示例</strong>：显示文件本文件testAwk中第3行到第6行，以字符%分隔的第一个字段，第三个字段：<br><code>awk -F % &#39;NR==3,NR==6 {printf $1  $3}&#39; testAwk</code></p>
+<p><strong>示例</strong>：显示文件本文件testAwk中第3行到第6行，以字符%分隔的第一个字段，第三个字段：<br><code>　awk -F % &#39;NR==3,NR==6 &#123;printf $1  $3&#125;&#39; testAwk</code></p>
 
     </div>
 
@@ -395,7 +374,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -420,14 +405,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#awk功能特点"><span class="nav-number">1.</span> <span class="nav-text">awk功能特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk的调用方式"><span class="nav-number">2.</span> <span class="nav-text">awk的调用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk语法"><span class="nav-number">3.</span> <span class="nav-text">awk语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk的记录，字段与内置变量"><span class="nav-number">4.</span> <span class="nav-text">awk的记录，字段与内置变量</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">awk功能特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E7%9A%84%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">awk的调用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E8%AF%AD%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">awk语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E7%9A%84%E8%AE%B0%E5%BD%95%EF%BC%8C%E5%AD%97%E6%AE%B5%E4%B8%8E%E5%86%85%E7%BD%AE%E5%8F%98%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">awk的记录，字段与内置变量</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -436,20 +421,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -506,14 +491,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -649,31 +631,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/59a3/",
+      identifier: "posts/59a3/",
+      title: "awk命令详解",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

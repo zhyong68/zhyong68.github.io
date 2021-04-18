@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -254,7 +254,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/c2f9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -289,27 +289,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/c2f9/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/c2f9/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -320,9 +299,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener">Ripgrep</a> 是命令行下一个基于行的搜索工具，RipGrep 使用 Rust 开发，可以在多平台下运行，支持 Mac、Linux 和 Windows 等平台。RipGrep 与 <a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener">The Silver Searcher</a>、<a href="https://beyondgrep.com/" target="_blank" rel="noopener">Ack</a> 和 <a href="https://www.gnu.org/software/grep/" target="_blank" rel="noopener">GNU Grep</a> 的功能类似。</p>
-<p>项目地址：<a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener">https://github.com/BurntSushi/ripgrep</a> </p>
-<a id="more"></a>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a target="_blank" rel="noopener" href="https://github.com/BurntSushi/ripgrep">Ripgrep</a> 是命令行下一个基于行的搜索工具，RipGrep 使用 Rust 开发，可以在多平台下运行，支持 Mac、Linux 和 Windows 等平台。RipGrep 与 <a target="_blank" rel="noopener" href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a>、<a target="_blank" rel="noopener" href="https://beyondgrep.com/">Ack</a> 和 <a target="_blank" rel="noopener" href="https://www.gnu.org/software/grep/">GNU Grep</a> 的功能类似。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/BurntSushi/ripgrep">https://github.com/BurntSushi/ripgrep</a> </p>
+<span id="more"></span>
 
 <h2 id="为什么使用ripgrep"><a href="#为什么使用ripgrep" class="headerlink" title="为什么使用ripgrep"></a>为什么使用ripgrep</h2><h3 id="ripgrep性能测试"><a href="#ripgrep性能测试" class="headerlink" title="ripgrep性能测试"></a>ripgrep性能测试</h3><p>以搜索整个Linux内核源码（来自Github）：</p>
 <table>
@@ -335,54 +314,54 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener">ripgrep (Unicode)</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/BurntSushi/ripgrep">ripgrep (Unicode)</a></td>
 <td><code>rg -n -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
 <td align="center">450</td>
 <td align="center"><strong>0.106s</strong></td>
 </tr>
 <tr>
-<td align="center"><a href="https://www.kernel.org/pub/software/scm/git/docs/git-grep.html" target="_blank" rel="noopener">git grep</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.kernel.org/pub/software/scm/git/docs/git-grep.html">git grep</a></td>
 <td><code>LC_ALL=C git grep -E -n -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
 <td align="center">450</td>
 <td align="center">0.553s</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener">The Silver Searcher</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a></td>
 <td><code>ag -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
 <td align="center">450</td>
 <td align="center">0.589s</td>
 </tr>
 <tr>
-<td align="center"><a href="https://www.kernel.org/pub/software/scm/git/docs/git-grep.html" target="_blank" rel="noopener">git grep (Unicode)</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.kernel.org/pub/software/scm/git/docs/git-grep.html">git grep (Unicode)</a></td>
 <td><code>LC_ALL=en_US.UTF-8 git grep -E -n -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
 <td align="center">450</td>
 <td align="center">2.266s</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/svent/sift" target="_blank" rel="noopener">sift</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/svent/sift">sift</a></td>
 <td><code>sift --git -n -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
 <td align="center">450</td>
 <td align="center">3.505s</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/petdance/ack2" target="_blank" rel="noopener">ack</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/petdance/ack2">ack</a></td>
 <td><code>ack -w &#39;[A-Z]+_SUSPEND&#39;</code></td>
 <td align="center">1878</td>
 <td align="center">6.823s</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/monochromegane/the_platinum_searcher" target="_blank" rel="noopener">The Platinum Searcher</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/monochromegane/the_platinum_searcher">The Platinum Searcher</a></td>
 <td><code>pt -w -e &#39;[A-Z]+_SUSPEND&#39;</code></td>
 <td align="center">450</td>
 <td align="center">14.208s</td>
 </tr>
 </tbody></table>
 <p>由此可见<code>ripgrep</code>性能非常优异，搜索速度之快可见一斑。</p>
-<h3 id="个人使用"><a href="#个人使用" class="headerlink" title="个人使用"></a>个人使用</h3><p>之前非常推崇<a href="https://github.com/ggreer/the_silver_searcher" target="_blank" rel="noopener">The Silver Searcher</a>，但是由于新电脑对于Linux兼容性不是很好，一直使用Windows系统（虽然不喜欢），所以一直寻找可以在Windows上使用的命令行神器。但是<code>The Silver Searcher</code>在windows不能搜索中文，而<code>ripgrep</code>则不存在此问题。</p>
+<h3 id="个人使用"><a href="#个人使用" class="headerlink" title="个人使用"></a>个人使用</h3><p>之前非常推崇<a target="_blank" rel="noopener" href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a>，但是由于新电脑对于Linux兼容性不是很好，一直使用Windows系统（虽然不喜欢），所以一直寻找可以在Windows上使用的命令行神器。但是<code>The Silver Searcher</code>在windows不能搜索中文，而<code>ripgrep</code>则不存在此问题。</p>
 <p><img alt="pic" data-src="https://zhyong-cn-file.oss-cn-shanghai.aliyuncs.com/201901/2019-01-30_23-44-12.png"></p>
-<h2 id="安装ripgrep"><a href="#安装ripgrep" class="headerlink" title="安装ripgrep"></a>安装ripgrep</h2><p>官方教程：<a href="https://github.com/BurntSushi/ripgrep#installation" target="_blank" rel="noopener">https://github.com/BurntSushi/ripgrep#installation</a><br>里面详细介绍了各个平台的安装方法。</p>
-<p>对于Windows系统来说，更加推荐直接从<a href="https://github.com/BurntSushi/ripgrep/releases" target="_blank" rel="noopener">releases</a>下载对应的<code>ripgrep</code>程序，解压并加入到环境变量中，使用命令行调用更加方便。开始时试着<code>choco install ripgrep</code>命令安装，在下载程序时卡住，结果耗费了时间却还没有安装好。</p>
-<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><p>具体教程请点击<a href="https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="安装ripgrep"><a href="#安装ripgrep" class="headerlink" title="安装ripgrep"></a>安装ripgrep</h2><p>官方教程：<a target="_blank" rel="noopener" href="https://github.com/BurntSushi/ripgrep#installation">https://github.com/BurntSushi/ripgrep#installation</a><br>里面详细介绍了各个平台的安装方法。</p>
+<p>对于Windows系统来说，更加推荐直接从<a target="_blank" rel="noopener" href="https://github.com/BurntSushi/ripgrep/releases">releases</a>下载对应的<code>ripgrep</code>程序，解压并加入到环境变量中，使用命令行调用更加方便。开始时试着<code>choco install ripgrep</code>命令安装，在下载程序时卡住，结果耗费了时间却还没有安装好。</p>
+<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><p>具体教程请点击<a target="_blank" rel="noopener" href="https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md">官方文档</a></p>
 <p>根据著名的“二八原则”，我们只需要了解一个软件的 20% 用法即可解决我们遇到的 80% 问题。因此介绍一些简单的用法，能解决问题即可，详细了解请查看文档。</p>
 <ul>
 <li>在<code>README.md</code>中查找<code>fast</code>: <code>rg fast README.md</code></li>
@@ -392,7 +371,7 @@
 </ul>
 <p>并且<code>ripgrep</code>会自动过滤掉一些文件，例如<code>.gitignore</code>、隐藏文件和二进制文件，在搜索时可放心使用此工具，对于编程或者特定的场景，可极大提高效率，推荐使用。</p>
 <blockquote>
-<p>参考：<br><a href="https://www.hi-linux.com/posts/29245.html#%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%86%85%E5%AE%B9%E5%8F%8A%E6%98%BE%E7%A4%BA%E5%85%B6%E4%B8%8A%E4%B8%8B%E5%86%85%E5%AE%B9%E5%90%84%E4%B8%A4%E8%A1%8C" target="_blank" rel="noopener">推荐一款命令行下最快的文本搜索神器 RipGrep</a></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://www.hi-linux.com/posts/29245.html#%E6%90%9C%E7%B4%A2%E5%8C%B9%E9%85%8D%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%86%85%E5%AE%B9%E5%8F%8A%E6%98%BE%E7%A4%BA%E5%85%B6%E4%B8%8A%E4%B8%8B%E5%86%85%E5%AE%B9%E5%90%84%E4%B8%A4%E8%A1%8C">推荐一款命令行下最快的文本搜索神器 RipGrep</a></p>
 </blockquote>
 
     </div>
@@ -404,10 +383,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
+      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
+      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\bf7c\" rel="bookmark">Linux视频下载神器——you-get</a></div>
@@ -473,7 +452,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -498,14 +483,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用ripgrep"><span class="nav-number">2.</span> <span class="nav-text">为什么使用ripgrep</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ripgrep性能测试"><span class="nav-number">2.1.</span> <span class="nav-text">ripgrep性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人使用"><span class="nav-number">2.2.</span> <span class="nav-text">个人使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装ripgrep"><span class="nav-number">3.</span> <span class="nav-text">安装ripgrep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用教程"><span class="nav-number">4.</span> <span class="nav-text">使用教程</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8ripgrep"><span class="nav-number">2.</span> <span class="nav-text">为什么使用ripgrep</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ripgrep%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">2.1.</span> <span class="nav-text">ripgrep性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8"><span class="nav-number">2.2.</span> <span class="nav-text">个人使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ripgrep"><span class="nav-number">3.</span> <span class="nav-text">安装ripgrep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">使用教程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -514,20 +499,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -584,14 +569,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -727,31 +709,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/c2f9/",
+      identifier: "posts/c2f9/",
+      title: "命令行文本搜索神器——RipGrep",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

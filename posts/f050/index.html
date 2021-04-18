@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -260,7 +260,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/f050/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -295,27 +295,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/f050/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/f050/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -330,14 +309,14 @@
 <p><img alt="我的树莓派" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/Raspberry/1.jfif"></p>
 <p>因此我想将树莓派写出一个系列，来说说我对它的使用。</p>
 <p>一、 树莓派系统的选择及安装<br>二、 树莓派安装pi-hole过滤家中的广告<br>三、 树莓派连接蓝牙音箱，整点报时，定时语音播报</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>今天我们来进行系统的安装。</p>
 <h2 id="树莓派系统的安装"><a href="#树莓派系统的安装" class="headerlink" title="树莓派系统的安装"></a>树莓派系统的安装</h2><blockquote>
 <p>过了两年，我已经有自己的显示器了，想想当初没有显示器折腾树莓派，那叫一个辛苦。</p>
 </blockquote>
-<p>首先，去官网：<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">https://www.raspberrypi.org/downloads/</a> 下载安装镜像的文件，根据系统平台下载，直接安装即可，打开选择系统和SD卡，然后写入即可。</p>
-<p>PS：我之前是从Github的一个仓库<a href="https://github.com/home-assistant/pi-gen" target="_blank" rel="noopener">home-assistant/pi-gen: Tool used to create the Hassbian images</a>下载的，镜像组件教老，问题较多，官方的实在太好用了！</p>
+<p>首先，去官网：<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/downloads/">https://www.raspberrypi.org/downloads/</a> 下载安装镜像的文件，根据系统平台下载，直接安装即可，打开选择系统和SD卡，然后写入即可。</p>
+<p>PS：我之前是从Github的一个仓库<a target="_blank" rel="noopener" href="https://github.com/home-assistant/pi-gen">home-assistant/pi-gen: Tool used to create the Hassbian images</a>下载的，镜像组件教老，问题较多，官方的实在太好用了！</p>
 <p><img alt="官方最新的系统" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620173422.png"></p>
 <p>完成后，将SD卡从读卡器取出，直接插入到树莓派（之前我是直接将读卡器插入到树莓派，结果运行中一堆问题，害的我以为树莓派坏了），接入显示器、键盘、鼠标，开机，即可看到成功进入树莓派的系统(图为vnc登录截的)。</p>
 <p><img alt="官方界面" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620174729.png"></p>
@@ -345,7 +324,7 @@
 <h2 id="系统相关设置"><a href="#系统相关设置" class="headerlink" title="系统相关设置"></a>系统相关设置</h2><p>既然有了鼠标键盘，那么设置起来就非常容易了(部分截图我实在VNC里截的)。</p>
 <p><strong>1.设置静态IP</strong></p>
 <p>打开终端，编辑<code>vim /etc/dhcpcd.conf</code>，在<code># Example static IP configuration:</code>下面修改：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">interface</span> eth0</span><br><span class="line">static ip_address=<span class="number">192.168.0.229</span>/<span class="number">24</span></span><br><span class="line"><span class="comment">#static ip6_address=fd51:42f8:caae:d92e::ff/64</span></span><br><span class="line">static routers=<span class="number">192.168.0.1</span></span><br><span class="line">static domain_name_servers=<span class="number">192.168.0.1</span> <span class="number">8.8.8.8</span> <span class="number">114.114.114.114</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">interface</span> eth<span class="number">0</span></span><br><span class="line"><span class="attribute">static</span> ip_address=<span class="number">192.168.0.229</span>/<span class="number">24</span></span><br><span class="line"><span class="comment">#static ip6_address=fd51:42f8:caae:d92e::ff/64</span></span><br><span class="line"><span class="attribute">static</span> routers=<span class="number">192.168.0.1</span></span><br><span class="line"><span class="attribute">static</span> domain_name_servers=<span class="number">192.168.0.1</span> <span class="number">8.8.8.8</span> <span class="number">114.114.114.114</span></span><br></pre></td></tr></table></figure>
 
 <p>设置一下静态IP、静态路由和DNS服务器，根据实际设置，避免IP冲突即可，如我设置为<code>192.168.0.229/24</code>。</p>
 <p><strong>2.修改pi密码和设置远程SSH、VNC登录等</strong></p>
@@ -356,8 +335,8 @@
 <p><img alt="设置SSH登录和VNC登录" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620201022.png"></p>
 <p>然后最后一个<code>Localisation</code>设置时区为<code>Asia/ShangHai</code>，其余选项默认即可。</p>
 <p>然后即可关闭树莓派，拔掉显示器、鼠标、键盘，放在角落里，插上网线开机了，后面我们可以轻松地登录SSH和VNC操作。</p>
-<h2 id="远程连接树莓派"><a href="#远程连接树莓派" class="headerlink" title="远程连接树莓派"></a>远程连接树莓派</h2><p>SSH登录推荐使用<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank" rel="noopener">PuTTY</a>，默认用户名<code>pi</code>，密码为设置的密码，默认为<code>raspberry</code>。</p>
-<p>VNC登录我使用的是<a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">VNC Viewer</a>，非常不错。我使用的是网线连接（也推荐网线连接），因此我登录VNC后，直接点击右上角关闭Wifi。</p>
+<h2 id="远程连接树莓派"><a href="#远程连接树莓派" class="headerlink" title="远程连接树莓派"></a>远程连接树莓派</h2><p>SSH登录推荐使用<a target="_blank" rel="noopener" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a>，默认用户名<code>pi</code>，密码为设置的密码，默认为<code>raspberry</code>。</p>
+<p>VNC登录我使用的是<a target="_blank" rel="noopener" href="https://www.realvnc.com/en/connect/download/viewer/">VNC Viewer</a>，非常不错。我使用的是网线连接（也推荐网线连接），因此我登录VNC后，直接点击右上角关闭Wifi。</p>
 <p><img alt="VNC登录桌面管理树莓派" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620202842.png"></p>
 <p>至此，全部完成。</p>
 
@@ -427,7 +406,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -452,14 +437,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派系统的安装"><span class="nav-number">1.</span> <span class="nav-text">树莓派系统的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统相关设置"><span class="nav-number">2.</span> <span class="nav-text">系统相关设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程连接树莓派"><span class="nav-number">3.</span> <span class="nav-text">远程连接树莓派</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">树莓派系统的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">系统相关设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE"><span class="nav-number">3.</span> <span class="nav-text">远程连接树莓派</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -468,20 +453,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -538,14 +523,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -681,31 +663,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/f050/",
+      identifier: "posts/f050/",
+      title: "树莓派 Raspberry Pi 3B+安装官方系统（一）",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

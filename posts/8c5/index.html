@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -260,7 +260,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/8c5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -295,27 +295,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/8c5/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/8c5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -328,12 +307,12 @@
       
         <p>本篇博客讲解使用腾讯云静态网站托管的云服务托管Hexo静态页面，加速国内访问，搭建完成后效果良好，此操作需要一个<strong>已经备案</strong>的域名，相对于国内服务器部署价格非常便宜，且有免费CDN加速。</p>
 <p>正好这几天看到了腾讯云的静态网站托管服务，于是萌发将hexo托管于此，相对于托管在国内的码云等网站上，还要一年100多才能使用自定义域名，此种方案效果更佳，国外的线路继续走Github Pages。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="创建腾讯云开发环境"><a href="#创建腾讯云开发环境" class="headerlink" title="创建腾讯云开发环境"></a>创建腾讯云开发环境</h2><blockquote>
-<p>官方文档：<a href="https://cloud.tencent.com/document/product/1210/43365" target="_blank" rel="noopener">静态网站托管 搭建 Hexo</a></p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/1210/43365">静态网站托管 搭建 Hexo</a></p>
 </blockquote>
-<p>首先注册登录腾讯云：<a href="https://console.cloud.tencent.com/" target="_blank" rel="noopener">https://console.cloud.tencent.com/</a> ，完成后进入控制台，点击云产品——静态网站托管，然后创建一个环境，ok。</p>
+<p>首先注册登录腾讯云：<a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/">https://console.cloud.tencent.com/</a> ，完成后进入控制台，点击云产品——静态网站托管，然后创建一个环境，ok。</p>
 <p><img alt="静态网站托管" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200616200001.png"></p>
 <p><img alt="创建云开发环境" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200616201113.png"></p>
 <blockquote>
@@ -341,12 +320,12 @@
 </blockquote>
 <p>现在https是基本的需求，我的域名暂时没有SSL证书，因此顺便使用了腾讯云申请了免费版DVSSL证书，一年有效期，申请过程也非常简单，在云产品——域名与网站——SSL证书中，点击申请免费证书，输入域名、邮箱，然后在域名中添加<code>txt</code>记录验证域名所有权，马上就可以申请下来。</p>
 <p><img alt="申请SSL证书" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200616204027.png"></p>
-<p>接着，我们需要使用自己的域名来访问，因此在静态网站托管——基础设置中，我们添加一个自己的域名，如我的为<code>www.zhyong.cn</code>,然后等待几分钟，部署完成后，得到一个<code>CNAME</code>，我的为<code>www.zhyong.cn.cdn.dnsv1.com</code>，我们需要在域名的服务商里将CNAME记录指向此域名，等待生效后，效果如下。</p>
+<p>接着，我们需要使用自己的域名来访问，因此在静态网站托管——基础设置中，我们添加一个自己的域名，如我的为<code>www.zhyong.cn</code>,然后等待几分钟，部署完成后，得到一个<code>CNAME</code>，我的为<code>www.zhyong.cn.cdn.dnsv1.com    </code>，我们需要在域名的服务商里将CNAME记录指向此域名，等待生效后，效果如下。</p>
 <p><img alt="自定义域名部署完成" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200616201956.png"></p>
 <p>注意，我们还需要在基础配置中配置一下静态网站的404状态码，否则页面找不到不会自动显示<code>404.html</code>，而是一串代码。我的配置如下：</p>
 <p><img alt="404页面配置" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200616222353.png"></p>
 <p>ok，到此，我们已经完全搭建好了云端环境，接着将hexo生成的静态文件推送到创建的环境中即可。</p>
-<h2 id="推送本地Hexo文件到云端"><a href="#推送本地Hexo文件到云端" class="headerlink" title="推送本地Hexo文件到云端"></a>推送本地Hexo文件到云端</h2><p>官方文档参考：<a href="https://cloud.tencent.com/developer/article/1607244" target="_blank" rel="noopener">新能力 | 云开发CLI工具快速入门</a></p>
+<h2 id="推送本地Hexo文件到云端"><a href="#推送本地Hexo文件到云端" class="headerlink" title="推送本地Hexo文件到云端"></a>推送本地Hexo文件到云端</h2><p>官方文档参考：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1607244">新能力 | 云开发CLI工具快速入门</a></p>
 <p>首先安装腾讯云的CLI工具：</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g @cloudbase/cli</span><br></pre></td></tr></table></figure>
 
@@ -445,7 +424,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -470,14 +455,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建腾讯云开发环境"><span class="nav-number">1.</span> <span class="nav-text">创建腾讯云开发环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送本地Hexo文件到云端"><span class="nav-number">2.</span> <span class="nav-text">推送本地Hexo文件到云端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站测速"><span class="nav-number">3.</span> <span class="nav-text">网站测速</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%85%BE%E8%AE%AF%E4%BA%91%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">创建腾讯云开发环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0Hexo%E6%96%87%E4%BB%B6%E5%88%B0%E4%BA%91%E7%AB%AF"><span class="nav-number">2.</span> <span class="nav-text">推送本地Hexo文件到云端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E6%B5%8B%E9%80%9F"><span class="nav-number">3.</span> <span class="nav-text">网站测速</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -486,20 +471,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -556,14 +541,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -699,31 +681,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/8c5/",
+      identifier: "posts/8c5/",
+      title: "腾讯云静态网站托管加速Hexo博客",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

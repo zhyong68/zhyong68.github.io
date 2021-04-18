@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -258,7 +258,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/959b/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -293,27 +293,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/959b/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/959b/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -324,20 +303,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>是一款功能非常强大、拥有丰富插件的跨平台(Windows,Mac,Linux)开源免费的编辑器，非常好用。最近在学习Python过程中，更是感受到了它的强大，其功能不亚于专业的IDE。</p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VS Code</a>是一款功能非常强大、拥有丰富插件的跨平台(Windows,Mac,Linux)开源免费的编辑器，非常好用。最近在学习Python过程中，更是感受到了它的强大，其功能不亚于专业的IDE。</p>
 <p>code-server是VS Code运行在远程服务器上，然后通过浏览器访问即可使用VS Code，本篇文章详细介绍了如何远程部署code-server以及过程中遇到的问题及对应的解决方案。</p>
-<p>Github地址：<a href="https://github.com/cdr/code-server" target="_blank" rel="noopener">https://github.com/cdr/code-server</a></p>
-<a id="more"></a>
+<p>Github地址：<a target="_blank" rel="noopener" href="https://github.com/cdr/code-server">https://github.com/cdr/code-server</a></p>
+<span id="more"></span>
 
 <p><img alt="Github上的演示" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/screenshot.png"></p>
-<h2 id="CentOS部署coder-server"><a href="#CentOS部署coder-server" class="headerlink" title="CentOS部署coder-server"></a>CentOS部署coder-server</h2><p><a href="https://github.com/cdr/code-server" target="_blank" rel="noopener">cdr/code-server</a>部署方式有两种，可以使用docker部署，或者直接下载二进制文件即可运行。这里我使用二进制进行部署。</p>
+<h2 id="CentOS部署coder-server"><a href="#CentOS部署coder-server" class="headerlink" title="CentOS部署coder-server"></a>CentOS部署coder-server</h2><p><a target="_blank" rel="noopener" href="https://github.com/cdr/code-server">cdr/code-server</a>部署方式有两种，可以使用docker部署，或者直接下载二进制文件即可运行。这里我使用二进制进行部署。</p>
 <blockquote>
 <p>我直接使用远程服务器部署，可以随时使用任何电脑来写代码，非常方便。当然也可以使用Windows10 WSL或者本地Linux部署。</p>
 </blockquote>
 <ol>
 <li><p>使用ssh连接远程服务器</p>
 </li>
-<li><p>在<a href="https://github.com/cdr/code-server/releases" target="_blank" rel="noopener">Releases · cdr/code-server</a>下载最新版本的code-server</p>
+<li><p>在<a target="_blank" rel="noopener" href="https://github.com/cdr/code-server/releases">Releases · cdr/code-server</a>下载最新版本的code-server</p>
 </li>
 </ol>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/cdr/code-server/releases/download/2.1478-vsc1.38.1/code-server2.1478-vsc1.38.1-linux-x86_64.tar.gz</span><br><span class="line"></span><br><span class="line">tar xzvf code-server1.1156-vsc1.33.1-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
@@ -347,9 +326,9 @@
 </ol>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> code-server1.1156-vsc1.33.1-linux-x64/</span><br><span class="line">./code-server</span><br></pre></td></tr></table></figure>
 <p>但是很不幸，控制台输出错误（亲测Ubuntu18可直接启动），错误信息：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost code-server1.939-vsc1.33.1-linux-x64]<span class="comment"># ./code-server</span></span><br><span class="line"><span class="string">./code-server</span>: <span class="string">/lib64/libstdc</span>++<span class="string">.so.6</span>: <span class="keyword">version</span> `GLIBCXX_3.4.20' not found <span class="params">(required by ./code-server)</span></span><br><span class="line"><span class="string">./code-server</span>: <span class="string">/lib64/libstdc</span>++<span class="string">.so.6</span>: <span class="keyword">version</span> `GLIBCXX_3.4.21' not found <span class="params">(required by ./code-server)</span></span><br><span class="line"><span class="string">./code-server</span>: <span class="string">/lib64/libstdc</span>++<span class="string">.so.6</span>: <span class="keyword">version</span> `CXXABI_1.3.9' not found <span class="params">(required by ./code-server)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost code-server1.<span class="number">939</span>-vsc1.<span class="number">33.1</span>-linux-x64]<span class="comment"># ./code-server</span></span><br><span class="line">.<span class="regexp">/code-server: /</span>lib64<span class="regexp">/libstdc++.so.6: version `GLIBCXX_3.4.20&#x27; not found (required by ./</span>code-server)</span><br><span class="line">.<span class="regexp">/code-server: /</span>lib64<span class="regexp">/libstdc++.so.6: version `GLIBCXX_3.4.21&#x27; not found (required by ./</span>code-server)</span><br><span class="line">.<span class="regexp">/code-server: /</span>lib64<span class="regexp">/libstdc++.so.6: version `CXXABI_1.3.9&#x27; not found (required by ./</span>code-server)</span><br></pre></td></tr></table></figure>
 
-<p>具体解决方法查看最下面的<a href="https://blog.csdn.net/sinat_36008080/article/details/89604382" target="_blank" rel="noopener">参考1</a>，我使用参考文章的方法一解决的。具体步骤如下：</p>
+<p>具体解决方法查看最下面的<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36008080/article/details/89604382">参考1</a>，我使用参考文章的方法一解决的。具体步骤如下：</p>
 <ul>
 <li>获取<code>libstdc++.so.6.0.25</code>版本库:</li>
 </ul>
@@ -363,11 +342,11 @@
 <ul>
 <li>完成后即可解决<code>libstdc++.so.6</code>的问题，进入目录启动<code>code-server</code>，控制台输出：</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(node:29316) [DEP0005] DeprecationWarning: Buffer() is deprecated due to securit                                                                                                             y and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or                                                                                                              Buffer.from() methods instead.</span><br><span class="line">INFO  code-server v1.1156-vsc1.33.1</span><br><span class="line">INFO  Additional documentation: http://github.com/cdr/code-server</span><br><span class="line">INFO  Initializing &#123;<span class="string">"data-dir"</span>:<span class="string">"/root/.local/share/code-server"</span>,<span class="string">"extensions-dir"</span>                                                                                                             :<span class="string">"/root/.local/share/code-server/extensions"</span>,<span class="string">"working-dir"</span>:<span class="string">"/root/code-server1.1                                                                                                             156-vsc1.33.1-linux-x64"</span>,<span class="string">"log-dir"</span>:<span class="string">"/root/.cache/code-server/logs/20190915051238                                                                                                             441"</span>&#125;</span><br><span class="line">INFO  Starting webserver... &#123;<span class="string">"host"</span>:<span class="string">"0.0.0.0"</span>,<span class="string">"port"</span>:8443&#125;</span><br><span class="line">WARN  No certificate specified. This could be insecure.</span><br><span class="line">WARN  Documentation on securing your setup: https://github.com/cdr/code-server/b                                                                                                             lob/master/doc/security/ssl.md</span><br><span class="line">INFO</span><br><span class="line">INFO  Password: fb4110db1c8215010522d8ab</span><br><span class="line">INFO</span><br><span class="line">INFO  Started (click the link below to open):</span><br><span class="line">INFO  https://localhost:8443/</span><br><span class="line">INFO</span><br><span class="line">INFO  Starting shared process [1/5]...</span><br><span class="line">WARN  stderr &#123;<span class="string">"data"</span>:<span class="string">"(node:29330) [DEP0005] DeprecationWarning: Buffer() is dep                                                                                                             recated due to security and usability issues. Please use the Buffer.alloc(), Buf                                                                                                             fer.allocUnsafe(), or Buffer.from() methods instead.\n"</span>&#125;</span><br><span class="line">INFO  Connected to shared process</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(node:29316) [DEP0005] DeprecationWarning: Buffer() is deprecated due to securit                                                                                                             y and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or                                                                                                              Buffer.from() methods instead.</span><br><span class="line">INFO  code-server v1.1156-vsc1.33.1</span><br><span class="line">INFO  Additional documentation: http://github.com/cdr/code-server</span><br><span class="line">INFO  Initializing &#123;<span class="string">&quot;data-dir&quot;</span>:<span class="string">&quot;/root/.local/share/code-server&quot;</span>,<span class="string">&quot;extensions-dir&quot;</span>                                                                                                             :<span class="string">&quot;/root/.local/share/code-server/extensions&quot;</span>,<span class="string">&quot;working-dir&quot;</span>:<span class="string">&quot;/root/code-server1.1                                                                                                             156-vsc1.33.1-linux-x64&quot;</span>,<span class="string">&quot;log-dir&quot;</span>:<span class="string">&quot;/root/.cache/code-server/logs/20190915051238                                                                                                             441&quot;</span>&#125;</span><br><span class="line">INFO  Starting webserver... &#123;<span class="string">&quot;host&quot;</span>:<span class="string">&quot;0.0.0.0&quot;</span>,<span class="string">&quot;port&quot;</span>:8443&#125;</span><br><span class="line">WARN  No certificate specified. This could be insecure.</span><br><span class="line">WARN  Documentation on securing your setup: https://github.com/cdr/code-server/b                                                                                                             lob/master/doc/security/ssl.md</span><br><span class="line">INFO</span><br><span class="line">INFO  Password: fb4110db1c8215010522d8ab</span><br><span class="line">INFO</span><br><span class="line">INFO  Started (click the link below to open):</span><br><span class="line">INFO  https://localhost:8443/</span><br><span class="line">INFO</span><br><span class="line">INFO  Starting shared process [1/5]...</span><br><span class="line">WARN  stderr &#123;<span class="string">&quot;data&quot;</span>:<span class="string">&quot;(node:29330) [DEP0005] DeprecationWarning: Buffer() is dep                                                                                                             recated due to security and usability issues. Please use the Buffer.alloc(), Buf                                                                                                             fer.allocUnsafe(), or Buffer.from() methods instead.\n&quot;</span>&#125;</span><br><span class="line">INFO  Connected to shared process</span><br></pre></td></tr></table></figure>
 
 <p>浏览器输入<code>https://IP:8443</code>或者<code>https://域名:端口</code>即可访问，访问密码为控制台输出的<code>Password</code>后的字段。</p>
 <div class="note info">
-            <ol><li>注意必须使用https进行访问</li><li>SSL证书为code server自签发的证书，可能会被浏览器提示不安全，直接访问即可（后面会解决）</li><li>记得放行<code>8443</code>端口，我是使用<a href="https://www.bt.cn/" target="_blank" rel="noopener">宝塔面板</a>控制的，在”首页-安全”里面放行即可</li><li>重新启动后，密码会重新生成</li><li>推荐使用国内的或低延迟的服务器部署</li></ol>
+            <ol><li>注意必须使用https进行访问</li><li>SSL证书为code server自签发的证书，可能会被浏览器提示不安全，直接访问即可（后面会解决）</li><li>记得放行<code>8443</code>端口，我是使用<a target="_blank" rel="noopener" href="https://www.bt.cn/">宝塔面板</a>控制的，在”首页-安全”里面放行即可</li><li>重新启动后，密码会重新生成</li><li>推荐使用国内的或低延迟的服务器部署</li></ol>
           </div>
 
 <p>成功访问。</p>
@@ -378,10 +357,10 @@
 <li>问题2：code-server自签的证书被浏览器提示不安全</li>
 <li>问题3：域名+端口的访问方式实在是太麻烦，而且还会暴露端口，不安全</li>
 </ul>
-<p>那么接下来我们一一来解决这些问题。问题2、3我是使用宝塔面板来操作的，<a href="https://www.bt.cn/?invite_code=MV9vdmlra2U=" target="_blank" rel="noopener">详细点击</a></p>
+<p>那么接下来我们一一来解决这些问题。问题2、3我是使用宝塔面板来操作的，<a target="_blank" rel="noopener" href="https://www.bt.cn/?invite_code=MV9vdmlra2U=">详细点击</a></p>
 <h2 id="优化code-server服务"><a href="#优化code-server服务" class="headerlink" title="优化code-server服务"></a>优化code-server服务</h2><p>我们针对上述三个问题来进行解决。</p>
 <ol>
-<li>问题1：我们使用ssh连接的方式启动<code>code-server</code>，一旦断开ssh连接，那么code-server就不可以再使用了<br>这里我使用的方式是借用tmux，tmux是一款优秀的终端复用软件，它比Screen更加强大：<a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">tmux/tmux: tmux source code</a><br>我们在centOS安装tmux:<code>sudo  yum install tmux</code> ，tmux的使用教程可查看<a href="http://louiszhai.github.io/2017/09/30/tmux/#%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D" target="_blank" rel="noopener">参考2</a>.<br>安装完成后，我们使用tmux来启动<code>code-server</code></li>
+<li>问题1：我们使用ssh连接的方式启动<code>code-server</code>，一旦断开ssh连接，那么code-server就不可以再使用了<br>这里我使用的方式是借用tmux，tmux是一款优秀的终端复用软件，它比Screen更加强大：<a target="_blank" rel="noopener" href="https://github.com/tmux/tmux">tmux/tmux: tmux source code</a><br>我们在centOS安装tmux:<code>sudo  yum install tmux</code> ，tmux的使用教程可查看<a target="_blank" rel="noopener" href="http://louiszhai.github.io/2017/09/30/tmux/#%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D">参考2</a>.<br>安装完成后，我们使用tmux来启动<code>code-server</code></li>
 </ol>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用一个名为codeserver的会话</span></span><br><span class="line">tmux new -s codeserver</span><br><span class="line"><span class="comment"># 在tmux中启动code-server</span></span><br><span class="line">./code-server</span><br><span class="line"><span class="comment"># 断开tmux会话，下次还可以接着用</span></span><br><span class="line"><span class="comment"># 或者使用快捷键Ctrl+b + d，三次按键就可以断开当前会话，这里我们只能使用快捷键</span></span><br><span class="line">tmux detach（这里只能使用快捷键 Ctrl+b +d）</span><br><span class="line"><span class="comment"># 重新进入codeserver会话，有两种方式</span></span><br><span class="line">tmux a <span class="comment"># 默认进入第一个会话</span></span><br><span class="line">tmux a -t codeserver <span class="comment"># 进入到名称为codeserver的会话</span></span><br><span class="line"><span class="comment"># 查看会话列表</span></span><br><span class="line">tmux ls</span><br></pre></td></tr></table></figure>
 
@@ -397,22 +376,22 @@
 <ol start="3">
 <li>问题3：域名+端口的访问方式实在是太麻烦，而且还会暴露端口，不安全</li>
 </ol>
-<p>这里我们改变默认端口进行访问，并且使用Nginx反向代理：<a href="https://github.com/cdr/code-server/blob/master/doc/quickstart.md" target="_blank" rel="noopener">code-server/quickstart.md</a> ，使用宝塔面板来操作。</p>
-<p>修改端口：我们可以选择合适的端口开启code-server，如: <code>./code-server --port 28865</code></p>
+<p>这里我们改变默认端口进行访问，并且使用Nginx反向代理：<a target="_blank" rel="noopener" href="https://github.com/cdr/code-server/blob/master/doc/quickstart.md">code-server/quickstart.md</a> ，使用宝塔面板来操作。</p>
+<p>修改端口：我们可以选择合适的端口开启code-server，如: <code> ./code-server --port 28865</code></p>
 <p>添加Nginx反向代理：</p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/09/15/20190915140819.png"></p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/10/06/20191006232321.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/09/15/20190915140819.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/10/06/20191006232321.png"></p>
 <p><font color="red"><strong>注意</strong>，这里有一个很重要的事情，在反向代理的配置文件中，按如下方式设置配置文件，否则登录完成后一片全黑，不能正常显示。</font></p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/09/15/20190915151250.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/09/15/20190915151250.png"></p>
 <p>这是官方推荐的Nginx反向代理配置模板：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">listen</span> [::]:<span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> code.example.com code.example.org;</span><br><span class="line">  <span class="attribute">location</span> /some/path/ &#123; <span class="comment"># Or / if hosting at the root.</span></span><br><span class="line">      <span class="attribute">proxy_pass</span> http://localhost:8080/;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Connection upgrade;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Accept-Encoding gzip;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">listen</span> [::]:<span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> code.example.com code.example.org;</span><br><span class="line">  <span class="attribute">location</span> /some/path/ &#123; <span class="comment"># Or / if hosting at the root.</span></span><br><span class="line">      <span class="attribute">proxy_pass</span> http://localhost:8080/;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Host $host;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Upgrade $http_upgrade;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Connection upgrade;</span><br><span class="line">      <span class="attribute">proxy_set_header</span> Accept-Encoding gzip;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>设置完成后，我们就可以直接使用域名来访问code-server了，而且也没有证书不安全的提示，完美解决了上述问题。</p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/09/15/20190915143919.png"></p>
-<p><img alt data-src="https://pic.zhyong.cn/images/2019/09/15/20190915150814.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/09/15/20190915143919.png"></p>
+<p><img data-src="https://pic.zhyong.cn/images/2019/09/15/20190915150814.png"></p>
 <p>这样我们就可以愉快地在浏览器上使用VsCode了，使用浏览器第一次登录后，需要等待一段时间，再次使用基本都是秒开的，这一点非常不错，赶紧去体验一番了。</p>
 <blockquote>
-<p>参考：<br><a href="https://blog.csdn.net/sinat_36008080/article/details/89604382" target="_blank" rel="noopener">centos7 ./code-server: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.20’ not found 解决方法</a><br><a href="http://louiszhai.github.io/2017/09/30/tmux/#%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D" target="_blank" rel="noopener">Tmux使用手册 | louis blog</a></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36008080/article/details/89604382">centos7 ./code-server: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.20’ not found 解决方法</a><br><a target="_blank" rel="noopener" href="http://louiszhai.github.io/2017/09/30/tmux/#%E6%96%B0%E5%BB%BA%E4%BC%9A%E8%AF%9D">Tmux使用手册 | louis blog</a></p>
 </blockquote>
 
     </div>
@@ -480,7 +459,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -505,14 +490,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS部署coder-server"><span class="nav-number">2.</span> <span class="nav-text">CentOS部署coder-server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在的问题"><span class="nav-number">3.</span> <span class="nav-text">存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化code-server服务"><span class="nav-number">4.</span> <span class="nav-text">优化code-server服务</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS%E9%83%A8%E7%BD%B2coder-server"><span class="nav-number">2.</span> <span class="nav-text">CentOS部署coder-server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96code-server%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">优化code-server服务</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -521,20 +506,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -591,14 +576,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -734,31 +716,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/959b/",
+      identifier: "posts/959b/",
+      title: "CentOS7部署code-server并配置Nginx反向代理",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

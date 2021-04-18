@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -255,7 +255,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/bbfe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -290,27 +290,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/bbfe/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/bbfe/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -323,9 +302,9 @@
       
         <p>在Mac使用过程中，难免需要查看一些文本文件，通常使用<code>cat</code>命令或者使用编辑器如<code>vim</code>或<code>nano</code>打开。在使用<code>cat</code>查看文本时，通常有很多弊端，如不能高亮显示代码、不能显示行号，若文本太长，则阅读非常不方便，需要配合鼠标使用等等。</p>
 <p>而<code>bat</code>命令，则很好地解决了这些问题，使得查看文本更加方便，并且跨平台使用，支持Mac、Windows和Linux系统。</p>
-<a id="more"></a>
+<span id="more"></span>
 
-<p>Github地址：<a href="https://github.com/sharkdp/bat#how-to-use" target="_blank" rel="noopener">sharkdp/bat: A cat(1) clone with wings.</a></p>
+<p>Github地址：<a target="_blank" rel="noopener" href="https://github.com/sharkdp/bat#how-to-use">sharkdp/bat: A cat(1) clone with wings.</a></p>
 <h2 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h2><p><code>bat</code>具有如下特征：</p>
 <ul>
 <li>语法高亮</li>
@@ -341,15 +320,15 @@
 <li>查看多个文本：<code>bat *.sh</code></li>
 <li>从标准输入中读入，自动语法高亮：<code>curl -s https://sh.rustup.rs | bat</code></li>
 <li>显示不可打印的字符：<code>bat -A /etc/hosts</code></li>
-<li>与其它工具集成：<code>find README.md -exec bat {} +</code></li>
+<li>与其它工具集成：<code>find README.md -exec bat &#123;&#125; +</code></li>
 </ol>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装：<a href="https://github.com/sharkdp/bat#installation" target="_blank" rel="noopener">https://github.com/sharkdp/bat#installation</a><br>在此以Mac为例：</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装：<a target="_blank" rel="noopener" href="https://github.com/sharkdp/bat#installation">https://github.com/sharkdp/bat#installation</a><br>在此以Mac为例：</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span><span class="keyword">bat</span></span><br></pre></td></tr></table></figure>
 <p>安装完成即可使用，使用<code>man bat</code>可查看命令手册。</p>
 <h2 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h2><p><strong>使用新主题</strong><br>首先创建一个新的语法高亮主题的文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="string">"<span class="variable">$(bat --config-dir)</span>/themes"</span></span><br><span class="line"><span class="built_in">cd</span> <span class="string">"<span class="variable">$(bat --config-dir)</span>/themes"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Download a theme in '.tmTheme' format, for example:</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/greggb/sublime-snazzy</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update the binary cache</span></span><br><span class="line">bat cache --build</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="string">&quot;$(bat --config-dir)/themes&quot;</span></span><br><span class="line">cd <span class="string">&quot;$(bat --config-dir)/themes&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Download a theme in &#x27;.tmTheme&#x27; format, for example:</span></span><br><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/greggb/</span>sublime-snazzy</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update the binary cache</span></span><br><span class="line">bat cache --build</span><br></pre></td></tr></table></figure>
 <p>最后使用<code>bat --list-themes</code>来检查新主题是否可用。</p>
-<p>其它的自行参考<a href="https://github.com/sharkdp/bat#customization" target="_blank" rel="noopener">官方文档</a></p>
+<p>其它的自行参考<a target="_blank" rel="noopener" href="https://github.com/sharkdp/bat#customization">官方文档</a></p>
 
     </div>
 
@@ -366,10 +345,10 @@
       <div class="popular-posts-title"><a href="\posts\3027\" rel="bookmark">tldr——快速使用Linux命令</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
+      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
+      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\bf7c\" rel="bookmark">Linux视频下载神器——you-get</a></div>
@@ -430,7 +409,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -455,14 +440,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#特征"><span class="nav-number">1.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用教程"><span class="nav-number">2.</span> <span class="nav-text">使用教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶"><span class="nav-number">4.</span> <span class="nav-text">进阶</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81"><span class="nav-number">1.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">使用教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6"><span class="nav-number">4.</span> <span class="nav-text">进阶</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -471,20 +456,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -541,14 +526,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -684,31 +666,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/bbfe/",
+      identifier: "posts/bbfe/",
+      title: "bat——更好的cat命令替代工具",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

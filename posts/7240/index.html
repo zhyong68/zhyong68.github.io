@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -251,7 +251,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/7240/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -286,27 +286,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/7240/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/7240/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -324,56 +303,70 @@
 <li>parse:一个工具模块，提供了许多Url的处理方法</li>
 <li>robotparser:主要用来识别网站的robots.txt文件，用的较少</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="urlopen"><a href="#urlopen" class="headerlink" title="urlopen()"></a>urlopen()</h2><p>urllib.request模块提供了最基本的HTTP请求的方法，同时它还带有处理授权验证、重定向、浏览器Cookies等功能。</p>
 <p>使用urlopen()方法，API如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">urlopen</span><span class="params">(url, data=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT,</span></span></span><br><span class="line"><span class="function"><span class="params">            *, cafile=None, capath=None, cadefault=False, context=None)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">urlopen</span>(<span class="params">url, data=<span class="literal">None</span>, timeout=socket._GLOBAL_DEFAULT_TIMEOUT,</span></span></span><br><span class="line"><span class="function"><span class="params">            *, cafile=<span class="literal">None</span>, capath=<span class="literal">None</span>, cadefault=<span class="literal">False</span>, context=<span class="literal">None</span></span>)</span></span><br></pre></td></tr></table></figure>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">'https://www.python.org'</span>)</span><br><span class="line">print(response.read().decode(<span class="string">'utf8'</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">&#x27;https://www.python.org&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(response.read().decode(<span class="string">&#x27;utf8&#x27;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>我们使用type方法查看响应的类型</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">'https://www.python.org'</span>)</span><br><span class="line">print(type(response))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">&#x27;https://www.python.org&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(response))</span><br></pre></td></tr></table></figure>
 
-<pre><code>&lt;class &apos;http.client.HTTPResponse&apos;&gt;</code></pre><p>可以看出返回的是一个<code>HTTPResponse</code>，我们可以这些方法和属性查看一些信息。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">'https://www.python.org'</span>)</span><br><span class="line">print(response.status)</span><br><span class="line">print(response.getheaders())</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;class &#39;http.client.HTTPResponse&#39;&gt;
+</code></pre>
+<p>可以看出返回的是一个<code>HTTPResponse</code>，我们可以这些方法和属性查看一些信息。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">&#x27;https://www.python.org&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(response.status)</span><br><span class="line"><span class="built_in">print</span>(response.getheaders())</span><br></pre></td></tr></table></figure>
 
 <pre><code>200
-[(&apos;Server&apos;, &apos;nginx&apos;), (&apos;Content-Type&apos;, &apos;text/html; charset=utf-8&apos;), (&apos;X-Frame-Options&apos;, &apos;DENY&apos;), (&apos;Via&apos;, &apos;1.1 vegur&apos;), (&apos;Via&apos;, &apos;1.1 varnish&apos;), (&apos;Content-Length&apos;, &apos;48510&apos;), (&apos;Accept-Ranges&apos;, &apos;bytes&apos;), (&apos;Date&apos;, &apos;Sat, 10 Aug 2019 02:56:05 GMT&apos;), (&apos;Via&apos;, &apos;1.1 varnish&apos;), (&apos;Age&apos;, &apos;3403&apos;), (&apos;Connection&apos;, &apos;close&apos;), (&apos;X-Served-By&apos;, &apos;cache-iad2138-IAD, cache-lax8627-LAX&apos;), (&apos;X-Cache&apos;, &apos;HIT, HIT&apos;), (&apos;X-Cache-Hits&apos;, &apos;2, 360&apos;), (&apos;X-Timer&apos;, &apos;S1565405765.160733,VS0,VE0&apos;), (&apos;Vary&apos;, &apos;Cookie&apos;), (&apos;Strict-Transport-Security&apos;, &apos;max-age=63072000; includeSubDomains&apos;)]</code></pre><p><strong>urlopen的data参数:</strong><br>data参数是可选的，如果添加该参数，若它是字节流编码格式的内容，则需要通过<code>bytes()</code>方法转换，请求方式变为POST方式。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">data=bytes(urllib.parse.urlencode(&#123;<span class="string">'word'</span>:<span class="string">'hello'</span>&#125;),encoding=<span class="string">'utf8'</span>)</span><br><span class="line">response=urllib.request.urlopen(<span class="string">'http://httpbin.org/post'</span>,data=data)</span><br><span class="line">print(response.read())</span><br></pre></td></tr></table></figure>
+[(&#39;Server&#39;, &#39;nginx&#39;), (&#39;Content-Type&#39;, &#39;text/html; charset=utf-8&#39;), (&#39;X-Frame-Options&#39;, &#39;DENY&#39;), (&#39;Via&#39;, &#39;1.1 vegur&#39;), (&#39;Via&#39;, &#39;1.1 varnish&#39;), (&#39;Content-Length&#39;, &#39;48510&#39;), (&#39;Accept-Ranges&#39;, &#39;bytes&#39;), (&#39;Date&#39;, &#39;Sat, 10 Aug 2019 02:56:05 GMT&#39;), (&#39;Via&#39;, &#39;1.1 varnish&#39;), (&#39;Age&#39;, &#39;3403&#39;), (&#39;Connection&#39;, &#39;close&#39;), (&#39;X-Served-By&#39;, &#39;cache-iad2138-IAD, cache-lax8627-LAX&#39;), (&#39;X-Cache&#39;, &#39;HIT, HIT&#39;), (&#39;X-Cache-Hits&#39;, &#39;2, 360&#39;), (&#39;X-Timer&#39;, &#39;S1565405765.160733,VS0,VE0&#39;), (&#39;Vary&#39;, &#39;Cookie&#39;), (&#39;Strict-Transport-Security&#39;, &#39;max-age=63072000; includeSubDomains&#39;)]
+</code></pre>
+<p><strong>urlopen的data参数:</strong><br>data参数是可选的，如果添加该参数，若它是字节流编码格式的内容，则需要通过<code>bytes()</code>方法转换，请求方式变为POST方式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">data=<span class="built_in">bytes</span>(urllib.parse.urlencode(&#123;<span class="string">&#x27;word&#x27;</span>:<span class="string">&#x27;hello&#x27;</span>&#125;),encoding=<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">response=urllib.request.urlopen(<span class="string">&#x27;http://httpbin.org/post&#x27;</span>,data=data)</span><br><span class="line"><span class="built_in">print</span>(response.read())</span><br></pre></td></tr></table></figure>
 
-<pre><code>b&apos;{\n  &quot;args&quot;: {}, \n  &quot;data&quot;: &quot;&quot;, \n  &quot;files&quot;: {}, \n  &quot;form&quot;: {\n    &quot;word&quot;: &quot;hello&quot;\n  }, \n  &quot;headers&quot;: {\n    &quot;Accept-Encoding&quot;: &quot;identity&quot;, \n    &quot;Content-Length&quot;: &quot;10&quot;, \n    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, \n    &quot;Host&quot;: &quot;httpbin.org&quot;, \n    &quot;User-Agent&quot;: &quot;Python-urllib/3.7&quot;\n  }, \n  &quot;json&quot;: null, \n  &quot;origin&quot;: &quot;112.26.77.217, 112.26.77.217&quot;, \n  &quot;url&quot;: &quot;https://httpbin.org/post&quot;\n}\n&apos;</code></pre><p>可以看到上述的<code>form</code>表单中的<code>word</code>:<code>hello</code>，即我们请求的数据。</p>
+<pre><code>b&#39;&#123;\n  &quot;args&quot;: &#123;&#125;, \n  &quot;data&quot;: &quot;&quot;, \n  &quot;files&quot;: &#123;&#125;, \n  &quot;form&quot;: &#123;\n    &quot;word&quot;: &quot;hello&quot;\n  &#125;, \n  &quot;headers&quot;: &#123;\n    &quot;Accept-Encoding&quot;: &quot;identity&quot;, \n    &quot;Content-Length&quot;: &quot;10&quot;, \n    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, \n    &quot;Host&quot;: &quot;httpbin.org&quot;, \n    &quot;User-Agent&quot;: &quot;Python-urllib/3.7&quot;\n  &#125;, \n  &quot;json&quot;: null, \n  &quot;origin&quot;: &quot;112.26.77.217, 112.26.77.217&quot;, \n  &quot;url&quot;: &quot;https://httpbin.org/post&quot;\n&#125;\n&#39;
+</code></pre>
+<p>可以看到上述的<code>form</code>表单中的<code>word</code>:<code>hello</code>，即我们请求的数据。</p>
 <p><strong>urllib的time参数：</strong>用于设置超时时间</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">'http://httpbin.org/get'</span>,timeout=<span class="number">0.1</span>)</span><br><span class="line">print(response.read())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">response=urllib.request.urlopen(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>,timeout=<span class="number">0.1</span>)</span><br><span class="line"><span class="built_in">print</span>(response.read())</span><br></pre></td></tr></table></figure>
 
 <p>最下面一行的：<code>URLError</code>，我们设置的超时时间为0.1s，超过时间后，抛出该异常。</p>
 <p>因此可以通过设置这个超时时间来控制一个网页如果长时间未响应，就跳过它的抓取。我们通过try except语句来实现。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response=urllib.request.urlopen(<span class="string">'http://httpbin.org/get'</span>,timeout=<span class="number">0.1</span>)</span><br><span class="line"><span class="keyword">except</span> urllib.error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">if</span> isinstance(e.reason,socket.timeout):</span><br><span class="line">        print(<span class="string">'Time out'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response=urllib.request.urlopen(<span class="string">&#x27;http://httpbin.org/get&#x27;</span>,timeout=<span class="number">0.1</span>)</span><br><span class="line"><span class="keyword">except</span> urllib.error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(e.reason,socket.timeout):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Time out&#x27;</span>)</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
 
-<pre><code>Time out</code></pre><h2 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h2><p>我们利用<code>urlopen()</code>方法可以实现最基本请求的发起，但这几个参数并不足以构建一个完整的请求。如果在请求中加入<code>Headers</code>等信息，我们可以利用更强大的Request类构建。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">request=urllib.request.Request(<span class="string">'https://www.python.org'</span>)</span><br><span class="line">response=urllib.request.urlopen(request)</span><br><span class="line">print(response.read().decode(<span class="string">'utf8'</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>Time out
+</code></pre>
+<h2 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h2><p>我们利用<code>urlopen()</code>方法可以实现最基本请求的发起，但这几个参数并不足以构建一个完整的请求。如果在请求中加入<code>Headers</code>等信息，我们可以利用更强大的Request类构建。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">request=urllib.request.Request(<span class="string">&#x27;https://www.python.org&#x27;</span>)</span><br><span class="line">response=urllib.request.urlopen(request)</span><br><span class="line"><span class="built_in">print</span>(response.read().decode(<span class="string">&#x27;utf8&#x27;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>查看一下<code>Request</code>的构造方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, url, data=None, headers=&#123;&#125;,</span></span></span><br><span class="line"><span class="function"><span class="params">                 origin_req_host=None, unverifiable=False,</span></span></span><br><span class="line"><span class="function"><span class="params">                 method=None)</span>:</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, url, data=<span class="literal">None</span>, headers=&#123;&#125;,</span></span></span><br><span class="line"><span class="function"><span class="params">                 origin_req_host=<span class="literal">None</span>, unverifiable=<span class="literal">False</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 method=<span class="literal">None</span></span>):</span></span><br></pre></td></tr></table></figure>
 <p>同样第二个参数<code>data</code>如果要传，则必须要tytes（字节流）类型的，如果是字典，可以先用<code>urllib.parse</code>模块里的<code>urlencode()</code>编码。</p>
 <p>第三个参数<code>headers</code>是一个字典，它就是请求头，最常用的方法就是修改<code>User-Agent</code>来伪装浏览器。比如伪装Chrome，设置为：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/<span class="number">5.0</span> (Windows NT <span class="number">10.0</span>; Win64; x64) AppleWebKit/<span class="number">537.36</span> (KHTML, like Gecko) Chrome/<span class="number">76.0</span><span class="number">.3809</span><span class="number">.100</span> Safari/<span class="number">537.36</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Mozilla</span>/<span class="number">5</span>.<span class="number">0</span> (Windows NT <span class="number">10</span>.<span class="number">0</span>; Win<span class="number">64</span>; x<span class="number">64</span>) AppleWebKit/<span class="number">537</span>.<span class="number">36</span> (KHTML, like Gecko) Chrome/<span class="number">76</span>.<span class="number">0</span>.<span class="number">3809</span>.<span class="number">100</span> Safari/<span class="number">537</span>.<span class="number">36</span></span><br></pre></td></tr></table></figure>
 
 <p>第四个参数<code>origin_req_host</code>为请求方的host名称或者ip地址，第六个为请求方法，比如GET,POST等</p>
 <p>下面我们传入多个参数来看一下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request,parse</span><br><span class="line"></span><br><span class="line">url=<span class="string">'http://httpbin.org/post'</span></span><br><span class="line">headers=&#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'HOST'</span>:<span class="string">'httpbin.org'</span></span><br><span class="line">&#125;</span><br><span class="line">dict=&#123;</span><br><span class="line">    <span class="string">'name'</span>:<span class="string">'Jack'</span></span><br><span class="line">&#125;</span><br><span class="line">data=bytes(parse.urlencode(dict),encoding=<span class="string">'UTF8'</span>)</span><br><span class="line">req=request.Request(url=url,data=data,headers=headers,method=<span class="string">'POST'</span>)</span><br><span class="line">response=request.urlopen(req)</span><br><span class="line">print(response.read())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request,parse</span><br><span class="line"></span><br><span class="line">url=<span class="string">&#x27;http://httpbin.org/post&#x27;</span></span><br><span class="line">headers=&#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>:<span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;HOST&#x27;</span>:<span class="string">&#x27;httpbin.org&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">dict</span>=&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;Jack&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">data=<span class="built_in">bytes</span>(parse.urlencode(<span class="built_in">dict</span>),encoding=<span class="string">&#x27;UTF8&#x27;</span>)</span><br><span class="line">req=request.Request(url=url,data=data,headers=headers,method=<span class="string">&#x27;POST&#x27;</span>)</span><br><span class="line">response=request.urlopen(req)</span><br><span class="line"><span class="built_in">print</span>(response.read())</span><br></pre></td></tr></table></figure>
 
-<pre><code>b&apos;{\n  &quot;args&quot;: {}, \n  &quot;data&quot;: &quot;&quot;, \n  &quot;files&quot;: {}, \n  &quot;form&quot;: {\n    &quot;name&quot;: &quot;Jack&quot;\n  }, \n  &quot;headers&quot;: {\n    &quot;Accept-Encoding&quot;: &quot;identity&quot;, \n    &quot;Content-Length&quot;: &quot;9&quot;, \n    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, \n    &quot;Host&quot;: &quot;httpbin.org&quot;, \n    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&quot;\n  }, \n  &quot;json&quot;: null, \n  &quot;origin&quot;: &quot;112.26.77.217, 112.26.77.217&quot;, \n  &quot;url&quot;: &quot;https://httpbin.org/post&quot;\n}\n&apos;</code></pre><p>观察结果，我们已经成功设置了headers,data数据了。</p>
+<pre><code>b&#39;&#123;\n  &quot;args&quot;: &#123;&#125;, \n  &quot;data&quot;: &quot;&quot;, \n  &quot;files&quot;: &#123;&#125;, \n  &quot;form&quot;: &#123;\n    &quot;name&quot;: &quot;Jack&quot;\n  &#125;, \n  &quot;headers&quot;: &#123;\n    &quot;Accept-Encoding&quot;: &quot;identity&quot;, \n    &quot;Content-Length&quot;: &quot;9&quot;, \n    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, \n    &quot;Host&quot;: &quot;httpbin.org&quot;, \n    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&quot;\n  &#125;, \n  &quot;json&quot;: null, \n  &quot;origin&quot;: &quot;112.26.77.217, 112.26.77.217&quot;, \n  &quot;url&quot;: &quot;https://httpbin.org/post&quot;\n&#125;\n&#39;
+</code></pre>
+<p>观察结果，我们已经成功设置了headers,data数据了。</p>
 <p>headers也可以使用add_header()方法来添加，更加方便。如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request,parse</span><br><span class="line"></span><br><span class="line"><span class="comment"># method,headers,data</span></span><br><span class="line"></span><br><span class="line">url=<span class="string">'http://httpbin.org/post'</span></span><br><span class="line">dict=&#123;</span><br><span class="line">    <span class="string">'name'</span>:<span class="string">'Jack'</span></span><br><span class="line">&#125;</span><br><span class="line">data=bytes(parse.urlencode(dict),encoding=<span class="string">'UTF8'</span>)</span><br><span class="line">req=request.Request(url=url,data=data)</span><br><span class="line">req.add_header(<span class="string">'User-Agent'</span>,<span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'</span>)</span><br><span class="line">req.add_header(<span class="string">'HOST'</span>,<span class="string">'httpbin.org'</span>)</span><br><span class="line"></span><br><span class="line">response=request.urlopen(req)</span><br><span class="line">print(response.read())</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request,parse</span><br><span class="line"></span><br><span class="line"><span class="comment"># method,headers,data</span></span><br><span class="line"></span><br><span class="line">url=<span class="string">&#x27;http://httpbin.org/post&#x27;</span></span><br><span class="line"><span class="built_in">dict</span>=&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;Jack&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">data=<span class="built_in">bytes</span>(parse.urlencode(<span class="built_in">dict</span>),encoding=<span class="string">&#x27;UTF8&#x27;</span>)</span><br><span class="line">req=request.Request(url=url,data=data)</span><br><span class="line">req.add_header(<span class="string">&#x27;User-Agent&#x27;</span>,<span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#x27;</span>)</span><br><span class="line">req.add_header(<span class="string">&#x27;HOST&#x27;</span>,<span class="string">&#x27;httpbin.org&#x27;</span>)</span><br><span class="line"></span><br><span class="line">response=request.urlopen(req)</span><br><span class="line"><span class="built_in">print</span>(response.read())</span><br></pre></td></tr></table></figure>
 
-<pre><code>b&apos;{\n  &quot;args&quot;: {}, \n  &quot;data&quot;: &quot;&quot;, \n  &quot;files&quot;: {}, \n  &quot;form&quot;: {\n    &quot;name&quot;: &quot;Jack&quot;\n  }, \n  &quot;headers&quot;: {\n    &quot;Accept-Encoding&quot;: &quot;identity&quot;, \n    &quot;Content-Length&quot;: &quot;9&quot;, \n    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, \n    &quot;Host&quot;: &quot;httpbin.org&quot;, \n    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&quot;\n  }, \n  &quot;json&quot;: null, \n  &quot;origin&quot;: &quot;112.26.77.217, 112.26.77.217&quot;, \n  &quot;url&quot;: &quot;https://httpbin.org/post&quot;\n}\n&apos;</code></pre><h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>我们了解了请求的发送过程，但是在网络不好的情况下出现了异常怎么办？这时候如果不处理异常，程序很可能因为报错而终止，所以异常的处理是非常必要的。</p>
+<pre><code>b&#39;&#123;\n  &quot;args&quot;: &#123;&#125;, \n  &quot;data&quot;: &quot;&quot;, \n  &quot;files&quot;: &#123;&#125;, \n  &quot;form&quot;: &#123;\n    &quot;name&quot;: &quot;Jack&quot;\n  &#125;, \n  &quot;headers&quot;: &#123;\n    &quot;Accept-Encoding&quot;: &quot;identity&quot;, \n    &quot;Content-Length&quot;: &quot;9&quot;, \n    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;, \n    &quot;Host&quot;: &quot;httpbin.org&quot;, \n    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&quot;\n  &#125;, \n  &quot;json&quot;: null, \n  &quot;origin&quot;: &quot;112.26.77.217, 112.26.77.217&quot;, \n  &quot;url&quot;: &quot;https://httpbin.org/post&quot;\n&#125;\n&#39;
+</code></pre>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>我们了解了请求的发送过程，但是在网络不好的情况下出现了异常怎么办？这时候如果不处理异常，程序很可能因为报错而终止，所以异常的处理是非常必要的。</p>
 <p>urllib的eroor模块定义了由request模块产生的异常。</p>
 <h2 id="URLError"><a href="#URLError" class="headerlink" title="URLError"></a>URLError</h2><p>ERLERROR类来自于urllib库中的error模块，它有一个属性<code>reason</code>，即返回错误的原因。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> error,request</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response=request.urlopen(<span class="string">'https://www.zhyong.cn/11'</span>)</span><br><span class="line"><span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    print(e.reason)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> error,request</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response=request.urlopen(<span class="string">&#x27;https://www.zhyong.cn/11&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e.reason)</span><br></pre></td></tr></table></figure>
 
-<pre><code>Not Found</code></pre><p>程序没有直接报错，而是输出了如上内容，可以避免程序的异常终止。</p>
+<pre><code>Not Found
+</code></pre>
+<p>程序没有直接报错，而是输出了如上内容，可以避免程序的异常终止。</p>
 <h2 id="HTTPError"><a href="#HTTPError" class="headerlink" title="HTTPError"></a>HTTPError</h2><p>它是URLError的子类，专门处理HTTP的请求错误，它有三个属性：</p>
 <ul>
 <li>code:返回HTTP状态码，比如404表示页面不存在，500表示服务器内部错误</li>
@@ -381,7 +374,7 @@
 <li>headers：返回请求头</li>
 </ul>
 <p>因为URLError是HTTPError的父类，所以可以先选择捕获子类的异常，再去捕获父类的错误。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> error,request</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response=request.urlopen(<span class="string">'https://www.zhyong.cn/11'</span>)</span><br><span class="line"><span class="keyword">except</span> error.HTTPError <span class="keyword">as</span> e:</span><br><span class="line">    print(e.code,e.reason,e.headers,sep=<span class="string">'\n'</span>)</span><br><span class="line"><span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    print(e.reason)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'Request Successfully'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> error,request</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response=request.urlopen(<span class="string">&#x27;https://www.zhyong.cn/11&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> error.HTTPError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e.code,e.reason,e.headers,sep=<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e.reason)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Request Successfully&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <pre><code>404
 Not Found
@@ -389,11 +382,15 @@ Server: nginx
 Date: Sat, 10 Aug 2019 06:28:46 GMT
 Content-Type: text/html
 Content-Length: 146
-Connection: close</code></pre><p>有时候reason属性返回的不一定是字符串，也可能是一个对象。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> error,request</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response=request.urlopen(<span class="string">'https://www.zhyong.cn'</span>,timeout=<span class="number">0.01</span>)</span><br><span class="line"><span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    print(type(e.reason))</span><br><span class="line">    <span class="keyword">if</span> isinstance(e.reason,socket.timeout):</span><br><span class="line">        print(<span class="string">'TIME OUT'</span>)</span><br></pre></td></tr></table></figure>
+Connection: close
+</code></pre>
+<p>有时候reason属性返回的不一定是字符串，也可能是一个对象。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> error,request</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response=request.urlopen(<span class="string">&#x27;https://www.zhyong.cn&#x27;</span>,timeout=<span class="number">0.01</span>)</span><br><span class="line"><span class="keyword">except</span> error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(e.reason))</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(e.reason,socket.timeout):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;TIME OUT&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<pre><code>&lt;class &apos;socket.timeout&apos;&gt;
-TIME OUT</code></pre>
+<pre><code>&lt;class &#39;socket.timeout&#39;&gt;
+TIME OUT
+</code></pre>
+
     </div>
 
     
@@ -459,7 +456,13 @@ TIME OUT</code></pre>
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -484,14 +487,14 @@ TIME OUT</code></pre>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用urllib"><span class="nav-number">1.</span> <span class="nav-text">使用urllib</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urlopen"><span class="nav-number">1.1.</span> <span class="nav-text">urlopen()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request"><span class="nav-number">1.2.</span> <span class="nav-text">Request</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">2.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URLError"><span class="nav-number">2.1.</span> <span class="nav-text">URLError</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPError"><span class="nav-number">2.2.</span> <span class="nav-text">HTTPError</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8urllib"><span class="nav-number">1.</span> <span class="nav-text">使用urllib</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urlopen"><span class="nav-number">1.1.</span> <span class="nav-text">urlopen()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request"><span class="nav-number">1.2.</span> <span class="nav-text">Request</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#URLError"><span class="nav-number">2.1.</span> <span class="nav-text">URLError</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPError"><span class="nav-number">2.2.</span> <span class="nav-text">HTTPError</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -500,20 +503,20 @@ TIME OUT</code></pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -570,14 +573,11 @@ TIME OUT</code></pre>
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -713,31 +713,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/7240/",
+      identifier: "posts/7240/",
+      title: "Python爬虫（一）：urllib学习",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

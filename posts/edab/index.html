@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -255,7 +255,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/edab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -290,27 +290,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/edab/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/edab/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -321,9 +300,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="安装Manjaro"><a href="#安装Manjaro" class="headerlink" title="安装Manjaro"></a>安装Manjaro</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>官方网站：<a href="https://manjaro.org/get-manjaro/" target="_blank" rel="noopener">https://manjaro.org/get-manjaro/</a><br>目前官方最新版本为17.1.12，支持都包括xfce,kde,gnome三种桌面环境，选择喜欢的下载，我安装的是kde桌面。</p>
-<h3 id="制作U盘启动"><a href="#制作U盘启动" class="headerlink" title="制作U盘启动"></a>制作U盘启动</h3><p>使用<a href="http://rufus.akeo.ie/" target="_blank" rel="noopener">Rufus</a>以DD方式写入到U盘，注意此操作会擦除U盘所有数据，请做好备份。<br>Rufus官方下载：<a href="http://rufus.akeo.ie/downloads/rufus-3.3p.exe" target="_blank" rel="noopener">http://rufus.akeo.ie/downloads/rufus-3.3p.exe</a></p>
-<a id="more"></a>
+        <h2 id="安装Manjaro"><a href="#安装Manjaro" class="headerlink" title="安装Manjaro"></a>安装Manjaro</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>官方网站：<a target="_blank" rel="noopener" href="https://manjaro.org/get-manjaro/">https://manjaro.org/get-manjaro/</a><br>目前官方最新版本为17.1.12，支持都包括xfce,kde,gnome三种桌面环境，选择喜欢的下载，我安装的是kde桌面。</p>
+<h3 id="制作U盘启动"><a href="#制作U盘启动" class="headerlink" title="制作U盘启动"></a>制作U盘启动</h3><p>使用<a target="_blank" rel="noopener" href="http://rufus.akeo.ie/">Rufus</a>以DD方式写入到U盘，注意此操作会擦除U盘所有数据，请做好备份。<br>Rufus官方下载：<a target="_blank" rel="noopener" href="http://rufus.akeo.ie/downloads/rufus-3.3p.exe">http://rufus.akeo.ie/downloads/rufus-3.3p.exe</a></p>
+<span id="more"></span>
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>进入Manjaro Live系统后，点击<code>Install Manjaro</code>即可进行安装，图形化界面非常方便，系统安装时可选择分区的方式：抹除磁盘、手动调整、与其它系统共的方式，可谓是非常方便。与其它系统共存的方法安装，可以方便使用Windows+Manjaro双系统，安装后自动加入Windows启动项。</p>
 <p><strong>进入boot时，记得将driver选择nonfree!!!</strong></p>
@@ -331,16 +310,16 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 阿里云</span></span><br><span class="line">Server = http:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/archlinux/</span><span class="variable">$repo</span><span class="regexp">/os/</span><span class="variable">$arch</span></span><br><span class="line"><span class="comment"># 清华大学</span></span><br><span class="line">Server = https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/archlinux/</span><span class="variable">$repo</span><span class="regexp">/os/</span><span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="添加archlinuxcn软件源"><a href="#添加archlinuxcn软件源" class="headerlink" title="添加archlinuxcn软件源"></a>添加archlinuxcn软件源</h3><p>编辑文件<code>/etc/pacman.conf</code>，在最下面添加：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[archlinuxcn]</span></span><br><span class="line"><span class="attr">Server</span> = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/archlinuxcn/</span><span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="更新软件源并导入公钥"><a href="#更新软件源并导入公钥" class="headerlink" title="更新软件源并导入公钥"></a>更新软件源并导入公钥</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo</span> <span class="string">pacman -Syy</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S archlinuxcn-keyring</span></span><br></pre></td></tr></table></figure>
+<h3 id="更新软件源并导入公钥"><a href="#更新软件源并导入公钥" class="headerlink" title="更新软件源并导入公钥"></a>更新软件源并导入公钥</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo pacman -Syy</span></span><br><span class="line"><span class="attribute">sudo pacman -S archlinuxcn-keyring</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h3><p>运行命令：<code>sudo pacman -Syyu</code><br>出现无法安装更新的问题：<code>无法安装更新，xxx被manjaro-release所有</code>解决:<br>卸载<code>manjaro-release</code>:<code>sudo pacman -R manjaro-release</code>,再执行更新命令。</p>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装Yaourt"><a href="#安装Yaourt" class="headerlink" title="安装Yaourt"></a>安装Yaourt</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Yaourt 是一个由 Julien Mischkowitz 所编写的 Bash 脚本，它是将 Pacman 与 AUR 这两者相结合的绝佳工具。通过 Yaourt 安装 AUR 中的包十分方便，它不仅简化了上述繁琐的过程，而且把这一过程半自动化，使用者只需在它的交互模式中简单的回答几个问题即可。此外，Yaourt 支持将结果以鲜亮的颜色输出，非常抢眼。</p>
 <h4 id="安装：sudo-pacman-S-yaourt"><a href="#安装：sudo-pacman-S-yaourt" class="headerlink" title="安装：sudo pacman -S yaourt"></a>安装：<code>sudo pacman -S yaourt</code></h4><p>通过<code>yaourt command</code>即可列出所有的需要查询的命令或者软件，然后选择安装。</p>
 <h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><ul>
 <li>安装zsh: <code>sudo pacman -S zsh</code></li>
-<li>安装<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>raw.github.com<span class="regexp">/robbyrussell/</span>oh-my-zsh<span class="regexp">/master/</span>tools<span class="regexp">/install.sh</span></span><br></pre></td></tr></table></figure>
+<li>安装<a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//</span>raw.github.com<span class="regexp">/robbyrussell/</span>oh-my-zsh<span class="regexp">/master/</span>tools/install.sh</span><br></pre></td></tr></table></figure>
 运行该脚本：<code>sh install.sh</code></li>
 <li>修改当前用户(不需要<code>sudo</code>)默认shell：<code>chsh -s /bin/zsh</code></li>
 </ul>
@@ -349,35 +328,35 @@
 <li>安装插件</li>
 </ol>
 <ul>
-<li>代码提示插件：<a href="https://github.com/zsh-users/zsh-autosuggestions" target="_blank" rel="noopener">zsh-autosuggestions</a></li>
-<li>代码高亮插件：<a href="https://github.com/zsh-users/zsh-syntax-highlighting" target="_blank" rel="noopener">zsh-syntax-highlighting</a><br>将插件使用git工具clone到<code>~/.oh-my-zsh/custom/plugins</code>,编辑配置文件<code>.zshrc</code>,添加到插件中。<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zsh-syntax-highlighting</span><br><span class="line">zsh-<span class="built_in">auto</span>suggestions</span><br></pre></td></tr></table></figure>
+<li>代码提示插件：<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></li>
+<li>代码高亮插件：<a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a><br>将插件使用git工具clone到<code>~/.oh-my-zsh/custom/plugins</code>,编辑配置文件<code>.zshrc</code>,添加到插件中。<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zsh-syntax-highlighting</span><br><span class="line">zsh-<span class="built_in">auto</span>suggestions</span><br></pre></td></tr></table></figure>
 还可以添加<code>extract,z,fzf</code>等插件。</li>
 </ul>
-<p>还可以使用网上的一个zsh主题：<a href="https://github.com/skylerlee/zeta-zsh-theme/raw/master/zeta.zsh-theme" target="_blank" rel="noopener">zeta-zsh</a>,下载到<code>oh-my-zsh/custom/themes</code>启用即可（启用之后刷新配置）！</p>
+<p>还可以使用网上的一个zsh主题：<a target="_blank" rel="noopener" href="https://github.com/skylerlee/zeta-zsh-theme/raw/master/zeta.zsh-theme">zeta-zsh</a>,下载到<code>oh-my-zsh/custom/themes</code>启用即可（启用之后刷新配置）！</p>
 <h3 id="解决双系统不一致问题"><a href="#解决双系统不一致问题" class="headerlink" title="解决双系统不一致问题"></a>解决双系统不一致问题</h3><p><code>sudo timedatectl set-local-rtc 1</code></p>
 <h3 id="修改DNS"><a href="#修改DNS" class="headerlink" title="修改DNS"></a>修改DNS</h3><p>编辑文件：<code>/etc/resolv.conf</code>，添加到末尾：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line">nameserver <span class="number">8.8</span><span class="number">.4</span><span class="number">.4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nameserver</span> <span class="number">8.8.8.8</span></span><br><span class="line">nameserver <span class="number">8.8.4.4</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Linux主题安装"><a href="#Linux主题安装" class="headerlink" title="Linux主题安装"></a>Linux主题安装</h2><p>一键安装脚本：<a href="https://github.com/Linux-Theme-Collection/GTK-Themes" target="_blank" rel="noopener">GTK-Themes</a><br>使用方法：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//gi</span>thub.com<span class="regexp">/Linux-Theme-Collection/</span>GTK-Themes<span class="regexp">/raw/m</span>aster<span class="regexp">/install.sh</span></span><br></pre></td></tr></table></figure>
+<h2 id="Linux主题安装"><a href="#Linux主题安装" class="headerlink" title="Linux主题安装"></a>Linux主题安装</h2><p>一键安装脚本：<a target="_blank" rel="noopener" href="https://github.com/Linux-Theme-Collection/GTK-Themes">GTK-Themes</a><br>使用方法：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//gi</span>thub.com<span class="regexp">/Linux-Theme-Collection/</span>GTK-Themes<span class="regexp">/raw/m</span>aster/install.sh</span><br></pre></td></tr></table></figure>
 <p>之后运行即可.<br>效果：<br><img alt="pic" data-src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/preview-kde.png"></p>
 <h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><h3 id="安装vim"><a href="#安装vim" class="headerlink" title="安装vim"></a>安装vim</h3><p>安装：<code>sudo pacman -S vim</code><br>配置</p>
 <ol>
 <li>安装vimplug: <code>curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</code></li>
 <li>运行命令：<code>wget https://github.com/stiverick610/vimrc/raw/master/vimrc -o ~/.vimrc</code>,进入vim，运行：<code>&lt;leader&gt; &lt;leader&gt; i</code>进行安装插件!<br>备注：</li>
 <li>需安装<code>Droid Sans Mono Nerd Font Complete</code>字体，参考：<a href="https://www.zhyong.cn/posts/6daa/">https://www.zhyong.cn/posts/6daa/</a> ，然后修改终端字体即可。</li>
-<li>手动编辑<code>.vimrc</code>文件，选择需要的插件（YCM选项等）,若安装<a href="https://github.com/Valloric/YouCompleteMe" target="_blank" rel="noopener">YouCompleteMe插件</a>报错，请查看官方文档(需安装cmake等)。</li>
+<li>手动编辑<code>.vimrc</code>文件，选择需要的插件（YCM选项等）,若安装<a target="_blank" rel="noopener" href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe插件</a>报错，请查看官方文档(需安装cmake等)。</li>
 </ol>
 <h3 id="安装输入法"><a href="#安装输入法" class="headerlink" title="安装输入法"></a>安装输入法</h3><p>安装</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo pacman -S fcitx-im     <span class="comment"># 全部安装</span></span><br><span class="line"><span class="variable">$ </span>sudo pacman -S fcitx-configtool     <span class="comment"># 图形化配置工具</span></span><br></pre></td></tr></table></figure>
 <p>配置<br><code>vi ~/.xprofile</code>,添加如下内容：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">GTK_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">QT_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">XMODIFIERS</span>=”@im=fcitx”</span><br></pre></td></tr></table></figure>
 <p>然后命令行输入<code>fcitx</code>或者重启系统，就可以配置中文输入法啦！</p>
-<h3 id="安装WPS"><a href="#安装WPS" class="headerlink" title="安装WPS"></a>安装WPS</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S wps-office</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S ttf-wps-fonts</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装WPS"><a href="#安装WPS" class="headerlink" title="安装WPS"></a>安装WPS</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo pacman -S wps-office</span></span><br><span class="line"><span class="attribute">sudo pacman -S ttf-wps-fonts</span></span><br></pre></td></tr></table></figure>
 <p>想起以前Ubuntu安装wps，满世界找wps字体！！</p>
 <h3 id="安装QQ"><a href="#安装QQ" class="headerlink" title="安装QQ"></a>安装QQ</h3><p>安装TIM或QQ的任意一种：<code>pacman -S deepin.com.qq.office</code>或<code>pacman -S deepin.com.qq.im</code><br>注：KDE里无法正常使用wine QQ方案</p>
-<h3 id="其它软件"><a href="#其它软件" class="headerlink" title="其它软件"></a>其它软件</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S electronic-wechat</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S google-chrome</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S pycharm</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">pacman -S netease-cloud-music #无法正常使用</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/aaazz47/article/details/77416136" target="_blank" rel="noopener">Manjaro Linux 17.0.2 KDE环境安装、配置记录</a><br><a href="https://www.jianshu.com/p/d7c8f29be182" target="_blank" rel="noopener">manjaro下安装输入法</a><br><a href="https://blog.csdn.net/tju_tahara/article/details/79029695" target="_blank" rel="noopener">manjaro的简单安装</a><br><a href="https://juejin.im/post/5a6b1b3651882573443cea61" target="_blank" rel="noopener">Manjaro安装以及美化教程</a></p>
+<h3 id="其它软件"><a href="#其它软件" class="headerlink" title="其它软件"></a>其它软件</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S electronic-wechat</span><br><span class="line">sudo pacman -S google-chrome</span><br><span class="line">sudo pacman -S pycharm</span><br><span class="line">sudo pacman -S netease-<span class="keyword">cloud-music </span><span class="comment">#无法正常使用</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/aaazz47/article/details/77416136">Manjaro Linux 17.0.2 KDE环境安装、配置记录</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d7c8f29be182">manjaro下安装输入法</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/tju_tahara/article/details/79029695">manjaro的简单安装</a><br><a target="_blank" rel="noopener" href="https://juejin.im/post/5a6b1b3651882573443cea61">Manjaro安装以及美化教程</a></p>
 
     </div>
 
@@ -388,10 +367,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
+      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
+      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\bf7c\" rel="bookmark">Linux视频下载神器——you-get</a></div>
@@ -458,7 +437,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -483,14 +468,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Manjaro"><span class="nav-number">1.</span> <span class="nav-text">安装Manjaro</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制作U盘启动"><span class="nav-number">1.2.</span> <span class="nav-text">制作U盘启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更换软件源"><span class="nav-number">2.1.</span> <span class="nav-text">更换软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加archlinuxcn软件源"><span class="nav-number">2.2.</span> <span class="nav-text">添加archlinuxcn软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新软件源并导入公钥"><span class="nav-number">2.3.</span> <span class="nav-text">更新软件源并导入公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新系统"><span class="nav-number">2.4.</span> <span class="nav-text">更新系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境配置"><span class="nav-number">3.</span> <span class="nav-text">环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Yaourt"><span class="nav-number">3.1.</span> <span class="nav-text">安装Yaourt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">3.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装：sudo-pacman-S-yaourt"><span class="nav-number">3.1.2.</span> <span class="nav-text">安装：sudo pacman -S yaourt</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装zsh"><span class="nav-number">3.2.</span> <span class="nav-text">安装zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决双系统不一致问题"><span class="nav-number">3.3.</span> <span class="nav-text">解决双系统不一致问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改DNS"><span class="nav-number">3.4.</span> <span class="nav-text">修改DNS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux主题安装"><span class="nav-number">4.</span> <span class="nav-text">Linux主题安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件安装"><span class="nav-number">5.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装vim"><span class="nav-number">5.1.</span> <span class="nav-text">安装vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装输入法"><span class="nav-number">5.2.</span> <span class="nav-text">安装输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装WPS"><span class="nav-number">5.3.</span> <span class="nav-text">安装WPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装QQ"><span class="nav-number">5.4.</span> <span class="nav-text">安装QQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它软件"><span class="nav-number">5.5.</span> <span class="nav-text">其它软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Manjaro"><span class="nav-number">1.</span> <span class="nav-text">安装Manjaro</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9CU%E7%9B%98%E5%90%AF%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text">制作U盘启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="nav-number">2.1.</span> <span class="nav-text">更换软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0archlinuxcn%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="nav-number">2.2.</span> <span class="nav-text">添加archlinuxcn软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90%E5%B9%B6%E5%AF%BC%E5%85%A5%E5%85%AC%E9%92%A5"><span class="nav-number">2.3.</span> <span class="nav-text">更新软件源并导入公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.4.</span> <span class="nav-text">更新系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Yaourt"><span class="nav-number">3.1.</span> <span class="nav-text">安装Yaourt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">3.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%EF%BC%9Asudo-pacman-S-yaourt"><span class="nav-number">3.1.2.</span> <span class="nav-text">安装：sudo pacman -S yaourt</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85zsh"><span class="nav-number">3.2.</span> <span class="nav-text">安装zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8F%8C%E7%B3%BB%E7%BB%9F%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">解决双系统不一致问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9DNS"><span class="nav-number">3.4.</span> <span class="nav-text">修改DNS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85"><span class="nav-number">4.</span> <span class="nav-text">Linux主题安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vim"><span class="nav-number">5.1.</span> <span class="nav-text">安装vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">安装输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85WPS"><span class="nav-number">5.3.</span> <span class="nav-text">安装WPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85QQ"><span class="nav-number">5.4.</span> <span class="nav-text">安装QQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E5%AE%83%E8%BD%AF%E4%BB%B6"><span class="nav-number">5.5.</span> <span class="nav-text">其它软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -499,20 +484,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -569,14 +554,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -712,31 +694,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/edab/",
+      identifier: "posts/edab/",
+      title: "安装manjaro系统",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

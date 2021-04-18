@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -251,7 +251,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/68c4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -286,27 +286,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/68c4/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/68c4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -318,8 +297,8 @@
 
       
         <h2 id="简单方法"><a href="#简单方法" class="headerlink" title="简单方法"></a>简单方法</h2><h3 id="修改源码"><a href="#修改源码" class="headerlink" title="修改源码"></a>修改源码</h3><p>打开<code>themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig</code>,在标签内插上这样一段代码：</p>
-<a id="more"></a>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password  &#125;&#125;'</span>)&#123;</span></span><br><span class="line"><span class="actionscript"> <span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>) !== <span class="string">'&#123;&#123; page.password  &#125;&#125;'</span>)&#123;</span></span><br><span class="line"><span class="actionscript">                 alert(<span class="string">'密码错误！'</span>);</span></span><br><span class="line">                                 history.back();</span><br><span class="line">                                             </span><br><span class="line"> &#125;</span><br><span class="line">         </span><br><span class="line"> &#125;</span><br><span class="line">     </span><br><span class="line"> &#125;)();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">(function()&#123;</span></span><br><span class="line"><span class="xml"> if(&#x27;</span><span class="template-variable">&#123;&#123; <span class="name">page.password</span>  &#125;&#125;</span><span class="xml">&#x27;)&#123;</span></span><br><span class="line"><span class="xml"> if (prompt(&#x27;请输入文章密码&#x27;) !== &#x27;</span><span class="template-variable">&#123;&#123; <span class="name">page.password</span>  &#125;&#125;</span><span class="xml">&#x27;)&#123;</span></span><br><span class="line"><span class="xml">                 alert(&#x27;密码错误！&#x27;);</span></span><br><span class="line"><span class="xml">                                 history.back();</span></span><br><span class="line"><span class="xml">                                             </span></span><br><span class="line"><span class="xml"> &#125;</span></span><br><span class="line"><span class="xml">         </span></span><br><span class="line"><span class="xml"> &#125;</span></span><br><span class="line"><span class="xml">     </span></span><br><span class="line"><span class="xml"> &#125;)();</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <h3 id="文章设置"><a href="#文章设置" class="headerlink" title="文章设置"></a>文章设置</h3><p>在标签头写上：<br><code>password: 123456</code><br>注意需要空格！可修改模板文件。</p>
 <hr>
@@ -328,13 +307,13 @@
 <li>搜索文章中的关键字可以得到相关的内容</li>
 <li>可以通过<code>curl</code>命令获得网站的源代码</li>
 </ul>
-<h2 id="通过hexo-blog-encrypt插件"><a href="#通过hexo-blog-encrypt插件" class="headerlink" title="通过hexo-blog-encrypt插件"></a>通过hexo-blog-encrypt插件</h2><p>github地址：<a href="https://github.com/MikeCoder/hexo-blog-encrypt" target="_blank" rel="noopener">https://github.com/MikeCoder/hexo-blog-encrypt</a></p>
+<h2 id="通过hexo-blog-encrypt插件"><a href="#通过hexo-blog-encrypt插件" class="headerlink" title="通过hexo-blog-encrypt插件"></a>通过hexo-blog-encrypt插件</h2><p>github地址：<a target="_blank" rel="noopener" href="https://github.com/MikeCoder/hexo-blog-encrypt">https://github.com/MikeCoder/hexo-blog-encrypt</a></p>
 <h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>进入hexo根目录，安装插件：<code>npm install hexo-blog-encrypt</code></p>
 <h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>修改根目录下的<code>_config.yml</code>，添加一下内容：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line">encrypt:</span><br><span class="line">    enable: <span class="literal">true</span></span><br><span class="line">    default_abstract: 内容已经加密，请输入密码后阅读！&lt;/br&gt;</span><br><span class="line">    default_message: 请输入密码后阅读</span><br><span class="line">    default_template:</span><br><span class="line">                    &lt;<span class="keyword">script</span> src=<span class="string">"//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"</span>&gt;&lt;/<span class="keyword">script</span>&gt;</span><br><span class="line">                    &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"security"</span>&gt;</span><br><span class="line">                        &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"input-container"</span>&gt;</span><br><span class="line">                            &lt;input type=<span class="string">"password"</span> <span class="built_in">class</span>=<span class="string">"form-control"</span> <span class="built_in">id</span>=<span class="string">"pass"</span> placeholder=<span class="string">" &#123;&#123;message&#125;&#125; "</span> /&gt;</span><br><span class="line">                            &lt;label <span class="keyword">for</span>=<span class="string">"pass"</span>&gt; &#123;&#123;message&#125;&#125; &lt;/label&gt;</span><br><span class="line">                            &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"bottom-line"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">                        &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">                    &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">                    &lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"encrypt-blog"</span> style=<span class="string">"display:none"</span>&gt;</span><br><span class="line">                        &#123;&#123;content&#125;&#125;</span><br><span class="line">                    &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"># Security</span></span><br><span class="line"><span class="xml">##</span></span><br><span class="line"><span class="xml">encrypt:</span></span><br><span class="line"><span class="xml">    enable: true</span></span><br><span class="line"><span class="xml">    default_abstract: 内容已经加密，请输入密码后阅读！<span class="tag">&lt;/<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml">    default_message: 请输入密码后阅读</span></span><br><span class="line"><span class="xml">    default_template:</span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;security&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;input-container&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> <span class="attr">id</span>=<span class="string">&quot;pass&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot; </span></span></span><span class="template-variable">&#123;&#123;<span class="name">message</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="string"> &quot;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;pass&quot;</span>&gt;</span> </span><span class="template-variable">&#123;&#123;<span class="name">message</span>&#125;&#125;</span><span class="xml"> <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;bottom-line&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;encrypt-blog&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        </span><span class="template-variable">&#123;&#123;<span class="name">content</span>&#125;&#125;</span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <h2 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h2><p>在文章头部添加对应的字段，如<code>password</code>,<code>abstract</code>和<code>message</code>.</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hello</span> <span class="string">world</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2016</span><span class="number">-03</span><span class="number">-30</span> <span class="number">21</span><span class="string">:18:02</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">fdsafsdaf</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">Mike</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">Welcome</span> <span class="string">to</span> <span class="string">my</span> <span class="string">blog,</span> <span class="string">enter</span> <span class="string">password</span> <span class="string">to</span> <span class="string">read.</span></span><br><span class="line"><span class="attr">message:</span> <span class="string">Welcome</span> <span class="string">to</span> <span class="string">my</span> <span class="string">blog,</span> <span class="string">enter</span> <span class="string">password</span> <span class="string">to</span> <span class="string">read.</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hello</span> <span class="string">world</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2016-03-30 21:18:02</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">fdsafsdaf</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">Mike</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">Welcome</span> <span class="string">to</span> <span class="string">my</span> <span class="string">blog,</span> <span class="string">enter</span> <span class="string">password</span> <span class="string">to</span> <span class="string">read.</span></span><br><span class="line"><span class="attr">message:</span> <span class="string">Welcome</span> <span class="string">to</span> <span class="string">my</span> <span class="string">blog,</span> <span class="string">enter</span> <span class="string">password</span> <span class="string">to</span> <span class="string">read.</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 
 <p><code>abstract</code>和<code>message</code>可以不需添加，在模板文件中已经有默认配置。</p>
 <h2 id="修改post模板文件"><a href="#修改post模板文件" class="headerlink" title="修改post模板文件"></a>修改post模板文件</h2><p>在<code>post</code>模板文件中添加<code>abstract</code>和<code>message</code>字段。</p>
@@ -416,7 +395,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -441,14 +426,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单方法"><span class="nav-number">1.</span> <span class="nav-text">简单方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改源码"><span class="nav-number">1.1.</span> <span class="nav-text">修改源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章设置"><span class="nav-number">1.2.</span> <span class="nav-text">文章设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过hexo-blog-encrypt插件"><span class="nav-number">2.</span> <span class="nav-text">通过hexo-blog-encrypt插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装插件"><span class="nav-number">3.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件"><span class="nav-number">4.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章加密"><span class="nav-number">5.</span> <span class="nav-text">文章加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改post模板文件"><span class="nav-number">6.</span> <span class="nav-text">修改post模板文件</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">简单方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%BA%90%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">修改源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">文章设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87hexo-blog-encrypt%E6%8F%92%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">通过hexo-blog-encrypt插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86"><span class="nav-number">5.</span> <span class="nav-text">文章加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9post%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">修改post模板文件</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -457,20 +442,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -527,14 +512,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -670,31 +652,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/68c4/",
+      identifier: "posts/68c4/",
+      title: "next主题添加密码访问",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

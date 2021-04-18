@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -264,7 +264,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/99b4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -299,27 +299,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/99b4/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/99b4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -331,15 +310,15 @@
 
       
         <p>coder-server是著名的Visual Studio Code开源编辑器的Web版，本篇博客使用群晖的Docker组件（玩群晖怎能不玩Docker？），完全图形化界面来搭建code server，以及解决部署后产生的问题，部署过程简单易操作，容器占用资源少。</p>
-<p>code server github：<a href="https://github.com/cdr/code-server" target="_blank" rel="noopener">cdr/code-server: VS Code in the browser</a><br>code server docker hub：<a href="https://registry.hub.docker.com/r/codercom/code-server/" target="_blank" rel="noopener">codercom/code-server - Docker Hub</a></p>
-<a id="more"></a>
+<p>code server github：<a target="_blank" rel="noopener" href="https://github.com/cdr/code-server">cdr/code-server: VS Code in the browser</a><br>code server docker hub：<a target="_blank" rel="noopener" href="https://registry.hub.docker.com/r/codercom/code-server/">codercom/code-server - Docker Hub</a></p>
+<span id="more"></span>
 
 <h2 id="群晖Docker的安装及code-server容器的创建"><a href="#群晖Docker的安装及code-server容器的创建" class="headerlink" title="群晖Docker的安装及code-server容器的创建"></a>群晖Docker的安装及code-server容器的创建</h2><p>若没有安装docker，打开套件中心，直接搜索Docker，安装即可。</p>
 <p><img alt="群晖安装Docker" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620152209.png"></p>
 <p>打开docker，在注册表里搜索<code>code-server</code>，第一个即为官方镜像，双击下载。</p>
 <p><img alt="拉取code-server" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620152600.png"></p>
 <p>等待下载完成后，在映像中双击即可创建容器，首先看一下官方的部署代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:8080 \</span><br><span class="line">  -v "$PWD:/home/coder/project" \</span><br><span class="line">  -u "$(id -u):$(id -g)" \</span><br><span class="line">  codercom/code-server:latest</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:8080 \</span><br><span class="line">  -v &quot;$PWD:/home/coder/project&quot; \</span><br><span class="line">  -u &quot;$(id -u):$(id -g)&quot; \</span><br><span class="line">  codercom/code-server:latest</span><br></pre></td></tr></table></figure>
 
 <p>其中<code>8080:8080</code>为端口映射，<code>-v</code>为卷映射，<code>-u</code>为用户权限映射，权限映射在Docker Gui界面不需要设置。</p>
 <p><img alt="创建code server容器" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620153248.png"></p>
@@ -349,11 +328,11 @@
 <p><img alt="文件夹映射" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620153610.png"></p>
 <p>端口映射，避免冲突即可，若8080没被占用，直接默认即可，或者自行设置本地端口，如我设置为18080。然后点击应用即可创建容器。</p>
 <h2 id="code-server密码的获取"><a href="#code-server密码的获取" class="headerlink" title="code-server密码的获取"></a>code-server密码的获取</h2><h3 id="密码获取及修改"><a href="#密码获取及修改" class="headerlink" title="密码获取及修改"></a>密码获取及修改</h3><p>浏览器打开群晖IP:端口，默认端口为IP:8080，即可看到web界面，我们已成功部署了code-server。</p>
-<p><img alt data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620154527.png"></p>
-<p>密码在容器的<code>~/.config/code-server/config.yaml</code>文件里，我们直接在终端查看即可。</p>
+<p><img data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620154527.png"></p>
+<p>密码在容器的<code> ~/.config/code-server/config.yaml</code>文件里，我们直接在终端查看即可。</p>
 <p><img alt="获取web登录密码" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155301.png"></p>
 <p>终端机输入：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.<span class="built_in">config</span>/code-server/<span class="built_in">config</span>.yaml</span><br></pre></td></tr></table></figure>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~<span class="regexp">/.config/</span>code-server/config.yaml</span><br></pre></td></tr></table></figure>
 
 <p>即可成功登录。</p>
 <p><img alt="code-server界面" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155655.png"></p>
@@ -361,7 +340,7 @@
 <p><img alt="修改密码" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620155805.png"></p>
 <h3 id="映射文件夹权限问题"><a href="#映射文件夹权限问题" class="headerlink" title="映射文件夹权限问题"></a>映射文件夹权限问题</h3><p>我们在默认的project目录<code>/home/coder/project</code>下创建文件，出现报错：</p>
 <p><img alt="权限错误" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620161445.png"></p>
-<p>我们在映射的文件夹中设置EveryOne权限为读写即可解决（开始时我还以为是没有执行<code>-u &quot;$(id -u):$(id -g)&quot;</code>导致的，折腾半天）</p>
+<p>我们在映射的文件夹中设置EveryOne权限为读写即可解决（开始时我还以为是没有执行<code> -u &quot;$(id -u):$(id -g)&quot;</code>导致的，折腾半天）</p>
 <p><img alt="设置映射文件夹权限" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/20200620162140.png"></p>
 <p>若为灰色。则在高级选项——使继承权限显示化。</p>
 <p>到此，全部完成，在浏览器里愉快地玩VsCode吧。</p>
@@ -379,6 +358,9 @@
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\64e\" rel="bookmark">使用Docker部署Solo博客系统</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\posts\6743\" rel="bookmark">树莓派3B+ Docker部署甜糖星愿</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\fcef\" rel="bookmark">群晖Docker部署Calibre Web打造全功能书库</a></div>
@@ -438,7 +420,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -463,14 +451,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#群晖Docker的安装及code-server容器的创建"><span class="nav-number">1.</span> <span class="nav-text">群晖Docker的安装及code-server容器的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code-server密码的获取"><span class="nav-number">2.</span> <span class="nav-text">code-server密码的获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#密码获取及修改"><span class="nav-number">2.1.</span> <span class="nav-text">密码获取及修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#映射文件夹权限问题"><span class="nav-number">2.2.</span> <span class="nav-text">映射文件夹权限问题</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E6%99%96Docker%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8Acode-server%E5%AE%B9%E5%99%A8%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">群晖Docker的安装及code-server容器的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code-server%E5%AF%86%E7%A0%81%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="nav-number">2.</span> <span class="nav-text">code-server密码的获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96%E5%8F%8A%E4%BF%AE%E6%94%B9"><span class="nav-number">2.1.</span> <span class="nav-text">密码获取及修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">映射文件夹权限问题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -479,20 +467,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -549,14 +537,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -692,31 +677,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/99b4/",
+      identifier: "posts/99b4/",
+      title: "群晖Docker安装code-server",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>

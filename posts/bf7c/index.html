@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favcion.ico">
@@ -253,7 +253,7 @@
     <link itemprop="mainEntityOfPage" href="https://www.zhyong.cn/posts/bf7c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+      <meta itemprop="image" content="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
       <meta itemprop="name" content="ZhangYong">
       <meta itemprop="description" content="记录，点滴">
     </span>
@@ -288,27 +288,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/bf7c/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/bf7c/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -322,17 +301,17 @@
         <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
 <p>You-Get is a tiny command-line utility to download media contents (videos, audios, images) from the Web, in case there is no other handy way to do it.<br>如果没有其他便捷的方法，You-Get是一个微型命令行实用程序，可从Web下载媒体内容（视频，音频，图像）。</p>
 </blockquote>
-<p>github地址：<a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">https://github.com/soimort/you-get</a></p>
+<p>github地址：<a target="_blank" rel="noopener" href="https://github.com/soimort/you-get">https://github.com/soimort/you-get</a></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Ubuntu推荐使用pip安装：<br><code>pip3 install you-get</code></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>升级：<code>pip3 install --upgrade you-get</code></p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>选项<code>--info/-i</code>查看可选择的视频质量或者样式：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">site:</span>                <span class="string">YouTube</span></span><br><span class="line"><span class="attr">title:</span>               <span class="string">阿冷Aleng</span> <span class="string">”九九八十一“</span> <span class="string">Cover虛擬歌姬-樂正綾</span> <span class="string">洛天依</span> <span class="string">Lyrics字幕20171204</span></span><br><span class="line"><span class="attr">streams:</span>             <span class="comment"># Available quality and codecs</span></span><br><span class="line">    <span class="string">[</span> <span class="string">DASH</span> <span class="string">]</span> <span class="string">____________________________________</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">itag:</span>          <span class="number">248</span></span><br><span class="line">      <span class="attr">container:</span>     <span class="string">webm</span></span><br><span class="line">      <span class="attr">quality:</span>       <span class="string">1920x1080</span></span><br><span class="line">      <span class="attr">size:</span>          <span class="number">38.4</span> <span class="string">MiB</span> <span class="string">(40287645</span> <span class="string">bytes)</span></span><br><span class="line">    <span class="comment"># download-with: you-get --itag=248 [URL]</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">itag:</span>          <span class="number">137</span></span><br><span class="line">      <span class="attr">container:</span>     <span class="string">mp4</span></span><br><span class="line">      <span class="attr">quality:</span>       <span class="string">1920x1080</span></span><br><span class="line">      <span class="attr">size:</span>          <span class="number">27.7</span> <span class="string">MiB</span> <span class="string">(29065309</span> <span class="string">bytes)</span></span><br><span class="line">    <span class="comment"># download-with: you-get --itag=137 [URL]</span></span><br><span class="line"><span class="string">.....</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">site:</span>                <span class="string">YouTube</span></span><br><span class="line"><span class="attr">title:</span>               <span class="string">阿冷Aleng</span> <span class="string">”九九八十一“</span> <span class="string">Cover虛擬歌姬-樂正綾</span> <span class="string">洛天依</span> <span class="string">Lyrics字幕20171204</span></span><br><span class="line"><span class="attr">streams:</span>             <span class="comment"># Available quality and codecs</span></span><br><span class="line">    [ <span class="string">DASH</span> ] <span class="string">____________________________________</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">itag:</span>          <span class="number">248</span></span><br><span class="line">      <span class="attr">container:</span>     <span class="string">webm</span></span><br><span class="line">      <span class="attr">quality:</span>       <span class="string">1920x1080</span></span><br><span class="line">      <span class="attr">size:</span>          <span class="number">38.4</span> <span class="string">MiB</span> <span class="string">(40287645</span> <span class="string">bytes)</span></span><br><span class="line">    <span class="comment"># download-with: you-get --itag=248 [URL]</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">itag:</span>          <span class="number">137</span></span><br><span class="line">      <span class="attr">container:</span>     <span class="string">mp4</span></span><br><span class="line">      <span class="attr">quality:</span>       <span class="string">1920x1080</span></span><br><span class="line">      <span class="attr">size:</span>          <span class="number">27.7</span> <span class="string">MiB</span> <span class="string">(29065309</span> <span class="string">bytes)</span></span><br><span class="line">    <span class="comment"># download-with: you-get --itag=137 [URL]</span></span><br><span class="line"><span class="string">.....</span></span><br></pre></td></tr></table></figure>
 <p>若不使用<code>-i</code>选项则下载默认的资源。</p>
 <p>然后可以通过<code>you-get --tag=18 &#39;https://www.youtube.com/watch?v=QMysfgCTkBE&#39;</code>下载。</p>
 <p>另外可以通过<code>you-get</code>下载图片等等其它资源。<br>可以通过<a href="https://www.zhyong.cn/posts/30f/">使用Nginx搭建简单的下载服务器</a>，通过you-get下载到服务器中，再使用nginx在线访问或者下载。</p>
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>Youtube视频下载：<a href="https://github.com/rg3/youtube-dl" target="_blank" rel="noopener">youtube-dl</a><br>Ubuntu安装：<code>sudo apt install youtube-dl</code><br>使用<code>youtube-dl</code>下载视频也非常不错，可以直接下载原画。</p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>Youtube视频下载：<a target="_blank" rel="noopener" href="https://github.com/rg3/youtube-dl">youtube-dl</a><br>Ubuntu安装：<code>sudo apt install youtube-dl</code><br>使用<code>youtube-dl</code>下载视频也非常不错，可以直接下载原画。</p>
 
     </div>
 
@@ -343,10 +322,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
+      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\posts\604\" rel="bookmark">Manjaro常用软件和命令行推荐</a></div>
+      <div class="popular-posts-title"><a href="\posts\5559\" rel="bookmark">Linux命令行模糊搜索神器fzf</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\posts\c2f9\" rel="bookmark">命令行文本搜索神器——RipGrep</a></div>
@@ -413,7 +392,13 @@
 
           </div>
           
-    <div class="comments" id="comments"></div>
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
         </div>
           
@@ -438,14 +423,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">4.</span> <span class="nav-text">其它</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">4.</span> <span class="nav-text">其它</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <img class="site-author-image" itemprop="image" alt="ZhangYong"
-    src="https://zhyong-cn.oss-cn-shanghai.aliyuncs.com/2018-04-27_1743.png">
+    src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/avatars/avatar.png">
   <p class="site-author-name" itemprop="name">ZhangYong</p>
   <div class="site-description" itemprop="description">记录，点滴</div>
 </div>
@@ -454,20 +439,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">119</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -524,14 +509,11 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备19011813号 </a>
-      <img src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=34052302341770" rel="noopener" target="_blank">皖公网安备34052302341770号 </a>
-  </div>
 
 <div class="copyright">
   
   &copy; 2018 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -667,31 +649,19 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
-NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(item => {
-    return GUEST.includes(item);
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '6sNc720FVRN3TqoaQlzwQSje-gzGzoHsz',
-    appKey: '5GUqTpq4V9vt0mUyQWohYWa0',
-    placeholder: "有想说的欢迎留言，留下你的邮箱，有回复就会提醒你~(邮箱不会被公开)",
-    avatar: 'monsterid',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: 'zh-cn' || 'zh-cn',
-    path: location.pathname,
-    recordIP: false,
-    serverURLs: ''
-  });
-}, window.Valine);
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey: 'fWkYJr2wrJoFiGIb1KH9tNtMwRPfRKGg5AyPHRTae1nw0LFDxaKIfBTBbAlqwtUL',
+      shortname: 'youforever-1',
+      url: "https://www.zhyong.cn/posts/bf7c/",
+      identifier: "posts/bf7c/",
+      title: "Linux视频下载神器——you-get",
+    });
+  }, window.DisqusJS);
 </script>
 
 </body>
