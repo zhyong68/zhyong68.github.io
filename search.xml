@@ -652,20 +652,23 @@
   <entry>
     <title>Listen 1 ——全网音乐轻松听</title>
     <url>/posts/64cd/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="20200922更新"><a href="#20200922更新" class="headerlink" title="20200922更新"></a><font color="red">20200922更新</font></h2><p><strong>由于国内网络环境复杂，因此上传了全平台最新安装包到蓝奏云，可以快速下载。</strong></p>
-<p>蓝奏云：<a href="https://lanzous.com/b05g8wl9c">https://lanzous.com/b05g8wl9c</a> 密码: 4srb</p>
-<p>2020年09月12日官方最新的版本为<code>v2.13.0</code>，因此更新网盘链接为最新的Listen1 v2.13.0版本，文件如下：</p>
-<blockquote>
-<p>listen1_chrome_extension-2.13.0.zip<br>listen1_2.13.0_win.exe<br>listen1_2.13.0_mac.dmg<br>listen1_2.13.0_linux_x86_64.appimage<br>listen1_0.7.5.apk(最底部)</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="2021年5月26更新"><a href="#2021年5月26更新" class="headerlink" title="2021年5月26更新"></a><font color="red">2021年5月26更新</font></h2><blockquote>
+<p>好久没关注Listen1了，突然发现已经登录<a href="https://chrome.google.com/webstore/detail/listen-1/indecfegkejajpaipjipfkkbedgaodbp">Chrome Web Store</a>商店了，这对于广大Chrome爱好者实在是太棒了,当然Firefox和Edge浏览器也有相应的扩展，并且移动端APP也进行了更新，感谢开发者。</p>
 </blockquote>
-<p><code>v2.13.0</code>更新内容：</p>
+<p><strong>由于国内网络环境复杂，因此上传了全平台最新安装包到蓝奏云，可以快速下载。</strong></p>
+<p>蓝奏云：<a href="https://wwx.lanzoui.com/b05h8dy8b">https://wwx.lanzoui.com/b05h8dy8b</a> 密码:cc0g</p>
+<p>由于蓝奏云只能上传100Mb以内的文件，大于100Mb文件见百度网盘了。<br>百度网盘链接：<a href="https://pan.baidu.com/s/1K8V9QnPBWTCwv3GSjurRkQ">https://pan.baidu.com/s/1K8V9QnPBWTCwv3GSjurRkQ</a>  提取码：h0sf </p>
+<p>2021年05月24日官方最新的版本为<code>v2.21.5</code>，因此更新网盘链接为最新的Listen1 v2.21.5版本，文件如下：</p>
+<blockquote>
+<p>listen1_2.21.5_win_x64.7z<br>listen1_2.21.5_win_ia32.7z<br>listen1_2.21.5_linux_x86_64.AppImage<br>listen1_2.21.5_mac_intel.dmg<br>listen1_2.21.5_mac_M1.dmg<br>listen1_2.21.5_win.exe<br>listen1_0.8.2.apk.zip<br>listen1_chrome_extension-2.21.5.zip</p>
+</blockquote>
+<p>其中浏览器插件地址分别为：<a href="https://chrome.google.com/webstore/detail/listen-1/indecfegkejajpaipjipfkkbedgaodbp">Chrome</a> 、<a href="https://addons.mozilla.org/zh-CN/firefox/addon/listen1/">Firefox</a>、<a href="https://microsoftedge.microsoft.com/addons/detail/hneiglcmpeedblkmbndhfbeahcpjojjg">Edge</a></p>
+<p><code>v2.21.5</code>更新内容：</p>
 <ul>
-<li>修复网易歌单超过1000首时导入失败的bug</li>
-<li>支持显示歌曲封面作为正在播放背景</li>
+<li>修复微信登录问题</li>
+<li>修复同一首歌连续点击重复播放问题</li>
+<li>修复酷我某些歌曲名乱码</li>
 </ul>
-<p>目前Listen1已上架Firefox扩展中心：<a href="https://addons.mozilla.org/zh-CN/firefox/addon/listen1-from-chrome/">Listen 1 – 下载 🦊 Firefox 扩展（zh-CN）</a>，可直接安装到Firefox浏览器。</p>
-<p>Listen1的安卓版已经很久未更新，出现的问题较多如导入歌单不全等，这里推荐一款安卓版的音乐APP，仙乐APP，纯净无广告，体验非常不错。下载地址：<a href="https://junyuewl.lanzous.com/isvXSfnw41a">https://junyuewl.lanzous.com/isvXSfnw41a</a></p>
-<p><img alt="软件截图" data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/photo_2020-09-22_10-30-08.jpg"></p>
 <hr>
 <h2 id="Listen-1-是什么"><a href="#Listen-1-是什么" class="headerlink" title="Listen 1 是什么"></a>Listen 1 是什么</h2><blockquote>
 <p>One for all free music in China (一个在中国可以播放所有免费音乐的程序)</p>
@@ -5579,6 +5582,31 @@ TIME OUT
       <tags>
         <tag>WinPE</tag>
         <tag>U盘启动</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows下如何批量重命名</title>
+    <url>/posts/1b53/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>在Windows系统下，面对大量的文件我们需要批量重命名的操作，特别是在网络上下载的视频资料，文件名中包含了大量推广信息，这对于我们来说非常的不方便，或者其它的一些需求等。这里我介绍我平时用的，也是非常方便简单的两种操作方法。借助的软件分别是微软的PowerToys和资源管理利器TotalCommand。</p>
+<span id="more"></span>
+
+<p>两个软件的最新版我都上传到蓝奏云中了，下载地址：<a href="https://wwx.lanzoui.com/b05h8e4nc">https://wwx.lanzoui.com/b05h8e4nc</a> 密码:fmaz</p>
+<h2 id="PowerToys批量重命名"><a href="#PowerToys批量重命名" class="headerlink" title="PowerToys批量重命名"></a>PowerToys批量重命名</h2><p>PowerToys是微软官方开发的一个Windows辅助小工具，可谓是微软的亲儿子，功能也非常强大，在Github上开源: <a href="https://github.com/microsoft/PowerToys">https://github.com/microsoft/PowerToys</a><br>这里我主要介绍一下他的批量重命名方法，在设置中打开Shell集成，然后选中文件，右键即可批量重命名。</p>
+<p><img data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/01/20210526230104.png"></p>
+<p>比如我先去除这本书中的后面括号里的内容，可以直接将其替换成空格即可，并且可以预览最终的文件效果，非常方便。</p>
+<p><img data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/01/20210526230513.png"></p>
+<h2 id="TotalCommand批量重命名"><a href="#TotalCommand批量重命名" class="headerlink" title="TotalCommand批量重命名"></a>TotalCommand批量重命名</h2><p>TotalCommand（简称TC）是一个功能非常强大的资源管理器，可谓无所不能，但是学习成本较高，对于长久使用Windows默认的资源管理器用户来说，可能有非常大的不适应，但是如果你对它感兴趣，可以好好地了解一下，进行学习，相信对于你来说有非常大的帮助。</p>
+<p>这里的批量重命名也非常简单，选中文件，文件-批量重命名，或者快捷键 <code>Ctrl+M</code> 即可。</p>
+<p><img data-src="https://zhyong-1254441582.cos.ap-nanjing.myqcloud.com/01/20210526231026.png"></p>
+<p>从TC中可以看出其批量重命名也非常直观，且功能更加强大，如可以添加日期、时间、计数器等。</p>
+<p>这两款软件都有非常强大的功能，给与我很大的帮助，希望同样能帮助到你。</p>
+]]></content>
+      <categories>
+        <category>Windows技巧</category>
+      </categories>
+      <tags>
+        <tag>重命名</tag>
+        <tag>正则表达式</tag>
       </tags>
   </entry>
 </search>
