@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>人生管理系统</title>
+  
+  <subtitle>时间管理、知识管理、财务管理</subtitle>
+  <link href="https://blog.yilan.love/atom.xml" rel="self"/>
+  
+  <link href="https://blog.yilan.love/"/>
+  <updated>2024-02-19T03:14:16.745Z</updated>
+  <id>https://blog.yilan.love/</id>
+  
+  <author>
+    <name>ZhangYong</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的人生管理博客</title>
+    <link href="https://blog.yilan.love/posts/9082/"/>
+    <id>https://blog.yilan.love/posts/9082/</id>
+    <published>2024-02-16T13:35:06.000Z</published>
+    <updated>2024-02-19T03:14:16.745Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是2024.02.16，正月初七，明天上班。但因为车票原因，21号才能回去。这几天接触了很多知识，看到很多高质量博客，正好碰到了vitepress博客系统，于是又折腾了，并决定继续维持写博客的习惯。</p><span id="more"></span><h2 id="24年春节，我做了什么"><a href="#24年春节，我做了什么" class="headerlink" title="24年春节，我做了什么"></a>24年春节，我做了什么</h2><p>24年新春，来到了甘肃妻子老家，除了到小孩、吃饭睡觉外，有了大把的时间。做了以下几件事：</p><ol><li>看书：《易中天中华史》的宋史、《金字塔原理》、项目管理等</li><li>技能：深入学习Logseq、丰富个人知识库，将读书笔记、个人折腾进行记录汇总</li><li>学习RSS，并重新记录，从软件、RSS订阅获取信息</li><li>深入学习并理解人生管理，从个人成长、时间、财务三个维度着手，配合logseq</li><li>折腾大量好用软件</li><li>训练思维，能够具有逻辑性思考并分析问题</li></ol><h2 id="24年的计划"><a href="#24年的计划" class="headerlink" title="24年的计划"></a>24年的计划</h2><ul><li>读书：阅读12本书</li><li>博客：每周完成一篇博客</li><li>考研：完成工程硕士准备</li><li>工作：具有项目思维，熟悉测试标准、知识产权</li><li>时间：有效管理时间，从重要角度，而并非只从紧急角度</li><li>健康：每周至少锻炼一次</li></ul><h2 id="如何进行人生管理"><a href="#如何进行人生管理" class="headerlink" title="如何进行人生管理"></a>如何进行人生管理</h2><p>从<a href="https://www.bmpi.dev/self/life-in-plain-text/">我的人生管理系统 · BMPI</a>这篇博客得到的启发，从时间、知识、财务三个方面进行管理，并进行核对，以此评估人生。三个方面可进一步细分，以Logseq为主导，进行全方位管理。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天是2024.02.16，正月初七，明天上班。但因为车票原因，21号才能回去。这几天接触了很多知识，看到很多高质量博客，正好碰到了vitepress博客系统，于是又折腾了，并决定继续维持写博客的习惯。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="人生管理" scheme="https://blog.yilan.love/categories/%E4%BA%BA%E7%94%9F%E7%AE%A1%E7%90%86/"/>
+    
+    
+    <category term="人生" scheme="https://blog.yilan.love/tags/%E4%BA%BA%E7%94%9F/"/>
+    
+  </entry>
+  
+</feed>
